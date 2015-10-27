@@ -1,0 +1,37 @@
+\chapter{Atomic and Molecular structure calculations}
+\label{C:atom-molec-struct}
+
+Following the book of Jorge Kohanoff (\citeyear{Kohanof2006_ESC}) we will make a short description of the methods used for the calculation of electronic states in many-electron problems.
+After separation of the nuclear motion (in a Born-Oppenheimer fashion) the Hamiltonian for the many-electron system is given by:
+\begin{align}
+  \label{Q:Hamil-many-elect}
+ \mathcal{\hat{H}}&= \sum_{i=1}^{N} \hat{h}_{i} + \frac{1}{2} \sum_{i=1}^{N}\sum_{j=1}^{N} \hat{V}_{e(i,j)} \,,&
+ \hat{h}_{i}&= -\frac{\hbar^{2}}{2 m} \nabla^{2}_{\bm{r}_{i}} + \hat{V}_{ext}(\bm{R},\bm{r}_{i}) \,.
+\end{align}
+Here, $\bm{R}$ is the position of the nucleus (or in general nuclei) and the inter-electronic interaction is
+\begin{equation*}
+  \hat{V}_{e(i,j)}= \frac{1}{|\bm{r}_{i}-\bm{r}_{j}|}
+\end{equation*}
+
+\section{Self-Consistent Field approximations}
+\label{S:self-cons-field}
+
+\subsection{Hartree-Fock Approximation}
+\label{S:hartr-fock-appr}
+
+The Hartree-Fock approximation starts from the hypothesis that the solution to the Schr\"{o}dinger equation for the above hamiltonian may be written as an antisymmetrical product of one-electron wavefunctions; i.e: a Slater determinant
+
+\begin{equation*}
+  \Phi(\bm{R},\bm{r}_{1},\dots,\bm{r}_{N})= \frac{1}{\sqrt{N!}}
+  \begin{vmatrix}
+    \varphi_{1}(1) & \varphi_{2}(1) & \dots & \varphi_{N}(1) \\
+    \varphi_{1}(2) & \varphi_{2}(2) & \dots & \varphi_{N}(2) \\
+    \vdots & \vdots & \vdots & \vdots \\
+    \varphi_{1}(N) & \varphi_{2}(N) & \dots & \varphi_{N}(N) \\
+  \end{vmatrix}
+\end{equation*}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

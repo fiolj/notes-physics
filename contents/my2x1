@@ -1,0 +1,1 @@
+pdfnup --nup 2x1 --noautoscale true --delta "-0.6cm .cm" --offset "-0.cm .7cm " --trim "1cm 1cm 1.5cm 1.2cm" --scale ".79" $1

@@ -1,0 +1,128 @@
+\chapter{Matrix elements between initial and final target states}
+
+\section{Definitions}
+\label{S:definitions}
+
+
+\label{S:FGKL-if}
+
+\begin{equation}\label{Q:Fif-def}
+  F_{if}(\bm{p}) = \langle \phi_{f}\mid e^{i \bm{p}\cdot \bm{r}}\mid \phi_{i} \rangle = \frac{1}{(2 \pi)^{3/2}} \int d  \bm{r}_{T} \; e^{\, i \bm{p} \cdot \bm{r}_{T}} \, \phi_{i}(\bm{r}_{T}) \, \phi^{-\, \ast}_{f}(\bm{r}_T)
+\end{equation}
+
+\begin{equation}\label{Q:Lif-def}
+\bm{L}_{if} = \langle \phi_{f}\mid  \bm{r} e^{i \bm{p}\cdot
+\bm{r}}\mid \phi_{i} \rangle = \frac{1}{(2 \pi)^{3/2}} \int \bm{r}_{T}
+\, d \bm{r}_{T} \; e^{\, i \bm{p} \cdot \bm{r}_{T}} \,
+\phi_{i}(\bm{r}_{T}) \,
+ \phi^{-\, \ast}_{f}(\bm{r}_T)
+\end{equation}
+
+\begin{equation}\label{Q:Fif-Lif-relat}
+\bm{\nabla}_{\bm{p}} F_{if} = i \bm{L}_{if} =i \langle \phi_{f}\mid  \bm{r}
+e^{i \bm{p}\cdot \bm{r}}\mid \phi_{i} \rangle
+\end{equation}
+%
+
+We have defined also the vector $\bm{K}_{if}$ (eq. \ref{Q:Kif}),
+
+\begin{equation}\label{Q:Kif-def}
+  \bm{K}_{if}(\bm{p})= \frac{1}{(2 \pi)^{3}} \int d \bm{r}_{T} \;
+e^{\, i \bm{p} \cdot \bm{r}_{T}} \, \phi_{i}(\bm{r}_{T}) \,
+e^{- i \bm{k}_{T} \cdot \bm{r}_{T}} \,\nabla_{\bm{r}_{T}} \left[
+D^{-*}(-\nu_{T},\bm{k}_{T},\bm{r}_{T}) \right]
+\end{equation}
+
+For a Coulomb final state it can be written as
+\begin{eqnarray*}
+\bm{K}_{if}(\bm{p}) &=& \frac{{N^{-}}^{*}(-\nu_{T})}{(2 \pi)^{3}} \int
+d \bm{r}_{T} \; e^{\, i \left( \bm{p}- \bm{k}_{T} \right)
+\cdot \bm{r}_{T}} \, \phi_{i}(\bm{r}_{T}) \,\nabla_{\bm{r}_{T}} \left[
+{_{1}F_{1}}(- i \nu_{T}; 1; i \left( k_{T} r_{T} + \bm{k}_{T}
+\cdot
+\bm{r}_{T} \right) \right] \nonumber \\
+\end{eqnarray*}
+
+\section{Simple cases}
+\label{S:simple-cases}
+
+Let's consider the simple case of a Coulomb final state and an $1s$ initial state of the form 
+\begin{equation*}
+  \phi_{i}(\bm{r})= \frac{1}{\sqrt{\pi a^{3}}}\, e^{-\alpha r} 
+\end{equation*}
+
+Then, the form factor is 
+\begin{subequations}
+  \begin{align}
+    \label{Q:Fif-hyd}
+    F_{if}(\bm{p})&= \frac{1}{\sqrt{\pi a^{3}} \, (2\pi)^{3/2}} \int d\bm{r} e^{i \bm{p}\cdot \bm{r}} r^{n}\, e^{-\alpha r}  e^{-i \bm{k}\cdot \bm{r}} N^{-\,*}(\nu)~ _{1}F_{1}\left(-i\nu; 1; i (k r + \bm{k}\cdot\bm{r}) \right)\\
+    &= \left(\frac{2}{a}\right)^{3/2} \frac{1}{(2 \pi)^{2}}\, N^{-\,*}(\nu) \, J_{0}(\alpha, \bm{p}-\bm{k}, -\nu, \bm{k}) \\
+  N^{\pm}(\nu)&=\Gamma(1 \pm i \nu)\, e^{-\pi \nu/2} \qquad , \qquad \qquad  \nu= \frac{m\, Z_{1}Z_{2}}{\hbar k}
+  \end{align}
+\end{subequations}
+where
+\begin{align*}
+  J_{0}(Z, \bm{p}, a_{1}, \bm{k})&= \frac{8\,\pi}{v_{1}\, D^{2} }\,\left(Z + a_{1}\frac{\left(k - i {Z\,u_{1} }\right) }{u_{1} +1}\right)\\
+D&= Z^{2}+ p^{2}\\
+u_{1} &= 2 \left( \bm{k} \cdot \bm{p} - i Z k \right)/D \\
+v_{1}&= \left( u_{1}+1\right) ^{i\,a_{1}}
+\end{align*}
+
+Similarly, for $1s$ states of hydrogenic atoms the $\bm{K}$ factor may be written as:
+\begin{equation}
+  \label{Q:G-K-relation-1s}
+  \bm{K}(\bm{p}) = \frac{{N^{-}}^{*}(-\nu_{T})}{(2 \pi)^{3}}\,\left(\frac{2}{a}\right)^{3/2}\, \bm{G}_{0}(\alpha, \bm{p}-\bm{k}_{T}, - \nu_{T}, \bm{k}_{T})
+\end{equation}
+
+For the $\bm{L}$-factor we obtain
+\begin{equation}
+  L_{if}(t) = -i \bm{\nabla}_{\bm{A}} \,F_if = -i \left(\frac{2}{a}\right)^{3/2} \frac{1}{(2 \pi)^{2}} \,N^{+}(\nu) \, \bm{\nabla}_{\bm{A}} \left( J_{0}(1/a, -(\bm{A}(t)+\bm{k}), -\nu, \bm{k}) \right)
+\end{equation}
+where the gradient may be explicitly written as:
+%
+\begin{align*}
+\frac{d J_{0}}{d p_{z}} &= \left[ \bm{\nabla}_{\bm{p}} \,J_{0}(Z, \bm{p}, a_{1}, \bm{k}) \right]_{z} \\
+&-\frac{16  i \pi a_{1}}{D^{3} v_{1} (u_{1}+1)} (k_{z}- p_{z} u_{1})\left[Z + a_{1} \frac{k - i Z u_{1}}{u_{1}+1} \right]
+\\
+&-\frac{16 \pi p_{z} }{D^{3} v_{1}}  \left[Z + a_{1} \frac{k - i Z u_{1}}{u_{1}+1} \right]
+\\
+&+ \frac{-16 \pi}{D^{3} v_{1}} \left\{  p_{z} Z + \frac{a_{1}}{u_{1}+1} (i k_{z} Z +  k p_{z} - 2 i p_{z} Z u_{1})  + (\frac{a_{1}}{u_{1}+1} (k_{z} - p_{z} u_{1}) ( k- i Z u_{1}))/(u_{1}+1) \right\} 
+\end{align*}
+Now, we can rearrange the last line as
+\begin{align*}
+& \frac{-16 \pi}{D^{3} v_{1}} \left\{  p_{z} Z + \frac{a_{1}}{u_{1}+1} \left( i Z (k_{z} - p_{z} u_{1}) +  p_{z} (k- i Z u_{1})  \right)  + (\frac{a_{1}}{u_{1}+1} (k_{z} - p_{z} u_{1}) ( k- i Z u_{1}))/(u_{1}+1) \right\} \\
+& \frac{-16 \pi}{D^{3} v_{1}} \left\{  p_{z}  \left[Z + a_{1} \frac{k - i Z u_{1}}{u_{1}+1} \right] +  i Z a_{1} \frac{k_{z} - p_{z} u_{1}}{u_{1}+1} + a_{1} \frac{k_{z} - p_{z} u_{1}}{u_{1}+1}\frac{ k- i Z u_{1}}{u_{1}+1} \right\} 
+  \end{align*}
+Thus, defining the following variables:
+\begin{subequations}
+  \begin{align}
+    D&= p^{2}+ Z^{2}   &&  u_{1}=2 \frac{\left( \bm{k} \cdot \bm{p} - i Z k \right)}{D} &&  v_{1}=(u_{1}+1)^{i a_{1}} \\
+    A&= -\frac{16 \pi}{D^{3} v_{1}} && t_{1}=\frac{ k- i Z u_{1}}{u_{1}+1} &&
+    t_{2}=\frac{k_{z} - p_{z} u_{1}}{u_{1}+1} && t_{3}= Z + a_{1}\,t_{1}
+  \end{align}
+\end{subequations}
+and adding the three lines above we get:
+\begin{equation} \label{Q:grad-J0-z}
+  \left[ \bm{\nabla}_{\bm{p}} \,J_{0}(Z, \bm{p}, a_{1}, \bm{k}) \right]_{z} = A \left[ i a_{1}\, t_{2}\, t_{3} + 2 p_{z}\,t_{3} + i Z \, a_{1}\, t_{2} + a_{1}\, t_{1}\, t_{2} \right]
+\end{equation}
+
+
+
+
+% \begin{align*}
+% &-(4  i \pi a1 ((2 kz)/D-(4 pz D u1/2)/D^2) (v_{2}^{-1}) (
+%   ( i a1 (-(2  i k)/D-(4 Z D u1/2)/D^2))/(u1+1)+(2 Z)/D))/D
+% \\
+% &-(8 \pi pz (( i a1 (-(2  i k)/D-(4 Z D u1/2)/D^2))/(u1+1)+(2 Z)/D))/(D^2 (u1+1)^( i a1))
+% \\
+% &+ 4 \pi (\\ 
+%   &         ( i a1 (-(4 kz Z)/D^2+(4  i k pz)/D^2+(16 pz Z D u1/2)/D^3))/(u1+1) \\
+%   &        -( i a1 ((2 kz)/D-(4 pz D u1/2)/D^2) (-(2  i k)/D-(4 Z D u1/2)/D^2))/(u1+1)^2 \\
+%   &        -(4 pz Z)/D^2 \\
+%   &        )/(D (u1+1)^( i a1)) \\
+% \end{align*}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

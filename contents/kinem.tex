@@ -1,0 +1,97 @@
+\chapter{Three-body kinematics}
+
+\section{Coordinate system}
+\label{S:coord-syste}
+
+
+Let us consider the collision of a projectile of mass $M_P$, charge $Z_P$ and velocity $\bm{v}$ (impulse $\bm{P} = M_P \bm{v}$) with a two-particle target of mass $M_T + m$ initially at rest in the laboratory reference system. Without any loss of generality we shall consider that $m \leq M_T$. The total energy is given by $E_{\rm Lab} = M_P v^2 / 2 + \varepsilon_i$, where $\varepsilon_i$ is the internal energy of the target. By extracting the constant energy $M v_{CM}^2 / 2$ associated with the movement with velocity $\bm{v}_{CM} = M_P \bm{v} / M$ of the whole system of mass $M = M_T + M_P + m$, we obtain the energy in the center-of-mass reference frame $E_i = \mu_T v^2 / 2 + \varepsilon_i$. Here $\mu_T = (m + M_T) M_P / (M_T + M_P + m)$ is the reduced mass of the initial projectile-target configuration.
+
+In the center-of-mass reference system, the three-body problem can be described by any of three possible sets of Jacobi coordinates (Macek and Shakeshaft 1980),
+\[
+\vec{x}_T = \left( \begin{matrix} \bm{r}_T \cr \bm{R}_T \cr
+  \end{matrix}
+\right) \, , \, \vec{x}_P = \left( \begin{matrix} \bm{r}_P \cr \bm{R}_P \cr
+  \end{matrix}
+\right) \, , \, \vec{x}_N = \left( \begin{matrix} \bm{r}_N \cr \bm{R}_N \cr
+  \end{matrix}
+\right) \; ,
+\]
+as shown in \ref{f:jacobi}. In our notation, $\bm{r}_T$, $\bm{r}_P$ and $\bm{R}_N$ are the position vectors of the particle of mass $m$ relative to the recoiling target fragment T, the projectile P and the center of mass of T + P, respectively. $\bm{R}_P$ is the position vector of the centre of mass of $m$ + P relative to T; and $\bm{r}_N$ and $\bm{R}_T$ are the coordinates of P relative to T and the centre of mass of $m$ + T, respectively. These Jacobi coordinates are related by $\vec{x}_j = {\cal M}_{j \ell}\ \vec{x}_\ell$, for $j , \ell = T$, $P$ or $N$, with
+\begin{eqnarray*} {\cal M}_{PT} = \left(\begin{matrix}\alpha & -1 \cr 1- \alpha \beta & \beta \cr
+    \end{matrix}
+  \right) & & \; {\cal
+    M}_{TP} = \left( \begin{matrix} \beta & 1 \cr \alpha \beta - 1 & \alpha \cr 
+    \end{matrix}
+  \right) \\  {\cal
+    M}_{NT} = \left(\begin{matrix} 1 - \alpha & 1 \cr \alpha + \gamma - \alpha \gamma & \gamma - 1 \cr
+    \end{matrix}
+  \right) \qquad & & \; {\cal M}_{TN} = \left(\begin{matrix}1 - \gamma & 1 \cr \alpha + \gamma - \alpha
+      \gamma & \alpha - 1 \cr 
+    \end{matrix}
+  \right) \\  {\cal M}_{NP} = \left( \begin{matrix} \beta - 1 & 1 \cr 1-
+      \gamma (1- \beta) & \gamma \cr 
+    \end{matrix}
+  \right) & & \; {\cal M}_{PN} = \left( \begin{matrix} -\gamma & 1 \cr 1
+      - \gamma (1- \beta) & 1 - \beta \cr 
+    \end{matrix}
+  \right) \; ,
+\end{eqnarray*}
+where
+\[
+\qquad \alpha= \frac{M_T}{m + M_T} \qquad , \qquad \beta=\frac{M_P}{m + M_P} \qquad \mbox{and} \qquad \gamma = \frac{M_T}{M_P + M_T} \; .
+\]
+These pairs of coordinates diagonalize the free Hamiltonian $H_o$ in the center-of-mass reference frame.
+
+In momentum space, the system is described by the associated pairs $(\bm{k}_T, \bm{K}_T)$, $(\bm{k}_P, \bm{K}_P)$ and $(\bm{k}_N,\bm{K}_N)$ which are related by
+\[
+\left( \begin{matrix} \bm{k}_j \cr \bm{K}_j \cr \end{matrix} \right) = {\cal M}^t_{\ell j} \left( \begin{matrix} \bm{k}_\ell \cr \bm{K}_\ell \cr
+  \end{matrix}
+\right) \; ,
+\]
+where the superscript $t$ indicates the transposition of the matrix elements.
+
+Switching back to the Laboratory reference frame, $\bf k$, $\bm{K}_R$ and $\bm{K}$ are the final momenta of the electron of mass $m$, the (recoil) target fragment of mass $M_T$ and the projectile of mass $M_P$.
+
+In the mass-restricted problems, it is assumed that the target nucleus remains motionless throughout the collision. Additionally, in the Poincar\'{e} restricted problem the projectile momentum $\bf K$ is bound to remain fixed at its initial value $M_{P} \bm{v}$. As a consequence, the electron momentum is identified either with the Jacobi electron-target momentum, $\bm{k} \equiv \bm{k}_{T}$, or with the electron-projectile momentum, $\bm{k} \equiv \bm{k}_{P}+ m \bm{v}$. In particular, the electron double-differential cross-section $d \sigma / d \bm{k}$ is assumed to be equal either to $d \sigma / d \bm{k}_T$ or $d \sigma / d \bm{k}_P$. However, this is not generally valid for any mass configuration. One of the main features of the present formulation is that we are not neglecting any $\alpha$, $\beta$ or $\gamma$ terms.  In our approach these parameters can be changed arbitrarily from very
+small to very large numbers in order to cope with any possible mass configuration. However, each momentum in the laboratory reference frame can still be written in terms of a given Jacobi impulse $\bm{K}_j$ as
+\begin{equation}\label{Q:1}
+  \qquad \bm{k} = m \bm{v}_{CM} + \bm{K}_N \quad , \quad \bm{K} =
+  M_P \bm{v}_{CM} + \bm{K}_T \quad \mbox{and} \quad \bm{K}_R = M_T
+  \bm{v}_{CM} - \bm{K}_P \; ;
+\end{equation}
+so that, for instance, $d \sigma / d \bm{k} = d \sigma / d \bm{K}_N$. In general, the multiple-differential cross-section for ionization collisions in the impulse of the particles can be written in terms of the Jacobi impulses ($j=T$, $P$ o $N$),
+\begin{equation}\label{Q:2}
+  \frac
+  {d \sigma} {d \bm{k} \, d \bm{K} \,d \bm{K}_R} = \delta
+  \left( \bm{k} + \bm{K} + \bm{K}_R - M \bm{v}_{CM}\right) \, \frac {d
+    \sigma} {d \bm{k}_j \, d \bm{K}_j} \; .
+\end{equation}
+Here (atomic units are used throughout)
+\begin{equation}\label{Q:3}
+  \frac {d \sigma} {d \bm{k}_j \, d \bm{K}_j}= \,
+  \frac{(2\pi)^4}{v} |t_{if}|^2 \, \delta \left(E_i - \frac{1}{2 m_j}
+    k_j^2 - \frac{1}{2 \mu_j} K_j^2 \right) \; ,
+\end{equation}
+where $t_{if}$ is the transition matrix element. We have defined the reduced masses of each two- and three-body system
+\begin{eqnarray*}
+  m_T = \alpha m = \frac{m M_T}{m + M_T} & & \; \mu_T = \frac {\beta m} {1 - \alpha \beta} =
+  \frac{(m + M_T)M_P}{m + M_T + M_P} \\ m_P = \beta m = \frac{m M_P}{m + M_P} & & \; \mu _P = \frac
+  {\alpha m} {1 - \alpha \beta} = \frac{(m + M_P) M_T}{m + M_T + M_P} \\ m_N=\gamma M_P = \frac{M_T
+    M_P}{M_T + M_P} \qquad & & \; \mu_N = \frac{(M_P + M_T) m} {m + M_T + M_P} \; .
+\end{eqnarray*}
+such that
+\[
+m_j \mu_j = \frac {m M_T M_P} {m + M_T + M_P} \qquad \mbox{for $j$ = $N$, $T$ or $P$.}
+\]
+
+In terms of the laboratory momenta $\bm{k}, \bm{Q}$ the Jacobi momenta are written:
+\begin{align*}
+  \bm{k}_{T}&= \bm{k} - \frac{m_{T}}{M_{T}}\, \bm{Q} \,, &
+  \bm{k}_{P}&= \frac{m_{P}}{m}\,\bm{k} + \frac{m_{P}}{M_{P}}\, \bm{Q} - m_{P}\bm{v} \, , &
+  \bm{k}_{N}&= \frac{m_{N}}{M_{T}}\,\bm{k} -  \bm{Q} + m_{N}\bm{v} &
+\end{align*}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

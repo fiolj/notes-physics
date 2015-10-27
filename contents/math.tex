@@ -1,0 +1,335 @@
+\chapter{Definition of functions and Integrals}
+\label{C:Defin-funct-Integ}
+\section[Nordsieck's integrals]
+{Nordsieck's integrals \cite{Nordsie1954PRp785}}
+
+We will denote the different Nordsieck-like integrals as:
+%
+\begin{eqnarray} \label{Q:Nm}
+N_{m} \left(Z, \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2} \right)
+\!\!&=&\!\! \int d \bm{r} \frac{e^{i \bm{Q} \cdot \bm{r} - Z
+r}}{r^{m}} \, {_{1}F_{1}} \left[ i a_{2} ; 1 ;i \left( k_{2} r +
+\bm{k}_{2}\cdot \bm{r} \right)\right] \; {_{1}F_{1}} \left[ i a_{1}
+; 1 ;i \left(k_{1} r + \bm{k}_{1}\cdot \bm{r} \right) \right]
+ \nonumber \\ \\
+\bm{I}_{m} \left(Z, \bm{Q}; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) &=&\!\! \int d \bm{r} \frac{e^{i \bm{Q} \cdot \bm{r} -
+Z r}}{r^{m}} {_{1}F_{1}} \left[ i a_{2} ; 1 ;i \left(k_{2} r +
+\bm{k}_{2}\cdot \bm{r} \right)\right] \; \nabla_{\bm{r}} \,{_{1}F_{1}}
+\left[ i a_{1} ; 1 ;i \left(k_{1} r + \bm{k}_{1}\cdot \bm{r}
+\right)\right]  \nonumber
+\\   \label{Q:Im}
+\\ \label{Q:NEm}
+N^{E}_{m} \left(Z, \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) &=& \int d \bm{r} \frac{e^{i \bm{Q} \cdot \bm{r} - Z
+r}}{r^{m}} \, e^{i a_{2} \log{ \left( k_{2} r + \bm{k}_{2}\cdot
+\bm{r} \right)}} \; {_{1}F_{1}} \left[ i a_{1} ; 1 ;i \left(k_{1}
+r + \bm{k}_{1}\cdot \bm{r} \right) \right]
+\\  \label{Q:NEEm}
+N^{EE}_{m} \left(Z, \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) &=& \int d \bm{r} \frac{e^{i \bm{Q} \cdot \bm{r} - Z
+r}}{r^{m}} \, e^{i a_{2} \log{ \left( k_{2} r + \bm{k}_{2}\cdot
+\bm{r} \right)}} \; e^{ i a_{1} \log{\left(k_{1} r +
+\bm{k}_{1}\cdot \bm{r} \right)}}
+\\    \label{Q:IEm}
+\bm{I}^{E}_{m} \left(Z, \bm{Q}; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) &=& \int d \bm{r} \frac{e^{i \bm{Q} \cdot \bm{r} - Z
+r}}{r^{m}}\,e^{i a_{2} \log{ \left( k_{2} r + \bm{k}_{2}\cdot
+\bm{r} \right)}} \; \nabla_{\bm{r}}\, {_{1}F_{1}} \left[ i a_{1} ; 1
+;i \left(k_{1} r + \bm{k}_{1}\cdot \bm{r} \right)\right]
+\end{eqnarray}
+
+We will state the result for several of these integrals.
+
+\subsection{Evaluation of the $N_{1}$ Nordsieck integral}
+
+All the quantities are related to the basic integral
+%
+\begin{eqnarray} \label{Q:N1}
+N_{1} \left(Z,  \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2} \right)
+  &=& \int d \bm{r} \frac{e^{i \bm{Q} \cdot \bm{r} - Z
+r}}{r} {_{1}F_{1}} \left[ i a_{2} ; 1 ;i \left(k_{2} r +
+\bm{k}_{2}\cdot \bm{r} \right)\right] \; {_{1}F_{1}} \left[ i a_{1}
+; 1 ;i \left(k_{1} r + \bm{k}_{1}\cdot \bm{r} \right)\right]
+  \nonumber \\
+ &=& \frac{4 \pi}{D} \; \left( 1 + u_{1} \right)^{-i
+a_{1}} \, \left( 1 + u_{2} \right)^{-i a_{2}} \, {_{2}F_{1}}\left(
+i a_{1} , i a_{2} ; 1 ; X \right)
+\end{eqnarray}
+with
+\begin{eqnarray} \label{Q:XuD}
+X &=& \frac{u_{1} \, u_{2} +u_{3}}{(1 + u_{1}) (1 + u_{2})} \nonumber
+\\
+u_{1} &=& 2 \left( \bm{k}_{1}\cdot \bm{Q} - i Z k_{1}
+\right)/D \nonumber \\
+u_{2} &=& 2 \left( \bm{k}_{2}\cdot \bm{Q} - i Z k_{2}
+\right)/D \\
+u_{3} &=& 2 \left( k_{1} k_{2} - \bm{k}_{1}\cdot \bm{k}_{2} \right)/D
+ \nonumber \\
+D &=& Q^{2} + Z^{2} \nonumber
+\end{eqnarray}
+%
+
+\subsection{Evaluation of the $N_{0}$ Nordsieck-like integral}
+
+For evaluate this integral we use the relation
+%
+\[
+N_{0}(Z,\bm{q}; a_{1},\bm{k}_{1}; a_{2},\bm{k}_{2}) = - \frac{d
+}{d Z}\left( N_{1}(Z,\bm{q}; a_{1},\bm{k}_{1}; a_{2},\bm{k}_{2})
+\vstretch \right)
+\]
+%
+and obtain
+%
+\begin{eqnarray*}
+N_{0}(Z,\bm{q}; a_{1},\bm{k}_{1}; a_{2},\bm{k}_{2}) &=& \left[
+\frac{1}{D} \frac{d D}{d Z} + \frac{i a_{1}}{1 + u_{1}}
+\frac{d u_{1}}{d Z} + \frac{i a_{2}}{1 + u_{2}}\frac{d
+u_{2}}{d Z} - \frac{{_{2}F'_{1}}(i a_{1}, i a_{2}; 1;
+X)}{{_{2}F_{1}}(i a_{1}, i a_{2}; 1; X)} \frac{d X}{d Z}
+\right]
+\\
+&&  {\times} N_{1}(Z,\bm{q};a_{1},\bm{k}_{1}; a_{2},\bm{k}_{2})
+\end{eqnarray*}
+%
+where $u_{j},D,X$ are defined in \ref{Q:XuD} and the derivatives
+respect to $Z$ are given by
+\begin{eqnarray*}
+D' &=& 2 Z \nonumber \\
+u'_{j}&=& - 2 \left(Z u_{j} + \,i k_{j} \right)/D \qquad \qquad
+(j=~1,2)
+\nonumber \\
+u'_{3} &=& -2 Z u_{3}/D
+\nonumber \\
+X' &=& \frac{ u_{1}' u_{2} + u_{1} u_{2}' + u'_{3} - X \left[ u_{1}'
+(1+u_{2}) + (1+u_{1}) u_{2}' \right]}{(1 + u_{1})(1+u_{2})}
+\nonumber \\
+\\
+{_{2}F'_{1}}(a_{1}, a_{2}; a_{3}; x) &=& \frac{a_{1} a_{2}}{a_{3}} \;
+{_{2}F_{1}}(1 + i a_{1}, 1 + i a_{2};1+a_{3};x) \nonumber
+\end{eqnarray*}
+
+\subsection{Expressions involving derivatives}
+The $\bm{I}_{m} \left(Z, \bm{Q}; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) $ given by \ref{Q:Im} is easily obtained. By using
+%
+\[
+\nabla_{\bm{r}} \left[\vstretch {_{1}F_{1}} \left[ i a_{1} ; 1 ;i
+\left(k_{1} r + \bm{k}_{1}\cdot \bm{r} \right)\right] \right] =
+\frac{k_{1}}{r} \nabla_{\bm{k}_{1}}\left[  {_{1}F_{1}} \left[ i
+a_{1} ; 1 ;i \left(k_{1} r + \bm{k}_{1}\cdot \bm{r} \right)\right]
+\vstretch\right] \, .
+\]
+%
+For instance, we obtain for $\bm{I}_{0}$
+%
+\begin{eqnarray*}
+\bm{I}_{0} \left(Z, \bm{Q}; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) &=& k_{1} \nabla_{\bm{k}_{1}} \left[ N_{1}(Z,\bm{q};
+a_{1},\bm{k}_{1}; a_{2},\bm{k}_{2})  \vstretch \right]
+\\
+&=& k_{1}  \left[ \frac{-i a_{1}}{1 + u_{1}} \nabla_{\bm{k}_{1}}
+u_{1}  + \frac{{_{2}F'_{1}}(i a_{1}, i a_{2}; 1;
+X)}{{_{2}F_{1}}(i a_{1}, i a_{2}; 1; X)} \nabla_{\bm{k}_{1}} X
+\right] \nonumber
+\\
+&& {\times} \; N_{1}(Z,\bm{Q}; a_{1},\bm{k}_{1}; a_{2},\bm{k}_{2})
+\end{eqnarray*}
+%
+where
+\begin{eqnarray*}
+\nabla_{\bm{k}_{1}} X &=& \frac{\partial X}{\partial u_{1}}
+\nabla_{\bm{k}_{1}} u_{1} + \frac{\partial X}{\partial u_{3}}
+\nabla_{\bm{k}_{1}} u_{3}
+ \\
+\\
+\frac{\partial X}{\partial u_{1}}  &=& \frac{u_{2}}{ ( 1 + u_{1}) (1 +
+u_{2})} - \frac{u_{1} u_{2} + u_{3}}{(1 + u_{1})^{2} (1 + u_{2})}
+\nonumber \\
+\frac{\partial X}{\partial u_{3}}  &=& \frac{1}{ ( 1 + u_{1})
+(1 + u_{2})} \nonumber \\
+\nabla_{\bm{k}_{1}} u_{1} &=& \frac{2\left( \bm{Q} - i Z \bm{k}_{1}
+/k_{1} \right)}{D}
+\nonumber \\
+\nabla_{\bm{k}_{1}} u_{3} &=& \frac{2 \left( k_{2} \bm{k}_{1}/k_{1} -
+\bm{k}_{2} \right)}{D} \nonumber
+\end{eqnarray*}
+
+\subsection{Eikonal versions}
+
+
+By recalling the definition of the $E^{\pm}$ in terms of the asymptotic
+form of the hypergeometric functions (equation \ref{Q:Eikonal-wf}) we
+can write the integrals \ref{Q:NEm}-\ref{Q:IEm} from the corresponding
+\ref{Q:Nm} and \ref{Q:Im} by keeping the asymptotic behavior of the
+latter expressions. We obtain:
+%
+\begin{eqnarray*}
+N_{m} \left(Z, \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \lambda \bm{k}_{2}
+\right) &\bajo{\approx}{\lambda \to \infty}& N^{-1}(a_{2}) \; N^{E}_{m}
+\left(Z, \bm{Q}; a_{1}, \bm{k}_{1} ; a_{2}, \lambda \bm{k}_{2} \right)
+\\
+\bm{I}_{m} \left(Z, \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \lambda
+\bm{k}_{2} \right) &\bajo{\approx}{\lambda \to \infty}& N^{-1}(a_{2})
+\; \bm{I}^{E}_{m} \left(Z, \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \lambda
+\bm{k}_{2} \right)
+\end{eqnarray*}
+where $N(a_{2})$ is the normalization factor defined in \ref{Q:NNorm}
+
+\subsubsection{Eikonal N-like integrals}
+
+For the $N$-like integrals we obtain:
+%
+\begin{eqnarray}\label{Q:N-integ}
+N^{E}_{1} \left(Z, \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) &=& N(a_{2})\;\frac{4 \pi}{D} \; \left( 1 + u_{1}
+\right)^{-i a_{1}} \, u_{2}^{-i a_{2}} \, {_{2}F_{1}}\left( i
+a_{1} , i a_{2} ; 1 ; X^{E} \right)
+\\
+N^{E}_{0} \left(Z, \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) &=& \left[ \frac{1}{D} \frac{d D}{d Z} + \frac{i
+a_{1}}{1 + u_{1}} \frac{d u_{1}}{d Z} + \frac{i a_{2}}{u_{2}}
+\frac{d u_{2}}{d Z} - \frac{{_{2}F'_{1}}(i a_{1}, i a_{2};
+1; X)}{{_{2}F_{1}}(i a_{1}, i a_{2}; 1; X^{E})} \frac{d
+X^{E}}{d Z} \right] N^{E}_{1} \nonumber
+\\
+\end{eqnarray}
+%
+where
+\begin{eqnarray*}
+X^{E} &=& \frac{u_{1} u_{2} + u_{3}}{(1+u_{1}) \, u_{2}}  \nonumber \\
+{X^{E}}' &=& \frac{ u_{1}' u_{2} + u_{1} u_{2}' + u'_{3} - X^{E} \left[
+u_{1}' u_{2} + (1+u_{1}) u_{2}' \right]}{(1 + u_{1})u_{2}}
+\end{eqnarray*}
+%
+and $D',u_{j},u'_{j}$ are defined in \ref{Q:XuD}
+
+
+For the eikonal-eikonal integrals we get:
+\begin{eqnarray}\label{Q:NEE}
+N^{EE}_{1} \left(Z, \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) &=&  N(a_{1}) N(a_{2})\;\frac{4 \pi}{D} \; u_{1}^{-i a_{1}}
+\, u_{2}^{-i a_{2}} \, {_{2}F_{1}}\left( i a_{1} , i a_{2} ; 1
+; X^{EE} \right)
+\\
+N^{EE}_{0} \left(Z, \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) &=& \left[ \frac{1}{D} \frac{d D}{d Z} + \frac{i
+a_{1}}{u_{1}} \frac{d u_{1}}{d Z} + \frac{i a_{2}}{u_{2}}
+\frac{d u_{2}}{d Z} - \frac{{_{2}F'_{1}}(i a_{1}, i a_{2};
+1; X^{EE})}{{_{2}F_{1}}(i a_{1}, i a_{2}; 1; X^{EE})} \frac{d
+X^{EE}}{d Z} \right] N^{EE}_{1}
+\nonumber \\
+\end{eqnarray}
+%
+where
+\begin{eqnarray*}
+X^{EE} &=& \frac{u_{1} u_{2} + u_{3}}{u_{1} \, u_{2}}  \nonumber \\
+{X^{EE}}' &=& \frac{ u_{1}' u_{2} + u_{1} u_{2}' + u'_{3} - X^{EE}
+\left[ u_{1}' u_{2} + u_{1} u_{2}' \right]}{u_{1} u_{2}}
+\end{eqnarray*}
+%
+\subsubsection{Eikonal $\bi{I}$-like integrals}
+
+The $\bm{I}$-like integrals are given by
+
+\begin{eqnarray}\label{Q:I_Eik}
+\bm{I}^{E}_{0} \left(Z, \bm{Q}; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2}
+\right) &=& k_{1}  \left[ \frac{- i a_{1}}{1 + u_{1}}
+\nabla_{\bm{k}_{1}} u_{1}  + \frac{{_{2}F'_{1}}(i a_{1}, i a_{2};
+1; X^{E})}{{_{2}F_{1}}(i a_{1}, i a_{2}; 1; X^{E})}
+\nabla_{\bm{k}_{1}} X^{E} \right] \nonumber
+\\
+&& {\times} \; N^{E}_{1}(Z,\bm{Q}; a_{1},\bm{k}_{1}; a_{2},\bm{k}_{2})
+\end{eqnarray}
+%
+with
+\begin{eqnarray*}
+\nabla_{\bm{k}_{1}} X^{E} &=& \frac{\partial X^{E}}{\partial u_{1}}
+\nabla_{\bm{k}_{1}} u_{1} + \frac{\partial X^{E}}{\partial u_{3}}
+\nabla_{\bm{k}_{1}} u_{3}
+\\
+\frac{\partial X^{E}}{\partial u_{1}}  &=& \frac{1-X^{E}}{( 1 + u_{1})}
+\nonumber \\
+\frac{\partial X^{E}}{\partial u_{3}}  &=& \frac{1}{ ( 1 + u_{1})
+u_{2}} \nonumber
+\end{eqnarray*}
+
+
+\subsection{Simplified integrals}
+From the $N_{m}$ and $\bm{I}_{m}$ expressions it is possible to derive
+simplified expressions by taking the limit $a_{2} \to 0$
+%
+\begin{eqnarray}\label{Q:Jm}%
+ J_{m}( Z, \bm{p}, a_{1}, \bm{k}_{1} ) &=&
+\int d \bm{r} \; e^{i \bm{p} \cdot \bm{r}} \; \frac{e^{- Z
+\, r}}{r^{m}} \, {_{1}F_{1}} \left( i a_{1} ; 1 ;i \left(k r +
+\bm{k}_{1}\cdot \bm{r} \right)\right) \\
+\bm{G}_{m}( Z, \bm{p}, a_{1}, \bm{k}_{1} ) &=& \int d \bm{r} \;
+e^{i \bm{p} \cdot \bm{r}} \; \frac{e^{- Z \, r}}{r^{m}} \,
+\nabla {_{1}F_{1}} \left( i a_{1} ; 1 ;i \left(k r +
+\bm{k}_{1}\cdot \bm{r} \right)\right)
+\end{eqnarray}
+
+  \noindent
+We obtain
+\begin{eqnarray}\label{Q:Jint}
+J_{1}( Z, \bm{Q}, a_{1}, \bm{k}_{1} ) &=& \frac{4 \pi}{D} (1+a_{1})^{-
+i a_{1}}
+\\
+J_{0}( Z, \bm{Q}, a_{1}, \bm{k}_{1} ) &=& \left( \frac{1}{D} \frac{d
+D}{d Z} + \frac{i a_{1}}{1 + u_{1}} \frac{d u_{1}}{d Z}
+\right) J_{1}( Z, \bm{Q}, a_{1}, \bm{k}_{1} ) \\
+\bm{G}_{0}( Z, \bm{Q}, a, \bm{k} ) &=&  i  \frac{ a_{1}\, k_{1}}{1 +
+u_{1}} \left[ \nabla_{\bm{k}_{1}} u_{1} \right] \; J_{1}(Z,\bm{Q};
+a_{1},\bm{k}_{1})
+\end{eqnarray}
+
+\begin{equation}\label{Q:G_if}
+\bm{G}_{0}( Z, \bm{Q}, a, \bm{k} ) + i\, \bm{Q} J_{0}( Z, \bm{Q}, a,
+\bm{k} ) = Z \int \,\hat{r} \,e^{i \bm{Q} \cdot \bm{r}} \;
+e^{- Z \, r} \, {_{1}F_{1}} \left[\, i a_{1} ; 1 ;i \left(k r
++ \bm{k}_{1}\cdot \bm{r} \right) \vstretch \right]\, d \bm{r}
+\end{equation}
+%
+
+\subsection{Relations between quantities (for $Z \to 0$)}
+%
+\begin{eqnarray} \label{Q-N1-Ja}
+\bm{Q} \, J_{0}(Z , \bm{Q}, a , \bm{k}) &=& i \, \bm{G}_{o} (Z ,
+\bm{Q}, a , \bm{k}) \qquad \qquad
+ \\
+N_{1} \left(Z,  \bm{Q} ; a_{1}, \bm{k}_{1} ; a_{2}, \bm{k}_{2} \right)
+&=&  \frac{1}{(2 \pi)^{3}} \int J_{1}(Z_{1}, \bm{Q}
+-\bm{q},a_{1},\bm{k}_{1}) \, J_{0}(Z_{2},  \bm{q} ,a_{2},\bm{k}_{2} )
+\, d \bm{q}
+ \nonumber \\ \\ \label{Q-N1-Jb}
+&=& \frac{1}{(2 \pi)^{3}} \int J_{1}(Z_{1},\bm{q} - \bm{Q}, a_{1},-
+\bm{k}_{1}) \, J_{0}(Z_{2}, \bm{q} ,a_{2},\bm{k}_{2} ) \, d \bm{q}
+ \nonumber \\ \\ \label{Q-N1-Jc}
+&=& \frac{1}{(2 \pi)^{3}} \int J_{1}( Z_{1}, \bm{q} + \bm{Q}, a_{1},
+\bm{k}_{1} ) \, J_{0}(Z_{2}, \bm{q}  ,a_{2},-\bm{k}_{2} ) \, d
+\bm{q}
+\nonumber \\
+\end{eqnarray}
+
+\begin{eqnarray} \label{Q-I1-Ja}
+\bm{I}_{1}(Z,\bm{Q}; a_{1},\bm{k}_{1}; a_{2},\bm{k}_{2} ) &=&\frac{-
+i }{(2 \pi)^{3}}\,\int \bm{q} \, J_{0}(Z_{2}, \bm{q},
+a_{2},\bm{k}_{2}) \,
+J_{1}(Z_{1}, \bm{Q}- \bm{q}, a_{1}, \bm{k}_{1} ) \; d \bm{q}
+\nonumber \\ \\
+\label{Q-I1-Jb} \mbox{(verificar!)} &=^{*}&  \frac{i }{(2
+\pi)^{3}}\,\int \bm{q} \, J_{0}(Z_{2}, \bm{q}, a_{2}, - \bm{k}_{2}) \,
+J_{1}(Z_{1}, \bm{Q} + \bm{q}, a_{1}, \bm{k}_{1} ) \; d \bm{q}
+\nonumber \\  \\  \label{Q-I1-Jc} &=&\frac{- i }{(2 \pi)^{3}}\,\int
+\bm{q} \, J_{0}(Z_{2}, \bm{q}, a_{2},\bm{k}_{2}) \, J_{1}(Z_{1},
+\bm{q}- \bm{Q}, a_{1}, - \bm{k}_{1} ) \;
+d \bm{q}    \nonumber \\
+\end{eqnarray}
+with $Z = Z_{1} + Z_{2}$.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

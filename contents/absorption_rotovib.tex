@@ -1,0 +1,172 @@
+\chapter{Absorption of light by molecules}
+\label{C:light-absorpt-molec}
+
+The probability of absorption \emph{per unit of time}, of radiation of angular frequency $\omega$, accompanied by the transition from a state $\ket{i}$ to a state $\ket{f}$ in the atom or molecule, is given in the dipolar approximation by
+\begin{align}\label{Q:Wif-absorc-dipol}
+  W_{if} &= \frac{4 \pi^{2}}{3 \hbar^{2}}\,\frac{I(\omega_{fi})}{c}\, \left| \vect{\mu}_{fi} \right|^{2} = C\, \left| \vect{\mu}_{fi} \right|^{2} \,, & \vect{\mu}_{if}= \elemmatriz{f}{\vect{\mu}}{i}
+\end{align}
+
+\section{Absorption experiments}
+\label{S:absorpt-experim}
+
+Absorption experiments are rather simple, light of a given wavelength incides over a sample, and the transmitted light is measured. 
+The transmittance of EM radiation is given by the intensity of the transmitted light, normalized to the incident intensity 
+%
+\begin{equation}  \label{Q:def-transmitancia}
+  \mathcal{T}(\omega) = \frac{S(\omega)}{S_{0}(\omega)}
+\end{equation}
+
+For a sample of thickness $b$, the absorption is related to the transmission coefficient by
+\begin{align}
+  \label{Q:def-absorbancia}
+  &\mathcal{T}(\omega) = \exp{\left[- \alpha(\omega)\,b \right]} & \Rightarrow &  & \alpha(\omega) = -\frac{1}{b} \ln{\mathcal{T}(\omega)}
+\end{align}
+
+
+\section{Absorption of infrarred radiation}
+\label{S:absorpt-infr-radi}
+
+In order to describe theoretically the absorption experiments we have to add the probabilities for all the transitions between initial and final states corresponding to the absorption of 
+radiation of the given frequency $\omega$.
+
+The absorption probability is given by the probability of a transition $i \to f$, conditional to the probability of finding the molecule in the initial state $i$. Thus, adding all such probabilities
+\begin{subequations}
+  \begin{align}
+    \alpha_{\text{abs}} &= \sum_{i,f} \mathcal{P}_{i}\, W_{if}
+    \\ \text{where} \nonumber \\
+    \mathcal{P}_{i} &= \frac{\exp{\left[-E(\varepsilon_{i},\nu_{i},J_{i})/k_{B}T \right]}}{\mathcal{Z}(T)}\,, & \mathcal{Z}(T)= \sum_{i} e^{- E(\varepsilon_{i},\nu_{i},J_{i})/k_{B}T }
+  \end{align}
+\end{subequations}
+%
+\begin{aclaracion}[Note]
+  Here we have (over-)simplified the notation by assumming that other quantum numbers that do not change in the absorption, are completely independent. For instance, in the initial state, the molecule may be initially in a excited rotational level along an axis perpendicular to the one we are exciting with the light; such a state will not change and we assume that we can add up all such states and they will simplify with the partition function. However, it is possible that the energy of an state depends on this level. An example: let's suppose that the initial state of the diatomic molecule is excited along the two axis $x,y$ with quantum numbers $J_{x}$ and $J_{y}$, respectively (axis $z$ is along the internuclear direction). Light excites the rotation along the $x$ axis
+  producing the $J_{x} \to J_{x} +1$ transition
+  \begin{equation*}
+    \Delta E \equiv E(J_{x} +1 ,J_{y}) - E(J_{x} ,J_{y}) \quad `` \neq " \quad E(J_{x} +1 ,0) - E(J_{x} ,0)
+  \end{equation*}
+
+In the simple case that 
+\begin{equation*}
+  E(J_{x},J_{y}) = \frac{\hbar^{2}}{2}\left( \frac{J_{x}(J_{x}+1)}{I_{x}} + \frac{J_{y}(J_{y}+1)}{I_{y}} \right)
+\end{equation*}
+the above supposition is verified.
+\end{aclaracion}
+
+\subsection{Absorption probability}
+\label{S:absorpt-prob}
+
+Let's assume now that
+\begin{itemize}
+\item the energy depends only on the electronic, vibrational and rotational quantum
+  numbers $(\varepsilon_{i},\nu_{i},J_{i})$, but not on the projection of the angular
+  momentum $M$,
+\item there are no accidental degeneracies, and for a given $\omega$ the initial and final quantum numbers that verify $\Delta E = \hbar \omega$ are unique.
+\item The dipole momentum may be factored as $\vect{\mu}= \mu(R)\, \hat{R}$ (true for diatomic molecules)
+\end{itemize}
+
+Under these conditions, the total absorption of radiation of frequency $\omega$ is 
+\begin{equation}\label{Q:absorption-1}
+  \alpha_{\text{abs}}= C \, \left[ \sum_{M_{i}, M_{f}} \sum_{j=1}^{3} \left|\elemmatriz{J M}{\hat{x}_{j}}{J' M'} \right|^{2} \right]\, \left|\elemmatriz{\varepsilon \nu J}{\mu(R)}{\varepsilon' \nu' J'}\right|^{2} \, \mathcal{P}_{i}(E_{i})
+\end{equation}
+where $\hat{x}_{j}$, with $j=1,2,3$ correspond to a set of three orthogonal axis ($x,y,z$) and we use the above defined constant:
+\begin{equation*}
+  C = \frac{4 \pi^{2}}{3 \hbar^{2}} \frac{I(\omega_{fi})}{c} \,.
+\end{equation*}
+
+\subsubsection{Angular matrix element}
+\label{S:angul-matr-elem}
+
+\setlength{\aclaracionwidth}{\textwidth}
+\begin{aclaracion}[]
+  We will use the following relations,
+  \begin{itemize}
+  \item Relation between cartesian coordinates and irreducible tensors of rank 1:
+    \begin{align}\label{Q:coord-tensor-relation}
+      \hat{x} = \left( \T_{-1} - \T_{1} \right)/\sqrt{2} \,, & &\hat{y} = \left( \T_{-1} - \T_{1} \right)/\sqrt{2} \,, & &\hat{z} = \T_{0}
+    \end{align}
+  \item Wigner-Eckart theorem (see (\ref{Q:W-E-theorem-usual}) on appendix \ref{S:wign-eckart-theor})
+    \begin{equation}\label{Q:W-E-theorem-1}
+      \langle JM|\mathrm{T}^{(k)}_q|J'M'\rangle = \langle J\|\mathrm{T}^{(k)} \|J' \rangle \, \langle J'M';kq|JM \rangle 
+    \end{equation}
+  % \item Clebsh-Gordan coefficients (for adding $j_{1}, j_{2}$ to get $J$)
+  %   \begin{equation} \label{Q:C-G-definition}
+  %     \langle J M|j_{1} m_{1} j_{2} m_{2}\rangle  \equiv \langle j_{1} m_{1} j_{2} m_{2}| J M\rangle 
+  %   \end{equation}
+
+  % \item Clebsh-Gordan symmetries
+  %   \begin{subequations}
+  %     \begin{align}
+  %       \langle j_1 m_1 j_2 m_2|J M\rangle
+  %       \label{Q:C-G-symmetries-1} & = (-1)^{j_1+j_2-J} \langle j_1\, {-m_1} j_2 \, {-m_2}|J \, {-M}\rangle \\
+  %       \label{Q:C-G-symmetries-2} & = (-1)^{j_1+j_2-J} \langle j_2 m_2 j_1 m_1|J M\rangle \\
+  %       \label{Q:C-G-symmetries-3} & = (-1)^{j_1 - m_1} \sqrt{\frac{2 J +1}{2 j_2 +1}}  \langle j_1 m_1 J \, {-M}| j_2\,{-m_2} \rangle \\
+  %       \label{Q:C-G-symmetries-4} & = (-1)^{j_1 - m_1} \sqrt{\frac{2 J +1}{2 j_2 +1}} \langle J M j_1 \, {-m_1} | j_2 m_2 \rangle
+  %     \end{align}
+  %   \end{subequations}
+
+  \item Clebsh-Gordan orthogonality properties (see (\ref{Q:C-G-orthogonality-2}))
+      \begin{equation}\label{Q:C-G-eq-orthog}
+ \sum_{m_1m_2} \langle J M|j_1 m_1 j_2 m_2\rangle \, \langle j_1 m_1 j_2 m_2|J' M'\rangle  = \langle J M | J' M'\rangle = \delta_{J,J'}\delta_{M,M'}
+      \end{equation}
+
+    \item We will use the Clebsh-Gordan particular value (\ref{Q:C-G-part-val-1}):
+\begin{equation}\label{Q:C-G-j1j}
+  \left|\langle J 0; 1 0 | J' 0 \rangle\right| =  \sqrt{\frac{J_{+}}{2 J + 1}} \, \delta_{J,J' \pm 1}
+\end{equation}
+  \end{itemize}
+\end{aclaracion}
+%
+
+Let's start analyzing the factor in square brackets, 
+\begin{subequations}
+  \begin{align}
+    A &\equiv \sum_{M, M'} \sum_{j=1}^{3} \left| \elemmatriz{J M}{\hat{x}_{j}}{J' M'} \right|^{2} \\
+    &\bajo{=}{(\ref{Q:coord-tensor-relation})} \sum_{M, M'} \sum_{m=-1}^{1} \left| \elemmatriz{J M}{\T_{m}}{J' M'} \right|^{2}  \\
+    & \bajo{=}{\text{W-E}} \, \sum_{M}  \left|\langle J \| \T \| J' \rangle\right|^{2} \; \underbrace{\sum_{M'} \sum_{m}  \langle J M | J' M'; 1 m \rangle \langle J' M'; 1 m | J M \rangle}_{\delta_{J,J}\,\delta_{M,M} = 1 \text{,~by (\ref{Q:C-G-eq-orthog})}} \\ 
+    &= \left|\langle J \| \T \| J' \rangle\right|^{2} \; \sum_{M=-J}^{J} 1 \\
+    &=(2\, J +1) \, \left|\langle J  \| \T \| J' \rangle\right|^{2}
+  \end{align}
+\end{subequations}
+
+Now, to calculate the reduced matrix element we consider 
+\begin{align} 
+   \langle J 0 | z | J' 0 \rangle \bajo{=}{\text{W-E}} \langle J \| \T \| J' \rangle \, \langle J 0 ; 1 0 | J' 0 \rangle && \Rightarrow   && \langle J \| \T \| J' \rangle = \frac{ \langle J 0 | z | J' 0 \rangle }{ \langle J 0 ; 1 0 | J' 0 \rangle} \label{Q:reduced-element-1}
+\end{align}
+%
+where (see (\ref{Q:integral-3-spher-harmon}))
+%
+\begin{align}
+ \langle J 0 |z | J' 0 \rangle &= \int Y^{*}_{J,0}(\theta,\phi)\, \cos{\theta}\,Y_{J',0}(\theta,\phi) \sin{\theta}\, d \theta \, d \phi
+=\frac{J_{+}}{\sqrt{(2J+1)(2J'+1)}}\ \delta_{J',J\pm 1} 
+\end{align}
+
+Thus, using (\ref{Q:C-G-j1j}) and replacing in (\ref{Q:reduced-element-1})
+\begin{equation}
+  \label{Q:W-E-reduced-element-j1}
+  \langle J \| \T \| J' \rangle = \sqrt{\frac{J_{+}}{2J'+1}}\ \delta_{J',J\pm 1} 
+\end{equation}
+Finally, we obtain
+\begin{equation} \label{Q:absorption-J}
+ \sum_{M, M'} \sum_{j=1}^{3} \left| \elemmatriz{J M}{\hat{x}_{j}}{J' M'} \right|^{2} =  J_{+}\, \left( \frac{2J_{i}+1}{2J_{f}+1} \right)  \,.
+\end{equation}
+
+\subsubsection{Radial factor and Hellman-Wallis factor}
+\label{S:radial-factor}
+The factor involving the radial part of the dipolar momentum is only weakly dependent on the rotational quantum number $J$ and it is usually fitted with a second degree polynomial (add reference)
+
+\subsubsection{Absorption coefficient}
+\label{S:absorpt-coeff}
+
+Now, if we put all together, we obtain for the absorption coefficient, producing the transition $\nu \to \nu'$ in the vibrational mode and $J \to J'$ in the rotational mode
+
+\begin{equation}
+  \label{Q:absorption-coeff-J}
+  \alpha_{\text{abs}} = \text{cte}_{\nu,\nu'} \times J_{+}\, \left( \frac{2 J_{i}+1}{2 J_{f}+1}\right)\, e^{-E(J_{i})/k_{B}T} 
+\end{equation}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

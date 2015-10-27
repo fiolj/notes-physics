@@ -1,0 +1,112 @@
+\chapter{CDW-B1: Summary of calculations}
+
+\section*{The T-matrix ($t_{if} = t_{p} + t_{n}$)}
+
+\begin{eqnarray}\label{QR:T}%
+t_{P} &=& \frac{Z_{P}\, \mathcal{N}_{P} \mathcal{N}_{N}}{(2\pi)^{9/2}}
+\; \lim_{\lambda_{1},\lambda_{2} \to 0^{+}} \mathcal{H} \left(
+\lambda_{1},- \nu_{P},\bm{k}_{P} ;  \lambda_{2},-
+\nu_{N},\bm{k}_{N};\bm{Q} , -(m_{T}/M_{T}) \, \bm{Q} \right)
+  \nonumber \\
+t_{N} &=& \frac{Z_{N} \, \mathcal{N}_{P} \mathcal{N}_{N}}{(2\pi)^{9/2}}
+\; \lim_{\lambda_{1},\lambda_{2} \to 0^{+}} \mathcal{H} \left(
+\lambda_{1}, - \nu_{N},\bm{k}_{N} ; \lambda_{2},- \nu_{P},\bm{k}_{P} ;
+- \bm{Q} ,  (m_{T}/m) \, \bm{Q} \right) \; ,
+\end{eqnarray}
+%
+where
+%
+\section{The $\mathcal{H}$ function (I)}
+This expression regularize the singularity of $J_{0}$ in the origin by
+using the volume element
+%
+\begin{equation}\label{Q:Ha}%
+  \fbeq{
+ \mathcal{H} \left( \lambda_{1},a_{1},\bm{k}_{1} ;
+  \lambda_{2},a_{2},\bm{k}_{2}; \bm{Q}, \bm{p} \right)  =
+ \int d \bm{q} \; F_{if}( \bm{p} + \bm{Q} - \bm{q} ) \;
+ J_{1}( \lambda_{1}, \bm{q} - \bm{Q}, a_{1}, \bm{k}_{1} )\;
+J_{0}( \lambda_{2}, \bm{q} , a_{2}, \bm{k}_{2} )
+  }
+\end{equation}
+
+\subsection{Expansion around $\bi{q} = \bi{Q}$} 
+
+This expansion will regularize the singularity of $J_{1}$
+%
+\[
+\mathcal{H} = \mathcal{H}_{o} + \mathcal{H}_{1} + \Delta^{2}
+\mathcal{H}
+\]
+
+\begin{equation}\label{Q:Hb}
+\mathcal{H}_{o} \left( \lambda_{1},a_{1},\bm{k}_{1} ; \lambda_{2},
+a_{2}, \bm{k}_{2} ; \bm{Q}, \bm{p} \right) = (2 \pi)^{3} \;
+F_{if}(\bm{p}) \; N_{1} \left(\lambda_{1}+\lambda_{2}, \bm{Q} ; a_{1},
+- \bm{k}_{1} ; a_{2}, \bm{k}_{2} \right)
+\end{equation}
+%
+\[
+\mathcal{H}_{1}\left( \lambda_{1},a_{1},\bm{k}_{1} ; \lambda_{2},
+a_{2}, \bm{k}_{2}; \bm{Q}, \bm{p} \right)= (2 \pi)^{3} \, \bm{L}_{if}
+(\bm{p}) \cdot  \left[ \bm{I}_{1}(\lambda,\bm{Q}; a_{1}, -\bm{k}_{1};
+a_{2}, \bm{k}_{2} ) + i \bm{Q} N_{1}(\lambda,\bm{Q} ;
+a_{1},-\bm{k}_{1} ; a_{2},\bm{k}_{2}) \vstretch \right]
+\]
+%
+\[
+\Delta^{2} \mathcal{H} = \int d \bm{q} \; \left\{ F_{if}( \bm{p} +
+\bm{Q} - \bm{q} ) - F_{if}(\bm{p}) + i (\bm{q}-\bm{Q})
+\bm{L}_{if}(\bm{p}) \vstretch\right\} \;
+ J_{0}( \lambda_{2}, \bm{q} , a_{2}, \bm{k}_{2} ) \;
+ J_{1}( \lambda_{1}, \bm{q} - \bm{Q}, a_{1}, \bm{k}_{1} )
+\]
+
+\section{The $\mathcal{H}$ function (II)}
+This expression use the volume element for regularize the singularity
+of $J_{1}$ in the origin
+%
+\[
+  \fbeq{
+\mathcal{H} \left( \lambda_{1},a_{1},\bm{k}_{1} ; \lambda_{2},a_{2},
+\bm{k}_{2}; \bm{Q}, \bm{p} \right) = \int d \bm{q} \; F_{if}( \bm{p}
+- \bm{q} ) \;
+ J_{1}( \lambda_{1}, \bm{q}, a_{1}, \bm{k}_{1} )\;
+ J_{0}( \lambda_{2}, \bm{q} + \bm{Q}, a_{2}, \bm{k}_{2} )
+  }
+\]
+
+\subsection{Expansion around $\bi{q} = - \bi{Q}$}
+This expansion will regularize the singularity of $J_{0}$ by expanding
+the $F_{if}$.
+\[
+\mathcal{H} = \mathcal{H}_{o} + \mathcal{H}_{1} + \Delta^{2}
+\mathcal{H}
+\]
+
+\begin{equation}\label{QR:Hc}
+\mathcal{H}_{o} \left( \lambda_{1},a_{1},\bm{k}_{1} ; \lambda_{2},
+a_{2}, \bm{k}_{2} ; \bm{Q}, \bm{p} \right) = (2 \pi)^{3} \;
+F_{if}(\bm{p} + \bm{Q}) \; N_{1} \left(\lambda_{1}+\lambda_{2}, \bm{Q}
+; a_{1}, \bm{k}_{1} ; a_{2}, - \bm{k}_{2} \right)
+\end{equation}
+%
+\[
+\mathcal{H}_{1}\left( \lambda_{1},a_{1},\bm{k}_{1} ; \lambda_{2},
+a_{2}, \bm{k}_{2}; \bm{Q}, \bm{p} \right)= (2 \pi)^{3} \, \bm{L}_{if}
+(\bm{p} + \bm{Q}) \cdot  \left[ \bm{I}_{1}(\lambda,\bm{Q};
+a_{1},\bm{k}_{1}; a_{2},-\bm{k}_{2} )  \vstretch \right]
+\]
+%
+\[
+\Delta^{2} \mathcal{H} = \int d \bm{q} \; \left\{ F_{if}( \bm{p} -
+\bm{q} ) - F_{if}(\bm{p} + \bm{Q}) + i (\bm{q}+\bm{Q})
+\bm{L}_{if}(\bm{p} + \bm{Q}) \vstretch\right\} \;
+ J_{0}( \lambda_{1}, \bm{q} , a_{1}, \bm{k}_{1} ) \;
+ J_{1}( \lambda_{1}, \bm{q} - \bm{Q}, a_{1}, \bm{k}_{1} )
+\]
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

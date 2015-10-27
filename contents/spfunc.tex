@@ -1,0 +1,136 @@
+\chapter{Special functions}
+\label{S:spfunc}
+
+
+\section{Spherical harmonics}
+\label{S:Spher-harmon} The spherical harmonics are defined to be the
+functions \cite[(A.31,A.21)]{Galindo1990_QMvI}, \cite[(6.8.2-6.8.4)]{Press1966_NRIvI}:
+\begin{eqnarray}\label{Q:SphA1}
+ Y_{l,m}(\theta,\varphi) &=& \sqrt{\frac{2 l + 1}{4
+\pi}\frac{(l-m)!}{(l+m)!}} \; P^{m}_{l}(\cos \theta )\; e^{i m
+\varphi} \qquad \qquad \, (m>0),
+\\
+P^{m}_{l}(x) &=& (-1)^{m} \left( 1 -x^{2} \right)^{m/2}
+  \frac{d^{m}}{d x^{m}} \; P_{l}(x) \nonumber
+\\
+Y_{l,-m}(\theta,\varphi)&=& (-1)^{m} \; Y^{*}_{l,m}(\theta,\varphi)
+\nonumber
+\end{eqnarray}
+Note that they differ from Messiah \cite[(92,93)]{Messiah1966_QMvI}:
+\[
+Y_{l,m}(\theta,\varphi)^{\mathrm{Messiah}} = (-1)^{m} Y_{l,m}(\theta,\varphi)
+\]
+
+Normalization
+\begin{equation}\label{Q:Sph-norma}
+\int_{0}^{\pi} d \varphi \int_{0}^{2 \pi} \sin{(\theta)}\, d
+\theta \; Y^{*}_{l_{1},m_{1}}(\theta,\varphi) \,
+Y_{l_{2},m_{2}}(\theta,\varphi) = \delta_{l_{1},l_{2}}\,
+\delta_{m_{1},m_{2}}
+\end{equation}
+
+Addition theorem for spherical harmonics
+\begin{equation}\label{Q:sphA2}
+P_{\ell}(cos \theta_{12}) = \frac{4 \pi}{2 \ell +1}
+\sum_{m=-\ell}^{\ell} Y^{*}_{\ell,m}(\hat{p}_{1}) \,
+Y_{\ell,m}(\hat{p}_{2})
+\end{equation}
+
+
+The convention in the definitions are such the first terms are given by
+\[
+\begin{array}{ll}
+P^{0}_{0} (x) = 1 &  Y_{00}(\theta,\varphi)=\sqrt{\frac{1}{4 \pi}} \\
+\\
+P^{0}_{1} (x) = x & Y_{10}(\theta,\varphi) = \sqrt{\frac{3}{4 \pi}} \,
+\cos \theta
+\\
+P^{1}_{1} (x) = -\sqrt{1 - x^{2}}   &   Y_{11}(\theta,\varphi) = -
+\sqrt{\frac{3}{8 \pi}} \, \sin \theta \, e^{i \varphi}
+\\
+\\
+P^{0}_{2} (x) = \frac{1}{2}(3 x^{2} -1) & Y_{20}(\theta,\varphi) =
+\sqrt{\frac{5}{4 \pi}} \, \left(\frac{3}{2} \cos^{2} \theta -
+\frac{1}{2} \right)
+\\
+P^{1}_{2} (x) = -3 \, x\, \sqrt{1 - x^{2}}   &   Y_{21}(\theta,\varphi)
+= - \sqrt{\frac{15}{8 \pi}} \, \sin \theta \, \cos \theta e^{i
+\varphi}
+\\
+P^{2}_{2} (x) = 3 (1-x^{2})  &  Y_{22}(\theta,\varphi) = \frac{1}{4}\,
+\sqrt{\frac{15}{2\pi}} \, \sin^{2} \theta \; e^{i 2 \varphi}
+\end{array}
+\]
+and verify the following \emph{stable} recurrence relation
+\begin{eqnarray}\label{Q:sphA3}
+&&(l-m)P^{m}_{l}(x) = x\, (2 l -1)P^{m}_{l-1}(x) -
+(l+m-1)P^{m}_{l-2}(x)
+\\
+&&P^{m}_{m+1} = (-1)^{m}(2m-1)!!(1-x^{2})^{m/2}\quad , \qquad P^{m}_{m}
+= x\, (2 m -1)P^{m}_{m}(x)  \nonumber
+\end{eqnarray}
+
+\subsection{Other properties}
+\label{S:Spher-harmon-other-properties}
+
+\begin{align} \label{Q:integral-3-spher-harmon} 
+&\int Y^{*}_{l_{1}, 0} \,Y_{1, 0} \,  Y_{l_{2}, 0} \,d \Omega 
+  = 2 \pi \sqrt{\frac{2J +1}{4 \pi}}\,\sqrt{\frac{2J' +1}{4 \pi}} \int_{-1}^{1} x\,P_{J}(x)\,P_{J'}(x) \, dx  \nonumber \\
+  &\quad = \frac{\sqrt{(2J +1) (2J' +1)}}{2}\, \left[\frac{J+1}{2 J + 1}
+    \underbrace{\int_{-1}^{1} P_{J+1}(x) \,P_{J'}(x)}_{\frac{2}{2J'+1}\delta_{J',J+1}} \,
+    dx + \frac{J}{2 J + 1} \underbrace{\int_{-1}^{1} P_{J-1}(x) \,P_{J'}(x) \,
+      dx}_{\frac{2}{2J'+1}\delta_{J',J-1}} \right]
+  \nonumber \\
+  &\quad = \frac{J+1}{\sqrt{(2J+1)(2J'+1)}}\, \delta_{J',J+1} +  \frac{J}{\sqrt{(2J+1)(2J'+1)}}\, \delta_{J',J-1} \nonumber \\
+  &\quad = \frac{J_{+}}{\sqrt{(2J+1)(2J'+1)}}\ \delta_{J',J\pm 1} 
+\end{align}
+
+\section{Bessel functions}
+
+\subsection{Integer order}
+\label{S:Bess-n}
+
+For natural values of the index  ($n=0,1,2, \ldots$) the Bessel
+function has the integral representation
+\cite{Abramow1972_HOM,Gradsht1980_TOI,Galindo1990_QMvI}
+\begin{equation}\label{Q:BesInt}
+J_{n}(z)= \frac{1}{\pi \, i^{n}} \int_{0}^{\pi} \cos{(n \theta)} \,
+e^{i z \, \cos{\theta}} d \theta \,.
+\end{equation}
+%
+It can be also expressed as a series
+\begin{equation}\label{Q:BesSum}
+J_{n}(x) = \sum_{k=0}^{\infty} \frac{(-1)^{k}}{k!\, (n+k)!} \left(
+\frac{x}{2} \right)^{n+2k}
+\end{equation}
+
+\subsection{Recurrence relations}
+The Bessel functions verify
+\begin{eqnarray}\label{Q:BesRecRel1}
+% \nonumber to remove numbering (before each equation)
+  J_{n+1}(x) &=& \frac{2 n}{x} J_{n}(x) - J_{n-1}(x) \\
+  2 J'_{n}(x) &=& J_{n-1}(x) - J_{n+1}(x) \label{Q:BesRecRe2} \\
+  J_{n}'(x) &=& J_{n-1}(x) - \frac{n}{x} J_{n}(x) \label{Q:BesRecRe3}\\
+  J_{n}'(x) &=& -J_{n+1}(x) + \frac{n}{x} J_{n}(x) \label{Q:BesRecRe4}
+\end{eqnarray}
+
+  \noindent
+Moreover, their momentum integrals verify
+\cite[(5.5.1-5.5.3)]{Gradsht1980_TOI}
+\begin{eqnarray}\label{Q:BesMInta}
+\int  J_{m}(x) d x &=& 2\,\sum_{k=0}^{\infty} J_{m+2k+1} (x)
+\\
+\int x^{m+1} \, J_{m}(x) d x &=& x^{m+1} \, J_{m+1} (x)
+\label{Q:BesMIntb}
+\\
+\int x^{-m+1}\, J_{m}(x) d x
+&=&-x^{-m+1}\,J_{m-1}(x)\,.\label{Q:BesMIntc}
+\end{eqnarray}
+The last two relations are valid for every Bessel function ($J(x)$,
+$Y(x)$ and $H(x)$).
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

@@ -1,0 +1,164 @@
+\chapter{Time dependent approximation theory}
+Here we will sketch some approaches to perturbation theory in time-dependent problems.
+
+The quantum state is described by the wavefunction, solution of the time-dependent Schr\"{o}dinger equation (TDSE)
+\begin{equation}\label{Q:td-tdse}
+i \hbar \frac{\partial \Psi}{\partial t} = \hat{H}(t)  \Psi(\bm{r},t)= 
+ \left[ \frac{\hat{\bm{p}}^{2}}{2 m} + V(\bm{r},t) \right]  \Psi(\bm{r},t) \,.
+\end{equation}
+with suitable initial conditions $\Psi(\bm{r},t_{0})= \Phi_{0}(\bm{r})$ 
+
+\section{Evolution operator}
+\label{S:evolution-operator}
+
+The evolution operator is defined as the operator that takes the wavefunction to an initial time $t_{0}$ and returns the wavefunction to a time $t$
+\begin{equation} \label{Q:td-defin-evolu-operat}
+  \Psi(\bm{r},t)=  \hat{U}(t,t_{0}) \Psi(\bm{r},t_{0})
+\end{equation}
+
+This operator is hermitic, unitary $\left( \hat{U}^{\dag}(t,t_{0})= \hat{U}^{-1}(t,t_{0})= \hat{U}(t_{0},t) \right)$ and verifies an equation similar to the Schr\"{o}dinger equation
+\begin{align}
+  \label{Q:td-diffe-equat-opera-evolu}
+  i\hbar \frac{\partial \hat{U}(t,t_{0})}{\partial t}&= \hat{H} \hat{U}(t,t_{0})\,, & \hat{U}(t_{0},t_{0})= \hat{1}
+\end{align}
+which is equivalent to the integral equation
+\begin{equation}
+  \label{Q:td-diffe-equat-opera-evolu-0}
+  \hat{U}(t,t_{0}) = \hat{1} + \frac{1}{i\hbar} \int_{t_{0}}^{t} \hat{H}(t') \hat{U}(t',t_{0}) \, dt'
+\end{equation}
+Note that the two operator conmute ($[\hat{H}(t') , \hat{U}(t',t_{0})]=0$) such that this equation may be written as
+\begin{equation}
+  \label{Q:td-diffe-equat-opera-evolu-1}
+  \hat{U}(t,t_{0}) = \hat{1} + \frac{1}{i\hbar} \int_{t_{0}}^{t}\hat{U}(t',t_{0})  \hat{H}(t') \, dt'
+\end{equation}
+\section{Interaction picture}
+\label{S:interaction-picture}
+
+The interaction picture is based in a separation of the system hamiltonian as a sum of two parts $\hat{H}= H^{0}_{i} + H'_{i}$.
+where we know (or at lest will be able to solve) the problem for $H_{0}$. In this picture the states will only evolve due to the perturbation $H'_{i}$
+\begin{equation}
+  \label{Q:td-inter-pictu-state-evolu}
+  |\psi_{i}(t) \rangle =  \hat{U}^{0 \dag}_{i}(t,t_{0}) \, |\psi(t) \rangle =  \hat{U}^{0 \dag}_{i}(t,t_{0}) \hat{U} (t,t_{0}) \, |\psi(t_{0}) \rangle 
+\end{equation}
+The evolution operator in this representation is given by
+\begin{equation}
+  \label{Q:td-repre-inter-opera-evol}
+  \hat{U}_{i}(t,t_{0})=  \hat{U}^{0 \dag}_{i}(t,t_{0})\, \hat{U}(t,t_{0})
+\end{equation}
+%
+where $ \hat{U}^{0 \dag}_{i}(t,t_{0})$ is the evolution operator that satisfies (\ref{Q:td-diffe-equat-opera-evolu}) for the Hamiltonian $H^{0}_{i}$. In particular, if $H^{0}_{i}$ does not depend on time it may be written as
+\begin{equation*}
+   \hat{U}^{0}_{i}(t,t_{0})= e^{-i H^{0}_{i} t/\hbar} \qquad \Rightarrow \qquad  \hat{U}^{0 \dag}_{i}(t,t_{0})= e^{i H^{0}_{i} t/\hbar} 
+\end{equation*}
+ Other operators in this representation are related to those in the Schr\"{o}dinger picture as
+\begin{equation*}
+  \hat{A}_{i}=  \hat{U}^{0 \dag}_{i}(t,t_{0})\,\hat{A} \,\hat{U}^{0}_{i}(t,t_{0})
+\end{equation*}
+
+The evolution operator in this representation verifies the integral equation
+\begin{equation*}
+  \hat{U}_{i}(t,t_{0}) = 1 + \frac{1}{i\hbar} \int_{t_{0}}^{t} V_{i}(t')\, \hat{U}_{i}(t',t_{0}) \, dt'
+\end{equation*}
+where $V_{i}$ is the interaction representation of the perturbation $H'_{i}$:
+\begin{equation*}
+  V_{i}= \hat{U}^{0 \dag}_{i}(t,t_{0})\, H'_{i} \,\hat{U}^{0}_{i}(t,t_{0}) \,.
+\end{equation*}
+
+Solving from eq. (\ref{Q:td-repre-inter-opera-evol}) and using the above integral equation we obtain
+\begin{align}\label{Q:td-expan-oper-evol-1}
+  \hat{U}(t,t_{0})&= \hat{U}^{0}_{i}(t,t_{0})\, \hat{U}_{i}(t,t_{0}) =  \hat{U}^{0}_{i}(t,t_{0})\,\left( 1 + \frac{1}{i\hbar} \int_{t_{0}}^{t} V_{i}(t')\, \hat{U}_{i}(t',t_{0}) \, dt' \right) \notag \\
+&= \hat{U}^{0}_{i}(t,t_{0})\,\left( 1 + \frac{1}{i\hbar} \int_{t_{0}}^{t} V_{i}(t')\, \hat{U}^{0 \dag}_{i}(t',t_{0}) \, \hat{U}(t',t_{0}) \, dt' \right) \notag \\
+ &= \hat{U}^{0}_{i}(t,t_{0}) + \frac{1}{i\hbar} \int_{t_{0}}^{t} \hat{U}^{0}_{i}(t,t_{0})\, V_{i}(t')\, \hat{U}^{0 \dag}_{i}(t',t_{0}) \, \hat{U}(t',t_{0}) \, dt' \notag \\
+ &= \hat{U}^{0}_{i}(t,t_{0}) + \frac{1}{i\hbar} \int_{t_{0}}^{t} \hat{U}^{0}_{i}(t,t')\, \underbrace{\hat{U}^{0}_{i}(t',t_{0})\, V_{i}(t')\, \hat{U}^{0 \dag}_{i}(t',t_{0})}_{H'_{i}} \, \hat{U}(t',t_{0}) \, dt' \notag \\
+ &= \hat{U}^{0}_{i}(t,t_{0}) + \frac{1}{i\hbar} \int_{t_{0}}^{t} \hat{U}^{0}_{i}(t,t')\, H'_{i} \, \hat{U}(t',t_{0}) \, dt' 
+\end{align}
+%
+In the second line we have written the integrand in terms of the original Schr\"{o}dinger picture of the evolution operator. 
+
+Now, we can iterate again using the integral equation and obtain a series of $n$ terms. We start noting that the above procedure is valid for \emph{all possible} separations of the hamiltonian. In the second iteration we may choose a different separation, yet another different in the third, and so on \dots
+\begin{align*}
+  \hat{U}(t,t_{0}) = \hat{U}^{0}_{i}(t,t_{0}) &+ \frac{1}{i\hbar} \int_{t_{0}}^{t}  dt_{i} \, \hat{U}^{0}_{i}(t,t_{i})\, H'_{i} \, \left( \hat{U}^{0}_{j}(t_{i},t_{0}) + \frac{1}{i\hbar} \int_{t_{0}}^{t_{i}} dt_{j} \, \hat{U}^{0}_{j}(t_{i},t_{j})\, H'_{j}(t_{j}) \, \hat{U}(t_{j},t_{0}) \right)  \\
+ = \hat{U}^{0}_{i}(t,t_{0}) & + \frac{1}{i\hbar} \int_{t_{0}}^{t}  dt_{i} \, \hat{U}^{0}_{i}(t,t_{i})\, H'_{i}  \hat{U}^{0}_{j}(t_{i},t_{0}) + \\ 
+ &+  \left( \frac{1}{i\hbar} \right)^{2} \int_{t_{0}}^{t} dt_{i} \, \int_{t_{0}}^{t_{i}}  dt_{j} \, \hat{U}^{0}_{i}(t,t_{i})\, H'_{i}(t_{i}) \, \hat{U}^{0}_{j}(t_{i},t_{j})\, H'_{j}(t_{j}) \, \hat{U}(t_{j},t_{0}) \\
+ = \hat{U}^{0}_{0}(t,t_{0}) &+ \frac{1}{i\hbar} \int_{t_{0}}^{t}  dt' \, \hat{U}^{0}_{0}(t,t')\, H'_{1}(t')  \hat{U}^{0}_{1}(t',t_{0}) \\ 
+&+  \frac{1}{(i\hbar)^{2}}  \int_{t_{0}}^{t} dt_{2} \, \int_{t_{0}}^{t_{2}} dt_{1} \, \hat{U}^{0}_{0}(t,t_{2})\, H'_{0}(t_{2}) \, \hat{U}^{0}_{1}(t_{2},t_{1})\, H'_{1}(t_{1}) \, \hat{U}(t_{1},t_{0})
+\end{align*}
+In order to illustrate the process we have iterated again using a separation of the hamiltonian $\hat{H}=H^{0}_{j} + H'_{j}$, where in principle $H'_{j} \neq H'_{i}$. Note that always $t_{1} < t_{2}$. If we keep repeating this procedure we get for the evolution operator
+\begin{subequations}
+  \begin{align}
+    \label{Q:td-serie-evolu-opera}
+    \hat{U}(t,t_{0}) =& \hat{U}^{0}_{0}(t,t_{0}) + \sum_{n=1}^{\infty} \frac{1}{(i \hbar)^{n}} \,\hat{U}^{(n)}(t,t_{0})  \\
+    \hat{U}^{(n)}(t,t_{0}) =& \int_{t_{0}}^{t} dt_{n}\,\int_{t_{0}}^{t_{n}} dt_{n-1}\,\dots\,\int_{t_{0}}^{t_{2}} dt_{1}\, \hat{U}^{0}_{0}(t,t_{n})\, H'_{0}(t_{n}) \hat{U}^{0}_{1}(t_{n},t_{n-1}) \times \\
+    &\times H'_{1}(t_{n-1}) \, \dots {\hat{U}^{0}_{n-1}(t_{2},t_{1})\, H'_{n-1}(t_{1})}
+    \hat{U}^{0}_{n}(t_{1},t_{0}) \qquad \qquad \left( t_{1} < t_{2} < \dots t_{n-1} <
+      t_{n} \right) \nonumber
+  \end{align}
+\end{subequations}
+which reduces exactly to equation (9.47) of \citet{Tannor2007_ITQ} when the separation of the Hamiltonian $\hat{H}= H^{0}_{i} + H'_{i}$ is the same for all $i$.
+
+\section{Transition probabilities and amplitudes}
+
+\label{S:trans-prob-ampl}
+
+The transition amplitude from an initial state $\phi_{i}$, prepared at time $t_{0}$ to a final state  $\phi_{f}(t)$ at a given time $t$ is given by the product 
+%
+\begin{equation} \label{Q:td-transi-ampli-t}
+  t_{fi}(t)= \langle \phi_{f}(t) | \Psi(t) \rangle = \big\langle \phi_{f}(t) |\hat{U}(t,t_{0}) | \phi_{i}(t_{0}) \big\rangle 
+\end{equation}
+donde
+%
+\begin{subequations}
+  \begin{align}
+    &H_{0} \phi_{i(f)}(\bm{r},t)= E_{i(f)} \, \phi_{i(f)}(\bm{r},t)  & (\forall~ t )\\
+    &\phi_{i(f)}(\bm{r},t)=   \phi_{i(f)}(\bm{r},t_{0})\, e^{-iE_{f(i)}t/\hbar}  &
+  \end{align}
+\end{subequations}
+In particular, the transition amplitude is defined as
+\begin{equation} \label{Q:td-defin-transi-ampli}
+ T_{fi}= \lim_{\substack{t\to +\infty\\t_{0}\to -\infty}} t_{fi}(t)= \lim_{\substack{t\to +\infty\\t_{0}\to -\infty}} \big\langle \phi_{f}(t) |\hat{U}(t,t_{0}) | \phi_{i}(t_{0}) \big\rangle 
+\end{equation}
+
+Note that the transition amplitude may be also written as
+\begin{align} \label{Q:td-transi-ampli-1}
+ T_{fi}&= \lim_{\substack{t\to +\infty\\t_{0}\to -\infty}}  \big\langle \phi_{f}(t) |\hat{U}(t,t')\,\hat{U}(t',t_{0}) | \phi_{i}(t_{0}) \big\rangle  
+=  \lim_{\substack{t\to +\infty\\t_{0}\to -\infty}} \big\langle \hat{U}(t',t) \phi_{f}(t) |\hat{U}(t',t_{0}) \phi_{i}(t_{0}) \big\rangle \nonumber\\
+&= \big\langle \Psi^{-}_{f}(t') \left|\Psi^{+}_{i}(t') \right\rangle 
+\end{align}
+where we have defined the asymptotic states
+\begin{equation}\label{Q:td-defin-asymp-state}
+  \left| \Psi^{\pm}_{\alpha}(t) \right\rangle= \lim_{t_{0}\to \mp \infty} \hat{U}(t,t_{0})\, \phi_{\alpha}(t_{0})= \hat{U}(t,t_{0})\,\hat{U}_{\alpha}^{0\, \dag}(t,t_{0})\, \phi_{\alpha}(t) \qquad \qquad (\alpha= i,f)
+\end{equation}
+
+Two ``important'' cases correspond to evaluate the transition amplitude at infinite positive or negative (initial or final, respectively) times
+\begin{subequations}
+  \begin{align}
+    \label{Q:T_fi-prior} T_{fi}^{-} &= \lim_{t \to -\infty}\big\langle \Psi^{-}_{f}(t) \big|\phi_{i}(t) \big\rangle  &&(\mathit{prior})\\
+    \label{Q:T_fi-post} T_{fi}^{+} &= \lim_{t \to +\infty}\big\langle \phi_{f}(t) \big| \Psi^{+}_{i}(t) \big\rangle  &&(\mathit{post})
+  \end{align}
+\end{subequations}
+
+An expresion that is usually employed is obtained by writing the above expresions as integrals of their derivatives. For instance for the \textit{prior} form of the transition matrix we obtain
+\begin{subequations}
+  \begin{align}\label{Q:td-T_fi-prior-work-expre-1}
+    T_{fi}^{-} &= \lim_{t \to -\infty}\big\langle \Psi^{-}_{f}(t) \big|\phi_{i}(t) \big\rangle=  \lim_{t' \to -\infty} \int_{t_{1}}^{t'} \frac{d}{dt}\left( \big\langle \Psi^{-}_{f}(t) \big|\phi_{i}(t) \big\rangle \right) \, dt +  \big\langle \Psi^{-}_{f}(t_{1}) \big|\phi_{i}(t_{1}) \big\rangle  \\
+    &= - \int_{-\infty}^{\infty} \frac{d}{dt}\left( \big\langle \Psi^{-}_{f}(t) \big|\phi_{i}(t) \big\rangle \right) \, dt +  \underbrace{\big\langle \Psi^{-}_{f}(t=\infty) \big|\phi_{i}(t=\infty)\big\rangle}_{\langle \phi_{f}|\phi_{i}\rangle=0} \notag \\
+    &= - \int_{-\infty}^{\infty}  \left[ \left\langle \left. \frac{d \Psi^{-}_{f}(t) }{dt}  \right|\phi_{i}(t)\right\rangle  +  \left\langle \Psi^{-}_{f}(t) \left|\frac{d \phi_{i}(t)}{dt} \right. \right\rangle \right]  \, dt \notag \\
+    &= \frac{1}{i \hbar} \int_{-\infty}^{\infty} \left[ \big\langle \Psi^{-}_{f}(t) \big|
+      \hat{H} \big| \phi_{i}(t) \big\rangle - \big\langle \Psi^{-}_{f}(t) \big|
+      \hat{H}_{i}^{0} \big| \phi_{i}(t) \big\rangle \right] \, dt =
+    \frac{1}{i \hbar} \int_{-\infty}^{\infty} \big\langle \Psi^{-}_{f}(t) \big| \underbrace{\hat{H} - \hat{H}_{i}^{0}}_{V_{i}} \big| \phi_{i}(t) \big\rangle   \, dt \notag \\
+\label{Q:td-T_fi-prior-work-expre-2}    &= \frac{1}{i \hbar} \int_{-\infty}^{\infty} \big\langle \Psi^{-}_{f}(t) \big| V_{i}(t) \big| \phi_{i}(t) \big\rangle \, dt
+  \end{align}
+\end{subequations}
+where we have used equation (\ref{Q:td-defin-asymp-state}) and that both $|\Psi_{f}^{-}\rangle$ and $|\phi_{i}\rangle$ verify time-dependent Schr\"{o}dinger equations
+\begin{subequations}
+  \begin{align}
+    & i \hbar \frac{d}{dt} |\Psi_{f}^{-}\rangle = \hat{H} |\Psi_{f}^{-}\rangle \qquad \Rightarrow & -i \hbar \frac{d \langle \Psi^{-}_{f}(t) | }{dt} = \langle \Psi^{-}_{f}(t) | \, \hat{H}\\
+    & i \hbar \frac{d}{dt} |\phi_{i}\rangle = \hat{H} |\phi_{i}\rangle \,.
+  \end{align}
+\end{subequations}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 
+

@@ -1,0 +1,58 @@
+%\chapter{Non-coulomb interactions}
+
+\section{GSZ Model potential}
+
+In order to describe multiple-electron atoms we will frequently use the
+two-parameter GSZ potential \cite{Garvey1975PRAp1144} (\textbf{NOTE}: Last version was wrong)
+
+\begin{equation}\label{Q:GSZ-V1}
+r \, V_{\alpha}(r) =  (Z_{\alpha} - (N - 1)) + \frac{N-1}{\left(
+{\eta}/{\xi} \right) \, e^{\xi r} + (1 - \left( {\xi}/{\eta}
+\right))}
+\end{equation}
+where $Z_{T}$ is the unscreened nuclear charge, $N$ is the number of
+electrons and the parameters $\eta,\xi$ were obtained for many
+different atoms and ions in several works
+\cite{Szydlik1974PRAp1885,Garvey1975PRAp1144}
+%
+For computational reasons we rewrite the potential between two given
+particles $i,j$ as
+\begin{equation}\label{Q:GSZ-V}
+  V_{ij} = \frac{V^{0}_{i} \, V_{j}^{0}}{r_{ij}}
+\end{equation}
+where the $\bm{r}-$dependent ``effective'' charges $V^{0}_{\alpha}$ are
+given by
+\begin{eqnarray}
+V^{0}_{\alpha}(r) &=&  Z^{*}_{\alpha} + \frac{Z^{S}_{\alpha}}{\beta
+e^{\xi r} + 1 - \beta} = Z^{*}_{\alpha} + \frac{Z^{S}_{\alpha}\,
+e^{-\xi r}}{\beta + (1 - \beta)e^{-\xi r}} \label{Q:GSZ-V2}
+\\
+Z^{S}_{\alpha} &=& N-1  \nonumber \\
+Z^{*}_{\alpha} &=& Z_{\alpha} - Z^{S}_{\alpha}  \nonumber \\
+\beta &=& \eta / \xi  \nonumber
+\end{eqnarray}
+
+\noindent The classical force exerted over particle $j$ by the particle
+$i$ is
+\begin{eqnarray}\label{Q:GSZ-F1}
+\bm{F}_{ij} &=& - \nabla_{\bm{r}} V_{ij}(r) =  - \frac{ \partial
+V_{\alpha} } {\partial r_{ij} } \; \left(- \hat{r}_{ij} \right)=
+\frac{ \partial V_{\alpha} }
+{\partial r_{ij} } \; \hat{r}_{ij} \nonumber \\
+&=& \frac{-1}{r^{3}}\left[ V^{0}_{i} V^{0}_{j} - r \left(
+\frac{\partial V^{0}_{i}}{\partial r} V^{0}_{j} + V^{0}_{i}
+\frac{\partial V^{0}_{j}}{\partial r}\right) \right] \bm{r}_{ij}
+\end{eqnarray}
+where the derivative of an effective charge $V^{0}_{\alpha}$ is given
+by
+\begin{equation}\label{Q:GSZ-F2}
+r \frac{\partial V^{0}_{\alpha}}{\partial r} = \frac{- Z^{S}_{\alpha}
+\, (\xi r) \, \beta \, e^{\xi r}}{\left( \beta \, e^{\xi r} +1 -
+\beta \right)^{2}} = \frac{- Z^{S}_{\alpha} \, (\xi r) \, \beta \,
+e^{-\xi r}}{\left[ \beta + (1 - \beta)\, e^{-\xi r}  \right]^{2}}
+\end{equation}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

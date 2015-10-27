@@ -1,0 +1,353 @@
+\chapter{Semiclassical approach to multiple electron processes}
+\label{C:Semic-appro-multi-elect-proce}
+
+\section{Single and multiple ionization of complex atoms}
+\label{S:Single-multipl-ionizat-complex-atoms}
+
+In a semiclassical impact parameter approach, within the independent
+particle approximation, the single and multiple ionization cross
+sections can be evaluated from the one electron transition
+probabilities. We will suppose that:
+\begin{itemize}
+\item The electrons evolve independently  in the (model) field of the
+nuclei,
+\item The projectile can be described classically (its trajectory is
+well defined),
+\item The  heavy particles movement can be decoupled from the electron's
+  trajectories.
+\end{itemize}
+
+If the target has N electrons in a given shell, the probability of
+ionizing one electron with momentum $\bm{k}$ by a projectile that
+impinged with impact parameter $\rho$ in the independent electron model
+(IEM) $p_{i} \equiv p_{i}(\bm{k},\rho) $ determines the cross section
+for emission of $q$ electrons. The probability of single-ionization
+from a two-electron atom is equal to the probability of ionize on
+electron while the other is not ionized $\mathcal{P}_{SI} = p(1-p)$. In
+rigor, if we are evaluating the probability of emission of only one
+electron (which will have momentum $\bm{k}$), we have to ensure that
+the remaining electron is not emitted at all. The probability of single
+ionization would be
+\begin{equation}\label{Q:SionPrb}
+\mathcal{P}_{SI}(\bm{k},\rho) = 2\, p_{i}(\bm{k},\rho)\, \int \left[1 -
+p_{i}(\bm{k}',\rho) \right] \, d \bm{k}' = 2\, p_{i}(\bm{k},\rho)\,
+\left[1 - P_{i}(\rho) \right] \, ,
+\end{equation}
+where $P_{i}(\rho)$ is the probability of ionizing one electron. The
+total probability is obtained by integrating over the momenta of the
+``detected'' electron
+\[
+\mathcal{P}_{SI}(\rho) = 2 \, \left[ 1-P_{i}(\rho) \right] \, \int d
+\bm{k} \, p_{i}(\bm{k},\rho)\, = 2 \, \left[ 1-P_{i}(\rho) \right] \,
+P_{i}(\rho)\,
+\]
+Integrating over the impact parameter we obtain the corresponding cross
+section
+\[
+\sigma_{SI} = \int_{0}^{\infty} \rho \,\mathcal{P}_{SI}(\rho) d \rho
+= 2 \, \int_{0}^{\infty} \rho \,\left[ 1-P_{i}(\rho) \right] \,
+P_{i}(\rho)\, d \rho
+\]
+
+
+It is possible generalize this analysis to the ionization of q
+electrons from an atom, initially with N electrons, where one of them
+is emitted with momentum $\bm{k}$. This reasoning lead us to the
+well-known binomial analysis \autocite[see, for instance,][]{Mcguire1991AAMOP_MEIp217}. The probability of
+$q_{m}$ electrons ionized from a given shell $m$ with initially $N_{m}$
+electrons  is given by
+\begin{equation} \label{Q:qionshllPrb}
+\mathcal{P}_{q_{m}}(\bm{k},\rho) =  {N_{m} \choose q_{m}}
+p_{m}(\bm{k},\rho) \left[ P_{m} (\rho) \right]^{q_{m}-1} \, \left[ 1 -
+P_{m}(\rho) \right]^{N_{m}-q_{m}}.
+\end{equation}
+
+When several shells have appreciable probability of being ionized we
+have to add up all the contributions that may give to the total $q$ of
+ionized electrons. We have to include all the terms that contribute to
+the observed final state. We impose the condition that the total of
+emitted electrons be $q$, which is expressed by $q = \sum_{m=1}^{N_{m}}
+q_{m}$ \autocite{Mcguire1991AAMOP_MEIp217,Kirchne2002PRAp42727},
+\begin{equation}\label{Q:qionPrb}
+\mathcal{P}_{q}(\bm{k},\rho) = \sum_{\left( q_{m} | \sum q_{m}=q
+\right)}^{N_{1},\ldots,N_{m}} \;\prod_{i=1}^{m}
+  \,\mathcal{P}_{qi}(\bm{k},\rho)
+\end{equation}
+
+The total electron emission production is given by
+\begin{equation}\label{Q:TEEPrb}
+\mathcal{P}_{Tee} \equiv \sum_{q} q \, \mathcal{P}_{q} = \sum_{m} P_{m}
+\end{equation}
+
+
+\section{Computation of the transition probability}
+\label{S:Compu-trans-proba}
+
+The transition amplitude and matrix are bi-dimensional Fourier
+transform of each other
+\begin{eqnarray}\label{Q:prob1}
+\mathcal{A}_{if}(\bm{k},\brho) &=& \frac{1}{(2 \pi)} \int d
+\bm{Q}_{\perp} \;
+e^{- i \, \bm{Q} \cdot \brho } \; t_{if}(\bm{k},\bm{Q}) \\
+t_{if}(\bm{k},\bm{Q}) &=& \frac{1}{(2 \pi)} \int d \brho \;
+e^{i \, \bm{Q} \cdot \brho } \;\mathcal{A}_{if}(\bm{k},\brho)
+\end{eqnarray}
+
+Following several works \autocite{Rodrigu1996JPBp275,Galassi2002JPBp1727} we Fourier expand the transition matrix in the azimuthal angle
+\[
+t_{if}(\bm{k},\bm{Q}) = \frac{1}{\sqrt{2 \pi}} \sum_{m=-\infty}^{\infty} t^{m}_{if}(\bm{k},Q_{\perp}) \, e^{i m \varphi_{k Q}} \, .
+\]
+where each term of the series is given by
+\[
+t^{m}_{if}(\bm{k},Q_{\perp}) = \frac{1}{\sqrt{2 \pi}} \int_{0}^{2 \pi}
+d \varphi_{k Q}\; e^{- i \,m\, \varphi_{k Q} } \;
+t_{if}(\bm{k},\bm{Q}) .
+\]
+Introducing this expansion in the equation \ref{Q:prob1} we obtain
+\[
+\mathcal{A}_{if}(\bm{k},\brho) = \sum_{m=-\infty}^{\infty} \left\{
+\int_{0}^{\infty} Q_{\perp} d Q_{\perp} \;
+t^{m}_{if}(\bm{k},Q_{\perp}) \; \left[ \int_{0}^{2 \pi} d \varphi \,
+e^{- i \, Q_{\perp} \rho \cos{\varphi}}\ e^{i m \varphi}
+\right] \right\}\, \frac{e^{i m \varphi_{\rho k}}}{(2 \pi)^{3/2}}
+\]
+
+Before we continue we note that the transition matrix contains an
+additional symmetry, such that it only depends on the relative
+azimuthal angle. Moreover,
+\[
+t_{if}(k,\theta_{k},Q_{\perp},\varphi_{k Q}) =
+t_{if}(k,\theta_{k},Q_{\perp},2 \pi - \varphi_{k Q})
+\]
+
+For every function with this symmetry ($f(\varphi)=f(2 \pi - \varphi)$)
+the one-dimensional Fourier transform can be written as
+\begin{eqnarray} \label{Q:cFT-tm}
+\frac{1}{\sqrt{2 \pi}} \int_{0}^{2 \pi} d \varphi \; e^{- i
+\,m \, \varphi } \; f(\varphi) &=& \frac{1}{\sqrt{2 \pi}} \left(
+\int_{0}^{\pi} d \varphi \; e^{- i \,m \, \varphi} \;
+f(\varphi) + \int_{0}^{\pi} d \varphi \; e^{- i \,m \, (2 \pi
+- \varphi) } \;
+f(\varphi) \right) \nonumber \\
+&=& \frac{1}{\sqrt{2 \pi}} \int_{0}^{\pi} d \varphi \; \left(
+e^{- i \,m \, \varphi} + e^{i \,m \, \varphi} \right) \;
+f(\varphi)   \nonumber \\
+&=& \frac{2}{\sqrt{2 \pi}} \int_{0}^{\pi} d \varphi \; \cos{(m \,
+\varphi) } \; f(\varphi)
+\end{eqnarray}
+
+The use of the symmetry shows two important results: first, the domain
+of integration is only half of the angular range and secondly that
+$t^{m}_{if} = t^{-m}_{if}$, while the cosine is an even function. The
+same is true for the integral over $\varphi$ in the above expression of
+the impact parameter probability. In fact it can be written in terms of
+the Bessel functions using (\ref{S:Bess-n})
+\begin{align}
+  \int_{0}^{2 \pi} d \varphi \,
+e^{- i \, Q_{\perp} \rho \cos{\varphi}}\ e^{i m \varphi} \nonumber
+&=2
+ \int_{0}^{\pi} d \varphi \, e^{- i \, Q_{\perp} \rho
+\cos{\varphi}}\ \cos{(m \varphi)}
+\\
+&= 2 \pi \, (-i)^{|m| } \, J_{|m| }(Q_{\perp} \rho) \,.
+\end{align}
+%
+Thus, the probability can be written
+\begin{subequations}
+  \begin{align}
+    \mathcal{A}_{if}(\bm{k},\brho) &= \sum_{m=-\infty}^{\infty} \, (-i)^{|m| } S_{|m|
+    }(\bm{k}, \rho) \, e^{i m \varphi_{\rho k}}
+    \\
+    S_{m}(\bm{k}, \rho) &= \frac{1}{\sqrt{2 \pi}} \int_{0}^{\infty} Q_{\perp} \; t^{|m|
+    }_{if}(\bm{k},Q_{\perp}) \; J_{|m| }(\rho \, Q_{\perp}) \, d
+    Q_{\perp} \\
+    t^{m}_{if}(\bm{k},Q_{\perp}) &= \frac{2}{\sqrt{2 \pi}} \int_{0}^{2 \pi}
+    t_{if}(\bm{k},\bm{Q}) \; \cos{(m \, \varphi_{k Q})} \; d \varphi_{k Q}
+  \end{align}
+\end{subequations}
+where $J_{m}(z)$ is the integer order $m$ Bessel function.
+
+Integrating over the azimuthal angle of the impact parameter we obtain
+the probability of ionizing one electron with momentum $\bm{k}$
+\begin{eqnarray}\label{Q:prob2}
+p_{i} (\bm{k}, \rho) &=& \frac{1}{2 \pi} \int_{0}^{2 \pi} d
+\varphi_{\rho k} \left|  \mathcal{A}_{if}(\bm{k},\brho) \right| ^{2} =
+\sum_{m=-\infty}^{\infty} \left|  S_{|m| }(\bm{k}, \rho) \right| ^{2}
+\nonumber
+\\
+&=& \left|  S_{0}(\bm{k},\rho) \right| ^{2} + 2 \, \sum_{m=1}^{\infty}
+\left| S_{m}(\bm{k},\rho) \right| ^{2}
+\end{eqnarray}
+%
+which coincides with previous results \cite{Galassi2002JPBp1727}.
+
+\subsection{Normalization of the transition probability}
+\label{S:Norma-trans-proba}
+
+The probability transition is defined such that the probability of
+ionize on electron of the $m$ shell
+\[
+\sigma_{Tee}(m) = \int_{0}^{\infty} \rho \, P_{m}(\rho) \, d \rho \,
+,
+\]
+has to be equal to
+\[
+\int \frac{d \sigma}{d \bm{k}} \, d \bm{k} = \frac{(2
+\pi)^{5}}{v^{2}} \int |t_{if}(\bm{k},\bm{Q})|^{2} d Q_{\perp}
+\]
+
+Then, the transition matrix and the probability are related, within our
+definitions, by
+\begin{equation}\label{Q:Relat-trans-proba-matri}
+\frac{d \sigma}{d \bm{k}} = \int_{0}^{\infty} \rho \, p_{i}(\rho)
+\, d \rho = \frac{(2 \pi)^{4}}{v^{2}}\int_{0}^{\infty} Q_{\perp}
+|t_{if}(Q_{\perp})|^{2} \, d Q_{\perp} \, .
+\end{equation}
+%
+Then, the transition matrix is related to the quantity found in the
+literature $R_{if}$ by
+\begin{equation}\label{Q:RelRifTif}
+  R_{if}(Q_{\perp}) = \frac{(2 \pi)^{5/2}}{v} \ t_{if}(Q_{\perp})
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Simultaneous ionization from different centers}
+
+\section{Hamiltonian of the problem}
+
+We start by considering a collision between two atomic species, each of
+them having one or more electrons. The corresponding Hamiltonian is
+given by \autocite{Fiol2001JPBpL503}
+\begin{eqnarray}\label{Q:simH1}
+H &=& H_{0} + V_{N_{P},e_{P}} + V_{N_{T},e_{T}} +  V_{N_{P},N_{T}} +
+V_{N_{T},e_{P}} + V_{N_{P},e_{T}} + V_{e_{P}, e_{T}} \nonumber \\
+&=& H_{P} + H_{T} + V_{N_{P},N_{T}} + V_{N_{T},e_{P}} + V_{N_{P},e_{T}}
++
+V_{e_{P}, e_{T}} \nonumber \\
+&=& H_{P} + H_{T} + V_{N_{P},N_{T}}
+\\
+&+& \left[ V_{N_{T},e_{P}} + \langle V_{e_{P}, e_{T}} \rangle_{T}
+\right] + \left[ V_{N_{P},e_{T}} + \left\langle V_{e_{P}, e_{T}}
+\right\rangle_{P} \right] + \left[  V_{e_{P}, e_{T}} - \langle
+V_{e_{P}, e_{T}} \rangle_{T} - \langle  V_{e_{P}, e_{T}} \rangle_{P}
+\right] \nonumber
+\end{eqnarray}
+Here $H_{P,T}$ are the hamiltonian of each center, $\langle
+V_{e_{T},e_{P}} \rangle $  is the interaction of projectile electrons
+with the mean field produced by the target electrons. The first term
+between square brackets model the screened nuclear interaction felt by
+the projectile electrons. A similar interpretation can be made of the
+second set of square brackets. It is the average potential felt by the
+target electrons due to the screened projectile. The last term accounts
+by the difference between mean fields and the real interactions. It can
+be interpreted as the dynamical contribution of the e-e interaction,
+since the static part is contained in the two first brackets.
+
+We model the screened interaction of each center with each electrons in
+the other center through a single potential $\mathcal{V}_{T,P}$. Thus
+the hamiltonian is
+\[
+H = H_{P} + H_{T} + V_{N_{T},N_{P}} + \sum_{i_{P}}
+\mathcal{V}_{T,e_{P}} + \sum_{i_{T}} \mathcal{V}_{P,e_{T}} + \left[
+V_{e_{P}, e_{T}} - \langle V_{e_{P}, e_{T}} \rangle_{T} - \langle
+V_{e_{P}, e_{T}} \rangle_{P} \right]
+\]
+
+\section{Modelling of simultaneous target and projectile ionization}
+
+
+We are interested in the simultaneous target and projectile ionization
+by the collision of two atomic/ionic species at large relative
+velocities. In this range of impact energy the First Born approximation
+(FBA) is valid for describing single ionization in three-body problems.
+
+In the three-body FBA the internuclear potential can be safely
+switched-off for describe cross sections related to the electron
+momentum. The final state in this approximation include the (free)
+motion of the projectile, while the electron does not interact with the
+projectile in the final state.
+
+Now we will try to generalize the FBA for the process of interest
+including, at least, four bodies. Additionally we will incorporate some
+of the interactions neglected in the FBA calculations. We consider
+first the simplest case in which the target and projectile contain only
+one electron. The transition matrix element for the simultaneous
+ionization in a perturbative approach is given by $t_{if} = \langle
+\Psi^{*-}_{f} \mid V\mid \Phi_{i} \rangle$
+
+\begin{eqnarray}\label{Q:Sim1}
+\Psi^{\pm}_{f} &=& e^{i (\bm{k}_{T} \cdot \bm{r}_{T} + \bm{k}_{T,2}
+\cdot \bm{r}_{T,2} + \bm{K}_{T} \cdot \bm{R}_{T})} \,
+D^{\pm}_{\nu_{T,1}}\, D^{\pm}_{\nu_{P,2}}\,\left[  D^{\pm}_{\nu_{1,2}}
+\right] \, \left[ D^{\pm}_{\nu_{T,P}}\, D^{\pm}_{\nu_{T,2}}\,
+D^{\pm}_{\nu_{P,1}} \right]
+\nonumber \\
+\Phi_{i} &=& e^{i \bm{P}_{T} \cdot \bm{R}_{T}} \;
+\phi^{f}_{T}(\bm{r}_{T,1}) \phi^{f}_{P}(\bm{r}_{P,2})
+\nonumber \\
+\\
+V &=&  V_{N_{T},e_{P}} + V_{N_{P},e_{T}} + V_{e_{P}, e_{T}} + \left[
+V_{N_{P},N_{T}} \right] \, . \nonumber
+\end{eqnarray}
+
+The terms between square brackets will be neglected in the following
+calculations. This approximation is the equivalent to the FBA for four
+bodies. While the final velocity of the projectile electron (electron
+2) is expected to be close to its initial velocity (projectile incident
+velocity) and the target electron  (electron 1) velocity is expected to
+be small, the interaction of each electron with the opposite center is
+neglected in the final state.
+
+
+In the case of atoms with more than one electron, the final state has
+to be modified by the inclusion of wavefunctions describing the
+internal state of the projectile and target (discarding the terms
+between brackets)
+\[
+\Psi^{\pm}_{f} = e^{i (\bm{k}_{T} \cdot \bm{r}_{T} + \bm{k}_{T,2}
+\cdot \bm{r}_{T,2} + \bm{K}_{T} \cdot \bm{R}_{T})} \,
+D^{\pm}_{\nu_{T,1}}\, D^{\pm}_{\nu_{P,2}}\, D^{\pm}_{\nu_{1,2}} \;
+\phi^{f}_{T} \; \phi^{f}_{P}
+\]
+
+
+\subsection{Evaluation of the transition matrix}
+
+The transition matrix for a process in which the projectile and target
+change from initial states $\mid \Phi_{P,\,i} \rangle $, $\mid
+\Phi_{T,\,i} \rangle $ to final states $\mid \Phi_{P,\,f} \rangle$ and
+$\mid \Phi_{T,\,f} \rangle$ is given by
+\begin{eqnarray}\label{Q:Sim2}
+t_{if} = \langle \Phi_{P,\,f} \mid
+\end{eqnarray}
+
+
+
+\section{Stripping cross sections at high energy}
+
+\subsection{First Born Approximation (FBA)}
+
+The simplest approximation in the evaluation of total cross sections is
+given by the FBA. In a first order we will neglect most of multi
+electron effects together with the effect of dynamical
+electron-electron interactions.
+
+Within this model the problem simplifies to the projectile ionization
+by the collision with a structureless target. The interaction between
+the two projectile particles and the target is given by a screened
+potential modelling the average effect of the nucleus and all target
+electrons.
+
+The transition matrix is given by
+
+\[
+t_{if} = \langle \mid
+\]
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

@@ -1,0 +1,207 @@
+
+\chapter{Angular momentum}
+\label{C:angular-momentum}
+
+
+\section{Clebsch-Gordan coefficient}
+\label{S:C-G}
+
+Definition of the Clebsch-Gordan coefficients
+[\cite[(B.41)]{Galindo1990_QMvI}, \cite[(3.18,3.19)]{Rose1967_ETO} and also
+\cite[(3.6.11)]{Edmonds1960_AMI}] for the sum of two angular momenta $j_{1}, j_{2}$ giving $j_{3}$
+%
+\begin{align}\label{Q:C-G-definition}
+C(j_{1} \, j_{2} \, j_{3}; m_{1} \, m_{2} \, m_{3}) \equiv & \langle j_{3} m_{3}|j_1 m_1 j_2 m_2\rangle  \equiv \langle j_1 m_1 j_2 m_2|j_{3} m_{3}\rangle \nonumber \\ 
+&= \delta_{m_{1} +m_{2},m_{3}} \, \Delta(j_{1},j_{2},j_{3}) \, \sqrt{2
+j_{3}+1}  \qquad\qquad
+\\
+&{\times} \left[ \frac{(j_{1}+j_{2}-j_{3})!\,
+(j_{3}+j_{2}-j_{1})!\,(j_{1}+j_{3}-j_{2})!\,(j_{3}+m_{3})!\,(j_{3}-
+m_{3})! }{(j_{1} +j_{2} + j_{3} +1)! \,(j_{1}- m_{1})! \,(j_{1}+
+m_{1})! \,(j_{2}-
+m_{2})! \,(j_{2}+ m_{2})!} \right]^{1/2} \nonumber \\
+&{\times} \sum_{s} \frac{(-1)^{s + j_{2} + m_{2}}}{s!}\frac{(j_{2} + j_{3} +
+m_{1} - s)! \, (j_{1} - m_{1} + s)! \,}{(j_{2} + j_{3} - j_{1} - s)! \,
+(j_{3} + m_{3} - s)! \, (j_{1} - j_{2} - m_{3} + s)! \,} \nonumber
+\\
+\nonumber \\
+&= \delta_{m_{1} +m_{2},m_{3}} \, \Delta(j_{1},j_{2},j_{3}) \, \sqrt{2
+j_{3}+1} \label{Q:spf1b}
+\\
+{\times}& \left[ \frac{(j_{1}+j_{2}-j_{3})!\, (j_{3}+j_{2}-j_{1})!\,
+(j_{1}+j_{3}-j_{2})!}{(j_{1} +j_{2} + j_{3} +1)!} \right]^{1/2}
+\nonumber \\
+& {\times}  \,(j_{1}- m_{1})! \,(j_{1}+ m_{1})! \,(j_{2}- m_{2})! \,(j_{2}+
+m_{2})! \,(j_{3}+m_{3})!\,(j_{3}- m_{3})! \nonumber
+\\
+&{\times} \sum_{s} \frac{(-1)^{s}}{s!} \left[ \frac{1}{(j_{1} + j_{2} + j_{3}
+- s)! \, (j_{1} - m_{1} - s)! \, (j_{2} + m_{2} - s)! } \right.
+\nonumber
+\\
+& \qquad \qquad \quad \left. \frac{1}{\,(j_{3} + j_{2} + m_{1} + s)!
+\, (j_{3} - j_{1} - m_{2} + s)!} \right] \nonumber
+\end{align}
+%
+where the triangular function is
+\[
+\Delta(j_{1},j_{2},j_{3}) = 
+\begin{cases}
+1 & \text{if $ \mid j_{1}-j_{2} \mid$ $ < j_{3}<j_{1}+j_{2} $} \\
+0 & \text{other case}
+\end{cases}
+\]
+%
+
+
+\subsection{Symmetries}
+\label{S:C-G-symm}
+
+\begin{subequations}
+  \begin{align}
+    \langle j_1 m_1 j_2 m_2|J M\rangle
+    \label{Q:C-G-symmetries-1} & = (-1)^{j_1+j_2-J} \langle j_1\, {-m_1} j_2 \, {-m_2}|J \, {-M}\rangle \\
+    \label{Q:C-G-symmetries-2} & = (-1)^{j_1+j_2-J} \langle j_2 m_2 j_1 m_1|J M\rangle \\
+    \label{Q:C-G-symmetries-3} & = (-1)^{j_1 - m_1} \sqrt{\frac{2 J +1}{2 j_2 +1}}  \langle j_1 m_1 J \, {-M}| j_2\,{-m_2} \rangle \\
+    \label{Q:C-G-symmetries-4} & = (-1)^{j_1 - m_1} \sqrt{\frac{2 J +1}{2 j_2 +1}} \langle
+    J M j_1 \, {-m_1} | j_2 m_2 \rangle
+  \end{align}
+\end{subequations}
+
+\subsection{Orthogonality relations}
+%
+\begin{subequations}
+  \begin{align}\label{Q:C-G-orthogonality-0}
+    \sum_{m_{1}=-j_{1}}^{j_{1}} C(j_{1} \, j_{2} \, j_{3};m_{1} \, m_{2} \, m_{3}) \,
+    C(j_{1} \, j_{2} \, j'_{3};m_{1} \, m_{2} \, m_{3}) =
+    \delta_{j_{3},j'_{3}} \\
+\label{Q:C-G-orthogonality-1}
+    \sum_{J=|j_1-j_2|}^{j_1+j_2} \sum_{M=-J}^{J} \langle j_1 m_1 j_2 m_2|J M\rangle\langle
+    J M|j_1 m_1' j_2 m_2'\rangle =
+    \delta_{m_1,m_1'}\delta_{m_2,m_2'} \\
+    \label{Q:C-G-orthogonality-2} \sum_{m_1, m_2} \langle J M|j_1 m_1 j_2 m_2\rangle \,
+    \langle j_1 m_1 j_2 m_2|J' M'\rangle = \langle J M | J' M'\rangle =
+    \delta_{J,J'}\delta_{M,M'}
+  \end{align}
+\end{subequations}
+
+
+\subsection{Particular values}
+\label{S:C-G particular-values}
+%
+When one of the angular momenta are zero:
+\begin{align}
+\label{Q:spf1a}
+C(j_{1} \, 0 \, j_{3}; m_{1} \,0 \, m_{3}) = \delta_{j_{1},j_{3}} \,
+\delta_{m_{1},m_{3}}  &
+\\
+  \label{Q:C-G-part-val-1}
+  C(j_{1} \, 1 \, j_{3}; 0 \,0 \, 0) = (j_{3}-j_{1})\, \sqrt{\frac{J_{+}}{2 j_{1} + 1}} \, \delta_{j_{1},j_{3} \pm 1}& & \text{where} && J_{+} = \max{(j_{1},j_{3})} 
+\end{align}
+Note that $j_{3}-j_{1} = \pm 1$.
+
+\section{Wigner 3$-j$ symbols}
+
+Closely related to the Clebsch-Gordan coefficient are the Wigner 3-$j$
+symbols
+
+\begin{equation}\label{Q:spf2}
+C(j_{1} \, j_{2} \, j_{3}; m_{1} \, m_{2} \, m_{3}) =
+(-1)^{j_{1}-j_{2}+m_{3}} \, \sqrt{2 j_{3} + 1} \left( \begin{matrix}j_{1} &
+j_{2} & j_{3} \cr m_{1} & m_{2} & -m_{3}
+\end{matrix}
+\right)
+\end{equation}
+%
+
+\subsection{Symmetries}
+\label{S:3j-symmetries}
+
+They present a highly symmetric form in the three pairs
+$(j_{i},m_{i})$. In particular, they verify
+\begin{equation} \label{Q:spf3}
+(-1)^{j_{1}+j_{2}+j_{3}} \, \left( \begin{matrix}j_{1} & j_{2} & j_{3} \cr
+m_{1} & m_{2} & m_{3}
+\end{matrix}
+\right) =  \left( \begin{matrix}j_{2} & j_{1} & j_{3}
+\cr m_{3} & m_{1} & m_{3}
+\end{matrix}
+\right) = \left( \begin{matrix}j_{1} & j_{3} &
+j_{2} \cr m_{1} & m_{3} & m_{2}
+\end{matrix}
+\right)\, .
+\end{equation}
+Moreover,
+
+\begin{equation}\label{Q:spf4}
+\left( \begin{matrix}j_{1} & j_{2} & j_{3} \cr 0 & 0 & 0
+  \end{matrix}
+\right)=0 \qquad
+\mbox{if} \qquad j_{1}+j_{2} + j_{3}  \quad \mbox{is an odd number}
+\end{equation}
+
+  \noindent
+The equation equivalent to \ref{Q:spf1a} is
+\[
+\left( \begin{matrix}j_{1} & j_{2} & 0 \cr  m_{1} & m_{2} & 0
+  \end{matrix}
+\right)=(-1)^{j_{1} + m_{2}} \sqrt{2 j_{1} +1} \left( \begin{matrix}j_{1} &
+j_{2} & j_{3} \cr 0 & 0 & 0
+\end{matrix}
+\right) \delta_{j_{1},j_{2}} \,
+\delta(m_{1},m_{2})
+\]
+
+\subsection{Orthogonality relations}
+
+From equation \ref{Q:spf1b} it is easy to find the orthogonality
+relations for 3-$j$ symbols
+
+\begin{equation}\label{Q:spf1b2}
+\sum_{m_{1}=-j_{1}}^{j_{1}}  \left( \begin{matrix}j_{1} & j_{2} & j_{3} \cr
+m_{1} & m_{2} & -m_{3}
+\end{matrix}
+\right) \,  \begin{pmatrix}j_{1} & j_{2} &
+j'_{3} \cr m_{1} & m_{2} & -m_{3}
+\end{pmatrix}
+ = ( 2 j_{3} + 1 ) \, \delta_{j_{3},j_{3}'}
+\end{equation}
+
+\subsection{Particular values}
+\label{S:3j-particular-values}
+
+\begin{equation}
+  \label{Q:3j-part-val-1}
+  \begin{pmatrix}  j & 1 & j' \cr 0 & 0 & 0 \end{pmatrix} 
+  = (-1)^{j-1}\,  \sqrt{\frac{j_{>}}{(2j'+1)(2j+1)}} \, \delta_{j',j\pm 1}
+\end{equation}
+where $j_{>} = \max{(j,j')}$.
+\section{Wigner-Eckart theorem}
+\label{S:wign-eckart-theor}
+
+The Wigner-Eckart theorem establishes that the matrix element of a irreducible tensor of k-rank between states $\ket{JM}$ and $\ket{J'M'}$ is proportional to a Clebsh-Gordan coefficient:
+\begin{equation*}
+  \langle JM|\mathrm{T}^{(k)}_q|J'M'\rangle = \alpha \langle J'M';kq|JM \rangle 
+\end{equation*}
+with $\alpha$ independent of $M, M', q$.
+
+We use the definition of \autocite[appendix B]{Galindo1990_QMvI}:
+\begin{equation}\label{Q:W-E-theorem-2}
+  \langle JM|\mathrm{T}^{(k)}_q|J'M'\rangle = \langle J\|\mathrm{T}^{(k)} \|J' \rangle \, \langle J'M';kq|JM \rangle 
+\end{equation}
+This definition differs from the --most usual-- \autocite[see for instance][ch.~XIII]{Messiah1966_QMvII}:
+\begin{equation}\label{Q:W-E-theorem-usual}
+  \langle JM|\mathrm{T}^{(k)}_q|J'M'\rangle = \frac{\langle J\|\mathrm{T}^{(k)} \|J' \rangle}{\sqrt{2 J +1}}\, \langle J'M';kq|JM \rangle 
+\end{equation}
+
+\section{Vector spherical harmonics}
+
+The Vector spherical harmonic $\boldsymbol{\mathcal{Y}}^{L}_{JM}$ is
+the eigenvector of the $\mathbf{L}^{2}$, $\mathbf{J}^{2}$,
+\[
+\boldsymbol{\mathcal{Y}}^{L}_{JM}.
+\]
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

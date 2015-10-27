@@ -1,0 +1,159 @@
+\documentclass[english,oneside]{book}
+  \RequirePackage{amssymb}[1995/01/01]
+
+%\DeclareMathAlphabet{\bi}{OML}{cmm}{b}{it}
+%\DeclareMathAlphabet{\bcal}{OMS}{cmsy}{b}{n}
+%% MATH DEFINITIONS
+%%
+%% Define the roman letters to use in math mode (from iopart.cls)
+%\newcommand{e}{\ensuremath{\mathrm{e}}}
+%\newcommand{i}{\ensuremath{\mathrm{i}}}
+%\newcommand{d}{\ensuremath{\mathrm{d}}}
+%\newcommand{\Real}[1]{\ensuremath{\mathrm{Re}\left[ #1 \right]}}
+%\newcommand{\Imag}[1]{\ensuremath{\mathrm{Im}\left[ #1 \right]}}
+%
+\begin{document}
+\chapter{Coupled equations}
+\section{Wavefunctions}
+
+We assume at $t=-\infty$ the wavefunction is given by
+\[
+\Psi(\mathbf{r},\mathbf{R}) = \psi_{i,T} (\mathbf{r_{T}})
+\]
+
+At an arbitrary posterior time $t$ we expand the wavefunction as:
+\begin{eqnarray}
+\Psi(\mathbf{r},\mathbf{R},t) &=&
+  \int c_{\mathbf{k},\mathbf{K}}(t) \psi_{\mathbf{k},\mathbf{K}}(\mathbf{r},\mathbf{R})\,
+  e^{i E t}  d \mathbf{k} d \mathbf{K}  \\
+&+& \sum_{j} a_{j}(t)) \Phi_{j,T}(\mathbf{r},\mathbf{R}) e^{i E t}
+\nonumber \\
+&+& \sum_{j}  b_{j}(t) \Phi_{j,P}(\mathbf{r},\mathbf{R}) e^{i E t}
+\nonumber
+\end{eqnarray}
+%
+where the states describe the continuum, target and projectile centered
+states. The explicit expressions are:
+\begin{eqnarray}\label{Q:CE-fi-T}
+  \Phi_{j,T}(\mathbf{r},\mathbf{R}) &=& e^{i \mathbf{K}_{T} \cdot \mathbf{R}_{T}} \,
+  \phi_{j,T}(\mathbf{r}_{T}) \,  \mathbb{E}(\mathbf{r}_{P},\mathbf{k}_{P})
+  \\
+  \Phi_{j,P}(\mathbf{r},\mathbf{R}) &=& e^{i \mathbf{K}_{P} \cdot \mathbf{R}_{P}} \,
+  \phi_{j,P}(\mathbf{r}_{P}) \,  \mathbb{E}(\mathbf{r}_{T},\mathbf{k}_{T})
+  \\
+  \psi_{\mathbf{k},\mathbf{K}}(\mathbf{r},\mathbf{R}) &=& \frac{e^{i
+(\mathbf{k}_j\cdot \mathbf{r}_j+\mathbf{K}_j\cdot \mathbf{R}_j)}}{(2
+\pi)^3} \,
+ D^{\pm}(\nu_T,\mathbf{k}_T,\mathbf{r}_T) \, D^{\pm}(\nu_P,\mathbf{k}_P,\mathbf{r}_P)
+ \,D^{\pm}(\nu_N,\mathbf{k}_N,\mathbf{r}_N) \nonumber \\
+\end{eqnarray}
+Here $phi_{j,T(P)}$ are atomic functions of one center. In the case of
+continuum states with Coulomb interactions the distortion factor is
+given by \ref{Q:DFactCoul}
+%
+\[
+D^{\pm}(\nu_j,\mathbf{k}_{j},\mathbf{r}_{j})= N^{\pm}(\nu_{j}) \,{_1F_1}\left(
+\mp i \nu_{j};1; {\pm} i (k_{j} r_{j} \mp \mathbf{k}_{j}
+\cdot\mathbf{r}_{j} ) \right) \, ,
+\]
+%
+$N^{\pm}(\nu_j)= \Gamma(1 {\pm} i\nu_j) e^{-\pi \nu_j/2}$ and Sommerfeld's
+parameter is defined by $\nu_j = m_j Z_j/ k_j$.
+
+The energy can be written as $E=\frac{k_{T}^{2}}{2 m_{\alpha}}+
+\frac{K_{T}^{2}}{2 m_{\alpha}} $
+
+
+\section{Evolution of the wavefunction}
+The wavefunction must obey the time-dependent Schr\"{o}dinger equation
+\begin{equation}\label{Q:CE-tdse}
+  \left( H - i\frac{\partial }{\partial t} \right)\Psi = 0\, , \qquad
+  \qquad H=H_{0} + V_{T} + V_{P}+ V_{N} \,.
+\end{equation}
+%
+We obtain
+\begin{eqnarray}
+i \int \dot{c}(\mathbf{k},\mathbf{K})(t)
+\psi_{\mathbf{k},\mathbf{K}}(\mathbf{r},\mathbf{R}) d \mathbf{k} d
+\mathbf{K}
+  =
+\int c_{\mathbf{k},\mathbf{K}}(t) \left( H - E \right)
+\psi_{\mathbf{k},\mathbf{K}}(\mathbf{r},\mathbf{R})  d \mathbf{k} d \mathbf{K} \\
+  \sum_{j}  a_{j}(t) \left( H - E \right) \Phi_{j,T}
+  - i \dot{a}_{j}(t) \Phi_{j,T}
+  \nonumber \\
++ \sum_{j} b_{j}(t) \left( H - E \right) \Phi_{j,P} -
+  i \dot{b}_{j}(t) \Phi_{j,P}
+ \nonumber
+\end{eqnarray}
+
+Then, we project on each base state. Using the continuum wavefunction
+$\psi_{\mathbf{k}',\mathbf{K}'}$ we get
+\[
+\int  d \mathbf{k} d \mathbf{K}  \,  c_{\mathbf{k},\mathbf{K}}(t) \,
+W^{c,c}_{\mathbf{k}',\mathbf{k}}  + \sum_{j} a_{j}
+W^{c,T}_{\mathbf{k}',j} - i \dot{a}_{j} S^{c,T}_{\mathbf{k}',j} +
+\sum_{l} b_{l} W^{c,P}_{\mathbf{k}',l} - i \dot{b}_{l}
+S^{c,P}_{\mathbf{k}',l} = i \dot{c}_{\mathbf{k}',\mathbf{K}'}(t)
+\]
+
+Identically, when projecting on bound states,
+\begin{eqnarray*}
+\int  d \mathbf{k} d \mathbf{K}  \Big( c_{\mathbf{k},\mathbf{K}}(t) \,
+W^{T,c}_{m,\mathbf{k}} - i \dot{c}_{\mathbf{k},\mathbf{K}}(t)
+\,S^{T,c}_{m,\mathbf{k}} \Big) + \sum_{j} a_{j} W^{T,T}_{m,j} +
+\sum_{l} b_{l} W^{T,P}_{m,l} - i \dot{b}_{l} S^{T,P}_{m,l} = i
+\dot{a}_{m}\nonumber
+  \\ %\\
+\int  d \mathbf{k} d \mathbf{K}  \Big( c_{\mathbf{k},\mathbf{K}}(t) \,
+W^{P,c}_{m,\mathbf{k}} - i \dot{c}_{\mathbf{k},\mathbf{K}}(t)
+\,S^{P,c}_{m,\mathbf{k}} \Big) + \sum_{j} a_{j} W^{P,T}_{m,j} - i
+\dot{a}_{j} S^{P,T}_{m,j} + \sum_{l} b_{l} W^{P,P}_{m,l} = i
+\dot{b}_{m} \nonumber
+\end{eqnarray*}
+or, in matrix form:
+%\begin{equation}\label{Q:CE-diff-equat}
+%  \begin{array}{cccccc}
+%     &  &  &  &  &  \\
+%     &  &  &  &  &  \\
+%     &  &  &  &  &  \\
+%     &  &  &  &  &  \\
+%     &  &  &  &  &  \\
+%     &  &  &  &  & 
+%  \end{array}
+%\end{equation}
+
+
+\noindent Where the coefficients are matrix elements given by
+\begin{eqnarray}
+W^{c,c} &=& \langle
+\psi_{\mathbf{k}',\mathbf{K}'}|H-E|\psi_{\mathbf{k},\mathbf{K}} \rangle
+ \\
+W^{T,T} &=& \langle \Phi_{P,j'}|H-E|\Phi_{P,j'} \rangle
+ \\
+W^{P,P} &=& \langle \Phi_{P,j'}|H-E|\Phi_{P,j'} \rangle
+ \\
+W^{T,P} &=& \langle \Phi_{T,j'}|H-E|\Phi_{P,j'} \rangle
+ \\
+W^{P,c} &=& \langle \Phi_{P,j'}|H-E|\psi_{\mathbf{k},\mathbf{K}}
+\rangle
+ \\
+W^{T,c} &=& \langle \Phi_{T,j}|H-E|\psi_{\mathbf{k},\mathbf{K}} \rangle
+ \end{eqnarray}
+%
+and
+%
+\begin{eqnarray}
+S^{T,P} &=& \langle \Phi_{T,j'}|\Phi_{P,j'} \rangle
+ \\
+S^{P,c} &=& \langle \Phi_{P,j'}|\psi_{\mathbf{k},\mathbf{K}} \rangle
+ \\
+S^{T,c} &=& \langle \Phi_{T,j}|\psi_{\mathbf{k},\mathbf{K}} \rangle
+\end{eqnarray}
+
+\subsection{Evaluation of coefficients}
+\[
+\mathbb{K}_{j} = \frac{\nabla_{\mathbf{r}_{j}}
+D(\nu_{j};\mathbf{k}_{j},\mathbf{r}_{j})}{D(\nu_{j};\mathbf{k}_{j},\mathbf{r}_{j})}
+\]
+\end{document}

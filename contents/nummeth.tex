@@ -1,0 +1,382 @@
+\chapter{Numerical methods}
+
+\section{Evaluation of the cosine Fourier transform of the transition matrix}
+
+In chapter \ref{S:Compu-trans-proba} (equation \ref{Q:cFT-tm}) it was necessary to
+evaluate the cosine Fourier Transform components of the transition matrix
+\[
+t^{m}_{if}(\bm{k},Q_{\perp})= \frac{2}{\sqrt{2 \pi}} \int_{0}^{\pi} t_{if}(\bm{k},\bm{Q})
+\; \cos{(m \, \varphi_{k Q})} \; d \varphi_{k Q} = \frac{2 I_{m}}{\sqrt{2 \pi}}
+\]
+We will adapt the method given in \cite{Press1966_NRIvI} (chapter 13) to our
+problem. First, the complex function $h (= t_{if})$ is approximated in the region of
+interest [$0,\pi$] in terms of a (left-right) symmetric polynomial, such that
+(\cite[(13.9.7)]{Press1966_NRIvI}).
+\begin{equation}\label{Q:NMI0}
+  h(t) \approx \sum_{j=0}^{N} h_{j} \; \psi\left( \frac{t-t_{j}}{\Delta}
+  \right) + \sum_{\mathrm{ends}} h_{j} \; \varphi \left(
+    \frac{t-t_{j}}{\Delta} \right)
+\end{equation}
+where
+\[
+\Delta \equiv (b-a)/N = \pi/N \, , \qquad t_{j}\equiv a+j\,\Delta = j \Delta \,, \qquad
+h_{j} \equiv h(t_{j}) \quad (j=0,\ldots,N)
+\]
+is the length of each subinterval in which the domain of integration is divided. Now,
+applying the integral operator $\int_{0}^{\pi} d t \cos{(mt)}$ to the above equation and
+changing the integration variable to $s=\left( t-t_{j} \right)/\Delta$
+\[
+I_{m} = \Delta \, \left[ \sum_{j=0}^{N} h_{j} \; \int_{0}^{\pi} d s \, \psi(s) \,
+  \cos{\left[ m (\Delta s + t_{j}) \right]} + \sum_{\mathrm{ends}} h_{j} \; \int_{0}^{\pi}
+  d s \, \varphi_{j}(s) \, \cos{\left[ m ( s - j) \right]} \right]
+\]
+If we write the cosine function as a sum of exponentials, $\cos{x} = \left( e^{i x} +
+  e^{-i x} \right)/2$, we obtain
+\begin{eqnarray*}
+  I_{m} &=& \frac{\Delta}{2} \left[W(\theta) \sum_{j=0}^{N} h_{j} \,
+    e^{i j \, \theta} + W(-\theta) \sum_{j=0}^{N} h_{j} \,
+    e^{-i j \,\theta} \right.
+  \\
+  && \quad \left. + \sum_{\mathrm{ends}} h_{j} \alpha_{j}(\theta) +
+    \sum_{\mathrm{ends}} h_{j} \alpha_{j}(-\theta) \right] \nonumber
+\end{eqnarray*}
+where
+\[
+W(\theta) = \int_{-\infty}^{\infty} d s \, e^{i \theta s} \psi(s) \, , \qquad
+\alpha_{j}(\theta) = \int_{-\infty}^{\infty} d s \, e^{i \theta s} \varphi_{j}(s-j)
+\]
+%
+and $\theta = m \Delta = m \pi/N$. Now the symmetry of the polynomials implies
+\cite[see][]{Press1966_NRIvI}
+%
+\begin{equation}\label{Q:NMI1}
+  \varphi_{N-j}(s)=\varphi_{j}(s)\,, \qquad \alpha_{N-j}(\theta) =
+  e^{i N \theta} \, \alpha_{j}^{*}(\theta) = e^{i m \pi} \,
+  \alpha_{j}^{*}(\theta) = (-1)^{m}\, \alpha_{j}^{*}(\theta) \,.
+\end{equation}
+Moreover, due to $\varphi_{j}(s)$ are real we have $\alpha_{j}(-\theta) =
+\alpha_{j}^{*}(\theta)$. Regarding the function over all the interior points, the property
+$\psi(s)=\psi(-s)$ implies that $W(\theta)=W(-\theta)$ is real. The above integral can be
+written
+\[
+I_{m} = \frac{\pi}{N} \left[W(\theta) \sum_{j=0}^{N} h_{j} \, \cos{(j\,\theta)} +
+  \sum_{\mathrm{ends}} h_{j} \, \Real{ \alpha_{j}(\theta)} \right]
+\]
+Now, the summation over $N+1$ values can be made by a standard discrete Fourier method if
+$N+1$ is a power of 2 ($N=2^{n}$). To minimize the number of points where the function
+$h(t)$ has to be evaluated (and avoid numerical problems,
+\cite[see][(13.9.14)]{Press1966_NRIvI}) we separate the last term in the first
+summation. Thus,
+\[
+I_{m} = \frac{\pi}{N} \left[W(\theta) \left( h_{0} + (-1)^{m} h_{N} + \sum_{j=1}^{N-1}
+    h_{j} \, \cos{(j\,m \pi/N)} \right) + \sum_{\mathrm{ends}} h_{j} \,
+  \Real{\alpha_{j}(\theta)} \right]
+\]
+
+Now the summation is the cosine discrete FFT \cite[(12.3.17)]{Press1966_NRIvI} and it can
+be carried out by standard methods for a $N=2^{n}$
+\begin{eqnarray}\label{Q:NMI2}
+  I_{m} &=& \frac{\pi}{N} \left\{ W(\theta) \left[ \frac{h_{0} + (-1)^{m}
+        h_{N}}{2} + \mathrm{cosDFT} \left(h_{0}, \ldots, h_{N-1} \right)(m)
+    \right] \right.
+  \\
+  && + \alpha^{R}_{0} h_{0} + \alpha^{R}_{1}h_{1} + \alpha^{R}_{2} h_{2}
+  + \alpha^{R}_{3} h_{3} \nonumber
+  \\
+  && \left. + \, (-1)^{m} \big[ A^{R}_{0} h_{N} + \alpha^{R}_{1} h_{N-1}
+    + \alpha^{R}_{2} h_{N-2} + \alpha^{R}_{3} h_{N-3} \big] \nonumber
+    \vstretch \right\}
+\end{eqnarray}
+Here the superscript $^{R}$ means the real part of the $\alpha$ coefficients, which for a
+cubic interpolation scheme are given by
+\begin{eqnarray*}
+  W(\theta) &=& \left( \frac{6+\theta^{2}}{3 \theta^{4}}\right)(3 -4
+  \cos\theta + \cos(2 \theta))
+  \\
+  \alpha_{0} &=& \frac{(-42 + 5 \theta^{2})+ (6+\theta^{2})(8 \cos \theta
+    - \cos (2 \theta))}{6 \theta^{4}} + i \frac{(-12 \theta + 6
+    \theta^{3}) +(6 + \theta^{2}) \sin (2 \theta)}{6 \theta^{4}}
+  \\
+  \alpha_{1} &=& \frac{14(3 - \theta^{2}) - 7 (6 + \theta^{2})\cos
+    \theta}{6 \theta^{4}} + i \frac{30 \theta - 5(6+\theta^{2}) \sin
+    \theta}{6 \theta^{4}}
+  \\
+  \alpha_{2} &=& \frac{-4(3-\theta^{2}) + 2(6+\theta^{2}) \cos \theta}{ 3
+    \theta^{4}} + i \frac{-12 \theta + 2 (6+\theta^{2}) \sin \theta}{3
+    \theta^{4}} \\
+  \alpha_{3} &=& \frac{2(3 - \theta^{2}) - (6+\theta^{2}) \cos \theta }{6
+    \theta^{4}} + i\frac{6 \theta - (6+ \theta^{2}) \sin(\theta)}{6
+    \theta^{4}}
+  \\
+  A_{0} &=& \frac{(-6 + 11\theta^{2})+(6+\theta^{2})\cos(2 \theta)}{6
+    \theta^{4}} - i \, \Imag{\alpha_{0}}
+\end{eqnarray*}
+
+Equivalently, if we are interested in the sine FFT, the imaginary part of the correction
+factors $\alpha_{j}$ must be used (complex conjugate for the end points,
+\cite[see][]{Press1966_NRIvI})
+
+\section{Generalized Filon's method to Bessel transform}
+
+Based in previous generalization for spherical Bessel functions
+\cite{Sommer1979CPCp383} we extend Filon's integration formula
+\cite[see][]{Press1966_NRIvI} to integer Bessel functions integrals of a
+function $f$, evaluated at values at $r_{j}= a + j\, h$
+\begin{equation}\label{Q:NMI3}
+  F_{m}(p) = \int_{r_{0}}^{r_{2N}} f(r) \, J_{m}(p\,r) \, d r \,.
+\end{equation}
+First, we can approximate the function $f(r)$ locally by a polynomial
+$f(r) = \sum_{j=0}^{n} a_{n}(j) x^{n}$, for $x=pr$ with $x_{2j-2} \le x
+\le x_{2j}$. In the case of Filon's method the polynomial of degree 2
+in Lagrange's three points interpolation formula is obtained by the usual formula \cite{Press1966_NRIvI},
+%
+\begin{equation}\label{Q:NMI4} 
+f(r_{2 j-2} + \alpha h) \approx  P_{j}(x) = A_{0}(j) f(r_{2j-2})+
+A_{1}(j) f(r_{2j-1}) + A_{2}(j) f(r_{2j}) \qquad (0 < \alpha < 2)
+\end{equation}
+where for each interval $j$ we write $x= x_{2j-2}+\alpha h$ and the coefficients may be evaluated as
+\begin{eqnarray*}
+A_{0}  &=& (\alpha-1)(\alpha-2)/2 \\
+A_{1}&=& 1-(\alpha-1)^{2} \\
+A_{2} &=& (\alpha-1)\alpha/2 \,.
+\end{eqnarray*}
+%
+After writing them in terms of the coordinate $x= x_{2j-2}+\alpha h$, each of the $A(j)$ coefficients is a second degree polynomial
+\begin{eqnarray}
+A_{0}(j) &=& \frac{ x^{2} - (3 p\, h + 2 x_{2j-2}) x  + \left( 2 (p\,
+h)^{2} + 3 (p\, h) x_{2j-2} + x_{2j-2}^{2} \right)}{2 \,(p\, h)^{2}}
+\nonumber
+  \\ \label{Q:NMI6}
+A_{1}(j) &=& \frac{-x^{2} + 2 (p\, h + x_{2j-2}) x  - \left( 2 p\, h
+x_{2j-2} - x_{2j-2}^{2} \right)}{(p\, h)^{2}}
+\\
+A_{2}(j) &=& \frac{ x^{2} - (p\, h + 2 x_{2j-2}) x  + x_{2j-2}
+\left(p\, h + x_{2j-2} \right)}{2 \,(p\, h)^{2}} \nonumber
+\end{eqnarray}
+%
+This polynomial reproduces exactly the values of the function over the
+three points $x_{j}=p \,r_{j}$ for $j=0,1,2$. Replacing \ref{Q:NMI4} on
+\ref{Q:NMI3} we can write
+\begin{eqnarray}\label{Q:NMI6b}
+F_{m}(p) &=& \frac{1}{p} \sum_{j=1}^{N} \int_{x_{2j-2}}^{x_{2j}}
+P_{j}(x)
+J_{m}(x) d x \\
+&=& \frac{1}{p k^{2}} \sum_{j=0}^{2N} d_{m}(j) \,  f(r_{j}) \nonumber
+\end{eqnarray}
+%
+where for convenience we have separated the factor $1/k^{2}$, with $k =
+ph$. Defining the momenta of the Bessel functions
+\begin{equation}\label{Q:NMI7}
+I_{m}^{\lambda}(j) = \int_{x_{2j-2}}^{x_{2j}} x^{\lambda} J_{m}(x) \,
+d x
+\end{equation}
+and taking into account the expressions \ref{Q:NMI6} (note that the
+intervals share the extremes) we obtain
+\begin{eqnarray*}
+  2 \, d_{m}(0) &=& I^{2}_{m}(1) - (2 x_{0}+3 k) I^{1}_{m}(1) + (2 k^{2}  + 3 k x_{0} + x_{0}^{2}) I_{m}^{0}(1) \nonumber
+  \\
+  2 \, d_{m}(2 N) &=& I^{2}_{m}(N) - (2 x_{2N}+3 k) I^{1}_{m}(N) + (2  k^{2} - 3 k x_{2 N} + x_{2 N}^{2}) I_{m}^{0}(N) \quad \nonumber
+  \\
+  2 \, d_{m}(2 j) &=& \left[ I^{2}_{m}(j+1) + I^{2}_{m}(j) \right]
+  \\
+  && - 2 x_{2j}\left[ I^{1}_{m}(j+1) + I^{1}_{m}(j)\right] + 3k \left[ I^{1}_{m}(j+1) - I^{1}_{m}(j) \right] \nonumber
+  \\
+  &&+ (2k^{2} + x_{2j}^{2}) \left[ I^{0}_{m}(j+1) + I^{0}_{m}(j)\right] + 3k x_{2j}\left[ I^{0}_{m}(j+1) - I^{0}_{m}(j) \right] \nonumber
+  \\
+  d_{m}(2 j-1) &=& -I^{2}_{m}(j) + 2 x_{2j-1} I^{1}_{m}(j) - (x_{2j-1}^{2} - k^{2}) I^{0}_{m}(j) \nonumber
+\end{eqnarray*}
+Note that both ends points are equivalents. The odd terms are obtained from $A_{1}(j)$ and the even terms are obtained from $A_{2}(j)+A_{0}(j+1)$ ($j=1, \ldots, N-1$)
+
+Now, while the Bessel functions verify recurrence relations (see \ref{S:Bess-n}), so do the $I_{m}^{\lambda}(j)$ integrals.
+
+\subsection{Evaluation of the Bessel momenta}
+
+Now, we will focus on the evaluation of the Bessel momentum integrals
+\[
+I_{m}^{\lambda}(j) = \int_{x_{2(j-1)}}^{x_{2j}} x^{\lambda} J_{m}(x) \,
+d x
+\]
+By using \ref{Q:BesRecRe4} we obtain
+\begin{eqnarray}\label{Q:NMI8}
+I_{m+1}^{\lambda+1}(j)  &=& \int_{x_{2(j-1)}}^{x_{2j}}  \left[ m\,
+x^{\lambda} \, J_{m}(x) - x^{\lambda+1} \, \,J'_{m}(x)\right] d x
+\\
+&=& m I_{m}^{\lambda}(j) - \left[ x^{\lambda+1} J_{m}(x) -
+\int_{x_{2(j-1)}}^{x_{2j}} (\lambda+1)\, x^{\lambda} J_{m}(x) d x
+\right]
+\nonumber \\
+&=& (m + \lambda+1) I_{m}^{\lambda}(j) - \left. x^{\lambda + 1}
+J_{m}(x) \right|_{x_{2(j-1)}}^{x_{2j}}
+ \nonumber
+\end{eqnarray}
+For integrals of the same order $\lambda$ we can use \ref{Q:BesRecRe2}
+and write
+\begin{eqnarray}\label{Q:NMI9}
+I_{m+1}^{\lambda}(j) &=& \int_{x_{2(j-1)}}^{x_{2j}}  x^{\lambda}\,
+\left[ J_{m-1}(x) - 2 \, \,J'_{m}(x)\right] d x \nonumber
+\\
+&=& I_{m-1}^{\lambda}(j) + 2 \, \lambda \, I_{m}^{\lambda-1}(j) - 2\,
+x^{\lambda} \, J_{m}(x)
+\end{eqnarray}
+Note that for $\lambda=0$ the above recursion gives
+\[
+I^{0}_{m+1}(j) = I^{0}_{m-1}(j) - 2 J_{m}(x) \,.
+\]
+These recursion relations are expected to have the same stability
+properties than the corresponding for the Bessel functions (downward)
+except for small values of the argument ($x \lesssim m$), where upward
+recursion can be used.
+
+The set of recursion relations is
+\begin{eqnarray}\label{Q:NMI10a}
+I_{m+1}^{\lambda+1}(j) &=& (m + \lambda+1) I_{m}^{\lambda}(j) - \left.
+x^{\lambda + 1} J_{m}(x) \right|_{x_{2(j-1)}}^{x_{2j}}
+\\
+I^{\lambda}_{m+1}(j)&=& I_{m-1}^{\lambda}(j) + 2 \, \lambda \,
+I_{m}^{\lambda-1}(j) - 2\, x^{\lambda} \, J_{m}(x) \label{Q:NMI10b}
+\\
+I^{0}_{m+1}(j) &=& I^{0}_{m-1}(j) - 2 J_{m}(x) \label{Q:NMI10c}
+\\
+I_{m-1}^{2}(j) &=& (m - 2) I_{m}^{1}(j) + x^{2} J_{m}(x)
+\label{Q:NMI10d}
+\end{eqnarray}
+
+We need starting values for both upward and downward recursions. For
+upward recursion the values of $J_{0}, J_{1}, I^{0}_{0}, I^{0}_{1}$
+while for downward their values for some arbitrary large
+$m=m_{0},m_{0}-1$ are necessary. From equations
+\ref{Q:BesMInta}-\ref{Q:BesMIntc} \cite[see also][]{Gradsht1980_TOI} we have
+%
+\begin{eqnarray*}
+I_{1}^{0} &=& - J_{0}(x) \nonumber \\
+I_{0}^{1} &=& x \, J_{1}(x) \\
+I_{1}^{2} &=& x^{2} \, J_{2}(x) \nonumber
+\end{eqnarray*}
+
+For downward recursion the values for a given $M_{0}$ are obtained from
+\begin{eqnarray}\label{Q:Sum}
+J_{m_{0}}(x) &=& \frac{1}{m_{0}!} \left( \frac{x}{2} \right)^{m_{0}}
+\sum_{k=0}^{\infty} \frac{(-1)^{k}}{k!\, (m_{0}+k)!/m_{0}!} \left(
+\frac{x}{2} \right)^{2k} \\
+I^{\lambda}_{m_{0}} &=& \frac{1}{m_{0}!} \left( \frac{x}{2}
+\right)^{m_{0}+ \lambda + 1} \sum_{k=0}^{\infty} \frac{(-1)^{k}}{k!\,
+\left[ \frac{(m_{0}+k)!}{m_{0}!} \right] \, (m_{0}+ \lambda + 1 + 2k)}
+\left( \frac{x}{2} \right)^{2k}
+\end{eqnarray}
+
+\section{General Filon's method}
+\label{S:gener-filons-meth}
+
+We want a method to numerically solve integrals like
+\begin{equation}
+  \label{Q:integral-filon-general}
+  F(a,b)= \int_{a}^{b} f(t) \, W(t)\, dt
+\end{equation}
+where the kernel $W(t)$ presents a non-smooth behavior, for instance could be a highly oscillatory function (exponential, sine, cosine \dots). In particular we will solve it for the case of an exponential $W(t)= \exp{(i \omega t)}$
+
+As a first step we divide the integration domain in $N$ intervals, 
+\begin{equation}
+\label{Q:f-sum_j}
+  F(a,b)= \sum_{j=0}^{N-1} \int_{t_{j}}^{t_{j+1}} f(t) \, W(t)\, dt = \sum_{j=0}^{N-1} F_{j}
+\end{equation}
+
+\subsection{Polynomial approximation}
+\label{S:polyn-appr}
+
+For each interval $t_{j-1} \le t \le t_{j}$ we approximate the function $f(t)$ by a second-degree polynomial $f(t)\approx a_{0} + a_{1}t + a_{2}t^{2}$. For equispaced intervals (with spacing $h=t_{j+1}-t_{j}$) the function may be written in terms of a new variable $\alpha = (t-t_{j})/h$ as
+\begin{equation}
+  \label{Q:gfm-polyn-approx}
+  f(t) \approx P(t)= a_{j} + b_{j} \alpha + c_{j} \alpha^{2} \quad , \qquad t= t_{j}+\alpha h \quad \qquad (-1  \le \alpha \le 1)
+\end{equation}
+
+Since the polynomial is unique it must be the one obtained by Lagrange's method. The polynomial may be also written in terms of three second-degree polynomials
+\begin{equation}
+  \label{Q:fgm-lagrange-polyn}
+  P_{j}(t)= A^{j}_{-1} \,f(t_{j-1}) + A^{j}_{0} \,f(t_{j}) + A^{j}_{1} \,f(t_{j+1})
+\end{equation}
+where the coefficients can be obtained by the classical Lagrange formula; in terms of the variable $\alpha$ they may be written as 
+\begin{eqnarray}
+  \label{Q:fgm-lagrange-polyn-coeff}
+  A^{j}_{-1}&=& \frac{\alpha(\alpha - 1)}{2} \nonumber \\
+  A^{j}_{0} &=& -(\alpha + 1)(\alpha - 1)  \\
+  A^{j}_{1} &=& \frac{\alpha(\alpha + 1)}{2} \nonumber 
+\end{eqnarray}
+
+\subsection{Integration over one interval}
+\label{S:integr-one-interv}
+
+The integral over one interval may be performed in the new variable $\alpha$
+\begin{eqnarray*}
+   F_{j}&=& \int_{t_{j}-1}^{t_{j+1}} dt \, f(t) \, W(t) = h\, \int_{-1}^{1} d\alpha \, f(t_{j} + h \alpha) \, W(t_{j} + h \alpha) \\
+& \approx& h \int_{-1}^{1} d\alpha \, W(t_{j} + h\alpha) \left[ \frac{\alpha(\alpha-1)}{2} \, f(t_{j-1}) + (1-\alpha)(1+\alpha) \, f(t_{j}) + \frac{\alpha(\alpha+1)}{2} \, f(t_{j+1}) \right]\\
+& \approx& h \int_{-1}^{1} d\alpha \, \frac{W(t_{j} + h\alpha)}{2} \left[ (\alpha^{2} -\alpha )\, f(t_{j-1}) + 2\,(1 -\alpha^{2} ) \, f(t_{j}) + (\alpha^{2}+\alpha) \, f(t_{j+1}) \right] \,.
+\end{eqnarray*}
+%
+We define the momenta of the kernel as
+\begin{equation*}
+  I_{n}(j)= \frac{1}{2} \int_{-1}^{1} d \alpha \, \alpha^{n}\, W(t_{j}+h\alpha)
+\end{equation*}
+and write the one-interval integral as
+\begin{equation}
+  \label{Q:fgm-one-interv-integ}
+  F_{j}= h \left\{ [I_{2}(j)-I_{1}(j)]\,f(t_{j-1}) + 2\,[I_{0}(j)-I_{2}(j)]\,f(t_{j}) + [I_{2}(j)+I_{1}(j)]\,f(t_{j-1})\right\}
+\end{equation}
+
+\subsubsection{Case of an Exponential weight function}
+\label{S:expon-weigth-funct}
+
+Si $W(t)=e^{i \omega t}= e^{i \omega (t_{j}+h\alpha)}$ we have
+
+\begin{equation}
+  \label{Q:fgm-moment-expon}
+  I_{n}(j)=\frac{1}{2} \int_{-1}^{1} d\alpha \, \alpha^{n} \, e^{i \omega t_{j}} \, e^{i \omega h \alpha} = e^{i \omega t_{j}} \,\frac{1}{2} \int_{-1}^{1} d\alpha \, \alpha^{n} \, e^{i \omega h \alpha}
+\end{equation}
+
+The last integral may be easily solved using integration by parts:
+\begin{equation*}
+  \mathcal{I}_{n}= \frac{1}{2}  \int_{-1}^{1} d\alpha \, \alpha^{n} \, e^{i \omega h \alpha} =
+\frac{1}{h\omega} \left[ \frac{e^{ih\omega} - (-1)^{n}e^{-i h \omega}}{2i} - \frac{n}{i} \mathcal{I}_{n-1}\right] \,.
+\end{equation*}
+Explicitly,
+\begin{eqnarray}\label{Q:fgm-moment-expon-1}
+  \mathcal{I}_{0}&=& \frac{\sin(h\omega)}{h\omega} \\
+  \mathcal{I}_{1}&=& \frac{\cos(h \omega)}{i h\omega} - \frac{\mathcal{I}_{0}}{i h\omega} \\
+  \mathcal{I}_{2}&=& \frac{\sin(h \omega)}{h\omega} - 2\, \frac{\mathcal{I}_{1}}{i h\omega}
+\end{eqnarray}
+
+After replacing in the expresion for the integral (\ref{Q:fgm-one-interv-integ}) we obtain
+\begin{equation}
+\label{Q:fgm-f_j-expon}
+  F_{j}= h \, e^{i \omega t_{j}} \, \vec{K} \cdot \vec{F}
+\end{equation}
+with 
+\begin{equation}
+  \label{Q:fgm-f_j-expon-expla}
+  \vec{K}= (\mathcal{I}_{2} - \mathcal{I}_{1} , 2[\mathcal{I}_{0} - \mathcal{I}_{2}],  \mathcal{I}_{2} + \mathcal{I}_{1}) \qquad \qquad \vec{F}= (f_{j-1}, f_{j}, f_{j+1})
+\end{equation}
+
+\subsubsection{Simplification to Simpson's rule}
+\label{S:simpl-simps-rule}
+For a constant weight function $W(t)=1$ we should obtain Simpson's quadrature rule.
+By taking the limit to null frequency $\omega$ in the exponential we should get  Simpson's classical formula. We can proceed either by taking $\omega\to 0$ in the integrand in (\ref{Q:fgm-moment-expon}) or directly in the general results (\ref{Q:fgm-moment-expon-1}). Although in the latter case the limit must be taken very carefully, we get
+\begin{equation*}
+  I_{0}= 1 \qquad , \qquad \qquad I_{1}= 0  \qquad , \qquad \qquad I_{2}= \frac{1}{3}
+\end{equation*}
+which replaced in (\ref{Q:fgm-one-interv-integ}) gives us
+\begin{eqnarray*}
+  F_{j}&=& h \left[ \frac{1}{3} \, f(t_{j-1}) + 2\,\left( 1 - \frac{1}{3} \right) f(t_{j}) + \frac{1}{3} \, f(t_{j+1}) \right] \\
+  &=& \frac{h}{3} \left[f(t_{j-1}) + 4 f(t_{j})+ f(t_{j+1})  \right] \qquad ,\qquad \qquad \qquad h= t_{j+1}-t_{j}= \frac{t_{j+1}-t_{j-1}}{2}
+\end{eqnarray*}
+ 
+
+\subsection{Summation over the entire integration domain}
+\label{S:summ-entire-domain}
+
+In the summation used to evaluate the full integral (\ref{Q:f-sum_j}) each interval may be evaluated as part of the $I_{j}$ or as part of $I_{j-1}$, except for the first and last intervals
+\begin{equation*}
+  F(a,b)= 
+\end{equation*}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

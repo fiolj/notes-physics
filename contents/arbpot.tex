@@ -1,0 +1,721 @@
+\chapter{Generalization to arbitrary potentials}
+
+In order to evaluate the cross sections for multiple electron atoms, we
+will use numeric wavefunctions in the initial and final results
+\parencite{Madison1973PRAp2449,Gulyas1995JPBp245,Fiori2001PRAp12705}. We will use the program of
+Salvat and co-workers \parencite{Salvat1995CPCp151} To solve numerically the
+partial-wave time-independent Schr\"{o}dinger equation and evaluate the
+transition matrix by means of partial wave expansions.
+
+The only difference between the present calculations and those
+performed for hydrogenic atoms arise in the evaluation of matrix
+elements between atomic wavefunctions, that will have the general form
+\[
+f = \langle \, \phi_{f}^{-} \, \mid  \, g \, \mid \, \phi_{i} \rangle
+\]
+
+\section{Definition of initial and final states}
+
+The initial bound state of the atom is given by an eigenvector of the
+angular momentum $L,L_{z}$ operators
+%
+\begin{equation}\label{Q:ap1}
+\phi_{i}(\bm{r}) = \frac{u_{n_{i} \ell_{i}} (\bm{r})}{r} \, Y_{\ell_{i}
+m_{i}}(\hat{r})
+\end{equation}
+%
+where the $u_{n_{i} \ell_{i}}$ verifies the differential equation
+\[
+h_{\ell} u_{n \ell} \equiv \left[ - \frac{d^{2}}{d r^{2}} +
+\frac{\ell (\ell + 1 )}{r^{2}} + \frac{2 m_{j}}{\hbar^{2}}\, V_{j}(r)
+\right] u_{n \ell} = \varepsilon_{n \ell} \, u_{n \ell}
+\]
+
+The continuum state can be expanded in partial waves (convention used
+in \cite{Salvat1995CPCp151})
+
+\begin{equation}\label{Q:ap2}
+\psi^{\pm}_{\bm{k}}(\bm{r}) = \frac{4 \pi}{(2 \pi)^{3/2}}\sum_{\ell,\, m}
+i^{\ell} \, e^{\pm i \delta_{\ell}} \frac{P_{k,\,
+\ell}(r)}{k\,r}\ Y^{*}_{\ell m}(\hat{k})\, Y_{\ell m}(\hat{r})
+\end{equation}
+
+\subsection{Normalization of the partial-wave functions}
+
+The bound states of total and $z$ component of angular momentum
+$\ell_{i}, m_{i}$ are normalized to unity
+\[
+\int_{0}^{\infty} d r \; u^{*}_{n_{i} \ell_{i}} \, u_{n'_{i}
+\ell'_{i}} = \delta_{n_{i} n'_{i}} \delta_{\ell_{i} \ell'_{i}} \, .
+\]
+
+The continuum states are normalized in the momentum scale
+\[
+\int_{0}^{\infty} d r \; P^{*}_{k \ell} \, P_{k' \ell} =
+\frac{\pi}{2}\; \delta(k-k') \, ,
+\]
+with asymptotic behavior
+\[
+\lim_{r \to \infty} P_{k \ell}(r) = \sin\left( kr - \nu \ln(2 k r) +
+\frac{\ell \pi}{2} + \delta_{\ell} \right)
+\]
+
+However, normalization parameters can be chosen such that both bound
+and continuous partial-wave states are real.
+
+\section{Evaluation of the Form factor}
+
+Here we evaluate the form factor
+
+\begin{equation}\label{Q:ap3}
+F_{if} = (2 \pi)^{-3/2} \int d \bm{r} \, \psi^{-*}_{\bm{k}}(\bm{r})
+\ e^{i \bm{q} \cdot \bm{r}} \phi_{n_{i} \ell_{i}}(\bm{r}) \,.
+\end{equation}
+
+We will use the expansion of the exponential \cite[(A.42)]{Galindo1990_QMvI}
+
+\begin{equation}\label{Q:ap4}
+e^{i \bm{q} \cdot \bm{r}} = 4 \pi \, \sum_{\ell, m} i^{\ell}
+j_{\ell}(q r) \ Y^{*}_{\ell m}(\hat{q})\, Y_{\ell m}(\hat{r})
+\end{equation}
+where
+\[
+j_{\ell}(z) = \sqrt{\frac{\pi}{2z}}\, J_{\ell +1/2}(z)
+\]
+is the spherical Bessel function of order $\ell$
+\cite[(A.116)]{Galindo1990_QMvI} and $J_{\ell}$ is the $\ell$-order Bessel
+function. The convention on these functions is such that
+$j_{0}(z)=\sin(z)/z$.
+
+Replacing \ref{Q:ap1},\ref{Q:ap2} and \ref{Q:ap4} in \ref{Q:ap3} we
+obtain
+\begin{eqnarray*}
+\lefteqn{F_{if} = \frac{1}{(2 \pi)^{3/2}} \int r^{2} d r d
+\hat{r} \frac{u_{n_{i}\ell_{i}}(r)}{r}\, Y_{\ell_{i} m_{i}}(\hat{r})
+\left[ \frac{4 \pi}{(2 \pi)^{3/2}} \sum_{\ell,m} (-i)^{\ell}
+e^{i \delta_{\ell}} \frac{P_{k \ell}(r)}{k r} \,\ Y_{\ell
+m}(\hat{k})\, Y^{*}_{\ell m}(\hat{r}) \right]}
+\\
+&& \qquad \qquad {\times} \left[ 4 \pi  \sum_{\ell',m'} \, i^{\ell'}
+j_{\ell'}(q r) \, \ Y^{*}_{\ell' m'}(\hat{q})\, Y_{\ell' m'}(\hat{r})
+\right]\,
+\\
+&=& \frac{2}{\pi k} \sum_{{\ell,m \atop \ell',m'}}  (-i)^{\ell} \,
+i^{\ell'} e^{i \delta_{\ell}} \,Y_{\ell m}(\hat{k})\,
+Y^{*}_{\ell' m'}(\hat{q}) f_{\ell,\ell',\ell_{i}}(k,q) \int d
+\hat{r}\, Y^{*}_{\ell m}(\hat{r}) \, Y_{\ell' m'}(\hat{r}) \,
+Y_{\ell_{i} m_{i}}(\hat{r}) \, .
+\end{eqnarray*}
+
+The integral over the solid angle can be written in terms of the
+Clebsch-Gordan coefficients or 3-$j$ symbols \cite[(A.44)]{Galindo1990_QMvI}
+%
+\begin{eqnarray*}
+\int d \hat{r}\, Y^{*}_{\ell m}(\hat{r}) \, Y_{\ell' m'}(\hat{r}) \,
+Y_{\ell_{i} m_{i}}(\hat{r}) = \sqrt{\frac{(2 \ell' + 1)(2 \ell_{i} +
+1)}{4 \pi (2 \ell + 1)}} \ C(\ell' \, \ell_{i} \, \ell; m' \, m_{i} \,
+m)\, C(\ell' \, \ell_{i} \, \ell;0 \, 0 \, 0)
+\\
+= (-1)^{m} \sqrt{\frac{(2 \ell + 1)(2 \ell' + 1)(2 \ell_{i} + 1)}{4 \pi
+}} \ 
+% \left( 
+\begin{matrix}
+\ell' & \ell_{i} & \ell \cr m' & m_{i} & - m 
+\end{matrix}
+% \right) 
+% \left( 
+\begin{matrix}
+\ell' & \ell_{i} & \ell \cr 0 & 0 & 0
+\end{matrix}
+ % \right)
+\end{eqnarray*}
+%
+where the relation \cite[(3.7.3)]{Edmonds1960_AMI} (appendix \ref{S:spfunc})
+\begin{equation}\label{Q:ap5}
+C(\ell_{1} \, \ell_{2} \, \ell_{3}; m_{1} \, m_{2} \, m_{3}) =
+(-1)^{\ell_{1}-\ell_{2} + m_{3}} \, \sqrt{2 \ell_{3} + 1} 
+% \left(
+\begin{matrix}
+\ell_{1} & \ell_{2} & \ell_{3} \cr m_{1} & m_{2} & -m_{3}
+\end{matrix}
+% \right)
+\end{equation}
+has been used. We note that at less
+\[
+m'+ m_{i}= m  \qquad \mbox{and} \qquad \mid \ell'-\ell_{i}\mid < \ell <
+\ell' + \ell_{i}
+\]
+the Clebsch-Gordan and 3-$j$ symbols are null.
+
+Introducing these results in the above expression of the form factor
+$F_{if}$ and using the relation \ref{Q:spf3} we obtain
+
+\begin{eqnarray*}
+\lefteqn{ F_{if} = \frac{2}{\pi \, k}  \sum_{\ell, \ell',m}
+(-i)^{\ell} \,(-1)^{m} \, i^{\ell'} e^{i \delta_{\ell}} \,
+\sqrt{\frac{(2 \ell + 1)(2 \ell' + 1)(2 \ell_{i} + 1)}{4 \pi }} \
+\left( 
+\begin{matrix}\ell & \ell' & \ell_{i} \cr -m & m' & m_{i}
+\end{matrix}
+\right)}
+\\
+ && {\times} \left( \begin{matrix}\ell & \ell' & \ell_{i} \cr 0 & 0 & 0
+   \end{matrix}
+ \right) f_{\ell,\ell',\ell_{i}}(k,q) \ Y_{\ell m}(\hat{k})\,
+Y^{*}_{\ell' m'} (\hat{q})
+ \\
+\\
+&=& \frac{2}{\pi \, k} \sum_{\ell'} \sum_{\ell=\mid \ell'-\ell_{i}\mid
+}^{\ell' + \ell_{i}} \, i^{\ell'} \, (-i)^{\ell} e^{i
+\delta_{\ell}} \, \sqrt{\frac{(2 \ell + 1)(2 \ell' + 1)(2 \ell_{i} +
+1)}{4 \pi }} \ \left( \begin{matrix}\ell & \ell' & \ell_{i} \cr 0 & 0 & 0
+\end{matrix}
+\right) \, f_{\ell,\ell',\ell_{i}}(k,q)
+\\
+&& {\times} \,\sum_{m'} \, (-1)^{m} \left( 
+\begin{matrix}\ell & \ell' & \ell_{i} \cr
+-m & m' & m_{i}
+\end{matrix}
+\right) \ Y_{\ell m}(\hat{k})\, Y^{*}_{\ell' m'}
+(\hat{q})
+\end{eqnarray*}
+%
+with $m'+ m_{i}= m$. We finally write
+%
+\begin{eqnarray}\label{Q:ap6}
+F_{if}(\bm{k},\bm{q})&=& \frac{2}{\pi \, k} \sum_{\ell=0}^{\infty}
+i^{\ell'_{min}} \, (-i)^{\ell} \, e^{i \delta_{\ell}} \,
+\sum_{m=-\ell}^{\ell} \, (-1)^{m} \, B_{\ell m} \ \left[ Y_{\ell
+m}(\hat{k})\, e^{-i m' \varphi_{q}} \right]
+\\
+\nonumber
+\\
+B_{\ell m} &=& \sum_{\ell'=\ell'_{min}}^{\ell + \ell_{i}} \,
+i^{\ell'_{0}} \sqrt{\frac{(2 \ell + 1)(2 \ell' + 1)(2 \ell_{i} +
+1)}{4 \pi }}
+\\
+&& \left( \begin{matrix}\ell & \ell' & \ell_{i} \cr -m & m-m_{i} & m_{i}
+  \end{matrix}
+\right) \left( \begin{matrix}\ell & \ell' & \ell_{i} \cr 0 & 0 & 0
+  \end{matrix}
+\right)
+f_{\ell \, \ell'\, \ell_{i}}(k,q) \ \mathcal{Y}_{\ell',m'}(\cos
+\theta_{q}) \nonumber
+\\
+\nonumber \\
+f_{\ell,\ell',\ell_{i}} &=& \int_{0}^{\infty} d r  P^{*}_{k \ell}(r)
+\, j_{\ell'}(q r) \, u_{n_{i}\ell_{i}}(r)
+\\
+\mathcal{Y}_{\ell,m}(\cos \theta_{q}) &=&  e^{i m \varphi_{q}}
+Y^{*}_{\ell m} (\theta_{q},\varphi_{q}) \label{Q:ap9}
+\end{eqnarray}
+with $\ell'_{min} = \mid \ell - \ell_{i}\mid $ and $m' + m_{i} = m$.
+We note that the terms in the sum over $\ell'$ are not null only when
+$\ell + \ell' + \ell_{i}$ is a even number (see \ref{Q:spf4}). While
+\[
+\ell'_{min} + \ell + \ell_{i}= \mid \ell - \ell_{i}\mid  + \ell +
+\ell_{i} = 2 L \, , \qquad L = \max(\ell,\ell_{i})
+\]
+the sum is carried out from $\ell'_{min}$ of two in two.
+
+\subsection*{Alternative order in the summation}
+%
+\begin{eqnarray}\label{Q:ap6b}
+F_{if}(\bm{k},\bm{q})&=& \frac{2}{\pi \, k} \sum_{\ell=0}^{\infty}
+i^{\ell'_{min}} \, (-i)^{\ell} \, e^{i \delta_{\ell}} \,
+\sum_{\ell'=\ell'_{min}}^{\ell + \ell_{i}} \, i^{\ell'_{0}} \,
+\sqrt{\frac{(2 \ell + 1)(2 \ell' + 1)(2 \ell_{i} + 1)}{4 \pi }}
+\nonumber
+\\
+&& {\times} \left( \begin{matrix}\ell & \ell' & \ell_{i} \cr 0 & 0 & 0
+  \end{matrix}
+\right) \
+f_{\ell \ell' \ell_{i}}(k,q) \ B'_{\ell \ell'}(\hat{k}, \hat{q})
+\\
+\nonumber
+\\
+B'_{\ell \ell'}(\hat{k},\hat{q}) &=& \sum_{m=-\ell}^{\ell} \, (-1)^{m}
+\,\left( \begin{matrix}\ell & \ell' & \ell_{i} \cr -m & m' & m_{i}
+  \end{matrix}
+\right)
+\, Y_{\ell m}(\hat{k})\, Y^{*}_{\ell'\,m'}(\hat{q})
+\\
+\nonumber \\
+f_{\ell \, \ell' \, \ell_{i}}(k,q) &=& \int_{0}^{\infty} d r
+P^{*}_{k \ell}(r) \, j_{\ell'}(q r) \, u_{n_{i}\ell_{i}}(r)
+\end{eqnarray}
+
+\subsection*{Expansion in $m$-values}
+%
+\begin{eqnarray}\label{Q:ap6c}
+F_{if}(\bm{k},\bm{q})&=& \frac{2}{\pi \, k} \sum_{m=-\infty}^{\infty}
+(-1)^{m} \sum_{\ell=m}^{\infty} i^{\ell'_{min}} \, (-i)^{\ell} \,
+e^{i \delta_{\ell}} \, \sum_{\ell'=\ell'_{min}}^{\ell + \ell_{i}}
+\, i^{\ell'_{0}} \, \left( \begin{matrix}\ell & \ell' & \ell_{i} \cr 0 & 0
+& 0
+\end{matrix}
+\right)\, f_{\ell \ell' \ell_{i}}(k,q)  \nonumber
+\\
+&& {\times}  \sqrt{\frac{(2 \ell + 1)(2 \ell' + 1)(2 \ell_{i} + 1)}{4 \pi }} \
+\left( \begin{matrix}\ell & \ell' & \ell_{i} \cr -m & m' & m_{i}
+  \end{matrix}
+\right) \,
+Y_{\ell m}(\hat{k})\, Y^{*}_{\ell'\,m'}(\hat{q}) \nonumber \\
+&=& \sum_{m=-\infty}^{\infty} F_{if}^{m}
+\end{eqnarray}
+
+
+
+\subsection{Initial $s$ state}
+
+\begin{eqnarray}\label{Q:ap10}
+F_{if}&=& \frac{2}{\pi \, k} \sum_{\ell=0}^{\infty} \, e^{i
+\delta_{\ell}} \,\frac{(2 \ell + 1)}{(4 \pi)^{3/2}}\
+f_{\ell,\ell,0}(k,q)\; P_{\ell}(\cos{\theta_{kq}})
+\end{eqnarray}
+
+\subsection{Integration over the angular variables}
+
+\textbf{Observe that only one integration is required in the evaluation
+of cross sections}
+
+In the partial wave expansion of the first Born approximation the
+double differential cross section in the modulus of the momentum
+transfer and the ejected electron is straightforward. The double
+differential cross section is proportional to the integral of the
+square modulus of the form factor over the angular variables. We start
+with expression \ref{Q:ap6b}
+
+\begin{eqnarray}\label{Q:ap6d}
+\int d \hat{q} \, d \hat{k} \mid F_{if}(\bm{k},\bm{q})\mid ^{2}
+&=& \frac{4}{\pi^{2} \, k^{2}}  \sum_{\ell_{1},\ell_{2}=0}^{\infty}
+a_{\ell_{1}} a^{*}_{\ell_{2}}
+\sum_{\ell_{1}',\ell_{2}'=\ell_{min}'}^{\ell_{max}'}
+b_{\ell_{1},\ell'_{1}} b^{*}_{\ell_{2},\ell'_{2}} \nonumber
+\\
+&& {\times} \int d \hat{q} \;d \hat{k}  \ B'_{\ell_{1} \ell_{1}'}
+(\hat{k}, \hat{q})  \ B^{*'}_{\ell_{2} \ell_{2}'}(\hat{k}, \hat{q}) \,
+.
+\end{eqnarray}
+
+The integral  is easily performed
+\begin{eqnarray*}
+\lefteqn{\int d \hat{q} \;d \hat{k}  \ B'_{\ell_{1} \ell_{1}'}
+(\hat{k}, \hat{q})  \ B^{*'}_{\ell_{2} \ell_{2}'}(\hat{k}, \hat{q})=}
+\\
+&&\sum_{m_{1},m_{2}} (-1)^{m_{1}+m_{2}} \,\left( \begin{matrix}\ell_{1} &
+\ell_{1}' & \ell_{i} \cr -m_{1} & m'_{1} & m_{i}
+\end{matrix}
+\right) \, \left(
+\begin{matrix}\ell_{2} &
+\ell_{2}' & \ell_{i} \cr -m_{2} & m'_{2} & m_{i}
+\end{matrix}
+\right) \qquad \qquad
+\\
+&& {\times} \int d \hat{k} \,Y_{\ell_{1} m_{1}}(\hat{k})\, Y^{*}_{\ell_{2}
+m_{2}}(\hat{k})\, \; \int d \hat{q} \,
+Y^{*}_{\ell_{1}'\,m_{1}'}(\hat{q})
+\, Y_{\ell_{2}'\,m_{2}'}(\hat{q}) \\
+&=& \sum_{m=-\ell}^{\ell} \, \left( \begin{matrix}\ell & \ell' & \ell_{i} \cr
+-m & m' & m_{i}
+\end{matrix}
+\right) \, \left( \begin{matrix}\ell & \ell' & \ell_{i} \cr
+-m & m' & m_{i}
+\end{matrix}
+\right)
+\end{eqnarray*}
+The orthonormality of the harmonic spherical \ref{S:Spher-harmon} was
+used in the last expression. By using the orthogonality of 3-$j$
+symbols the summation can be simplified to
+\[
+\int d \hat{q} \;d \hat{k}  \ B'_{\ell_{1} \ell_{1}'} (\hat{k},
+\hat{q})  \ B^{*'}_{\ell_{2} \ell_{2}'}(\hat{k}, \hat{q}) = 2 \,
+\ell_{i} + 1
+\]
+
+The expression \ref{Q:ap6c} looks now
+\begin{eqnarray*}
+\int d \hat{q} \, d \hat{k} \mid F_{if}(\bm{k},\bm{q})\mid ^{2}
+&=& \frac{4 ( 2 \ell_{i} + 1)}{\pi^{2} \, k^{2}}
+\sum_{\ell=0}^{\infty} \mid a_{\ell}\mid ^{2}
+\sum_{\ell'=\ell_{min}'}^{\ell_{max}'} \mid b_{\ell,\ell'}\mid ^{2}
+\nonumber
+\\
+&& {\times} \int d \hat{q} \;d \hat{k}  \ B'_{\ell_{1} \ell_{1}'}
+(\hat{k}, \hat{q})  \ B^{*'}_{\ell_{2} \ell_{2}'}(\hat{k}, \hat{q}) \,
+.
+\end{eqnarray*}
+where
+\begin{eqnarray}
+% \nonumber to remove numbering (before each equation)
+\mid a_{\ell}\mid ^{2} &=& 1 \\
+\mid b_{\ell,\ell'}\mid ^{2} &=& \frac{(2 \ell + 1)(2 \ell' + 1)(2
+\ell_{i} + 1)}{4 \pi} \left( \begin{matrix}\ell & \ell' & \ell_{i} \cr 0 & 0
+& 0
+\end{matrix}
+\right)^{2} \ f_{\ell \ell' \ell_{i}}^{2}(k,q)
+\end{eqnarray}
+\section{Separation of the 0-order}
+
+Now we will separate the plane wave approximation in order to speed up
+the convergence of the partial wave series. In the plane wave
+approximation (which in principle is valid only for short range
+potentials) the form factor is given simply by the Fourier Transform of
+the initial state
+\begin{equation}\label{Q:FTwfi}
+F^{0}_{if}(\bm{q}) = (2 \pi)^{-3/2} \int d \bm{r} \,
+\frac{e^{-i \bm{k} \cdot \bm{r}}}{(2 \pi)^{3/2}} \ e^{i
+\bm{q} \cdot \bm{r}} \phi_{n_{i} \ell_{i}}(\bm{r}) =
+\frac{\tilde{\phi}_{n_{i} \ell_{i}}(\bm{q}-\bm{k})}{(2 \pi)^{3/2}}\, .
+\end{equation}
+%
+Thus, the full form factor is given by $F_{if} = F^{0}_{if} + \Delta
+F_{if}$, where
+%
+\[
+\Delta F_{if} (\bm{q}) = (2 \pi)^{-3/2} \int d \bm{r} \,\left[
+\psi_{\bm{k}}^{-*}(\bm{r}) - \frac{e^{-i \bm{k} \cdot \bm{r}}}{(2
+\pi)^{3/2}} \right] \ e^{i \bm{q} \cdot \bm{r}} \phi_{n_{i}
+\ell_{i}}(\bm{r}) \, .
+\]
+
+By using \ref{Q:ap2} and \ref{Q:ap4}  the calculation is
+straightforward. The result is similar to $F_{if}$, but with $f_{\ell
+\, \ell'\, \ell_{i}}(k,q)$ replaced by
+\[
+\Delta f_{\ell \, \ell'\, \ell_{i}}(k,q) = \int_{0}^{\infty} d r \,
+\left[ P_{k\, \ell}(r) - kr \, e^{- i \delta_{\ell}(k)}
+j_{\ell}(kr) \right] \, j_{\ell'}(q r) \, u_{n_{i} \ell_{i}}(r)
+\]
+
+\subsection{Evaluation of the Fourier Transform of the initial state}
+
+Using the series expansion \ref{Q:ap4} and the explicit form
+\ref{Q:ap1} we obtain
+
+\begin{eqnarray*}
+\tilde{\phi}_{n_{i} \ell_{i}}(\bm{q}) &=& \frac{4 \pi}{(2 \pi)^{3/2}}
+\sum_{\ell,m} i^{\ell} Y_{\ell m}(\hat{q}) \int_{0}^{\infty} d r
+\; r\, u_{n_{i} \ell_{i}}(r)\, j_{\ell}(q r) \; \int d \hat{r}
+Y^{*}_{\ell
+m}(\hat{r}) \, Y_{\ell_{i} m_{i}}(\hat{r}) \\
+&=& \frac{4 \pi}{(2 \pi)^{3/2}} \; i^{\ell_{i}} \, Y_{\ell_{i}
+m_{i}}(\hat{q}) \int_{0}^{\infty} d r \; r\, u_{n_{i} \ell_{i}}(r)\,
+j_{\ell_{i}}(q r)
+\end{eqnarray*}
+
+\section{Evaluation of C3 approximation}
+
+\begin{eqnarray} \label{Q:ap11}
+t_{{\rm C3}} &=& \frac{Z_{P}\, \mathcal{N}_{P}
+\mathcal{N}_{N}}{(2\pi)^{9/2}} \; \int d \bm{q} \Big[
+\mathcal{Z}_{T} J_{0} \left( \lambda_{P}, \bm{p}- \textbf{q} -
+\bm{Q},-\nu_{P},\bm{k}_{P} \right) J_{1}( \lambda_{N}, \bm{p}-\bm{q},
+-\nu_{N}, \bm{k}_{N} )
+  \nonumber \\
+&& - \; J_{1} \left( \lambda_{P}, \bm{p}- \textbf{q} -
+\bm{Q},-\nu_{P},\bm{k}_{P} \right) \; J_{0}( \lambda_{N},
+\bm{p}-\bm{q}, -\nu_{N}, \bm{k}_{N} ) \, \Big] \; F_{if}(\bm{q} )
+\nonumber
+\\
+&=& \frac{Z_{P}\, \mathcal{N}_{P} \mathcal{N}_{N}}{(2\pi)^{9/2}} \;
+\int d \bm{q} F_{if}(\bm{q} ) \; \mathcal{G}(\bm{k},\bm{q},\bm{Q})
+\end{eqnarray}
+where $\bm{p}=(m_{T}/m)\bm{Q}$.
+
+By using the expansions (\ref{Q:ap6}-\ref{Q:ap9}) we can write
+
+\begin{eqnarray}\label{Q:ap13}
+t_{{\rm C3}} &=& \frac{Z_{P} \, \mathcal{N}_{P}
+\mathcal{N}_{N}}{(2\pi)^{9/2}} \frac{2}{\pi k_{T}}
+\sum_{\ell=0}^{\infty} i^{\ell'_{min}} \, (-i)^{\ell} \,
+e^{i \delta_{\ell}} \, \sum_{m=-\ell}^{\ell} \, (-1)^{m} \,
+\mathcal{B}^{\mathrm{C3}}_{\ell m} \ Y_{\ell m}(\hat{k}_{T})
+\\
+\nonumber
+\\
+\mathcal{B}^{\mathrm{C3}}_{\ell m} &=& \sum_{\ell'=\ell'_{min}}^{\ell +
+\ell_{i}} \, i^{\ell'_{0}} \sqrt{\frac{(2 \ell + 1)(2 \ell' + 1)(2
+\ell_{i} + 1)}{4 \pi }}\left( \begin{matrix}\ell & \ell' & \ell_{i} \cr -m &
+m-m_{i} & m_{i}
+\end{matrix}
+\right) \left( \begin{matrix}\ell & \ell' & \ell_{i} \cr 0 &
+0 & 0
+\end{matrix}
+\right) \nonumber
+\\
+&{\times}& \int_{0}^{\infty} q^{2} d q \, f_{\ell,\ell',\ell_{i}}(k_{T},q)
+\ \int_{-1}^{1}d (\cos \theta_{q}) \, \mathcal{Y}_{\ell',m'}(\cos
+\theta_{q}) \int_{0}^{2 \pi} d \varphi_{q} e^{-i m'
+\varphi_{q}} \mathcal{G}(\bm{k},\bm{q},\bm{Q}) \;.  \nonumber
+\end{eqnarray}
+
+For a $s$ initial state it is given by
+
+\begin{eqnarray}\label{Q:ap12}
+t_{{\rm C3}} &=& \frac{Z_{P} \, \mathcal{N}_{P}
+\mathcal{N}_{N}}{(2\pi)^{9/2}} \frac{2}{\pi k_{T}}
+\sum_{\ell=0}^{\infty} \, e^{i \delta_{\ell}} \,\frac{(2 \ell +
+1)}{(4 \pi)^{3/2}} \,
+\\
+&{\times}&
+ \int_{0}^{\infty} q^{2} d q \, f_{\ell,\ell,0}(k_{T},q) \
+\int_{-1}^{1}d (\cos \theta_{q}) \,  \int_{0}^{2 \pi} \,d
+\varphi_{q}\ \mathcal{G}(\bm{k},\bm{q},\bm{Q}) P_{\ell}(\cos
+\theta_{k_{T}q}) \qquad \nonumber
+\end{eqnarray}
+
+
+\section{Numerical Fourier transform of the potential}
+
+The Fourier transform of an arbitrary potential is given by
+
+\[
+\tilde{V}(\bm{q}) = \frac{1}{(2 \pi \hbar)^{3/2}} \int e^{i
+\bm{q} \cdot \bm{r}} V(r) d \bm{r}
+\]
+is simplified in cases of spherical symmetry to
+\begin{eqnarray*}
+(2 \pi \hbar)^{3/2} \tilde{V}(\bm{Q}) &=& 2 \pi \int r^{2} V(r) d r
+\int_{-1}^{1} e^{i q r x} d x \\
+&=& \frac{4 \pi}{q} \int \left[ r V(r) \right] \, \sin{(q r)}\, d r
+\\
+&=& \frac{4 \pi}{q} \int \mathcal{V}(r) \, \sin{(q r)}\, d r
+\end{eqnarray*}
+
+\subsection{Linear local approximation to the potential}
+
+If we have a table $\mathcal{V}_{i}= \mathcal{V}(r_{i}) $ ($i=1,
+\ldots, N_{P}$) and approximate its value at intermediate points
+between $r_{i}$ and $r_{i+1}$ by a linear interpolation
+$\mathcal{V}(r)= a_{i} + b_{i}\,r$ with local coefficients for each
+$i$, the integral is easily performed. We separate the domain
+
+\[
+(2 \pi \hbar)^{3/2} \tilde{V}(\bm{Q}) = \frac{4 \pi}{q} \int_{0}^{R}
+\mathcal{V}(r) \, \sin{(q r)}\, d r + \int_{R}^{\infty}
+\mathcal{V}(r) \, \sin{(q r)}\, d r
+\]
+where $R$ is a point large enough such that the potential has converged
+to its asymptotic value $\lim_{R \to \infty} \mathcal{V}(R) =
+\mathcal{V}_{\infty}$. The asymptotic part of the integral is carried
+out analytically (after using the Abel's regularization)
+\begin{equation}\label{Q:apFTV1}
+\lim_{\alpha \to 0^{+}} \int_{R}^{\infty} \mathcal{V}(r) \,e^{-
+\alpha r} \sin{(q r)}\, d r = \mathcal{V}(R) \frac{\cos{(q R)}}{q}
+\, .
+\end{equation}
+
+The inner part of the integral can be simplified with the above
+approximation
+
+\begin{equation}
+I = \int_{0}^{R} \mathcal{V}(r) \, \sin{(q r)}\, d r =
+\sum_{i=1}^{N-1} \int_{r_{i}}^{r_{i+1}} \mathcal{V}(r) \, \sin{(q r)}\,
+d r = \sum_{i=1}^{N-1} I_{i}
+\end{equation}
+where, using the chain rule (inverted) we obtain
+\begin{eqnarray*}
+I_{i} &=& \int_{r_{i}}^{r_{i+1}} \mathcal{V}_{i}(r) \, \sin{(q r)}
+\,d r
+\\
+&=& \int_{r_{i}}^{r_{i+1}}  \left\{ \left[\mathcal{V}_{i}(r)
+\,\frac{-\cos{(q r)}}{q} \right]' - \mathcal{V}'_{i}(r) \frac{-\cos{(q
+r)}}{q} \right\} \,d r
+\\
+&=& \left. \mathcal{V}(r) \,\frac{-\cos{(q r)}}{q}  + b_{i}
+\frac{\sin{(q r)}}{q^{2}} \; \right| _{r_{i}}^{r_{i+1}}
+\end{eqnarray*}
+
+
+
+Summing up the result for all the intervals we get
+\begin{eqnarray}
+I &=& \sum_{i=1}^{N-1}\left[  \mathcal{V}(r_{i}) \,\frac{\cos{(q
+r_{i})}}{q} - b_{i} \frac{\sin{(q\, r_{i})}}{q^{2}} \right] -
+\sum_{i=1}^{N-1}\left[ \mathcal{V}(r_{i+1}) \,\frac{\cos{(q
+r_{i+1})}}{q}  - b_{i} \frac{\sin{(q\, r_{i+1})}}{q^{2}} \right]
+ \\
+&=&  \frac{\mathcal{V}(0)}{q} - \frac{\mathcal{V}(r_{N})}{q} \cos{(q \,
+r_{N})} + \sum_{i=1}^{N-1}  \frac{b_{i}}{q^{2}} \Big[ \sin{(q\,
+r_{i+1})}-\sin{(q \, r_{i})} \Big]
+\end{eqnarray}
+
+The final expression is
+\begin{equation}\label{Q:apFTV2}
+\tilde{V}(\bm{Q}) =\frac{4 \pi}{(2 \pi \hbar)^{3/2} \, q^2} \left\{
+\mathcal{V}(0) + \sum_{i=1}^{N-1}  \frac{b_{i}}{q} \Big[ \sin{(q \,
+r_{i+1})}-\sin{(q \, r_{i})} \Big] \right\}
+\end{equation}
+
+\subsection*{Case of a pure Coulomb potential}
+
+In the case of a Coulomb potential  $\mathcal{V}(r) = Z$ constant.
+Thus, the coefficient $b_{i}= \mathcal{V}'(r_{i})$ is null for all
+$i=1, \ldots, N$. The Fourier transform is simply given by
+
+\[
+\tilde{V}(\bm{Q}) =\frac{1}{(2 \pi \hbar)^{3/2} }\; \frac{4 \pi \, Z}{
+q^2} .
+\]
+
+\subsection{Spline approximation of the potential}
+
+If the potential can be locally approximated by a fourth grade
+polynomial
+
+\begin{equation}\label{Q:apTFspl}
+\mathcal{V}_{i}(r) = A_{i} + B_{i}\,r +C_{i}\,r^{2}+D_{i}\,r^{3} \, .
+\end{equation}%
+Thus,
+%
+\begin{eqnarray*}
+I_{i} &=& \frac{1}{q^{4}}\Big[ q\,\left( -6\,D_{i}\,r_{i} +
+C_{i}\,\left( -2 + {q^2}\,{r_{i}^2} \right)  + {q^2}\,\left( A_{i} +
+B_{i}\,r_{i} + D_{i}\,{r_{i}^3}
+\right)  \right) \,\cos (q\,r_{i}) \nonumber \\
+&&- q\,\left( -2\,C_{i} - 6\,D_{i}\,r_{i+1} + C_{i}\,{q^2}\,{r_{i+1}^2}
++ D_{i}\,{q^2}\,{r_{i+1}^3} + {q^2}\,\left( A_{i} + B_{i}\,r_{i+1}
+\right) \right)
+\, \cos (q\,r_{i+1})  \nonumber \\
+&&- \left[     \left( {q^2}\,\left( B_{i} + 2\,C_{i}\,r_{i} \right) +
+3\, D_{i}\,\left( -2 + {q^2}\,{r_{i}^2} \right) \right) \,\sin
+(q\,r_{i}) \right.
+\nonumber  \\
+&& + \left( {q^2}\,\left( B_{i} + 2\,C_{i}\,r_{i+1} \right)  +
+3\,D_{i}\,\left( -2 + {q^2}\,{r_{i+1}^2} \right) \right) \,\sin
+(q\,r_{i+1}) \Big]
+\end{eqnarray*}
+
+Which can be further simplified by using \ref{Q:apTFspl} to
+%
+\begin{eqnarray*}
+I_{i} &=& \frac{1}{q}\left\{ \left( \mathcal{V}_{i}(r_{i}) -
+\frac{\mathcal{V}_{i}''(r_{i})}{q^{2}}\, \right) \right. \,\cos
+(q\,r_{i}) \nonumber
+\\
+&& \;\, - \left( \mathcal{V}_{i}(r_{i+1}) -
+\frac{\mathcal{V}_{i}''(r_{i+1})} {q^{2}}\, \right) \, \cos
+(q\,r_{i+1})
+\nonumber \\
+&&- \left[ \left( \mathcal{V}'_{i}(r_{i}) - \frac{6\, D_{i} }{q^{2}}
+\right) \,\frac{\sin (q\,r_{i})}{q} \right.
+\nonumber \\
+&&- \left. \left. \left( \mathcal{V}'_{i}(r_{i+1}) - \frac{6\, D_{i}
+}{q^{2}} \right) \,\frac{\sin (q\,r_{i+1})}{q} \right] \right\}
+\end{eqnarray*}
+
+The complete integral is obtained by summing up all terms $i=1, \ldots,
+N-1$. We use that the function and its first and second derivatives are
+continuous
+\begin{eqnarray*}
+\mathcal{V}_{i}(r_{i+1}) &=& \mathcal{V}_{i+1}(r_{i+1})
+\\
+\mathcal{V}'_{i}(r_{i+1}) &=& \mathcal{V}'_{i+1}(r_{i+1})
+\\
+\mathcal{V}''_{i}(r_{i+1}) &=& \mathcal{V}''_{i+1}(r_{i+1})
+\end{eqnarray*}
+%
+to obtain
+\begin{eqnarray*}
+q. I &=& \mathcal{V}(r_{1})  - \mathcal{V}(r_{N})\, \cos (q\,r_{N}) +
+\frac{\mathcal{V}'(r_{N}) \sin{(q\,r_{N})}}{q}
+-\frac{\mathcal{V}''(r_{N}) \cos{(q\,r_{N})} -
+\mathcal{V}''(r_{1})}{q^{2}} \nonumber
+\\
+&&-  \frac{6}{q^{3}}\sum_{i=1}^{N-1} D_{i} \Big[\sin{ (q r_{i+1})} -
+\sin{ (q r_{i})}\Big]
+\end{eqnarray*}
+
+The Form factor is then given by
+\begin{equation}\label{Q:apspl2}
+\tilde{V}(\bm{Q}) =\frac{4 \pi}{(2 \pi \hbar)^{3/2} \, q^2} \left\{
+\mathcal{V}(0) + \frac{\mathcal{V}''(0)}{q^{2}} - \frac{6}{q^{3}}
+\sum_{i=1}^{N-1} D_{i} \Big[\sin{ (q r_{i+1})} - \sin{ (q r_{i})}\Big]
+\right\}
+\end{equation}
+
+
+\section{Evaluation of simple Nordsieck-like integrals}
+In this section we are interested in the evaluation of integrals of the kind:
+\begin{equation}\label{Q:J-Nords-Numer} 
+  J_{n}(\bm{p},\bm{k},\alpha) =
+  \int d \bm{r} \, e^{i \bm{p}\cdot\bm{r}} \, \frac{e^{-\alpha \, r}}{r^{n}} \, \psi_{\bm{k}}^{+*}(\bm{r})
+\end{equation}
+
+In order to evaluate the integral we insert the partial-wave expansions for the plane-wave and the scattering state (\ref{Q:ap2}) and (\ref{Q:ap4})
+%
+\begin{eqnarray*}
+e^{i \bm{p} \cdot \bm{r}} &=& 4 \pi \, \sum_{\ell', m'} i^{\ell'}
+j_{\ell'}(p r) \ Y_{\ell' m'}(\hat{p})\, Y^{*}_{\ell' m'}(\hat{r}) 
+\\  
+\psi^{\pm}_{\bm{k}}(\bm{r}) &=& \frac{4 \pi}{(2 \pi)^{3/2}}\sum_{\ell,\, m}
+i^{\ell} \, e^{\pm i \delta_{\ell}} \frac{\mathcal{P}_{k,\,
+\ell}(r)}{k\,r}\ Y^{*}_{\ell m}(\hat{k})\, Y_{\ell m}(\hat{r})\, ,
+\end{eqnarray*}
+%
+obtaining
+%
+\begin{eqnarray*}
+  J_{n}(\bm{p},\bm{k},\alpha) &=& \sum_{\ell, m, \ell', m'} \frac{(4 \pi)^{2}}{(2\pi)^{3/2}} \times \left(Y^{*}_{\ell m}(\hat{k}) Y_{\ell' m'}(\hat{p}) \right) \nonumber
+\\
+&&\times \, \left(\int d r \; j_{\ell'}(pr) \frac{r^{2} e^{-\alpha r}}{r^{n}} \frac{\mathcal{P}_{k,\ell}(r)}{kr} \right) \;  \left( \int d \hat{r} Y^{*}_{\ell' m'}(\hat{r})  Y_{\ell m}(\hat{r})\right) 
+\\
+&=& \frac{1}{k} \sqrt{\frac{2}{\pi}} \, \sum_{\ell=0}^{\infty} (2 \ell +1) (-1)^{\ell} e^{-i \delta_{\ell}} \; \left(\int  d r \; j_{\ell'}(pr) \frac{r e^{-\alpha r}}{r^{n}} \, \mathcal{P}_{k,\ell}(r) \right) \, P_{\ell}(\cos{\theta})
+\end{eqnarray*}
+
+In order to accelerate the convergence of the series we calculate it as the difference between the general problem and the corresponding Coulomb problem $J_{n}= J^{c}_{n} + (J_{n} - J^{c}_{n}) = J^{c}_{n} + \Delta{J_{n}}$. The difference can be expanded in partial-waves to read
+\begin{equation}\label{eq:4}
+  \Delta J_{n}(\bm{p},\bm{k},\alpha) = \frac{1}{k} \sqrt{\frac{2}{\pi}} \, \sum_{\ell=0}^{\infty} (2 \ell +1) (-1)^{\ell} e^{-i \delta^{c}_{\ell}} \; g(p,k)\, P_{\ell}(\cos{\theta})
+\end{equation}
+where the function $g(p,k)$ is given by
+\[
+g(p,k)= \int d r \; j_{\ell'}(pr) \frac{r e^{-\alpha r}}{r^{n}}\left( \mathcal{P}_{k ,\ell}(r)e^{-i \delta^{s}_{\ell}}  - \mathcal{P}^{c}_{k ,\ell}(r)\right)  \, .
+\]
+Here we have separated the phase shifts corresponding to the Coulomb and short-range potentials as $\delta^{c}_{\ell}$ and $\delta^{s}_{\ell}$, respectively.
+
+
+
+
+
+\section{Evaluation of $\bi{K}$ factors}
+
+\begin{equation}\label{Q:K_if-factor}
+\bm{K}_{if}(\bm{p}) = \frac{1}{(2 \pi)^{3}} \int d \bm{r}_{T} \;
+e^{\, i \bm{p} \cdot \bm{r}_{T}} \, \phi_{i}(\bm{r}_{T}) \,
+e^{- i \bm{k}_{T} \cdot \bm{r}_{T}} \,\nabla_{\bm{r}_{T}} \left[
+D^{-*}(-\nu_{T},\bm{k}_{T},\bm{r}_{T}) \right]
+\end{equation}
+which can be rewritten as
+\begin{equation}\label{Q:Kfact1}
+\bm{K}_{if}(\bm{p}) = \frac{1}{(2 \pi)^{3}} \int d \bm{r}_{T} \;
+e^{\, i \bm{p} \cdot \bm{r}_{T}} \, \phi_{i}(\bm{r}_{T}) \,
+\left[ -i \bm{k}_{T} \psi_{\bm{k_{T}}}^{-*} + \nabla_{\bm{r}_{T}}
+\psi^{-*}_{\bm{k_{T}}} \right]
+\end{equation}
+The first term in the square brackets is proportional to the form
+factor $F_{if}$ (\ref{Q:ap6b}).
+
+By introducing the series expansions \ref{Q:ap2} and \ref{Q:ap4} we can
+write for the term involving the gradient
+\begin{eqnarray*}
+\bm{K}_{if}(\bm{p}) &=& \frac{1}{(2 \pi)^{3}} \int r^{2} \, d r
+\end{eqnarray*}
+
+
+We use \cite[B.105]{Galindo1990_QMvI} for the term involving a gradient can be
+written in terms of irreducible vector tensors (see \ref{S:spfunc})
+
+\begin{eqnarray*}
+\nabla \left[ R(r)\, Y_{LM}(\hat{r}) \right] &=& - \sqrt{\frac{L+1}{2L
++ 1}} \left[ \frac{d R (r)}{d r} - \frac{L}{r} \, R(r) \right]
+\boldsymbol{\mathcal{Y}}^{L+1}_{LM}(\hat{r}) \nonumber \\
+&&+ \sqrt{\frac{L}{2L + 1}} \left[ \frac{d R (r)}{d r} +
+\frac{L+1}{r} \, R(r) \right]
+\boldsymbol{\mathcal{Y}}^{L-1}_{LM}(\hat{r}) \, .
+\end{eqnarray*}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

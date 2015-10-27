@@ -1,0 +1,291 @@
+\chapter{A time-dependent approximation for fast ion-atoms collisions}
+
+
+We want to reproduce the experimental and CTMC triply differential
+cross sections (see paper) for the collision $\mathrm{C}^{6+} +
+\mathrm{He}$ at $100~\mathrm{MeV/u}$. The CTMC results indicate that
+the electron is `kicked' by the projectile. In a very good
+approximation the projectile transfer momentum only during a short time
+($\Delta t \approx 0.2-0.4\mathrm{~a.~u.}$). While the projectile acts,
+the electron momentum changes but its position is not sensibly
+modified.
+
+Seems like the above mechanism should be well described by very simple
+approximations, including the First Born Approximation. However,
+neither the FBA, the C3 are able to reproduce the experimenta/CTMC
+results.
+%
+We think that the use of a target continuum wavefunction in the final
+state implies a scattering state (particles impinging from infinite).
+
+Let's consider the fast collision as a three step process. In the
+initial stage the electron and its parent nucleus are bound and evolve
+in the field of their mutual interaction. Then, the fast, heavy and
+highly-charged projectile comes into scene dominating the dynamics of
+the electron motion. In the third step the projectile interaction
+vanishes as suddenly as it appeared. Thus the electron and recoil ion
+evolve in their mutual interaction as in the initial state.
+%
+This simple mechanism seems to correspond to the description given by
+the First Born Approximation. However as stated before, in the final
+state --corresponding to the third step-- is implicitly supposed that
+the electron evolving in the target nucleus field comes from infinity.
+
+Moreover, in order to obtain an electron out of the scattering
+($\bm{Q},\bm{v}$) plane, it must be dispersed at $90^{\circ}$ by the
+target nucleus. Classically the impact parameter $b_{T}$ between the
+electron and the recoil in this last step (for the helium model
+potential) must be larger than the size of the atom if the electron
+comes from infinity. On the contrary, if we allow it to start at a
+finite distance ($\approx \langle r \rangle_{\mathrm{He}}\equiv$ the
+expectation value of the initial state), the impact parameter is only
+0.83$\mathrm{~a.~u.}$
+
+\medskip
+
+Following is the first attempt to model the above behavior. I am still
+trying to connect it to the off-shell states. I expect to find
+something very similar to the FBA but with the final state replaced by
+the off-shell state with an energy shift $\Delta E \approx V(\approx
+\langle r \rangle_{\mathrm{He}})$.
+
+We will next to investigate this scenario within a time-dependent
+framework.
+
+The wavefunction in the three stages just described can be written as
+\begin{eqnarray}\label{Q:wave-funct-stage}
+\Psi_{1}&=& e^{i \mu_{T} \bm{v} \cdot \bm{R}_{T}} \,
+\phi_{i,T}(\bm{r}_{T}) e^{- i E t}
+\nonumber \\
+\Psi_{2} &=& e^{i \bm{K}_{P} \cdot \bm{R}_{P}} \sum_{\alpha_{P}}
+b_{\alpha_{P}}(t) \; \phi_{\alpha_{P}, P}(\bm{r}_{P})
+% e^{i E_{\alpha_{P}} t}
+\\
+\Psi_{3} &=& e^{i \bm{K}_{T} \cdot \bm{R}_{T}} \sum_{\alpha_{T}}
+c_{\alpha_{T}}(t) \; \phi_{\alpha_{T}, T}(\bm{r}_{T}) \nonumber
+%e^{i E_{\alpha_{T}} t}
+\end{eqnarray}
+where $E$ is the total center of mass energy and the time dependence
+has been included in the coefficients $b_{\alpha_{P}}$ and
+$c_{\alpha_{T}}$.
+
+We choose time $t=0$ when the projectile appears and time $t=\tau $
+when its potential stop acting. At both instants, the concurrent pieces
+of the wavefunction must coincide
+%
+\begin{eqnarray}\label{Q:bound-cond}
+\Psi_{1}(0) &=& \Psi_{2}(0) \nonumber
+  \\
+\Psi_{2}(\tau) &=& \Psi_{3}(\tau) \,.
+\end{eqnarray}
+
+The probability of the electron being ionized with momentum
+$\bm{k}_{e}$ while the projectile ends up with momentum $\bm{K}$ is
+given by
+
+\begin{equation}\label{Q:Prob-ion-1}
+\mathcal{P}_{if} = \lim_{t \to \infty} \left|\langle \Psi_{3} |
+\Phi_{f} \rangle\right|^{2}
+\end{equation}
+%
+where
+\begin{equation} \label{Q:fi-f-a}
+\Phi_{f} = e^{i \left( \bm{K}_{T} \cdot \bm{R}_{T} + \bm{k}_{T}
+\cdot \bm{r}_{T}\right)}
+\end{equation}
+%
+or, by considering the ionization as excitation to the continuum we
+must use
+%
+\begin{equation}\label{Q:fi-f-b}
+\Phi_{f} = e^{i \bm{K}_{f} \cdot \bm{R}_{T}} \,
+\phi_{\bm{k}_{T},T}(\bm{r}_{T})
+\end{equation}
+
+We will use the usual approximations regarding the large masses of the
+projectile and target-nucleus compared to the electron mass. Then, the
+coordinates $\bm{R}_{P}, \bm{R}_{T}$ can be identified with the
+internuclear distance $\bm{r}_{N}$. We compare the wavefunctions
+\ref{Q:wave-funct-stage} and use the boundary conditions
+\ref{Q:bound-cond}. Within the mass' approximation the projectile part
+of $\Psi_{1}$ is equal to the one in $\Psi_{2}$. The factors can be
+obtained simply from the electron part
+%
+\begin{equation}\label{Q:b_alpha}
+b_{\alpha_{P}}(t=0) = \langle \phi_{\alpha_{P},P} | \phi_{i,T} \rangle
+\, .
+\end{equation}
+%
+At later times, the system evolves in the field of the projectile as
+%
+\begin{equation}\label{Q:Time-evol-fi2}
+\Psi_{2}(t) = e^{- i (H_{0}+V_{P}+V_{N}) t} \; \Psi_{2}(0) \, .
+\end{equation}
+%
+The wavefunction $\Psi_{2}$ is an exact solution of the hamiltonian
+involved in \ref{Q:Time-evol-fi2} with energy $E = E_{\alpha_{P}}+
+k_{N}^{2}/2 \mu_{P}$. At the time $t=\tau$, we have
+\begin{eqnarray} \label{Q:Time-evol-fi2a}
+\Psi_{2}(\tau) &=& e^{i\left(\bm{k}_{N} \cdot \bm{r}_{N} -
+k_{N}^{2}/2 \mu_{P} \tau \right)} \sum_{\alpha_{P}} b_{\alpha_{P}}(0)
+\; \phi_{\alpha_{P},P}(\bm{r}_{P}) \; e^{-i E_{\alpha_{P}} \tau}
+\nonumber
+\\
+b_{\alpha_{P},P}(\tau) &=& b_{\alpha_{P},P}(0) \; e^{- i
+E_{\alpha_{P}} \tau} \, .
+\end{eqnarray}
+
+  \noindent
+By using the second condition in \ref{Q:bound-cond} we found
+
+\begin{eqnarray} \label{Q:c-alfaT-exact}
+c_{\alpha_{T}}(\tau) &=& \sum_{\alpha_{P}} b_{\alpha_{P}}(\tau) \;
+\langle \phi_{\alpha_{T},T} |\phi_{\alpha_{P},P} \rangle \nonumber
+\\
+&=& \sum_{\alpha_{P}} \langle \phi_{i,T} | \phi_{\alpha_{P},P} \rangle
+\; \langle \phi_{\alpha_{P},P} | \phi_{\alpha_{T},T} \rangle \;
+e^{-i E_{\alpha_{P}} \tau}
+\end{eqnarray}
+where we have used \ref{Q:b_alpha} and \ref{Q:Time-evol-fi2a} to get
+the last expression.
+
+The coefficient of the last piece $c_{\alpha_{T}}$ only changes the
+phase in our approximation. Then we redefine
+\[
+c'_{\alpha_{T}} = c_{\alpha_{T}} e^{i E_{\alpha_{T}} \tau}
+\]
+such that its evolution is given simply by
+\[
+ c'_{\alpha_{T}} = c'_{\alpha_{T}} e^{-i E_{\alpha_{T}} t}
+\]
+%
+By using the projection on wavefunction \ref{Q:fi-f-b}, we get the
+transition probability
+\[
+\mathcal{P}_{if} = \lim_{t \to \infty} c_{\alpha_{T}}(t) =
+|c_{\alpha_{T}}(\tau)| = |c'_{\alpha_{T}}(\tau)| \,,
+\]
+since the total wavefunction has been expanded into (approximated)
+eigenfunctions of the final-state channel.
+
+\section{Approximated evaluation of the transition probability}
+\label{S:Appro-evalu-trans-proba}
+
+In our first attempt to evaluate the probability of transition we will
+use the expression \ref{Q:c-alfaT-exact} for $c_{\alpha}$ and use that
+the final state of interest corresponds to low-energy ionized
+electrons. We will suppose that only contribute to the summation those
+intermediate states where the electron is ionized and its momentum
+$\bm{q}$ is small. Then, $\bm{q}_{\alpha_{P}} \approx m_{P} \bm{v} -
+\bm{q}$ with $|\bm{q}| \ll |m_{P} \bm{v}|$, implying
+%
+\begin{equation}\label{Q:Energ-approx-alfaP}
+E_{\alpha_{P}} = \frac{q_{P}^{2}}{2 m_{P}} \approx \frac{v^{2} + 2 v
+q_{\|}}{2} \, .
+\end{equation}
+%
+This approximation allows us to write
+\begin{eqnarray} \label{Q:c-alfaT-appro-1a}
+c_{\alpha_{T}}(\tau) &=& \sum_{\alpha_{P}} \langle \phi_{i,T} |
+\phi_{\alpha_{P},P} \rangle \; \langle \phi_{\alpha_{P},P} |
+\phi_{\alpha_{T},T} \rangle \; e^{-i E_{\alpha_{P}} \tau}
+\\ \label{Q:c-alfaT-appro-1b}
+& \approx & e^{-i v^{2} \tau/2} \sum_{\alpha_{P}} \langle
+\phi_{i,T} | \phi_{\alpha_{P},P} \rangle \; \langle \phi_{\alpha_{P},P}
+| \phi_{\alpha_{T},T} \rangle \; e^{-i q_{\|} v \tau}
+\\ \label{Q:c-alfaT-appro-1c}
+& \approx & e^{-i v^{2} \tau/2} \int d \bm{q} \langle
+\phi_{i,T} | \phi_{\bm{q}_{P}} \rangle \; \langle \phi_{\bm{q}_{P}} |
+\phi_{\bm{k}_{T}} \rangle \; e^{-i q_{\|} \tau/v}
+\end{eqnarray}
+%
+where in the last equation we have explicitly excluded intermediate
+bound states. In our case the $\phi_{\bm{q}_{P}}$ are Continuum Coulomb
+states of the ($\mathrm{C}^{6+}$ ion) projectile and
+$\phi_{\bm{k}_{T}}$ is the target continuum wavefunction.
+
+Several approximations are possible here.
+
+\subsection{Intermediate plane-wave approximation}
+\label{S:Inter-plane-appro}
+
+First, we can consider that the momentum $|\bm{q}_{P}| \gg Z_{P}$ and
+use plane waves for the projectile states
+\begin{eqnarray} \label{Q:c-alfaT-appro-2}
+|c_{\alpha_{T}}| &\approx& \int d \bm{q} \int d \bm{r}_{1} \int
+d \bm{r}_{2} \phi_{i,T}(\bm{r}_{1}) e^{i (\bm{v}-\bm{q}) \cdot
+(\bm{r}_{1} - \bm{v}\tau)} \; e^{-i (\bm{v}-\bm{q}) \cdot
+(\bm{r}_{2} - \bm{v}\tau)} \phi_{\bm{k}_{T}}(\bm{r}_{2}) \;
+e^{-i q_{\|}  \cdot \bm{v}\tau} \nonumber \\
+&\approx& \int d \bm{r}_{1} \int d \bm{r}_{2}
+\phi_{i,T}(\bm{r}_{1}) e^{i \bm{v} \cdot (\bm{r}_{1}-\bm{r}_{2})}
+\phi_{\bm{k}_{T}}(\bm{r}_{2}) \;
+\delta(\bm{r}_{2}-\bm{r}_{1}-\bm{v}\tau)
+\\
+&\approx& e^{-i v^{2} \tau} \int d \bm{r}_{1} \,
+\phi_{i,T}(\bm{r}_{1}) \phi_{\bm{k}_{T}}(\bm{r}_{1} + \bm{v}\tau)
+\end{eqnarray}
+
+
+%
+%are evaluated in the incident velocity $\bm{v} (\approx
+%58\mathrm{~a.~u.})$ and consider
+
+\subsection{Contribution from resonant energies}
+\label{S:Contr-from-reson-energ}
+
+A further approximation would be to consider only those states that the
+two-body target-electron energy at time $\tau$ is the same that at $t
+\to \infty$,
+\begin{equation}\label{Q:Energ-shift}
+q = \sqrt{2 [E_{\infty} + V(r_{T}(\tau))]} \approx \sqrt{k^{2} + 2
+V(\langle r_{T} \rangle)}
+\end{equation}
+%
+where we simplify the position to $\langle r_{T}\rangle$ is the
+expectation value of the initial state
+
+\section{Limit of infinite time-duration of projectile action}
+\label{S:Limit-infin-time--proje-actio}
+
+If the electron evolves in the projectile field during an infinite
+amount of time we must take the limit $\tau \to \infty$. By using the
+Bochner's integral
+%
+\begin{equation}\label{Q:Bochn-integ}
+\lim_{t \to \infty} f(t) = \lim_{\varepsilon \to 0^{+}}
+\frac{\varepsilon^{\gamma}}{\Gamma(\gamma)} \int_{0}^{\infty}
+t^{\gamma-1} e^{- \varepsilon t} f(t) d t
+\end{equation}
+%
+and choosing $\gamma = 1$ we obtain
+%
+\begin{eqnarray}\label{Q:limit-infinit-time}
+\lim_{\tau \to \infty} c'_{\alpha_{T}}(\tau)\!\! &=&\!\!
+\lim_{\varepsilon \to 0^{+}} \varepsilon \sum_{\alpha_{P}} \langle
+\phi_{i,T} | \phi_{\alpha_{P},P} \rangle  \langle \phi_{\alpha_{P},P} |
+\phi_{\alpha_{T},T} \rangle \;
+\nonumber \\
+&& \quad \quad \int_{0}^{\infty} d \tau \; e^{- \varepsilon \tau}
+e^{- i (E_{\alpha_{P}} - E_{\alpha_{T}}) \tau}  \nonumber
+\\
+&=& \sum_{\alpha_{P}} \langle \phi_{i,T} | \phi_{\alpha_{P},P} \rangle
+\nonumber \\
+&&\quad \quad \left\langle \phi_{\alpha_{P},P} \left|\lim_{\varepsilon
+\to 0^{+}} \varepsilon  \int_{0}^{\infty} d \tau \; e^{-
+\varepsilon \tau} e^{- i (E_{\alpha_{P}} - h_{T}) \tau} \right|
+\phi_{\alpha_{T},T} \right\rangle \nonumber
+\\
+&=& \sum_{\alpha_{P}} \langle \phi_{i,T} | \phi_{\alpha_{P},P} \rangle
+\;  \lim_{\varepsilon \to 0^{+}} \left\langle \phi_{\alpha_{P},P}
+\left|i \, \varepsilon G_{T}(E_{\alpha_{P}}-i \varepsilon)
+\right| \phi_{\alpha_{T},T} \right\rangle  \nonumber
+\\
+&=& \sum_{\alpha_{P}} \langle \phi_{i,T} | \phi_{\alpha_{P},P} \rangle
+\;  \lim_{\varepsilon \to 0^{+}} \left\langle \phi_{\alpha_{P},P}
+\left|1 + G_{T}(E_{\alpha_{P}}-i \varepsilon) V_{T} \right|
+\phi_{\alpha_{T},T} \right\rangle   \nonumber
+\end{eqnarray}
+%
+where $G_{T}$ is the Green function of the two-body target-electron
+system, with interaction $V_{T}$.

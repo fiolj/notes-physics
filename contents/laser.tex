@@ -1,0 +1,282 @@
+\chapter{Laser-assisted collisions}
+
+In this chapter we study how atomic systems are affected by laser pulses. Later, we study also how collisions between particles (ion-atom, electron-atom, etc) can be modified by the presence of an external field.
+
+\section{Interaction of photons with atoms and molecules}
+
+\subsection{Photoionization}
+\label{S:photoionization}
+
+
+\subsection{Atomic stabilization}
+\label{S:atomic-stabilization}
+
+Multiple-electron atoms can be stabilized by a laser \cite{Gavrila2002JPBpR147}
+
+
+\section{Atomic ionization by a laser pulse}
+\label{S:atomic-ionization}
+Let's consider the ionization of an hydrogen atom by interaction with a laser pulse. We will consider the pulse as the force produced by an electric field derived from a vector potential $\bm{A}(t)$, that for the dimensions involved in the dynamics of atoms may be considered as uniform. As previously derived, the Hamiltonian for this system may be written as a time-dependent external force (\ref{Q:ph-hamil-EM-force}). We will consider a finite electric pulse of the form
+\begin{equation} \label{Q:electric-field-Ft-0}
+\bm{F}(t)= F_{0}\, \sin{(\omega (t-t_{0}))}\; \sin^{2}{(\pi\,t/\tau)} 
+\end{equation}
+for $0 < t < \tau $ and that vanishes at all other times. This field may be rewritten as:
+\begin{equation} \label{Q:electric-field-Ft}
+\bm{F}(t)= \frac{1}{4}\left[2\, \sin \left(\omega\, (t-t_{0})\right) - {\sin \left(\omega \, (t-t_{0}) +{{2\,\pi\,t}\over{\tau}}\right) - \sin \left(\omega\, (t-t_{0}) - \frac{2\,\pi\,t}{\tau} \right)} 
+ \right]
+\end{equation}
+
+For a Hamiltonian that may be splitted into two parts $H=H^{0}+V$, the transition amplitude for a time-dependent problem may be written in its prior form as (\ref{Q:td-T_fi-prior-work-expre-1})
+\begin{equation*}
+  T_{fi}^{-}= \frac{1}{i \hbar} \int_{-\infty}^{\infty} \big\langle \Psi^{-}_{f}(t) \big| V_{i}(t) \big| \phi_{i}(t) \big\rangle   \, dt \,.
+\end{equation*}
+
+\subsection{Coulomb-Volkov approximation (Length gauge)}
+\label{S:coul-volk-appr}
+
+We consider the potential due to the laser as the perturbation ($V_{i}(t)= \bm{F}(t)\cdot \bm{r}$) wich vanishes outside the time-interval $\Delta T= (0, \tau)$ we can write the transition matrix as
+\begin{equation*}
+  T_{fi}^{-}= \frac{1}{i \hbar} \int_{0}^{\tau} \big\langle \Psi^{-}_{f}(t) \big| \bm{F}(t)\cdot \bm{r} \big| \phi_{i}(t) \big\rangle   \, dt \,.
+\end{equation*}
+
+Notice that if we write the final state wavefunction $|\Psi_{f}^{-}\rangle$ back using expression \eqref{Q:T_fi-post} we obtain 
+the form used in eq.~30 of \citet{Milosev2006JPBpR203}:
+\begin{equation}\label{Q:tif-milos-form}
+T_{if}^{-}  = \frac{1}{i \hbar} \lim_{t \to \infty} \int_{0}^{\tau} \big\langle \phi_{f}(t) \big| U(t',t)  \bm{F}(t')\cdot \bm{r} \big| \phi_{i}(t') \big\rangle \, dt'
+\end{equation}
+
+The Coulomb-Volkov approximation consists in replacing the \textbf{exact wavefunction} $|\Psi^{-}_{f}(\bm{r},t)\rangle$ by a product of wavefunctions corresponding to the solution of two separated problems: the one of an isolated atom and the one of an electron in the external field. The plane wave part must be corrected to get the right boundary conditions (for $|\bm{r}|\to \infty$ and $|t| > \Delta T$).
+
+The factor corresponding to the atomic interaction is the same that in atomic collisions, as used in CDW theories (or FBA theories for the target wavefunction).
+
+The factor including the E.M field is obtained from \eqref{Q:ph-volkov-state} taking into account that the constant in \eqref{Q:ph-volkov-K} must be chosen as to describe a plane wave for $t=+\infty$. We consider that before the pulse starts $\bm{A}(t)=0$ ($t<0$). At all times the vector potential is given by
+\begin{equation*}
+  \bm{A}(t)= - c \int_{-\infty}^{t} \bm{E}(t') dt' = - c \int_{0}^{t} \bm{E}(t') dt' 
+\end{equation*}
+Notice that if the electric field $\bm{E}$ is symmetric the vector potential $\bm{A}(t)=0$ for $t>\tau$ but in general it is constant $\bm{A}(t)=A(\tau)\ne 0\,$.
+
+Except by an arbitrary constant phase the wavefunction for $t=\tau$ is given by
+\begin{equation*}
+  \Psi(\bm{r},\tau) = e^{i \bm{k}\cdot\bm{r}/\hbar} e^{-i E_{k} \tau/\hbar} e^{i \varphi} \equiv e^{i \bm{k}\cdot\bm{r}/\hbar} 
+\end{equation*}
+which corresponds to a free particle with momentum $\bm{k}$ and must be compared with \eqref{Q:ph-volkov-state} with $ \bm{k}= \bm{p} - (Z/c)\,\bm{A}(\tau)$. 
+
+For $t<\tau$ we have
+\begin{align*}
+  \Psi (\bm{r},t) &= e^{i \left[ \bm{p} - (Z/c)\bm{A}(t)\right]\cdot\bm{r}}\, \exp{\left[ \frac{-i}{2 m \hbar} \int_{\tau}^{t} \left( \bm{p} - \frac{Z}{c} \bm{A}(t') dt' \right)^{2}\right]} \\
+\intertext{or in terms of the asymptotic momentum}
+  \Psi (\bm{r},t) &= e^{i \left[\bm{k} - (Z/c)\bm{A}^{-}(t)\right]\cdot\bm{r}}\, \exp{\left[ \frac{-i}{2 m \hbar} \int_{\tau}^{t} \left( \bm{k} - \frac{Z}{c} \bm{A}^{-}(t') dt' \right)^{2}\right]}\ , &   \bm{A}^{-}(t)&=  \bm{A}(t) - \bm{A}(\tau) \,.
+\end{align*}
+
+Summarizing we can approximate the wavefunction $\left|\Psi_{f}^{(-)}\right\rangle \approx \left|\chi_{f}^{(-)} \right\rangle$ where
+\begin{align}
+  \label{Q:defin-coul-volk-state}
+  \chi^{-}_{f}(\bm{r}, \bm{k}, t) &= \frac{e^{i \bm{k}\cdot \bm{r}/\hbar}}{2 \pi \hbar}\, D^{-}_{\nu}(\bm{k}, \bm{r}) \, D^{-}_{\bm{A}}(\bm{k}, \bm{r}, t) \, e^{-i E_{f} (t- \tau)/\hbar} \qquad \qquad \left(E_{f}=k^{2}/2m \right)\\
+ D^{\pm}_{C}(\bm{k}, \bm{r}) &= \frac{e^{i \bm{k}\cdot \bm{r}/\hbar}}{2 \pi \hbar}\,\phi^{\pm}_{f}(\bm{r}) && (\text{see eq}.~\ref{Q:DFact})\nonumber \\
+\label{Q:def-Da-CV} D^{\pm}_{\bm{A}(t)}(\bm{k}, \bm{r}, t) &= e^{i \bm{A}^{\pm}(t) \cdot \bm{r}/\hbar}\, \exp{\left[ \frac{-(i/\hbar)}{m}\, \bm{k} \cdot \int_{t_{\pm}}^{t}  \bm{A}^{\pm}(t)\, dt  \right]}\, \exp{\left[ -(i/\hbar)\frac{1}{2m}\int_{t_{\pm}}^{t} \left( A^{\pm}(t) \right)^{2}\, dt  \right]} \\
+ \bm{A}^{\pm}(t) &= - \int_{t_{\pm}}^{t} \bm{F}(t)\, dt && (t_{+}=0 \,,~t_{-}=\tau) \nonumber
+\end{align}
+Here we have set $Z=-1$ for the electron charge and have included the factor $1/c$ in the definition of the vector $\bm{A}$ (compare with equation (\ref{Q:ph-volkov-state})). For a pure Coulomb potential atomic interaction (hydrogen atom) we have 
+\begin{align}
+  D^{\pm}_{C}(\bm{k}, \bm{r}) \equiv D^{\pm}(\nu,\bm{k},\bm{r}) &= N^{\pm}(\nu) \,{_1F_1}\left( \mp i \nu;1; {\pm} i (k r \mp \bm{k} \cdot\bm{r} ) \right) \, ,\\
+  N^{\pm}(\nu) &= \Gamma(1 {\pm} i\nu) e^{-\pi \nu/2} \, , &&  \nu= \frac{-m\,Z_{T}}{\hbar k}~ (< 0)  \nonumber
+\end{align}
+%
+\begin{aclaracion}[Suggestion] \label{S:suggestion}
+We should investigate what happens if we use a Coulomb distortion with local momentum $\bm{K}(t)=\bm{k}+\bm{A}(t)$. May be the wavefunction with a convolution of the two factors (similar to the impulsive approximations)
+\end{aclaracion}
+
+Replacing the Coulomb-Volkov wavefunction in the expression for the matrix element we obtain
+\begin{align}
+  T_{fi}^{-} &= \frac{1}{i\hbar} \int_{0}^{\tau} dt \, \exp{\left\{\frac{(i/\hbar)}{m} \left[ \bm{k} \cdot \int_{\tau}^{t}  \bm{A}^{-}(t')\, dt' + \frac{1}{2}\int_{\tau}^{t} \left( A^{-}(t') \right)^{2}\, dt' + (E_{f}-E_{i})t \right] \right\} } \nonumber \\
+&\times \int d^{3}\bm{r} \phi^{-*}_{f}(\bm{r}) \, \bm{F}(t) \cdot \bm{r} \, e^{-i \bm{A}^{-}(t) \cdot \bm{r}/\hbar} \phi_{i}(\bm{r}) \nonumber
+\end{align}
+If we define tha atomic form factor
+\begin{equation}\label{Q:def-f_if_t}
+F_{if}(t) \equiv g^{-}(t) = \int d^{3}\bm{r} \phi^{-*}_{f}(\bm{r}) \, e^{-i \bm{A}^{-}(t) \cdot \bm{r}/\hbar} \phi_{i}(\bm{r})
+\end{equation}
+and take into account that its derivative is the term involved in the integral we wet
+\begin{equation*}
+  \frac{d g^{-}(t)}{dt}= \frac{i}{\hbar} \int d^{3}\bm{r} \phi^{-*}_{f}(\bm{r}) \, e^{-i \bm{A}^{-}(t) \cdot \bm{r}/\hbar} \phi_{i}(\bm{r}) \, \underbrace{\left[- \frac{d A^{-}(t)}{dt} \right]}_{\bm{F}(t)} \cdot \bm{r}
+\end{equation*}
+If we call
+\begin{equation} \label{Q:def-f_t}
+  f^{-}(t)= \exp{\left\{(i/\hbar) \left[\frac{1}{m} \bm{k} \cdot \int_{\tau}^{t}  \bm{A}^{-}(t')\, dt' + \frac{1}{2m}\int_{\tau}^{t} \left( A^{-}(t') \right)^{2}\, dt' + (E_{f}-E_{i})t \right] \right\} }
+\end{equation}
+the transition matrix may be written
+\begin{align}
+  T_{fi}^{-}&= - \int_{0}^{\tau} dt \, f^{-}(t)\, \frac{d g^{-}(t)}{dt} \nonumber \\
+  &=\left. -f^{-}(t)\, g^{-}(t) \right|_{0}^{\tau} + \int_{0}^{\tau}  \frac{d f^{-}(t)}{dt}\, g^{-}(t)
+\nonumber \\
+&= f^{-}(0)\, g^{-}(0) - f^{-}(\tau)\, g^{-}(\tau) + \int_{0}^{\tau} h^{-}(t)\, f^{-}(t)\, g^{-}(t)\, dt
+\end{align}
+where we have defined the additional function
+\begin{equation}\label{Q:def-h_t}
+h^{-}(t)= \frac{i}{\hbar} \left[\frac{1}{m} \bm{k} \cdot \bm{A}^{-}(t) + \frac{1}{2m} \left( A^{-}(t) \right)^{2} + (E_{f}-E_{i}) \right] \,.
+\end{equation}
+The expression we will finally use is
+\begin{subequations}
+  \begin{align} \label{Q:t_fi_CV2_final}
+    T_{fi}^{-}&= f_{2}^{-}(0)\, g^{-}(0) + \int_{0}^{\tau} e^{i\omega_{fi}t} \, h^{-}(t)\, f_{2}^{-}(t)\, g^{-}(t)\, dt \\
+    \mathrm{with} \qquad \qquad & \nonumber \\
+    f_{2}^{-}(t) &= \exp{\left\{\frac{(i/\hbar}{m}) \left[ \bm{k} \cdot \int_{\tau}^{t} \bm{A}^{-}(t')\, dt' + \frac{1}{2}\int_{\tau}^{t} \left( A^{-}(t') \right)^{2}\, dt' \right]
+      \right\} } \\
+h^{-}(t) &= \frac{i}{m \hbar} \left[ \bm{k} \cdot \bm{A}^{-}(t) + \frac{1}{2} \left( A^{-}(t) \right)^{2} \right] + i \omega_{fi} \\
+g^{-}(t) &= \int d^{3}\bm{r} \phi^{-*}_{f}(\bm{r}) \, e^{-i \bm{A}^{-}(t) \cdot \bm{r}/\hbar} \phi_{i}(\bm{r})\\
+\omega_{fi}&=   (E_{f}-E_{i})/\hbar \nonumber
+  \end{align}
+\end{subequations}
+
+\subsection{Numerical issues}
+\label{S:numerical-issues}
+
+It looks that for large values of $k$ (large values of $\omega_{fi}$) the integral and the first term in (\ref{Q:t_fi_CV2_final}) tend to cancel each other.
+
+Let's investigate the problems:
+The electric field is given by
+\begin{align}
+F(t)&= -\frac{1}{4} \big[\sin( \omega_{+}\,t + \varphi) + \sin( \omega_{-}\,t + \varphi) - 2 \,\sin( \omega \,t + \varphi ) \big]\\
+A(t)&=
+\frac{1}{4\,\omega\,\omega_{-}\,\omega_{+}}\Big\{\omega\,\omega_{-}\,\cos\left( \tau\,\omega_{+}+\varphi\right) -\omega\,\omega_{-}\,\cos\left( t\,\omega_{+}+\varphi\right) \notag \\
+&+\Big( \omega\,\cos\left( \tau\,\omega_{-}+\varphi\right) -\omega\,\cos\left( t\,\omega_{-}+\varphi\right) + 
+\left( 2\,\cos\left( t\,\omega+\varphi\right) -2\,\cos\left( \tau\,\omega+\varphi\right) \right) \,\omega_{-}\Big) \,\omega_{+}\Big\}
+\end{align}
+where $\omega_{\pm}= \omega \pm 2 \pi/\tau$.
+
+We can write these expressions in a general form
+\begin{align}
+F(t) &= \sum_{j=0,1,2} a_{j}\, \sin(\omega_{j}\,t + \varphi)\\
+A_{-}(t) &= \sum_{j=0,1,2} \frac{a_{j}}{\omega_{j}}\, \big[\cos(\omega_{j}\,t + \varphi) - \cos(\omega_{j}\,\tau + \varphi)\big]\\
+\int_{\tau}^{t} A_{-}(t')\, dt' &= \sum_{j=0,1,2} \frac{a_{j}}{\omega_{j}}\, \left[\frac{\sin(\omega_{j}\,t + \varphi) - \sin(\omega_{j}\,\tau + \varphi)}{\omega_{j}} - \cos(\omega_{j}\,\tau + \varphi)(t-\tau)\right]
+\end{align}
+In our case $a=(1/2,-1/4,-1/4)$ and $\omega=(\omega, \omega_{+}, \omega_{-})$.
+
+If we \textbf{temporarily} neglect the term quadratic in $A_{-}$, the integral appearing in the evaluation of the T-matrix may be expressed as
+\begin{align}
+  I(\omega, \tau, k)&= \int_{0}^{\tau} dt\, e^{i\Omega\,(t-\tau)} \, e^{i \beta} \, e^{i \mathcal{G}(t)} \, h^{-}(t)\, g^{-}(t) =  e^{i (\beta - \Omega \tau)} \int_{0}^{\tau} dt\, e^{i\Omega\,t} \, \, e^{i \mathcal{G}(t)} \, h^{-}(t)\, g^{-}(t) 
+\intertext{where}
+\Omega &= w_{fi} - \frac{k_{A}}{m} \sum_{j=0}^{2} \frac{a_{j}}{\omega_{j}}\cos(\omega_{j}\tau + \varphi)\\
+\mathcal{G}(t) &= \frac{k_{A}}{m}\,  \sum_{j=0}^{2} \frac{a_{j}}{\omega_{j}^{2}}\sin(\omega_{j}\,t + \varphi)
+\intertext{for completeness we show $\beta$ although only contributes with a global phase}
+\beta&=  - \frac{k_{A}}{m} \sum_{j=0}^{2} \frac{a_{j}}{\omega_{j}^{2}}\sin(\omega_{j}\tau + \varphi)
+\end{align}
+%
+In the above expressions the sums must be \textbf{only} taken when $\omega_{j} \ne 0$.
+
+
+\subsection{Coulomb-Volkov approximation in the velocity gauge}
+\label{S:coul-volk-veloc}
+
+Following the ideas of the original Coulomb-Volkov approximation we will consider the problem in velocity gauge. The perturbation is given by $V_{i}= i (Z \hbar/m c) \bm{A} \cdot \nabla$, which is time-independent. As before, the initial state is the unperturbed atomic (or molecular) $\phi_{i} \times \exp{(-i E_{i}t/\hbar)}$ while the final state is given by the above expression (\ref{Q:defin-coul-volk-state}), where the expression (\ref{Q:def-Da-CV}) must be replaced by
+\begin{equation}
+  \label{Q:def-Da-CV-vel-gauge}
+  D_{A}^{\pm}(\bm{k},\bm{r},t)= \exp{\left[ -\frac{(i/\hbar)}{m} \bm{k} \cdot \int_{t_{\pm}}^{t}  \bm{A}^{\pm}(t')\, dt'  \right]}
+\end{equation}
+
+The transition matrix is 
+\begin{align}
+  \label{Q:Tif-CV2-vel}
+  T_{fi}^{-} &= \frac{Z}{m c} \int_{-\infty}^{\infty} dt \, e^{\left\{(i/\hbar) \left[ \bm{k} \cdot \int_{\tau}^{t}  \bm{A}^{-}(t')\, dt' + (E_{f}-E_{i})t \right] \right\} }  \bm{A}(t) \cdot \int d^{3}\bm{r} \, \phi^{-*}_{f}(\bm{r}) \, \nabla \phi_{i}(\bm{r})  \notag \\
+  &= \frac{Z}{m c} \langle \phi^{-}_{f} | \nabla | \phi_{i} \rangle \cdot  \int_{-\infty}^{\infty} dt \, e^{(i/\hbar) \left[ \bm{k} \cdot \int_{\tau}^{t}  \bm{A}^{-}(t')\, dt' + (E_{f}-E_{i})t \right]  } \bm{A}(t) \notag \\
+&= \frac{Z}{m c} \langle \phi^{-}_{f} | \nabla | \phi_{i} \rangle \cdot  \int_{0}^{\infty} dt \, e^{(i/\hbar) \left[ \bm{k} \cdot \int_{\tau}^{t}  \bm{A}^{-}(t')\, dt' + (E_{f}-E_{i})t \right]  } \bm{A}(t) 
+\end{align}
+
+We may separate the transition matrix into two contributions, one corresponding to $t<\tau$ where the electric field is present and one after the pulse is finished ($t \ge \tau$) such that $T_{fi}^{(-)}= T_{fi,\tau}^{(-)} + T_{fi,\infty}^{(-)}$
+\begin{align*}
+  T_{fi,\infty}^{(-)} &= \frac{Z}{m c} \langle \phi^{-}_{f} | \nabla | \phi_{i} \rangle \cdot \bm{A}(\tau) \,  \int_{\tau}^{\infty} dt \, e^{i \omega_{fi} t } = -\frac{i \, Z}{m c \omega_{fi}} \langle \phi^{-}_{f} | \nabla | \phi_{i} \rangle \cdot \bm{A}(\tau) \, e^{i \omega_{fi} \tau} \\
+  T_{fi,\tau}^{(-)} &= \frac{Z}{m c} \langle \phi^{-}_{f} | \nabla | \phi_{i} \rangle \cdot  \int_{0}^{\tau} dt \, e^{(i/\hbar) \left[ \bm{k} \cdot \int_{\tau}^{t}  \bm{A}^{-}(t')\, dt' \right]  } \bm{A}(t) \,  e^{i \omega_{fi} t }
+\end{align*} 
+where we had to renormalize the integral to obtain the first term by adding a decaying exponential and taking the limit at the end (Abel's regularization?). In these expressions all magnitudes have the same meaning that for the calculation in length gauge.
+
+\begin{bfseries}
+A few test calculations seem to indicate that the results are not accurate in this gauge for this approximation.
+\end{bfseries}
+
+\section{Second order approximations}
+\label{S:second-order-appr}
+Recalling the equations for the evolution operator (\ref{Q:td-expan-oper-evol-1}) and the transition matrix (\ref{Q:tif-milos-form}), 
+\begin{align*}
+  \hat{U}(t,t_{0}) &= \hat{U}^{0}_{i}(t,t_{0}) + \frac{1}{i\hbar} \int_{t_{0}}^{t} \hat{U}^{0}_{i}(t,t')\, H'_{i} \, \hat{U}(t',t_{0}) \, dt'  \\
+  T_{if}^{-}  &= \frac{1}{i \hbar} \lim_{t \to \infty} \int_{0}^{\tau} \big\langle \phi_{f}(t) \big| U(t',t)  \bm{F}(t')\cdot \bm{r} \big| \phi_{i}(t') \big\rangle \, dt'
+\end{align*}
+Choosing the ``undistorted'' states $\chi (\bm{r},t)$ and the corresponding evolution operator $U_{I}$, we will replace the above expression for the evolution operator into the transition matrix element, obtaining 
+\begin{equation}\label{Q:CV-2or-0}
+T_{fi} = \frac{1}{i\hbar} \int_{t_{i}}^{t_{f}} \big\langle \chi_{f}^{-}(t)|V_{i}(t)|\phi_{i}(t) \big\rangle dt +  \left( \frac{1}{i \hbar} \right)^{2} \int_{t_{i}}^{t_{f}} d t_{0} \, \int_{t_{0}}^{t_{f}} d t_{1} \,\Big\langle \chi_{f}^{-} \Big| H_{I}'(t_{1}) U(t_{1},t_{0}) V_{i}(t_{0}) \Big| \phi_{i}(t_{0}) \Big\rangle
+\end{equation}
+where the perturbation is given by the part of the Hamiltonian that is not solved by the state
+\begin{equation}\label{Q:CV-def-perturb-0}
+  \left( H - i \hbar \frac{\partial }{\partial t} \right) \chi (\bm{r},t) = H_{I}' \chi (\bm{r},t) \, .
+\end{equation}
+
+Notice that this is still an exact expression and the second term depends on the \emph{full} evolution operator. 
+In order to be able to perform calculations we have to approximate this operator. We can do it with the same separation of the Hamiltonian (with $U_{I}$, $\chi$ and $H_{I}'$) or make different approximations that may be either easier to calculate or physically more adequate. In any case we will use that the evolution operator may be written in terms of the eigenstates of the Hamiltonian as
+\begin{equation}
+  \label{Q:oper-evol-autoestados}
+  U(t_{1},t_{0})= \int |\xi_{\alpha}(t_{1})\rangle\langle \xi_{\alpha}(t_{0})| d\alpha 
+\end{equation}
+
+ Thus, the approximated transition matrix may be written as
+$T_{fi} = T_{fi}^{(1)} + T_{fi}^{(2)}$ where
+\begin{equation} \label{Q:CV-2or-1}
+T_{fi}^{(2)}= \left( \frac{1}{i \hbar} \right)^{2} \sumint{\alpha} \int_{t_{i}}^{t_{f}} d t_{0} \, \int_{t_{0}}^{t_{f}} d t_{1} \,\big\langle \chi_{f}^{-}(t_{1}) \big| H_{I}'(t_{1}) \big|\xi_{\alpha}(t_{1})\big\rangle \big\langle \xi_{\alpha}(t_{0})\big|  V_{i}(t_{0}) \big| \phi_{i}(t_{0}) \big\rangle 
+\end{equation}
+
+\subsection{Second-order Coulomb-Volkov}
+\label{S:second-order-CV}
+
+In the CV aproximation the perturbation is made in terms of the Coulomb-Volkov states $\chi (\bm{r},t)$ (\ref{Q:defin-coul-volk-state}). In order to evaluate the perturbation operator, from relation (\ref{Q:CV-def-perturb-0}), we must evaluate the temporal derivative. We simplify the notation writing for the state
+\begin{align*}
+  \chi (\bm{r},t) &= f(\bm{r})\, e^{(i/\hbar) [\bm{A}^{-}(t)\cdot \bm{r} - g(t)]}
+  &\text{with } &&
+  g(t)&=  \frac{1}{m}\, \bm{k} \cdot \int_{\tau}^{t}  \bm{A}^{-}(t)\, dt + \int_{\tau}^{t} \left( \frac{A^{-}(t)^{2}}{2m} + E_{f} \right) \, dt 
+\end{align*}
+Thus,
+\begin{align}
+ \frac{\partial \chi (\bm{r},t)}{\partial t} &= \chi (\bm{r},t) \, \frac{i}{\hbar} \, \left( \frac{\partial \bm{A}^{-}}{\partial t}\cdot \bm{r} - \frac{\bm{k}\cdot \bm{A}(t)}{m} - \frac{\left( A^{-}(t) \right)^{2}}{2m} - E_{f}  \right)
+\end{align}
+
+In order to evaluate the action of the Hamiltonian we write the state as
+\begin{align*}
+  \chi (\bm{r},t) &= \phi_{\nu}(\bm{r})\, e^{(i/\hbar) [\bm{A}^{-}(t)\cdot \bm{r}]}\, g(t)
+  &\text{with } &&
+  g(t)&= \exp{\left[(-i/\hbar) \left( \frac{1}{m}\, \bm{k} \cdot \int_{\tau}^{t}  \bm{A}^{-}(t)\, dt + \frac{1}{2m}\int_{\tau}^{t} \left( A^{-}(t) \right)^{2}\, dt + E_{f}\,t \right)\right]}
+\end{align*}
+
+\begin{align}
+  H \chi (\bm{r},t) &= \left( \frac{-\hbar^{2}}{2m} \nabla^{2} + V_{i}(\bm{r}) + \bm{F}(t) \cdot \bm{r}  \right) \chi (\bm{r},t) \notag \\
+&=  g(t) \Bigg[ e^{(i/\hbar) [\bm{A}^{-}(t)\cdot \bm{r}]}\, \left( \frac{-\hbar^{2}}{2m} \nabla^{2} +V_{i}(\bm{r}) \right)  \phi_{\nu}(\bm{r}) +  \phi_{\nu}(\bm{r})\, \left( \frac{-\hbar^{2}}{2m} \nabla^{2} + \bm{F}(t) \cdot \bm{r} \right)\, e^{(i/\hbar) [\bm{A}^{-}(t)\cdot \bm{r}]} \notag \\
+&\qquad - \frac{\hbar^{2}}{m}  \nabla \phi_{\nu}(\bm{r}) \cdot \nabla \, e^{(i/\hbar) [\bm{A}^{-}(t)\cdot \bm{r}]}  \Bigg] \notag \\
+&= \left[ \frac{k^{2}}{2m} +  \frac{(A^{-}(t))^{2}}{2m} +  \bm{F}(t)\cdot\bm{r} + \frac{i \hbar}{m} \left( \frac{\nabla \phi_{\nu}}{\phi_{\nu}} \right) \cdot \bm{A} \right] \chi (\bm{r},t) 
+\end{align}
+
+Then,
+\begin{align*}
+  \left( H - i \hbar \frac{\partial }{\partial t} \right) \chi (\bm{r},t) = \left[\frac{i \hbar}{m} \left( \frac{\nabla \phi_{\nu}}{\phi_{\nu}} \right) \cdot \bm{A} - \frac{1}{m}\,\bm{k}\cdot \bm{A}(t) \right] \chi (\bm{r},t)
+\end{align*}
+this expression may be further simplified if we write the atomic state in terms of the atomic distortion factor $\phi_{\nu}(\bm{r},t) = \exp{[(-i/\hbar) \bm{k}\cdot\bm{r} ]} \,D_{\nu} (\bm{r},t)$ such that  
+
+\begin{equation*}
+\frac{\nabla \phi_{\nu}(\bm{r},t)}{\phi_{\nu}(\bm{r},t)} = -(i/\hbar) \bm{k} + \frac{\nabla D_{\nu}(\bm{r},t)}{D_{\nu}(\bm{r},t)}
+\end{equation*}
+The terms with the product between the electron momentum and the vector field cancel out, leading to
+\begin{equation}\label{Q:CV2-perturb}
+  \left( H - i \hbar \frac{\partial }{\partial t} \right) \chi (\bm{r},t) \equiv H_{I}' \chi (\bm{r},t) = \left[\frac{i \hbar}{m}\left[ \frac{\nabla D_{\nu} (\bm{r},t)}{D_{\nu}(\bm{r},t)} \right]  \cdot \bm{A}(t) \right]\, \chi (\bm{r},t)
+\end{equation}
+
+Then, the matrix element appearing in (\ref{Q:CV-2or-1}) may be written
+\begin{equation} \label{Q:Tif-2CV2-1}
+  \big\langle \chi_{f}^{-} \big| H_{I}'(t_{1}) \big|\xi_{\alpha}(t_{1})\big\rangle = \int d^{3} \bm{r} \; 
+\end{equation}
+
+% \section{Capture collisions in presence of external fields}
+% \label{S:Captu-colli-prese-exter-field}
+
+% \subsection{Antihydrogen formation}
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 

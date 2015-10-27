@@ -1,0 +1,1155 @@
+\chapter{CDW Approximations}
+
+\section{CDW wavefunction}
+We will use the final state wavefunction $C_{3}$ o CDW:
+%
+\begin{equation}\label{Q:C3}
+\Psi^{\pm}_{C3} (\bm{r},\bm{R}) = \frac{e^{i (\bm{k}_j\cdot
+\bm{r}_j+\bm{K}_j\cdot \bm{R}_j)}}{(2 \pi)^3} \,
+D^{\pm}(\nu_T,\bm{k}_T,\bm{r}_T) \, D^{\pm}(\nu_P,\bm{k}_P,\bm{r}_P)
+\,D^{\pm}(\nu_N,\bm{k}_N,\bm{r}_N)
+\end{equation}
+%
+where the distortion factor $D^{\pm}$ are defined in terms of the two body
+wave functions as
+\[
+ \psi^{\pm}_{\bm{k}_j}(\bm{r}_j)  = (2\pi)^{-3/2}e^{i \bm{k}_{j}
+ \cdot \bm{r}_{j}} D^{\pm}(\nu_j,\bm{k}_{j},\bm{r}_{j})
+\]
+%
+For a continuum state with Coulomb interactions the distortion factor
+is given by
+%
+\begin{equation}\label{Q:DFactCoul}
+ D^{\pm}(\nu_j,\bm{k}_{j},\bm{r}_{j})= N^{\pm}(\nu_{j}) \,{_1F_1}\left(
+\mp i \nu_{j};1; {\pm} i (k_{j} r_{j} \mp \bm{k}_{j} \cdot\bm{r}_{j}
+) \right) \, ,
+\end{equation}
+%
+$N^{\pm}(\nu_j)= \Gamma(1 {\pm} i\nu_j) e^{-\pi \nu_j/2}$ and the
+Sommerfeld's parameter $\nu_j = m_j Z_j/ k_j$.
+
+In the general case, for arbitrary interaction between particles it can
+be defined as
+\begin{equation}\label{Q:DFact}
+D^{\pm}(\nu_j,\bm{k}_j,\bm{r}_j)  = (2\pi)^{3/2}e^{ - i\bm{k}_j \cdot
+\bm{r}_j} \psi^{\pm}_{\bm{k}_j}(\bm{r}_j)
+\end{equation}
+where $\psi^{\pm}_{\bm{k}_j}(\bm{r}_j)$ is the exact two-body wavefunction.
+
+
+\section{CDW-Born approximation}
+
+We use the final state $\Psi_{C3}$ and an initial undistorted Born wave
+function $\Psi_{B1}=\phi_{T} \, \exp{ \left( i \mu_{T} \bm{v}_{T}
+\cdot \bm{R}_{T} \right)}$. The wavefunction is the C3
+\begin{equation} \label{Q:FCC1}
+\Psi^{\pm}_{C3} (\bm{r},\bm{R}) = \frac{e^{i {\bf k}_j\cdot {\bf r}_j+{\bf
+K}_j\cdot {\bf R}_j}}{(2 \pi)^3} \, D^{\pm}(\nu_T,{\bf k}_T,{\bf r}_T) \,
+D^{\pm}(\nu_P,{\bf k}_P,{\bf r}_P) \,D^{\pm}(\nu_N,{\bf k}_N,{\bf r}_N)
+\end{equation}
+
+Here the Coulomb wave function is
+\begin{equation}\label{Q:FCC} 
+\psi^{\pm}_{{\bf k}_j}({\bf r}_j)  = (2\pi)^{-3/2}e^{i{\bf
+k}_j \cdot {\bf r}_j} D^{\pm}(\nu_j,{\bf k}_j,{\bf r}_j)
+\end{equation}
+%
+with
+%
+\begin{eqnarray}\label{Q:NNorm}
+D^{\pm}(\nu_j,{\bf k}_j,{\bf r}_j) &=& N(\nu_j) \,{_1F_1}\left( \mp i
+\nu_j;1; {\pm} i(k_j r_j \mp {\bf k}_j\cdot{\bf r}_j ) \right) \, ,\\
+\nonumber \\ 
+ N^{\pm}(\nu_j)&=& \Gamma(1 {\pm} i\nu_j)\, e^{-\pi \nu_j/2}
+\end{eqnarray}
+%
+and the Sommerfeld's parameter $\nu_j = m_j Z_j/ k_j$.
+
+\subsection{T-matrix in prior-form}
+In the prior-form the final distortion, given by the channel potential
+is equal to $V_{P} + V_{N}$. We can separate the T-matrix in the form:
+$t_{if} = t_{P} + t_{N}$, with $t_{j} = \langle \Psi_{f}^{-}\mid
+V_j\mid \Psi_{i} \rangle $
+
+\begin{eqnarray} \label{QA2:6}
+t_{P} = \frac{Z_{P}}{(2 \pi)^{3}} && \int d \bm{r}_{P} \,
+   \frac{e^{- i \, \bm{Q} \cdot \bm{r}_{P}}}{\bm{r}_{P}}
+D^{-\,\ast}(\nu_{P},\bm{k}_{P},\bm{r}_{P}) {\times}
+\\
+& & \int d \bm{r}_{T} \, e^{i \, (m_{T}/m) \, \bm{Q} \cdot
+\bm{r}_T} \, \phi_{i}(\bm{r}_T) \, \phi^{-\, \ast}_{f}(\bm{r}_T) \,
+D^{-\,\ast}(\nu_{N}, \bm{k}_{N}, \bm{r}_{T} - \bm{r}_{P} ) \;,
+\nonumber
+\end{eqnarray}
+%
+for the projectile-electron interaction and
+%
+\begin{eqnarray}\label{QA2:7}
+t_{N} = \frac{Z_{N}}{(2 \pi)^{3}} & & \int d \bm{r}_{N} \,
+   \frac{e^{ i \, \bm{Q} \cdot \bm{r}_{N}}}{\bm{r}_{N}}
+D^{-\,\ast}(\nu_{N},\bm{k}_{N},\bm{r}_{N}) {\times}
+\\
+ & & \int d \bm{r}_T \,
+e^{- i \, (m_{T}/M_{T}) \, \bm{Q} \cdot \bm{r}_T} \,
+\phi_{i}(\bm{r}_{T})\, \phi^{-\, \ast}_{f}(\bm{r}_T) \,
+D^{-\,\ast}(\nu_{P}, \bm{k}_{P}, \bm{r}_{T} - \bm{r}_{N} ) \nonumber
+\end{eqnarray}
+for the internuclear perturbation.
+
+We define the atomic form factor $\langle \phi_{f}\mid e^{i
+\bm{p}\cdot \bm{r}}\mid \phi_{i} \rangle$
+%
+\begin{equation}\label{QA2:8}
+  F_{if}(\bm{p}) = \frac{1}{(2 \pi)^{3/2}} \int d \bm{r}_{T} \;
+e^{\, i \bm{p} \cdot \bm{r}_{T}} \, \phi_{i}(\bm{r}_{T}) \,
+\phi^{-\, \ast}_{f}(\bm{r}_T)
+\end{equation}
+%
+such that
+\[
+\phi_{i}(\bm{r}) \, \phi^{-\, \ast}_{f}(\bm{r}) = \frac{1}{(2
+\pi)^{3/2}} \int d \bm{p} \, e^{- i \bm{p} \cdot \bm{r}} \,
+F_{if}(\bm{p}) \,.
+\]
+%
+Replacing in \ref{QA2:6} and \ref{QA2:7} we get
+%
+\begin{eqnarray}\label{QA2:9}%
+t_{P} &=& -\frac{Z_{P}\, \mathcal{N}_{P} \mathcal{N}_{N}}{(2\pi)^{9/2}}
+\; \lim_{\lambda_{1},\lambda_{2} \to 0^{+}} \mathcal{H} \left(
+\lambda_{1},- \nu_{P},\bm{k}_{P} ;  \lambda_{2},-
+\nu_{N},\bm{k}_{N};\bm{Q} , -(m_{T}/M_{T}) \, \bm{Q} \right)
+  \nonumber \\
+t_{N} &=& \frac{Z_{N} \, \mathcal{N}_{P} \mathcal{N}_{N}}{(2\pi)^{9/2}}
+\; \lim_{\lambda_{1},\lambda_{2} \to 0^{+}} \mathcal{H} \left(
+\lambda_{1}, - \nu_{N},\bm{k}_{N} ; \lambda_{2},- \nu_{P},\bm{k}_{P} ;
+- \bm{Q} ,  (m_{T}/m) \, \bm{Q} \right) \; ,
+\end{eqnarray}
+%
+with
+%
+\begin{equation}\label{QA2:10}%
+ \mathcal{H} \left( \lambda_{1},a_{1},\bm{k}_{1} ;
+  \lambda_{2},a_{2},\bm{k}_{2}; \bm{Q}, \bm{p} \right)  =
+ \int d \bm{q} \; F_{if}( \bm{p} - \bm{q} ) \;
+ J_{0}( \lambda_{2}, \bm{q} + \bm{Q}, a_{2}, \bm{k}_{2} ) \;
+ J_{1}( \lambda_{1}, \bm{q}, a_{1}, \bm{k}_{1} )
+\end{equation}
+%
+where $J_{0}$ y $J_{1}$ are the Nordsieck-like integrals
+\parencite*{Nordsie1954PRp785} given by eq.~\ref{Q:Jint}.
+
+Now, because the $J_{o}$ is more peaked in the origin than $J_{1}$,
+will be useful to change variables $\bm{q} \to \bm{q}' = \bm{q} +
+\bm{Q}$ and get (dropping the prime)
+\begin{equation}\label{QA2:12}%
+ \mathcal{H} \left( \lambda_{1},a_{1},\bm{k}_{1} ;
+  \lambda_{2},a_{2},\bm{k}_{2}; \bm{Q}, \bm{p} \right)  =
+ \int d \bm{q} \; F_{if}( \bm{p} + \bm{Q} - \bm{q} ) \;
+ J_{0}( \lambda_{2}, \bm{q} , a_{2}, \bm{k}_{2} ) \;
+ J_{1}( \lambda_{1}, \bm{q} - \bm{Q}, a_{1}, \bm{k}_{1} )
+\end{equation}
+
+We can also write simply
+\begin{align*}
+  t_{if}&= \frac{1}{(2 \pi)^{9/2}} \int d \bm{p}\, F_{if}(\bm{p})\,\Big[ Z_{N} J_{1}(0^{+}, \bm{k}_{1},-\nu_{N}, \bm{k}_{N}) J_{0}(0^{+}, \bm{k}_{2},-\nu_{P}, \bm{k}_{P}) - Z_{P}\,  J_{0}(0^{+}, \bm{k}_{1},-\nu_{N}, \bm{k}_{N}) J_{1}(0^{+}, \bm{k}_{2},-\nu_{P}, \bm{k}_{P}) \Big]
+\intertext{with}
+\bm{k}_{1}&= \frac{m_{T}}{m}\bm{Q} - \bm{p} \\
+\bm{k}_{2}&= - \left( \frac{m_{T}}{M_{T}}\bm{Q} + \bm{p}  \right)
+\end{align*}
+
+\subsection{Series expansion of the T-matrix}
+
+We expand the atomic form factor $F_{if}$ in a Taylor series around the
+point $\bm{q}= \bm{Q}$, where $J_{1}$ present its maximum,
+
+\begin{equation}\label{QTaylorFif}
+F_{if}(\bm{p} + \bm{Q} - \bm{q}) = F_{if}(\bm{p}) + \left( \bm{Q} -
+\bm{q} \right) \cdot \left. \nabla F_{if} \right| _{\bm{p}} +
+\Delta^{2} F_{if}
+\end{equation}
+
+We obtain a similar expansion for $\mathcal{H} = \mathcal{H}_{o} +
+\mathcal{H}_{1} + \Delta^{2} \mathcal{H}$.
+
+\subsection*{Evaluation of $\mathcal{H}_{o}$}
+We evaluate the first term as:
+%
+\begin{equation}\label{Q:mathc-lambd-a_1-1}
+ \mathcal{H}_{o}\left( \lambda_{1},a_{1},\bm{k}_{1} ;
+\lambda_{2},a_{2},\bm{k}_{2}; \bm{Q}, \bm{p} \right) = F_{if}(\bm{p})
+\int J_{o}(\lambda_{2},\bm{q},a_{2},\bm{k}_{2}) \, J_{1}(\lambda_{1},
+\bm{q}- \bm{Q} ,a_{1},\bm{k}_{1} ) \, d \bm{q}
+\end{equation}
+
+By using the relation \ref{Q-N1-Jb} we obtain
+\begin{equation}\label{Q:fbeq-mathcalh_o}
+  \fbeq{
+\mathcal{H}_{o} \left( \lambda_{1},a_{1},\bm{k}_{1} ; \lambda_{2},
+a_{2}, \bm{k}_{2} ; \bm{Q}, \bm{p} \right) = (2 \pi)^{3} \;
+F_{if}(\bm{p}) \; N_{1} \left(\lambda_{1}+\lambda_{2}, \bm{Q} ; a_{1},
+- \bm{k}_{1} ; a_{2}, \bm{k}_{2} \right) \, ,
+  }
+\end{equation}
+%
+where $N_{1}$ is the Nordsieck's Integral defined in \ref{Q:N1}.
+
+\subsection*{The order 1}
+%
+\begin{eqnarray}\label{Q:order1}
+ \mathcal{H}_{1}\left( \lambda_{1},a_{1},\bm{k}_{1} ;
+\lambda_{2}, a_{2}, \bm{k}_{2}; \bm{Q}, \bm{p} \right) &=&  \nabla
+F_{if} ({\bm{p}}) \cdot  \left[ \int \left( \bm{Q} - \bm{q} \right)
+J_{o}(\lambda_{2},\bm{q},a_{2},\bm{k}_{2}) \,  J_{1}(\lambda_{1},
+\bm{q}- \bm{Q} ,a_{1},\bm{k}_{1} ) \, d \bm{q} \right]
+\end{eqnarray}
+
+  \noindent
+Now, while $\nabla F_{if} ({\bm{p}}) = i \, \bm{L}_{if}(\bm{p})$ and
+using $\bm{I}_{1}$ as in eq. \ref{Q-N1-Jc} we obtain
+
+\begin{eqnarray*}
+&&\mathcal{H}_{1}\left( \lambda_{1},a_{1},\bm{k}_{1} ; \lambda_{2},
+a_{2}, \bm{k}_{2}; \bm{Q}, \bm{p} \right)= \\
+&&\qquad i \bm{L}_{if} ({\bm{p}})
+\cdot \left[(2 \pi)^{3} \bm{Q} N_{1}(\lambda,\bm{Q} ; a_{1},-\bm{k}_{1}
+; a_{2},\bm{k}_{2}) - \frac{(2 \pi)^{3}}{-i}
+\bm{I}_{1}(\lambda,\bm{Q}; a_{1},-\bm{k}_{1}; a_{2},\bm{k}_{2} )
+\vstretch \right]
+\end{eqnarray*}
+
+The first order is then given by
+\begin{eqnarray}\label{Q:mathc-lambd-a_1}
+&&\mathcal{H}_{1}\left( \lambda_{1},a_{1},\bm{k}_{1} ; \lambda_{2},
+a_{2}, \bm{k}_{2}; \bm{Q}, \bm{p} \right)= \\
+&& \qquad (2 \pi)^{3} \, \bm{L}_{if}
+({\bm{p}}) \cdot  \left[ \bm{I}_{1}(\lambda,\bm{Q}; a_{1},-\bm{k}_{1};
+a_{2},\bm{k}_{2} ) + i \bm{Q} N_{1}(\lambda,\bm{Q} ;
+a_{1},-\bm{k}_{1} ; a_{2},\bm{k}_{2}) \vstretch \right] \nonumber
+\end{eqnarray}
+%
+where $\lambda = \lambda_{1}+\lambda_{2}$.
+
+
+
+\section{CDW Final Distortion potential}
+The wavefunction \ref{Q:C3}, with $D$ defined as in \ref{Q:DFactCoul},
+has been employed as an approximated solution of the three-body Coulomb
+continuum state. Although our interest is focused in the Coulomb case,
+this wavefunction can be defined for general interactions between the
+particles through \ref{Q:C3} and \ref{Q:DFact}.
+
+To determine the distortion potential we write the wavefunction as
+\[
+\Psi^{\pm}_{C3} (\bm{r},\bm{R}) = \frac{e^{i \bm{k}_j\cdot
+\bm{r}_j+\bm{K}_j\cdot \bm{R}_j}}{(2 \pi)^3} D_{T} \,
+\pounds(\bm{r},\bm{R})
+\]
+where, in order to simplify the notation, we write $D^{\pm}_{j} \equiv
+D^{\pm}(\nu_j,\bm{k}_{j},\bm{r}_{j})$.
+
+\begin{equation}\label{Q:C3-final-disto}
+\left( H - E \right) \Psi(\bm{r}_{j}, \bm{R}_{j}) = \left[ H_{0} +
+V_{T}(\bm{r}_{T}) + V_{P}(\bm{r}_{P}) + V_{N}(\bm{r}_{N}) - E \right]
+\left[ \frac{e^{i (\bm{k}_j\cdot \bm{r}_j+\bm{K}_j \cdot
+\bm{R}_j)}}{(2 \pi)^3} \, D_{T} \, \pounds(\bm{r},\bm{R}) \right]
+\end{equation}
+
+\noindent Now, using that
+\begin{eqnarray*}
+\nabla^{2}_{\bm{r}}(f \, g) &=& f \, \nabla^{2}_{\bm{r}}(g) + g \,
+\nabla^{2}_{\bm{r}}(f) + 2 \overrightarrow{\nabla}_{\bm{r}}(g) \cdot
+\overrightarrow{\nabla}_{\bm{r}}(f) \, , \\
+\overrightarrow{\nabla}_{\bm{r}} e^{i \bm{k}\cdot \bm{r}} &=&
+i \,
+\bm{k} \, e^{i \bm{k}\cdot \bm{r}} \, , \\
+\overrightarrow{\nabla}_{\bm{R}_{T}} D_{T}(\bm{r}_{T}) &=& 0
+\end{eqnarray*}
+ we obtain
+%
+\begin{eqnarray*}
+\left( H - E \right) \Psi &=& \left( \frac{k_{T}^{2}}{2m_{T}} +
+\frac{K_{T}^{2}}{2 \mu_{T}} - E \right) \Psi + \frac{e^{ i
+(\bm{k}_{T}\cdot \bm{r}_{T} + \bm{K}_{T} \cdot \bm{R}_{T})}}{(2 \pi)^3}
+{\times}
+\\
+&&{\times} \left\{ D_{T} \, \left[ -\frac{\nabla^{2}_{\bm{r}_{T}}}{2 m_{T}}
+-\frac{\nabla^{2}_{\bm{R}_{T}}}{2 \mu_{T}}  + V_{N} + V_{P} \right]
+\pounds \right. + \pounds \left[-\frac{\nabla^{2}_{\bm{r}_{T}}}{2m_{T}}
++ V_{T} \right] D_{T}
+\\
+&&\left.-  \frac{ \overrightarrow{\nabla}_{\bm{r}_{T}}D_{T} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{T}} \pounds }{m_{T}} - \frac{i
+\bm{k}_{T}}{m_{T}} \cdot \left( \pounds \,
+\overrightarrow{\nabla}_{\bm{r}_{T}} D_{T} +  D_{T} \,
+\overrightarrow{\nabla}_{\bm{r}_{T}}\pounds \right) - \frac{i D_{T}
+\bm{K}_{T}}{\mu_{T}} \cdot \overrightarrow{\nabla}_{\bm{R}_{T}} \pounds
+  \right\} \, .
+\end{eqnarray*}
+%
+The first term vanishes due to conservation of the energy
+$E=k_{T}^{2}/2m_{T} + K_{T}^{2}/2\mu_{T}$. Moreover, as it is easy to
+prove from the definition \ref{Q:DFact}, the distortion factors verify
+the differential equation
+%
+\begin{equation}\label{Q:DEDFact}
+\left[-\frac{\nabla^{2}_{\bm{r}_{j}}}{2m_{j}} + V_{j} - \frac{ i \,
+\bm{k}_{j}}{m_{j}} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{j}}\right]D_{j} = 0 \, .
+\end{equation}
+%
+Thus, we can write
+\begin{eqnarray}\label{Q:D-pot1}
+\left( H - E \right) \Psi &=& \Phi \left\{ D_{T} \, \left[ -
+\frac{\nabla^{2}_{\bm{r}_{T}}}{2 m_{T}}
+-\frac{\nabla^{2}_{\bm{R}_{T}}}{2 \mu_{T}}  + V_{N} + V_{P} -
+\frac{i \bm{k}_{T} \cdot \overrightarrow{\nabla}_{\bm{r}_{T}}
+}{m_{T}} - \frac{i \bm{K}_{T} \cdot
+\overrightarrow{\nabla}_{\bm{R}_{T}}}{\mu_{T}} \right] \pounds
+ \right. \nonumber
+\\
+&&- \left. \frac{ \overrightarrow{\nabla}_{\bm{r}_{T}}D_{T} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{T}} \pounds }{m_{T}}
+  \right\} \, .
+\end{eqnarray}
+where we have defined $\Phi = (2 \pi)^{-3}\ \rme^{i \,(\bm{k}_j\cdot \bm{r}_j + \bm{K}_j \cdot \bm{R}_{j})} $.
+The differential operators can be written in terms of any other pair of
+Jacobi coordinates. In particular, it can be shown that they transform
+as the  Jacobi momenta \parencite{Fiol2002JPBp149}. We obtain
+\begin{equation}\label{Q:Rel-Opp}
+\left( \begin{matrix} \vect{\nabla}_{\bm{r}_{T}} \cr
+\vect{\nabla}_{\bm{R}_{T}} \cr
+\end{matrix}
+\right) = \left(\begin{matrix}m_{T}
+/ m & m_{T}/M_{T} \cr -1 & 1 \cr
+\end{matrix}
+\right) \left( \begin{matrix}
+\vect{\nabla}_{\bm{r}_{P}} \cr
+\vect{\nabla}_{\bm{r}_{N}} \cr
+\end{matrix}
+\right)  \, .
+\end{equation}
+
+In this coordinates the free hamiltonian $H_{0}$ is given by
+\[
+H_{0}=-\frac{ \nabla^{2}_{\bm{r}_{T}}}{2 m_{T}}
+-\frac{\nabla^{2}_{\bm{R}_{T}}}{2 \mu_{T}} \, = \,
+    -\frac{\nabla^{2}_{\bm{r}_{P}}}{2 m_{P}}
+  -\frac{ \nabla^{2}_{\bm{r}_{N}}}{2 m_{N}}
+  +\frac{\nabla_{\bm{r}_{P}} \cdot \nabla_{\bm{r}_{N}}}{M_{P}} \, .
+\]
+
+Employing these relations in eq. \ref{Q:D-pot1} and writing $\pounds =
+D_{P} D_{T} $ we obtain
+%
+\begin{eqnarray}\label{Q:D-Pot2}
+\left( H - E \right) \Psi \!\!\!&=& \Phi \left\{ D_{T} \, \left[
+-\frac{\nabla^{2}_{\bm{r}_{P}}}{2 m_{P}}+ V_{P} -\frac{
+\nabla^{2}_{\bm{r}_{N}}}{2 m_{N}} + V_{N} - \frac{i \bm{k}_{T} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{T}} }{m_{T}} - \frac{i \bm{K}_{T}
+\cdot \overrightarrow{\nabla}_{\bm{R}_{T}}}{\mu_{T}} \right] D_{P}
+D_{N}
+ \right.
+\\
+&&- \left. \frac{ \overrightarrow{\nabla}_{\bm{r}_{T}} D_{T} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{T}} D_{P} D_{N} }{m_{T}} + D_{T}
+\frac{\overrightarrow{\nabla}_{\bm{r}_{P}}D_{P} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{N}}D_{N}}{M_{P}} \right\} \nonumber
+\\
+&=& \Phi \left\{ D_{T} \,  D_{N} \frac{i \bm{k}_{P}\cdot 
+\overrightarrow{\nabla}_{\bm{r}_{P}}}{m_{P}}D_{P} +
+D_{P}D_{T}\frac{i \bm{k}_{N} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{N}}}{m_{N}} D_{N} \right.\nonumber
+ \\
+&&- D_{T} \,\left[\frac{i \bm{k}_{T} \cdot \left( \frac{m_{T}}{m}
+\overrightarrow{\nabla}_{\bm{r}_{P}} + \frac{m_{T}}{M_{T}}
+\overrightarrow{\nabla}_{\bm{r}_{N}}\right) }{m_{T}} - \frac{i
+\bm{K}_{T} \cdot \left( - \overrightarrow{\nabla}_{\bm{r}_{P}} +
+\overrightarrow{\nabla}_{\bm{r}_{N}}\right) }{\mu_{T}} \right]  D_{P}
+D_{N}\nonumber
+\\
+&&- \left. \frac{ \overrightarrow{\nabla}_{\bm{r}_{T}} D_{T} \cdot
+\left( \frac{m_{T}}{m} \overrightarrow{\nabla}_{\bm{r}_{P}} +
+\frac{m_{T}}{M_{T}} \overrightarrow{\nabla}_{\bm{r}_{N}}\right) D_{P}
+D_{N} }{m_{T}} + D_{T} \frac{\overrightarrow{\nabla}_{\bm{r}_{P}}D_{P}
+\cdot \overrightarrow{\nabla}_{\bm{r}_{N}}D_{N}}{M_{P}} \right\}
+\nonumber
+\\
+&=& \Phi \, \left\{ D_{T} \,  D_{N} \frac{i \bm{k}_{P}\cdot
+\overrightarrow{\nabla}_{\bm{r}_{P}}D_{P}}{m_{P}} +
+D_{P}D_{T}\frac{i \bm{k}_{N} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{N}} D_{N}}{m_{N}} - D_{T} D_{N} \,
+\frac{i \bm{k}_{T} \cdot \overrightarrow{\nabla}_{\bm{r}_{P}}
+D_{P}}{m} \right. \nonumber
+ \\
+&&+ D_{T} D_{P} \frac{i \bm{k}_{T} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{N}} D_{N}}{M_{T}} + D_{T} D_{N}
+\frac{i \bm{K}_{T} \cdot \overrightarrow{\nabla}_{\bm{r}_{P}}
+D_{P}}{\mu_{T}} - D_{T} D_{P} \frac{i \bm{K}_{T} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{N}} D_{N}}{\mu_{T}} \nonumber
+\\
+&&- \left. \overrightarrow{\nabla}_{\bm{r}_{T}} D_{T} \cdot \left(D_{N}
+\frac{\overrightarrow{\nabla}_{\bm{r}_{P}}D_{P}}{m} + D_{P} \frac{
+\overrightarrow{\nabla}_{\bm{r}_{N}} D_{N}}{M_{T}} \right)+ D_{T}
+\frac{\overrightarrow{\nabla}_{\bm{r}_{P}} D_{P} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{N}}D_{N}}{M_{P}} \right\} \nonumber
+\\
+&=& \Phi \, \left\{i \, D_{T} \,  D_{N} \left[ \frac{
+\bm{k}_{P}}{m_{P}} - \frac{ \bm{k}_{T} }{m} + \frac{
+\bm{K}_{T}}{\mu_{T}} \right] \cdot \overrightarrow{\nabla}_{\bm{r}_{P}}
+D_{P} \right.\nonumber
+\\
+&&+ \, i \, D_{P} \, D_{T}\left[ \frac{\bm{k}_{N} }{m_{N}} +
+\frac{\bm{k}_{T} }{M_{T}} - \frac{\bm{K}_{T} }{\mu_{T}} \right] \cdot
+\overrightarrow{\nabla}_{\bm{r}_{N}} D_{N} \nonumber
+\\
+&& \left. - D_{N} \,\frac{\overrightarrow{\nabla}_{\bm{r}_{T}} D_{T}
+\cdot \overrightarrow{\nabla}_{\bm{r}_{P}} D_{P}}{m} - D_{P}
+\,\frac{\overrightarrow{\nabla}_{\bm{r}_{T}} D_{T} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{N}} D_{N}}{M_{T}} + D_{T}
+\frac{\overrightarrow{\nabla}_{\bm{r}_{P}}D_{P} \cdot
+\overrightarrow{\nabla}_{\bm{r}_{N}}D_{N}}{M_{P}} \right\} .\nonumber
+\end{eqnarray}
+
+The expression in the last member of (\ref{Q:D-Pot2}) can be further
+simplified because the Jacobi momenta are related by \ref{Q:Rel-Opp},
+such that the expressions between square brackets vanish. We finally
+obtain
+%
+\begin{equation}\label{Q:D-Pot}
+\left( H - E \right) \Psi(\bm{r}_{j}, \bm{R}_{j}) = \mathbb{W} \,
+\Psi(\bm{r}_{j}, \bm{R}_{j}) \qquad \qquad \mbox{with}\qquad
+\mathbb{W}= \frac{ \mathbb{K}_{P} \mathbb{K}_{N}}{M_{P}}
+-\frac{\mathbb{K}_{P} \mathbb{K}_{T}}{m} - \frac{\mathbb{K}_{T}
+\mathbb{K}_{N}}{M_{T}} \;.
+\end{equation}
+%
+Here, we have defined the multiplicative operators
+\[
+\mathbb{K}_{j} = \frac{\nabla_{\bm{r}_{j}}
+D(\nu_{j};\bm{k}_{j},\bm{r}_{j})}{D(\nu_{j};\bm{k}_{j},\bm{r}_{j})}
+\]
+
+
+\section{CDW approximations in post form}
+\label{S:appro-post-form}
+
+\subsection{Evaluation of the T-matrix}
+\label{S:Evalu-T-mat}
+
+Now we evaluate the transition matrix in different approximation for
+the initial state. We use a Born (B1) initial state, a CDW initial
+wavefunction, or its asymptotic limit given by the \emph{eikonal} wave
+function,
+\begin{eqnarray} \label{Q:wf-i}
+\Psi^{\pm}_{C3} (\bm{r},\bm{R}) = \frac{e^{i \mu_{T} \bm{v} \cdot
+\bm{R}_T}} {(2 \pi)^{3/2}} \, \phi(\bm{r}_T) \,
+D^{\pm}(\nu^{\circ}_P,\bm{k}_{P}^{\circ},\bm{r}_{P}^{\circ})
+\,D^{\pm}(\nu_{N}^{\circ},\bm{k}_{N}^{\circ},\bm{r}_N)  \\
+\Psi^{\pm}_{E} (\bm{r},\bm{R}) = \frac{e^{i \mu_{T} \bm{v} \cdot
+\bm{R}_T}} {(2 \pi)^{3/2}} \, \phi(\bm{r}_T) \,
+E^{\pm}(\nu^{\circ}_P,\bm{k}_{P}^{\circ},\bm{r}_{P}^{\circ})
+\,E^{\pm}(\nu_{N}^{\circ},\bm{k}_{N}^{\circ},\bm{r}_N)
+\end{eqnarray}
+%
+where $E^{\pm}(\nu,\bm{k},\bm{r})$ is given by the asymptotic behavior of
+the Coulomb distortion factor
+\begin{equation} \label{Q:Eikonal-wf}
+E^{\pm}(\nu,\bm{k},\bm{r}) = \left. D^{\pm}(\nu,\bm{k},\bm{r}) \vstretch
+\right|_{r \to \infty} = e^{{\pm} i \nu \ln{\left( kr \mp \bm{k}\cdot
+\bm{r} \right)}}
+\end{equation}
+
+
+The T-matrix element can be decomposed in three terms $t_{if}=
+\sum_{j=T,P,N} t^{j}_{if}$. The terms are given by:
+
+\subsubsection{The $t^{N}_{if}$ term}
+%
+\begin{eqnarray} \label{Q:tifN1}
+&t^{N}_{if}&\!\!= \frac{-1}{(2 \pi)^{9/2}}  \int d \bm{r}_{T} \,
+  e^{i \, (m_{T}/m) \, \bm{Q} \cdot \bm{r}_T}
+\, \phi_{i}(\bm{r}_T) \, e^{-i \bm{k}_{T} \cdot \bm{r}_T}
+\,\nabla_{\bm{r}_{T}}\left[ D^{-*}(\nu_{T},\bm{k}_{T},\bm{r}_T) \right]
+{\times}
+\\
+&& \int d \bm{r}_{P} \,
+   e^{- i \, \bm{Q} \cdot \bm{r}_{P}}
+\nabla_{\bm{r}_{P}}\left[ D^{-*}(\nu_{P},\bm{k}_{P},\bm{r}_{P}) \right]
+\, D^{+}(\nu_{P}^{\circ},\bm{k}_{P}^{\circ},\bm{r}_{P}) \, D^{-\,\ast}(\nu_{N},
+\bm{k}_{N}, \bm{r}_{N} ) \, D^{+}(\nu_{N}^{\circ},\bm{k}_{N}^{\circ},\bm{r}_{N})\;
+,\nonumber
+\end{eqnarray}
+
+By defining the vector (see \ref{S:FGKL-if})
+\begin{equation}\label{Q:Kif}
+  \bm{K}_{if}(\bm{p}) = \frac{1}{(2 \pi)^{3/2}} \int d \bm{r}_{T} \;
+e^{\, i \bm{p} \cdot \bm{r}_{T}} \, \phi_{i}(\bm{r}_{T}) \left\{
+\frac{e^{- i \bm{k}_{T} \cdot \bm{r}_{T}}}{(2
+\pi)^{3/2}}\,\nabla_{\bm{r}_{T}} \left[
+D^{-*}(\nu_{T},\bm{k}_{T},\bm{r}_{T}) \right] \right\}
+\end{equation}
+%
+such that
+\begin{equation}\label{Q:Fif-inv}
+\phi_{i}(\bm{r}_{T}) \frac{ e^{- i \bm{k}_{T} \cdot \bm{r}_{T}}}
+{(2 \pi)^{3/2}} \,\nabla_{\bm{r}_{T}} \left[
+D^{-*}(\nu_{T},\bm{k}_{T},\bm{r}_{T}) \right]  = \frac{1}{(2
+\pi)^{3/2}} \int d \bm{p} \; e^{- i \bm{p} \cdot \bm{r}_{T}}
+\,\bm{K}_{if}(\bm{p})
+\end{equation}
+%
+we can write
+\begin{eqnarray*}
+t^{N}_{if}&=& \frac{-1}{(2 \pi)^{9/2}} \int d \bm{q}
+\bm{K}_{if}(\bm{q}) \int d \bm{r}_{T} \, e^{i \left(
+(m_{T}/m)\bm{Q} - \bm{q} \right) \cdot \bm{r}_{T}} {\times}
+  \\
+&& \int d \bm{r}_{P} \, e^{- i \, \bm{Q} \cdot \bm{r}_{P}}
+\nabla_{\bm{r}_{P}}\left[ D^{-*}(\nu_{P},\bm{k}_{P},\bm{r}_{P}) \right]
+\, D^{+}(\nu_{P}^{\circ},\bm{k}_{P}^{\circ},\bm{r}_{P}) \, D^{-\,\ast}(\nu_{N},
+\bm{k}_{N}, \bm{r}_{N} ) \, D^{+}(\nu_{N}^{\circ}, \bm{k}_{N}^{\circ}, \bm{r}_{N}) \;
+,\nonumber
+\end{eqnarray*}
+
+Changing from $\bm{r}_{T} \to \bm{r}_{N}= \bm{r}_{T} - \bm{r}_{P}$
+\begin{eqnarray} \label{Q:tifcdws1}
+t^{N}_{if}&=& \frac{-1}{(2 \pi)^{9/2}} \int d \bm{q}
+\bm{K}_{if}(\bm{q}) \int d \bm{r}_{N} \, e^{i \left(
+(m_{T}/m)\bm{Q} - \bm{q} \right) \cdot \bm{r}_{N}} \,
+ D^{-\,\ast}(\nu_{N},
+\bm{k}_{N}, \bm{r}_{N} ) \, D^{+}(\nu_{N}^{\circ},\bm{k}_{N}^{\circ},\bm{r}_{N})\; {\times}
+  \\
+&& \int d \bm{r}_{P} \, \,e^{ -i \left((m_{T}/M_{T})\bm{Q}+
+\bm{q} \right) \cdot \bm{r}_{P}} \,
+D^{+}(\nu_{P}^{\circ},\bm{k}_{P}^{\circ},\bm{r}_{P}) \, \nabla_{\bm{r}_{P}}\left[
+D^{-*}(\nu_{P},\bm{k}_{P},\bm{r}_{P}) \right] ,\nonumber
+\end{eqnarray}
+
+\subsubsection{The $t^{P}_{if}$ term}
+
+The evaluation of the $t^{P}_{if}$ term is similar to the one of the
+$t^{N}_{if}$ term. The equivalent of equation \ref{Q:tifN1} is
+\begin{eqnarray*}
+&t^{P}_{if}&\!\!= \frac{-1}{(2 \pi)^{9/2}\, M_{T}}  \int d
+\bm{r}_{T} \,
+  e^{i \, (m_{T}/m) \, \bm{Q} \cdot \bm{r}_T}
+\, \phi_{i}(\bm{r}_T) \, e^{-i \bm{k}_{T} \cdot \bm{r}_T}
+\,\nabla_{\bm{r}_{T}}\left[ D^{-*}(\nu_{T},\bm{k}_{T},\bm{r}_T) \right]
+{\times}
+\\
+&& \int d \bm{r}_{P} \,
+   e^{- i \, \bm{Q} \cdot \bm{r}_{P}}
+ D^{-*}(\nu_{P},\bm{k}_{P},\bm{r}_{P})
+\, D^{+}(\nu_{P}^{\circ},\bm{k}_{P}^{\circ},\bm{r}_{P}) \,\nabla_{\bm{r}_{N}}\left[
+D^{-\,\ast}(\nu_{N}, \bm{k}_{N}, \bm{r}_{N} )  \right]\,
+D^{+}(\nu_{N}^{\circ},\bm{k}_{N}^{\circ},\bm{r}_{N})\; .\nonumber
+\end{eqnarray*}
+
+A completely equivalent procedure to the followed above leads
+\begin{eqnarray}\label{Q:tifcdw2}
+t^{P}_{if}&=& \frac{-1}{(2 \pi)^{9/2}\, M_{T}} \int d \bm{q}
+\bm{K}_{if}(\bm{q}) \\
+&& \int d \bm{r}_{N} \, e^{i \left( (m_{T}/m)\bm{Q} - \bm{q}
+\right) \cdot \bm{r}_{N}} \, \nabla_{\bm{r}_{N}}\left[
+D^{-\,\ast}(\nu_{N}, \bm{k}_{N}, \bm{r}_{N} ) \right]\,
+D^{+}(\nu_{N}^{\circ},\bm{k}_{N}^{\circ},\bm{r}_{N})\; {\times}
+  \\
+&& \int d \bm{r}_{P} \, \,e^{ -i \left((m_{T}/M_{T})\bm{Q}+
+\bm{q} \right) \cdot \bm{r}_{P}} \,
+D^{-*}(\nu_{P},\bm{k}_{P},\bm{r}_{P} ) \, D^{+}(\nu_{P}^{\circ},\bm{k}_{P}^{\circ},
+\bm{r}_{P}) ,\nonumber
+\end{eqnarray}
+
+\subsubsection{The $t^{T}_{if}$ term}
+The remaining term is given by
+%
+\begin{eqnarray} \label{Q:tifT1}
+&t^{T}_{if}&\!\!= \frac{(2 \pi)^{-9/2}}{M_{P}}  \int d \bm{r}_{T} \,
+e^{i \, (m_{T}/m) \, \bm{Q} \cdot \bm{r}_T} \, \phi_{i}(\bm{r}_T)
+\, e^{-i \bm{k}_{T} \cdot \bm{r}_T}
+D^{-*}(\nu_{T},\bm{k}_{T},\bm{r}_T) {\times}
+\\
+&& \int d \bm{r}_{P} \, e^{- i \, \bm{Q} \cdot \bm{r}_{P}}
+\nabla_{\bm{r}_{P}}\left[ D^{-*}(\nu_{P},\bm{k}_{P},\bm{r}_{P}) \right]
+\,
+D^{+}(\nu_{P}^{\circ},\bm{k}_{P}^{\circ},\bm{r}_{P}) \nonumber \\
+&&\,\,\nabla_{\bm{r}_{N}}\left[ D^{-\,\ast}(\nu_{N}, \bm{k}_{N},
+\bm{r}_{N} ) \right] \, D^{+}(\nu_{N}^{\circ},\bm{k}_{N}^{\circ},\bm{r}_{N})\;
+,\nonumber
+\end{eqnarray}
+
+By introducing the form factor $F_{if}$ (defined by \ref{QA2:8}) we
+obtain
+\begin{eqnarray}\label{Q:tt_if}
+t^{T}_{if}&=& \frac{(2 \pi)^{-9/2}}{M_{P}} \int d \bm{q}
+F_{if}(\bm{q}) \int d \bm{r}_{T} \, e^{i \left(
+(m_{T}/m)\bm{Q} - \bm{q} \right) \cdot \bm{r}_{T}} {\times}
+  \\
+&& \int d \bm{r}_{P} \, e^{- i \, \bm{Q} \cdot \bm{r}_{P}}
+\nabla_{\bm{r}_{P}}\left[ D^{-*}(\nu_{P},\bm{k}_{P},\bm{r}_{P}) \right]
+\,
+D^{+}(\nu_{P}^{\circ},\bm{k}_{P}^{\circ},\bm{r}_{P}) \, \\
+&& \nabla_{\bm{r}_{N}} \left[ D^{-\,\ast}(\nu_{N}, \bm{k}_{N},
+\bm{r}_{N} ) \right] \, D^{+}(\nu_{N}^{\circ}, \bm{k}_{N}^{\circ}, \bm{r}_{N}) \;
+,\nonumber
+\end{eqnarray}
+%
+and changing $\bm{r}_{T}\to \bm{r}_{N}$
+\begin{eqnarray} \label{Q:tifcdws2}
+t^{T}_{if}&=& \frac{(2 \pi)^{-9/2}}{M_{P}} \int d \bm{q}
+F_{if}(\bm{q})
+\\
+&& \int d \bm{r}_{N} \, e^{i \left( (m_{T}/m)\bm{Q} - \bm{q}
+\right) \cdot \bm{r}_{N}} \, \nabla_{\bm{r}_{N}} \left[
+D^{-\,\ast}(\nu_{N}, \bm{k}_{N}, \bm{r}_{N} ) \right] \,
+D^{+}(\nu_{N}^{\circ},\bm{k}_{N}^{\circ},\bm{r}_{N})\; {\times}
+  \\
+&& \int d \bm{r}_{P} \, \,e^{ -i \left((m_{T}/M_{T})\bm{Q}+
+\bm{q} \right) \cdot \bm{r}_{P}} \,
+D^{+}(\nu_{P}^{\circ},\bm{k}_{P}^{\circ},\bm{r}_{P}) \, \nabla_{\bm{r}_{P}}\left[
+D^{-*}(\nu_{P},\bm{k}_{P},\bm{r}_{P}) \right] ,\nonumber
+\end{eqnarray}
+
+\subsection{Results for different approximations}
+
+
+\subsubsection{CDW-CDW}
+
+From equation \ref{Q:tifcdws1} we obtain for the CDW-CDW transition
+matrix
+\begin{eqnarray}\label{Q:tn_if}
+t^{N}_{if}&=& -\frac{\left( N^{+}(\nu_{P}^{\circ})\,N^{-*}(\nu_{P}) \right)
+\left( N^{+}(\nu_{N}^{\circ})\,N^{-*}(\nu_{N}) \right)}{m \; (2 \pi)^{9/2}}
+\int d \bm{q} \bm{K}_{if}(\bm{q}) \cdot
+  \\
+&& N_{0}(0^{+}, (m_{T}/m)\bm{Q} - \bm{q}; -\nu_{N}, \bm{k}_{N};
+-\nu_{N}^{\circ}, -\bm{k}_{N}^{\circ} ) \, \bm{I}_{0}( 0^{+} ,
+-\bm{q}-(m_{T}/M_{T})\bm{Q};-\nu_{P},\bm{k}_{P}; -\nu_{P}^{\circ},
+-\bm{k}_{P}^{\circ}) \nonumber
+\\
+\nonumber \\
+t^{P}_{if}&=& -\frac{\left( N^{+}(\nu_{P}^{\circ})\,N^{-*}(\nu_{P}) \right)
+\left( N^{+}(\nu_{N}^{\circ})\,N^{-*}(\nu_{N}) \right)}{M_{T} \; (2
+\pi)^{9/2}} \int d \bm{q} \bm{K}_{if}(\bm{q}) \cdot
+  \\
+&& \bm{I}_{0}(0^{+}, (m_{T}/m)\bm{Q} - \bm{q}; -\nu_{N}, \bm{k}_{N} ;
+-\nu_{N}^{\circ}, -\bm{k}_{N}^{\circ}) \, N_{0}( 0^{+} ,
+-\bm{q}-(m_{T}/M_{T})\bm{Q};-\nu_{P},\bm{k}_{P}; -\nu_{P}^{\circ},
+-\bm{k}_{P}^{\circ}) \nonumber
+\\
+\nonumber \\
+t^{T}_{if}&=& \frac{\left( N^{+}(\nu_{P}^{\circ})\,N^{-*}(\nu_{P}) \right)
+\left( N^{+}(\nu_{N}^{\circ})\,N^{-*}(\nu_{N}) \right)}{M_{P} \; (2
+\pi)^{9/2}} \int d \bm{q} F_{if}(\bm{q}) \cdot
+  \\
+&& \bm{I}_{0}(0^{+}, (m_{T}/m)\bm{Q} - \bm{q}; -\nu_{N}, \bm{k}_{N};
+-\nu_{N}^{\circ}, -\bm{k}_{N}^{\circ} ) \, \bm{I}_{0}( 0^{+} , -\bm{q} -
+(m_{T}/M_{T})\bm{Q} ; - \nu_{P}, \bm{k}_{P}; -\nu_{P}^{\circ}, - \bm{k}_{P}^{\circ} )
+\nonumber
+\end{eqnarray}
+
+\subsubsection{CDW-EIS}
+
+With an Eikonal initial state (replacing $D^{+} \to E^{+}$) we get:
+\begin{eqnarray}\label{Q:tn_if-eikon}
+t^{N}_{if}&=& -\frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N}) \right)}{m
+\; (2 \pi)^{9/2}} \int d \bm{q} N^{E}_{0}(0^{+}, (m_{T}/m)\bm{Q} -
+\bm{q}; -\nu_{N}, \bm{k}_{N}; -\nu_{N}^{\circ}, -\bm{k}_{N}^{\circ} ) \,
+  \\
+&& \bm{K}_{if}(\bm{q}) \cdot \bm{I}^{E}_{0}( 0^{+} ,
+-\bm{q}-(m_{T}/M_{T})\bm{Q} ; -\nu_{P}, \bm{k}_{P} ; -\nu_{P}^{\circ},
+-\bm{k}_{P}^{\circ}) \nonumber
+  \\
+\nonumber \\
+t^{P}_{if} &=& -\frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N})
+\right)}{M_{T} \; (2 \pi)^{9/2}} \int d \bm{q} \;
+\bm{K}_{if}(\bm{q}) \cdot
+  \\
+&& \bm{I}^{E}_{0}(0^{+}, (m_{T}/m)\bm{Q} - \bm{q}; -\nu_{N},
+\bm{k}_{N}; -\nu_{N}^{\circ}, -\bm{k}_{N}^{\circ} ) \,  N^{E}_{0}( 0^{+} ,
+-\bm{q}-(m_{T}/M_{T})\bm{Q};-\nu_{P},\bm{k}_{P}; -\nu_{P}^{\circ},
+-\bm{k}_{P}^{\circ}) \nonumber
+\\
+\nonumber \\
+t^{T}_{if}&=& \frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N})
+\right)}{M_{P} \; (2 \pi)^{9/2}} \int d \bm{q} \; F_{if}(\bm{q})
+\cdot
+  \\
+&& \bm{I}^{E}_{0}(0^{+}, (m_{T}/m)\bm{Q} - \bm{q}; -\nu_{N},
+\bm{k}_{N}; -\nu_{N}^{\circ}, -\bm{k}_{N}^{\circ} ) \,  \bm{I}^{E}_{0}( 0^{+} ,
+-\bm{q}-(m_{T}/M_{T})\bm{Q};-\nu_{P},\bm{k}_{P}; -\nu_{P}^{\circ},
+-\bm{k}_{P}^{\circ}) \nonumber
+\end{eqnarray}
+
+\subsubsection{CDW-B1}
+
+In the case of an unperturbed Born initial state, we must set the
+distortion factors in the initial channel to 1,
+\begin{eqnarray}\label{Q:tn_if-born}
+t^{N}_{if}&=& -\frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N}) \right)}{m
+\; (2 \pi)^{9/2}} \int d \bm{q} \, J_{0}(0^{+}, (m_{T}/m)\bm{Q} -
+\bm{q}; -\nu_{N}, \bm{k}_{N} ) \,
+  \\
+&& \bm{K}_{if}(\bm{q}) \cdot \bm{G}_{0}( 0^{+} ,
+-\bm{q}-(m_{T}/M_{T})\bm{Q};-\nu_{P},\bm{k}_{P}) \nonumber
+  \\
+\nonumber \\
+t^{P}_{if}&=& -\frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N})
+\right)}{M_{T} \; (2 \pi)^{9/2}} \int d \bm{q} \, J_{0}( 0^{+} ,
+-\bm{q}-(m_{T}/M_{T})\bm{Q};-\nu_{P},\bm{k}_{P})  \,
+  \\
+&& \bm{K}_{if}(\bm{q}) \cdot \bm{G}_{0}(0^{+}, (m_{T}/m)\bm{Q} -
+\bm{q}; -\nu_{N}, \bm{k}_{N} )\nonumber
+  \\
+\nonumber \\
+t^{T}_{if}&=& \frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N})
+\right)}{M_{P} \; (2 \pi)^{9/2}} \int d \bm{q} \,   F_{if}(\bm{q})
+  \\
+&&  \bm{G}_{0}( 0^{+} ,
+-\bm{q}-(m_{T}/M_{T})\bm{Q};-\nu_{P},\bm{k}_{P})\cdot \bm{G}_{0}(0^{+},
+(m_{T}/m)\bm{Q} - \bm{q}; -\nu_{N}, \bm{k}_{N} )\nonumber
+\end{eqnarray}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Evaluation form}
+
+In order to put the above expressions in useful form to evaluate the
+integrals we change the integration variable to $\bm{q}' =
+-\bm{q}+\bm{p}_{o}$, with
+\[
+\fbeq{ \bm{p}_{o}=-(m_{T}/M_{T})\bm{Q}}
+\]
+  and replace:
+\[
+  \bm{q}= - \bm{q}' + \bm{p}_{o}\, , \qquad
+  -\bm{q}-(m_{T}/M_{T})\bm{Q}=\bm{q}' \qquad \mbox{and} \qquad
+  (m_{T}/m)\bm{Q}-\bm{q}=\bm{Q}+\bm{q}' \,.
+\]
+%
+Thus, discarding the prime symbol, we obtain
+%
+\subsubsection{CDW-CDW}
+
+\begin{eqnarray}\label{Q:tn_if-eval-form}
+t^{N}_{if}&=& -\frac{\left( N^{+}(\nu_{P}^{\circ})\,N^{-*}(\nu_{P}) \right)
+\left( N^{+}(\nu_{N}^{\circ})\,N^{-*}(\nu_{N}) \right)}{m \; (2 \pi)^{9/2}}
+\int d \bm{q} \bm{K}_{if}(\bm{p_{o}}- \bm{q}) \cdot
+  \\
+&& N_{0}(0^{+}, \bm{Q} + \bm{q}; -\nu_{N}, \bm{k}_{N}; -\nu_{N}^{\circ},
+-\bm{k}_{N}^{\circ} ) \, \bm{I}_{0}( 0^{+} , \bm{q};-\nu_{P},\bm{k}_{P};
+-\nu_{P}^{\circ}, -\bm{k}_{P}^{\circ}) \nonumber
+\\
+\nonumber \\
+t^{P}_{if}&=& -\frac{\left( N^{+}(\nu_{P}^{\circ})\,N^{-*}(\nu_{P}) \right)
+\left( N^{+}(\nu_{N}^{\circ})\,N^{-*}(\nu_{N}) \right)}{M_{T} \; (2
+\pi)^{9/2}} \int d \bm{q} \bm{K}_{if}(\bm{p_{o}}- \bm{q}) \cdot
+  \\
+&& \bm{I}_{0}(0^{+}, \bm{Q} + \bm{q}; -\nu_{N}, \bm{k}_{N} ; -\nu_{N}^{\circ},
+-\bm{k}_{N}^{\circ}) \, N_{0}( 0^{+} , \bm{q};-\nu_{P},\bm{k}_{P}; -\nu_{P}^{\circ},
+-\bm{k}_{P}^{\circ}) \nonumber
+\\
+\nonumber \\
+t^{T}_{if}&=& \frac{\left( N^{+}(\nu_{P}^{\circ})\,N^{-*}(\nu_{P}) \right)
+\left( N^{+}(\nu_{N}^{\circ})\,N^{-*}(\nu_{N}) \right)}{M_{P} \; (2
+\pi)^{9/2}} \int d \bm{q} F_{if}(\bm{p_{o}}- \bm{q}) \cdot
+  \\
+&& \bm{I}_{0}(0^{+}, \bm{Q} + \bm{q}; -\nu_{N}, \bm{k}_{N}; -\nu_{N}^{\circ},
+-\bm{k}_{N}^{\circ} ) \, \bm{I}_{0}( 0^{+} , -\bm{q} - (m_{T}/M_{T})\bm{Q} ; -
+\nu_{P}, \bm{k}_{P}; -\nu_{P}^{\circ}, - \bm{k}_{P}^{\circ} ) \nonumber
+\end{eqnarray}
+
+\subsubsection{CDW-EIS}
+
+With an Eikonal initial state (replacing $D^{+} \to E^{+}$) we get:
+\begin{eqnarray}\label{Q:tn_if-cdw-eis}
+t^{N}_{if}&=& -\frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N}) \right)}{m
+\; (2 \pi)^{9/2}} \int d \bm{q} N^{E}_{0}(0^{+}, \bm{Q} + \bm{q};
+-\nu_{N}, \bm{k}_{N}; -\nu_{N}^{\circ}, -\bm{k}_{N}^{\circ} ) \,
+  \\
+&& \bm{K}_{if}(\bm{p_{o}}- \bm{q}) \cdot \bm{I}^{E}_{0}( 0^{+} , \bm{q}
+; -\nu_{P}, \bm{k}_{P} ; -\nu_{P}^{\circ}, -\bm{k}_{P}^{\circ}) \nonumber
+  \\
+\nonumber \\
+t^{P}_{if} &=& -\frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N})
+\right)}{M_{T} \; (2 \pi)^{9/2}} \int d \bm{q} \;
+\bm{K}_{if}(\bm{p_{o}}- \bm{q}) \cdot
+  \\
+&& \bm{I}^{E}_{0}(0^{+}, \bm{Q} + \bm{q}; -\nu_{N}, \bm{k}_{N};
+-\nu_{N}^{\circ}, -\bm{k}_{N}^{\circ} ) \,  N^{E}_{0}( 0^{+} ,
+\bm{q};-\nu_{P},\bm{k}_{P}; -\nu_{P}^{\circ}, -\bm{k}_{P}^{\circ}) \nonumber
+\\
+\nonumber \\
+t^{T}_{if}&=& \frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N})
+\right)}{M_{P} \; (2 \pi)^{9/2}} \int d \bm{q} \; F_{if}(\bm{p_{o}}-
+\bm{q}) \cdot
+  \\
+&& \bm{I}^{E}_{0}(0^{+}, \bm{Q} + \bm{q}; -\nu_{N}, \bm{k}_{N};
+-\nu_{N}^{\circ}, -\bm{k}_{N}^{\circ} ) \,  \bm{I}^{E}_{0}( 0^{+} ,
+\bm{q};-\nu_{P},\bm{k}_{P}; -\nu_{P}^{\circ}, -\bm{k}_{P}^{\circ}) \nonumber
+\end{eqnarray}
+
+\subsubsection{CDW-B1}
+
+In the case of an unperturbed Born initial state, we must set the
+distortion factors in the initial channel to 1,
+\begin{eqnarray}\label{Q:tn_if-cdw-b1}
+t^{N}_{if}&=& -\frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N}) \right)}{m
+\; (2 \pi)^{9/2}} \int d \bm{q} \, J_{0}(0^{+}, \bm{Q} + \bm{q};
+-\nu_{N}, \bm{k}_{N} ) \,
+  \\
+&& \bm{K}_{if}(\bm{p_{o}}- \bm{q}) \cdot \bm{G}_{0}( 0^{+} ,
+\bm{q};-\nu_{P},\bm{k}_{P}) \nonumber
+  \\
+\nonumber \\
+t^{P}_{if}&=& -\frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N})
+\right)}{M_{T} \; (2 \pi)^{9/2}} \int d \bm{q} \, J_{0}( 0^{+} ,
+\bm{q};-\nu_{P},\bm{k}_{P})  \,
+  \\
+&& \bm{K}_{if}(\bm{p_{o}}- \bm{q}) \cdot \bm{G}_{0}(0^{+}, \bm{Q} +
+\bm{q}; -\nu_{N}, \bm{k}_{N} )\nonumber
+  \\
+\nonumber \\
+t^{T}_{if}&=& \frac{\left(N^{-*}(\nu_{P}) \,N^{-*}(\nu_{N})
+\right)}{M_{P} \; (2 \pi)^{9/2}} \int d \bm{q} \, F_{if}(\bm{p_{o}}-
+\bm{q})
+  \\
+&&  \bm{G}_{0}( 0^{+} , \bm{q};-\nu_{P},\bm{k}_{P})\cdot
+\bm{G}_{0}(0^{+}, \bm{Q} + \bm{q}; -\nu_{N}, \bm{k}_{N} )\nonumber
+\end{eqnarray}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Evaluation without the internuclear interaction}
+
+If we set the internuclear interaction to 0 in the initial and final
+states, then $\nu_{N}$ and $\nu_{N}^{\circ}$ vanishes and the distortion
+factors are equal to 1. In this case, the $N_{0}$ function is
+proportional to the delta function $N_{0}= (2 \pi)^{3}
+\delta((m_{T}/m)\bm{Q} - \bm{q})$ and the transition matrix is given by
+
+\begin{equation}\label{Q:tif-noN}
+t_{if} = \frac{N^{+}(\nu_{P}^{\circ})\,N^{-*}(\nu_{P})}{(2 \pi)^{3/2}}\,
+\bm{K}_{if}((m_{T}/m)\bm{Q})  \cdot \bm{I}_{0}( 0^{+} , -\bm{Q};
+-\nu_{P}^{\circ}, -\bm{k}_{P}^{\circ};-\nu_{P},\bm{k}_{P})
+\end{equation}
+
+\subsubsection*{Eikonal initial state}
+
+In the eikonal approximation for the initial state, the $D$ factors are
+replaced by the $E$ factors. The transition matrix is then
+\begin{equation}\label{Q:tif-eis}
+t_{if} = \frac{{N^{-}}^{*}(\nu_{P})}{(2 \pi)^{3}}\,
+\bm{K}_{if}((m_{T}/m)\bm{Q}) \cdot \bm{I}^{E}_{0}( 0^{+} , -\bm{Q};
+-\nu_{P}^{\circ}, -\bm{k}_{P}^{\circ};-\nu_{P},\bm{k}_{P})
+\end{equation}
+
+\subsection{Details of calculations}
+
+\subsection*{Case of an hydrogenic $1s$ state}
+For an hydrogenic initial atomic state $1s$
+\[
+\phi_{1s}(\bm{r}) = \frac{(m_{T} Z_{T})^{3/2}}{\sqrt{\pi}}
+e^{-(m_{T} Z_{T} r)}
+\]
+%
+the factor $\bm{K}$ in the transition matrix element is given by
+\begin{eqnarray*}
+\lefteqn{\bm{K}_{if}((m_{T}/m)\bm{Q}) = \frac{(m_{T}
+Z_{T})^{3/2}}{\sqrt{\pi}} \frac{N^{-*}(\nu_{T})}{(2 \pi)^{3/2}}} \\
+&&  \int d \bm{r}_{T} \; \frac{e^{i ((m_{T}/m)\bm{Q} -
+\bm{k}_{T}) \cdot \bm{r}_{T}}}{(2 \pi)^{3/2}} e^{-
+(m_{T}Z_{T})r_{T}}\, \nabla_{\bm{r}_{T}} \left[ {_{1}F_{1}}( -i
+\nu_{T}; 1; i(k_{T} r_{T} + \bm{k}_{T} \cdot \bm{r}_{T}) ) \vstretch
+\right]
+\end{eqnarray*}
+
+\section{Semiclassical inclusion of internuclear interaction}
+
+In the usual mass' approximation the internuclear interaction can be
+included by means of a phase factor in a semiclassical approximation.
+For Coulomb interactions this factor is given by $e^{i
+\nu_{N}\ln(\rho)}$ and the transition matrix can be written as
+%
+\begin{eqnarray}\label{Q:Npot-semic}
+t_{if}(\bm{k},\bm{Q}) &=& \frac{1}{(2 \pi)^{2}} \int d \brho \;
+e^{i \, \bm{Q} \cdot \brho } \rho^{2 \, i \, \nu} \int d
+\bm{Q}_{\perp}' \; e^{- i \, \bm{Q}' \cdot \brho } \;
+t^{\circ}_{if}(\bm{k},\bm{Q}) \nonumber \\
+  &=&
+\frac{1}{(2 \pi)^{2}} \int d \bm{Q}_{\perp}' \;
+t^{\circ}_{if}(\bm{k},\bm{Q}) \; \int_{0}^{\infty}  \rho^{ 1 + 2 \, i \,
+\nu_{N}} \; d \rho \int_{0}^{2 \pi} e^{i \, (\bm{Q}- \bm{Q}')
+\cdot \brho} \; d \varphi_{\rho}.
+\end{eqnarray}
+%
+where $t^{\circ}_{if}$ is evaluated neglecting the internuclear interaction.
+The integral on the impact parameter can be carried out analytically
+\begin{eqnarray}\label{Q:Npot-semic1}
+I_{1}=\int_{0}^{\infty} d \rho \; \rho^{ 1 + 2 \, i \, \nu}
+\int_{0}^{2 \pi} e^{i \, \eta\, \rho \cos{\varphi_{\rho}}} \;
+d \varphi_{\rho} &=& 2 \pi \int_{0}^{\infty} d \rho \; \rho^{1 +
+2 \, i \, \nu} J_{0}(\rho \,\eta)
+  \\ &=&
+\frac{{4^{1 + i\,\nu_{N}}}\,\pi \, \eta^{-2 - 2\, i\,\nu_{N}}\,
+\Gamma(1 + i\,\nu_{N})} {\Gamma\left(- i\,\nu_{N} \right)}
+\nonumber
+\end{eqnarray}
+where $J_{0}$ and $\Gamma$ are the order zero-Bessel and gamma
+functions, respectively. We have defined the two-dimensional vector
+$\bm{\eta}=\bm{Q}_{\perp}-\bm{Q}_{\perp}'$. The first integration is
+valid provided than $\textrm{Im}\left(\eta \, \rho \right)=0$. The
+second equality requires that $\textrm{Im}\left(\sqrt{\eta^{2}}
+\right)=0$, $\eta^{2} > 0$ and $\textrm{Re}\left( i \nu_{N} \right)
+> -1$.
+
+The transition matrix can finally be written as
+\begin{eqnarray}\label{Q:tifNsemic}
+t_{if}(\bm{k},\bm{Q}) &=& \frac{2^{1 + 2\,i\,\nu_{N}}}{2 \pi}
+\frac{\Gamma(1 + i\,\nu_{N})} {\Gamma\left(- i\,\nu_{N} \right)}
+\int d \bm{Q}'_{\perp} \; \frac{\; t^{\circ}_{if}(\bm{k},\bm{Q}')} {\mid
+\bm{Q}_{\perp}-\bm{Q}'_{\perp}\mid ^{2 + 2\, i\,\nu_{N}}}\,
+\nonumber
+\\
+&=& \frac{2^{1 + 2\,i\,\nu_{N}}}{2 \pi} \frac{\Gamma(1 +
+i\,\nu_{N})} {\Gamma\left(- i\,\nu_{N} \right)} \int d
+\bm{\eta} \; \frac{\; t^{\circ}_{if}(\bm{k},(\bm{\eta}+\bm{Q},Q_{\parallel}))}
+{\eta^{2 + 2\, i\,\nu_{N}}}\,
+\end{eqnarray}
+
+This expression presents the difficulty that in the case of null
+internuclear interaction does not converge to the identity relation
+$t_{if}=t^{\circ}_{if}$.
+
+\subsection{Regularization of the integrals}
+
+In order to define the Fourier transforms we use a regularization based
+on an exponential decreasing of the integrand. Equation
+\ref{Q:Npot-semic1} can be evaluated as the limit $\alpha \to 0$ of the
+integral
+\begin{eqnarray}\label{Q:Npot-sreg}
+I_{1} &=&\int_{0}^{\infty} d \rho \; \rho^{ 1 + 2 \, i \, \nu} \,
+e^{- \alpha \rho} \int_{0}^{2 \pi} e^{i \, \eta\, \rho
+\cos{\varphi_{\rho}}} \; d \varphi_{\rho} \nonumber
+  \\
+&=& 2 \pi \int_{0}^{\infty} d \rho \; \rho^{1 + 2 \, i \, \nu}\,
+e^{- \alpha \rho} \, J_{0}(\rho \,\eta) \nonumber
+  \\
+&=& 2 \pi \, \frac{\Gamma \left( 2 + 2 i \nu_{N} \right)}{ \alpha^{2
++ 2 i \nu_{N}}} \; _{2}F_{1}\left[ 1 + i \nu_{N}, \frac{3}{2} +
+i \nu_{N} ; 1; -  \frac{\eta^{2}}{\alpha^{2}} \right] \nonumber
+  \\
+&=& 2 \pi \, \frac{\Gamma \left( 2 + 2 i \nu_{N} \right)}{ \alpha^{2
++ 2 i \nu_{N}}} \; \left[ 1 + \left( \frac{\eta}{\alpha} \right)^{2}
+\right]^{-(1+i \nu)} P^{0}_{1 + 2 i \nu} \left[
+\frac{\alpha}{\sqrt{\alpha^{2}+ \eta^{2}}} \right] \nonumber
+  \\
+&=&  \frac{2 \pi \,\Gamma \left( 2 + 2 i \nu_{N} \right)}{
+\left({\alpha^{2} + \eta^{2}} \right)^{1+i \nu}} \;  P^{0}_{1 + 2
+i \nu} \left[ \frac{\alpha}{\sqrt{\alpha^{2}+ \eta^{2}}} \right]
+\end{eqnarray}
+%
+where $_{2}F_{1}$ and $P^{\mu}_{\lambda}(x)$ are the hypergeometric and
+Legendre functions, respectively.
+
+The transition matrix is evaluated as
+\begin{eqnarray}\label{Q:tifNsreg}
+t_{if} &=&   \frac{\Gamma \left( 2 + 2 i \nu_{N} \right)}{2 \pi} \;
+\int d \bm{\eta} \; P^{0}_{1 + 2 i \nu} \left(
+\frac{\alpha}{\sqrt{\alpha^{2}+ \eta^{2}}}\right) \;
+\frac{t^{\circ}_{if}(\bm{k},(\bm{\eta}+\bm{Q}_{\perp},Q_{\parallel}))} {
+\left( {\alpha^{2} + \eta^{2}} \right)^{1+i \nu}} \nonumber \\ \\
+&=&  \frac{\Gamma \left( 2 + 2 i \nu_{N} \right)}{2 \pi} \;
+\int_{0}^{\infty} P^{0}_{1 + 2 i \nu} \left(
+\frac{\alpha}{\sqrt{\alpha^{2}+ \eta^{2}}} \right) \; \frac{\eta \,
+d \eta}{\left( {\alpha^{2} + \eta^{2}} \right)^{1+i \nu}}
+\;\int_{0}^{2 \pi} d \varphi_{\eta} \;
+t^{\circ}_{if}(\bm{k},(\bm{\eta}+\bm{Q}_{\perp},Q_{\mid }))\nonumber
+\\
+&=&  \frac{\Gamma \left( 2 + 2 i \nu_{N} \right)}{4 \pi} \;
+\int_{0}^{\infty} P^{0}_{1 + 2 i \nu} \left(
+\frac{\alpha}{\sqrt{\alpha^{2}+ \eta^{2}}} \right) \; \frac{d
+\eta^{2}}{ \left( {\alpha^{2} + \eta^{2}} \right)^{1+i \nu}}
+\;\int_{0}^{2 \pi} d \varphi_{\eta} \;
+t^{\circ}_{if}(\bm{k},(\bm{\eta}+\bm{Q}_{\perp},Q_{\mid }))\nonumber
+\end{eqnarray}
+%
+where the limit $\alpha \downarrow 0$ must be understood. If we suppose
+that the region $\eta \gg \alpha $ most contributes to the above
+integral, we can use the expansion of the Legendre function around
+$x=0$
+%
+\[
+P_{1 + 2 i \nu} (x) \bajo{\approx}{x \to 0}
+\frac{\sqrt{\pi}}{\Gamma\left(\frac{3}{2} + i \nu \right) \,
+\Gamma\left(-i \nu\right)} + \frac{(1 + 2 i \nu) (1 + i \nu)
+\sqrt{\pi}}{\Gamma\left(\frac{1}{2} - i \nu \right) \,
+\Gamma\left(2+ i \nu \right)}\, x + \mathcal{O}(x^{2}) \, .
+\]
+
+
+Equivalently to \ref{Q:tifNsreg} we can write the transition matrix in
+terms of the hypergeometric function
+%
+\begin{eqnarray}\label{Q:t_if-Nint-hyperg}
+t_{if} & =&\frac{\Gamma \left( 2 + 2 i \nu_{N} \right)}{2 \pi \,
+\alpha^{2 + 2 i \nu_{N}}} \int_{0}^{\infty} {_{2}F_{1}}\left[ 1 +
+i \nu_{N}, \frac{3}{2} + i \nu_{N} ; 1; -
+\frac{\eta^{2}}{\alpha^{2}} \right] \eta \, d \eta \nonumber
+\\
+&&\int_{0}^{2 \pi} d \varphi_{\eta} \;
+t^{\circ}_{if}(\bm{k},(\bm{\eta}+\bm{Q}_{\perp},Q_{\mid  \mid }))
+\end{eqnarray}
+
+\subsection*{Limit without internuclear interaction $\nu_{N}=0$}
+
+In the case that the internuclear interaction is negligible
+($\nu_{N}=0$) the Legendre function is $P_{0}(x)=x$ and the expression
+\ref{Q:tifNsreg} can be rewritten as
+
+\begin{eqnarray*}
+t_{if} &=& \frac{1}{2 \pi} \int_{0}^{\infty} \frac{\alpha \eta \, d
+\eta}{\sqrt[3]{\alpha^{2}+ \eta^{2}}}  \;\int_{0}^{2 \pi} d
+\varphi_{\eta} \;
+t^{\circ}_{if}(\bm{k},(\bm{\eta}+\bm{Q}_{\perp},Q_{\mid  \mid })) \\
+(u = \alpha^{2}+ \eta^{2}) \quad &=&  \frac{\alpha}{4 \pi} \int_{0}^{2
+\pi} d \varphi_{\eta} \; \int_{\alpha^{2}}^{\infty} \, \frac{d u
+}{\sqrt[3]{u}} \;\, t^{\circ}_{if}(\bm{k},(\bm{\eta}(u,\alpha) +
+\bm{Q}_{\perp},Q_{\mid  \mid }))
+\\
+&\approx&  \frac{\alpha}{4 \pi} \int_{0}^{2 \pi} d \varphi_{\eta} \;
+t^{\circ}_{if}(\bm{k},\bm{Q}) \int_{\alpha^{2}}^{\infty} \, \frac{d u
+} {\sqrt[3]{u}} \\
+&=&  \frac{\alpha}{4 \pi} \; t^{\circ}_{if}(\bm{k}, \bm{Q}) \, \int_{0}^{2
+\pi}
+d \varphi_{\eta} \left[ - 2 u^{-1/2}\right]_{\alpha^{2}}^{\infty} \\
+&=&  \frac{\alpha}{4 \pi} \; t^{\circ}_{if}(\bm{k}, \bm{Q}) \; 2 \pi \,
+\frac{2}{\alpha} \\
+&=& t^{\circ}_{if}
+\end{eqnarray*}
+%
+where the natural expression is recovered.
+
+\[
+P_{1 + 2 i \nu} (x) \bajo{\approx}{x \to 1} 1 + (1+ 2 i \nu)(1 +
+i \nu) (x-1) + \mathcal{O}(x^{2})
+\]
+
+%
+\section{Capture to bound states of the projectile in the CDW
+approximation}
+
+In the case of final states where the electron is bound to the
+projectile, the distortion $D_{P}$ \ref{Q:DFact} in the $C_{3}$
+wavefunction \ref{Q:C3} must be defined in terms of a bound state
+similar to the initial state \ref{Q:wf-i}, $D_{P}=(2 \pi)^{3/2}\
+\exp{\left(- i \bm{k}_{P} \cdot \bm{r}_{P} \right)} \, \varphi_{f}
+(\bm{r}_{P})$.
+
+The evaluation of the transition matrix is carried out in similar form
+that in section \ref{S:appro-post-form} for ionization. For instance,
+the only term that contributes in the approximation of masses for heavy
+ions
+\begin{eqnarray}\label{Q:tif-N-cpt}
+t^{N}_{if} &=& \frac{-1}{(2 \pi)^{3}}  \int d \bm{r}_{T} \,d
+\bm{r}_{P} \, e^{i \, ( \mu_{T}\bm{v} \cdot \bm{R}_{T} -
+\bm{K}_{P}  \cdot \bm{R}_{P} ) }\, \phi_{i}(\bm{r}_T) \,\left[
+\nabla_{\bm{r}_{T}} D^{-*}_{T}(\bm{k}^{\circ}_{T},\bm{r}_T) \right] {\times}
+\\
+&&  \left[ \vstretch \nabla_{\bm{r}_{P}} \phi_{f}(\bm{r}_{P}) \right]
+\, D^{\circ +}_{P} (\bm{k}_{P}^{\circ},\bm{r}_{P}) \, \left[ D^{-\,\ast
+\circ}_{N}(\bm{k}_{N}, \bm{r}_{N} ) \, D^{+ \circ }_{N}
+(\bm{k}_{N}^{\circ},\bm{r}_{N}) \right] \; , \nonumber
+\end{eqnarray}
+where
+\[
+\bm{k}_{P}^{\circ} = - m_{P} \bm{v} \; , \qquad \bm{k}^{\circ}_{T} = m_{T} \bm{v}
+\]
+
+
+Now, expressing coordinates and momenta in terms of $\bm{r}_{P}$,
+$\bm{r}_{T}$ and $\bm{K}_{R}=\bm{Q}$, the argument of the exponential
+is
+\[
+\bm{K}_{R} \cdot \bm{r}_{T} - \left( m_{P} \bm{v} + \frac{m_{P}}{m}
+\bm{K}_{R} \right)\bm{r}_{P}
+\]
+
+
+In the simplest case, the internuclear interaction can be expressed as
+an exponential factor which is switched-off in total cross sections
+calculations
+\begin{eqnarray}\label{Q:tif-cpt-noNN-f}
+t_{if}^{N} &=& \frac{-1}{(2 \pi)^{3/2}}  \int d \bm{r}_{T} \,
+e^{i \, \bm{K}_{R} \cdot \bm{r}_T} \, \phi_{i}(\bm{r}_T) \,\left[
+\nabla_{\bm{r}_{T}} D^{-*}_{T}(\bm{k}^{\circ}_{T},\bm{r}_T) \right]  \cdot
+\nonumber \\
+&& \int d \bm{r}_{P} \, e^{- i \, (m_{P} \bm{v} +
+\frac{m_{P}}{m} \bm{K}_{R} + \bm{k}_{P}^{\circ}) \cdot \bm{r}_{P}}
+\left[\nabla_{\bm{r}_{P}} \phi_{f}(\bm{r}_{P}) \right] \,
+\psi^{+}_{\bm{k}_{P}^{\circ}} (\bm{r}_{P}) \nonumber
+\\
+&=& (2 \pi)^{3} \bm{K}^{(T)}_{if}\left[ \bm{K}_{R} + \bm{k}_{T}^{\circ}
+\right] \cdot \bm{G}^{(P)}_{if}\left[-\bm{K}_{R},-\bm{k}^{\circ}_{P}\right]
+\end{eqnarray}
+where we have used that
+\[
+\frac{m_{P}}{m} \bm{K}_{R} + m_{P}\bm{v} + \bm{k}_{P}^{\circ} =
+\frac{m_{P}}{m} \bm{K_{R}} \approx \bm{K}_{R}
+\]
+
+Note that this result must be equal to the obtained by applying the
+perturbation on the initial state,
+%
+\begin{eqnarray}\label{Q:tif-cpt-noNN-i}
+t_{if}^{N} &=&  \int d \bm{r}_{T} \, e^{i \,(
+\bm{K}_{R}+\bm{k}_{T}^{\circ}) \cdot \bm{r}_T} \,\left[ \nabla_{\bm{r}_{T}}
+\phi_{i}(\bm{r}_T) \right] \, \psi^{-*}_{\bm{k}^{\circ}_{T}}(\bm{r}_T)   \cdot
+\nonumber \\
+&&\frac{-1}{(2 \pi)^{3/2}} \int d \bm{r}_{P} \, e^{- i \,
+\left( \frac{m_{P}}{m} \bm{K}_{R} + \bm{k}_{P}^{\circ} \right) \cdot
+\bm{r}_{P}} \phi_{f}(\bm{r}_{P}) \, \left[\nabla_{\bm{r}_{P}}
+D^{+}_{P}(\bm{r}_{P},\bm{k}_{P}^{\circ}) \right]  \nonumber
+\\
+&=& (2 \pi)^{3} \bm{G}^{(T)}_{if}\left[ \bm{K}_{R} + \bm{k}_{T}^{\circ}
+\right] \cdot \bm{K}^{(P)}_{if}\left[-\bm{K}_{R},-\bm{k}^{\circ}_{P}\right]
+\end{eqnarray}
+
+\subsection{Eikonal initial or final states}
+
+The eikonal state is defined as the solution of the exact two-body
+problem asymptotically. Within this approximation the distortion factor
+$D^{\pm}$ must be replaced by its asymptotic limit as expressed in
+\ref{Q:Eikonal-wf}
+\[
+E^{\pm}_{\alpha}(\bm{k},\bm{r}) = \lim_{r \to \infty}
+D^{\pm}_{\alpha}(\bm{k},\bm{r})
+\]
+
+In the case of Coulomb interactions, lets write the limit
+\begin{eqnarray*}
+\lim_{\lambda \to \infty} D^{\pm}(\nu_{k}, \bm{k},\lambda \bm{r}) &=&
+e^{{\pm} i \, \nu_{k} \ln{\lambda \left( k r \mp \bm{k}\cdot \bm{r}
+\right)}}
+\\
+&=& \lim_{\lambda \to \infty} e^{\pm i \, \nu_{k} \ln{\lambda}}
+\, e^{ \pm i \, \nu_{k} \ln{\left( k r \mp \bm{k} \cdot \bm{r}
+\right)}}
+\end{eqnarray*}
+%
+Then, we can evaluate the eikonal state as
+%
+\begin{equation}\label{Q:Eikonal-wf-Coul}
+E^{\pm} (\bm{k}_{\alpha}, \bm{r}) = \lim_{\lambda \to \infty} e^{\mp
+i \nu \ln{ \lambda}} \, D^{\pm}(\nu , \lambda \bm{k}_{\alpha}, \bm{r})
+\end{equation}
+where we have used that $D^{\pm} (\bm{k},\lambda \bm{r})= D^{\pm} (\lambda
+\bm{k}, \bm{r})$.
+%
+The factors $\bm{G}_{if}$ in \ref{Q:tif-cpt-noNN-f} and
+\ref{Q:tif-cpt-noNN-i} must be computed with the replacement $D \to E$.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mainxs"
+%%% End: 
