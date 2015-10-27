@@ -2,16 +2,10 @@
 \usepackage{define_j}
 \usepackage{todonotes}
 \providecommand{\todo}[1]{{\color{blue} \fbox{\itshape #1}}}
-
+\usepackage[nodayofweek,level]{datetime}
 \usepackage[mark]{gitinfo2}
 
-% \usepackage{svn-multi}
-% \svnid{$Id: main.tex 84 2015-10-13 14:41:20Z fiol $}
-% \svnRegisterAuthor{fiol}{Juan Fiol}
-% \newcommand{\printvcinfo}{Rev: \svnfilerev.\ \svndate}
-
 \newcommand{\T}{\mathrm{T}^{(1)}}
-%\usepackage[notref,notcite]{showkeys}
 
 \graphicspath{{figures/}}
 
@@ -66,6 +60,7 @@ backref]{biblatex}
 \tableofcontents
 %
 \part{Time independent problems}
+
 \include{txs}
 \include{tcdw}
 % \include{simult}
