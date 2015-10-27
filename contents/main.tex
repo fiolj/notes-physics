@@ -1,11 +1,15 @@
-\documentclass[a4paper,12pt,english,oneside,openleft,fleqn]{book}
+\documentclass[a4paper,12pt,english,oneside,fleqn]{book}
 \usepackage{define_j}
 \usepackage{todonotes}
 \providecommand{\todo}[1]{{\color{blue} \fbox{\itshape #1}}}
-\usepackage{svn-multi}
-\svnid{$Id: mainxs.tex 84 2015-10-13 14:41:20Z fiol $}
-\svnRegisterAuthor{fiol}{Juan Fiol}
-\newcommand{\printvcinfo}{Rev: \svnfilerev.\ \svndate}
+
+\usepackage[mark]{gitinfo2}
+
+% \usepackage{svn-multi}
+% \svnid{$Id: main.tex 84 2015-10-13 14:41:20Z fiol $}
+% \svnRegisterAuthor{fiol}{Juan Fiol}
+% \newcommand{\printvcinfo}{Rev: \svnfilerev.\ \svndate}
+
 \newcommand{\T}{\mathrm{T}^{(1)}}
 %\usepackage[notref,notcite]{showkeys}
 
@@ -36,7 +40,7 @@
 \usepackage[backend=biber,natbib=true,style=authoryear,citestyle=authoryear-icomp,%
 doi=false,url=false,isbn=false,%
 backref]{biblatex}
-% \usepackage{biblatex}
+
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{%
   \printtext{\bibstring{in}\intitlepunct}}}
@@ -51,13 +55,13 @@ backref]{biblatex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\includeonly{colis_molec}
+% \includeonly{colis_molec}
 
 \begin{document}
 \title{Notes on a few subjects on AMO Physics}
 
 \author{Juan Fiol}
-\date{February 2001 - \printvcinfo}
+\date{\displaydate{gitdate}}
 \maketitle
 \tableofcontents
 %
