@@ -95,7 +95,7 @@ Utilizando los resultados (\ref{Q:fuerzas-intermolec}) a (\ref{Q:pot-inter-dU2})
     \vect{F}^{\text{(e)}}_{\ell} =& 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vect{D} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
                      &+ \vers{r}_{\ell}\, \sum_{n=3}^{5} \frac{2 n\, C_{2n}}{r_{\ell}^{2n+1}} \,\left[ 1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}} \left( \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right) \right] 
 \intertext{con} 
-& \vect{D}= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
+& \label{Q:def-Dj}\vect{D}= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
   \end{align}
 \end{subequations}
 
@@ -279,13 +279,9 @@ Calculando expl\'{\i}citamente obtenemos:
   \begin{align}
     \frac{\partial F_{ \ell \ell',i}}{\partial r'_{j}} &= - \frac{2 K_{\theta}}{r} \left\{\left[\frac{r'_{i}}{r'} - \cos \theta \frac{r_{i}}{r}\right] \frac{\partial}{\partial r'_{j}}\left( \frac{(\theta - \theta_{0})}{\sin \theta} \right) + \frac{\theta - \theta_{0}}{\sin \theta} \left[ \frac{\partial (r'_{i}/r') }{\partial r'_{j}} -  \frac{r_{i}}{r}\frac{\partial (\cos \theta)}{\partial r'_{j}}  \right] \right\}
 %
- \intertext{con}
-&
-  \frac{\partial (r'_{i}/r')}{\partial r'_{j}} = \frac{1}{r'}\delta_{ij} - \frac{r'_{i} r'_{j}}{r'^{3}}
-\\  
-& 
-      \frac{\partial}{\partial r'_{j}}\left( \frac{(\theta - \theta_{0})}{\sin \theta} \right) = 
-      \frac{\sin \theta - (\theta -\theta_{0})\, \cos \theta }{\sin^{2} \theta} \; \frac{\partial \theta}{\partial r'_{j}} 
+\intertext{con}
+& \frac{\partial (r'_{i}/r')}{\partial r'_{j}} = \frac{1}{r'}\delta_{ij} - \frac{r'_{i} r'_{j}}{r'^{3}} \\  
+& \frac{\partial}{\partial r'_{j}}\left( \frac{(\theta - \theta_{0})}{\sin \theta} \right) = \frac{\sin \theta - (\theta -\theta_{0})\, \cos \theta }{\sin^{2} \theta} \; \frac{\partial \theta}{\partial r'_{j}} 
 \\
 &  \frac{\partial \theta}{\partial r'_{j}} = \frac{-1}{\sin \theta}\, \frac{\partial (\cos \theta)}{\partial r'_{j}} \\
                                                        & \frac{\partial (\cos \theta)}{\partial r'_{j}} = \frac{1}{r'}\left( \frac{r_{j}}{r} - \cos \theta\, \frac{r'_{j}}{r'} \right)
@@ -295,6 +291,12 @@ Calculando expl\'{\i}citamente obtenemos:
 \subsection{Calculo de los elementos de Matriz intermoleculares}
 \label{S:elementos-matriz-intermolec}
 
+\begin{align}
+  (BF_{\ell}X)_{ij} =& \frac{\partial F^{(e)}_{X,i}}{\partial r_{\ell,j}} = -3 A p \, \frac{\partial}{\partial r_{\ell,j}} \left[{\cos {\theta_{\ell}}}\, \frac{\rme^{-b r_{\ell}}}{r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}} + {\cos^{2}{\theta_{\ell}}} \,\rme^{-b r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}^{2}} \right] \nonumber \\
+                    =& -3 A p \,\frac{\rme^{-b r_{\ell}}}{r_{\ell X}}\,\Biggl\{ D_{j} \frac{r_{\ell X,i}}{r_{\ell}} + \cos \theta_{\ell}l \frac{b r_{\ell} + 1}{r_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell}^{2}} + \frac{\cos \theta_{\ell}}{r_{\ell}} \left( \delta_{ij} -  \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \nonumber \\
+&+ 2 \cos \theta_{\ell} \, D_{j} \frac{r_{\ell X,i}}{r_{\ell X}} - b \cos^{2}{ \theta_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell} r_{\ell X}}  +  \frac{\cos^{2}{ \theta_{\ell}}}{r_{\ell X}} \left( \delta_{ij} -  \frac{2 r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \biggr\}
+\end{align}
+donde $D_{j}$ se defini\'{o} en (\ref{Q:def-Dj}).
 
 %%% Local Variables:
 %%% mode: latex
