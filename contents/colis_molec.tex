@@ -290,9 +290,14 @@ Calculando expl\'{\i}citamente obtenemos:
 
 \subsection{Calculo de los elementos de Matriz intermoleculares}
 \label{S:elementos-matriz-intermolec}
-
 \begin{align}
-  (BF_{\ell}X)_{ij} =& \frac{\partial F^{(e)}_{X,i}}{\partial r_{\ell,j}} = -3 A p \, \frac{\partial}{\partial r_{\ell,j}} \left[{\cos {\theta_{\ell}}}\, \frac{\rme^{-b r_{\ell}}}{r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}} + {\cos^{2}{\theta_{\ell}}} \,\rme^{-b r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}^{2}} \right] \nonumber \\
+  (BXX)^{(e)}_{ij} &= \frac{\partial F^{(e)}_{X,i}}{\partial r_{X,j}} \\&= -3 A p \, \sum_{\ell} e^{-br_{\ell}} \, \Biggl\{\frac{1}{r_{\ell}}  \frac{\partial}{\partial r_{\ell X,j}} \left(\cos \theta_{\ell} \frac{r_{\ell X,i}}{r_{\ell X}} \right) + \frac{\partial}{\partial r_{\ell X,j}} \left(\cos^{2} \theta_{\ell}\, \frac{r_{\ell X,i}}{r_{\ell X}^{2}} \right) \biggr\}
+\end{align}
+% \begin{align}
+%   (BXX)^{(e)}_{ij} =& \frac{\partial F^{(e)}_{X,i}}{\partial r_{X,j}} = -3 A p \, \Sum_{\ell} e^{-br_{\ell}} \, \Biggl\{\frac{1}{r_{\ell}} \cos \theta_{\ell} \frac{\partial (r_{\ell X,i}/r_{\ell X})}{\partial r_{\ell X,j}} + (r_{\ell X,i}/r_{\ell X}) \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}}\biggr\}
+% \end{align}
+\begin{align}
+  (BXF_{\ell})^{(e)}_{ij} =& \frac{\partial F^{(e)}_{X,i}}{\partial r_{\ell,j}} = -3 A p \, \frac{\partial}{\partial r_{\ell,j}} \left[{\cos {\theta_{\ell}}}\, \frac{\rme^{-b r_{\ell}}}{r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}} + {\cos^{2}{\theta_{\ell}}} \,\rme^{-b r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}^{2}} \right] \nonumber \\
                     =& -3 A p \,\frac{\rme^{-b r_{\ell}}}{r_{\ell X}}\,\Biggl\{ D_{j} \frac{r_{\ell X,i}}{r_{\ell}} + \cos \theta_{\ell}l \frac{b r_{\ell} + 1}{r_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell}^{2}} + \frac{\cos \theta_{\ell}}{r_{\ell}} \left( \delta_{ij} -  \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \nonumber \\
 &+ 2 \cos \theta_{\ell} \, D_{j} \frac{r_{\ell X,i}}{r_{\ell X}} - b \cos^{2}{ \theta_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell} r_{\ell X}}  +  \frac{\cos^{2}{ \theta_{\ell}}}{r_{\ell X}} \left( \delta_{ij} -  \frac{2 r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \biggr\}
 \end{align}
