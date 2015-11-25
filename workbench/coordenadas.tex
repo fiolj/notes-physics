@@ -1,0 +1,35 @@
+\documentclass[border=10pt]{standalone} 
+\usepackage[version=3]{mhchem}
+
+\usepackage{tkz-graph}
+\GraphInit[vstyle = Shade]
+\tikzset{
+  LabelStyle/.style = { rectangle, rounded corners, draw,
+                        minimum width = 2em, fill = yellow!50,
+                        text = red, font = \bfseries },
+  VertexStyle/.append style = { inner sep=5pt,
+                                font = \Large\bfseries}
+ % , EdgeStyle/.append style = {->} 
+}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}
+  \SetGraphUnit{5}
+% \Vertices{circle}{A,B,C}
+  \Vertex{X}
+  \WE(X){F$_{1}$}
+  \EA(X){F$_{2}$}
+  \NO(X){F$_{3}$}
+  \SO(X){F$_{4}$}
+  \Vertex[x=2.5,y=2.5]{}
+  \Vertex[x=-2,y=-2]{}
+
+  \Edge[{lw=0.5}](X)(F$_{1}$)
+  \Edge[style={->}](X)(F$_{2}$)
+  \Edge(X)(F$_{3}$)
+  \Edge(X)(F$_{4}$)
+
+  \Vertex[x=5.5,y=5.5]{P}
+\end{tikzpicture}
+\end{document}
+
