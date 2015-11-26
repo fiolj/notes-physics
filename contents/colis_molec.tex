@@ -297,18 +297,23 @@ Calculando expl\'{\i}citamente obtenemos:
   \end{align}
 \end{subequations}
 
-\subsection{Calculo de los elementos de Matriz intermoleculares}
+\subsection{C\'{a}lculo de los elementos de Matriz intermoleculares}
 \label{S:elementos-matriz-intermolec}
 \begin{align}
-  (BXX)^{(e)}_{ij} &= \frac{\partial F^{(e)}_{X,i}}{\partial r_{X,j}} \\&= -3 A p \, \sum_{\ell} e^{-br_{\ell}} \, \Biggl\{\frac{1}{r_{\ell}}  \overbrace{\frac{\partial}{\partial r_{\ell X,j}} \left(\cos \theta_{\ell} \frac{r_{\ell X,i}}{r_{\ell X}} \right)}^{A} + \overbrace{\frac{\partial}{\partial r_{\ell X,j}} \left(\cos^{2} \theta_{\ell}\, \frac{r_{\ell X,i}}{r_{\ell X}^{2}} \right)}^{B} \biggr\}
+  (BXX)^{(e)}_{ij} &= \frac{\partial F^{(e)}_{X,i}}{\partial r_{X,j}} = \frac{\partial F^{(e)}_{X,i}}{\partial r_{\ell X,j}} \overbrace{\frac{\partial r_{\ell X,j}}{\partial r_{X,j}}}^{-1}\\
+&= 3 A p \, \sum_{\ell} e^{-br_{\ell}} \, \Biggl\{\frac{1}{r_{\ell}}  \overbrace{\frac{\partial}{\partial r_{\ell X,j}} \left(\cos \theta_{\ell} \frac{r_{\ell X,i}}{r_{\ell X}} \right)}^{A} + \overbrace{\frac{\partial}{\partial r_{\ell X,j}} \left(\cos^{2} \theta_{\ell}\, \frac{r_{\ell X,i}}{r_{\ell X}^{2}} \right)}^{B} \biggr\}
 \end{align}
 donde 
 \begin{align}
   A &=  \cos \theta_{\ell} \frac{\partial ({r_{\ell X,i}}/{r_{\ell X}})}{\partial r_{\ell X,j}} + \left( \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}} \right) \left( \frac{r_{\ell X,i}}{r_{\ell X}} \right) 
 \intertext{con}
-& \frac{\partial ({r_{\ell X,i}}/{r_{\ell X}})}{\partial r_{\ell X,j}} = 
+  & \frac{\partial ({r_{\ell X,i}}/{r_{\ell X}})}{\partial r_{\ell X,j}} = \frac{\delta_{ij}}{r_{\ell X}} - \frac{r_{\ell X,i} r_{\ell X,j}}{r_{\ell X}^{3}} \qquad
+    \text{y}\qquad\qquad \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}}= \frac{1}{r_{\ell X}} \left[\frac{r_{\ell,j}}{r_{\ell}} - \cos{\theta_{\ell}} \frac{r_{\ell X,j}}{r_{\ell X}}\right]
+\end{align}
 \\
-& \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}}= 
+Similarmente $B$ ser\'{a}:
+\begin{align}
+  B&= 2 \cos \theta_{\ell} \frac{r_{\ell X,i}}{r_{\ell X}}\frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}}  + \cos^{2} \theta_{l}\frac{\partial ({r_{\ell X,i}}/{r^{2}_{\ell X}})}{\partial r_{\ell X,j}}
 \end{align}
 
 \begin{align}
