@@ -1,25 +1,34 @@
 \chapter{Colisiones Moleculares: tratamiento cl\'{a}sico}
 \label{C:colis-molec}
 
+
 \section{Potenciales}
 \label{S:potenciales}
 
-Para el potencial intermolecular consideramos un t\'{e}rmino el\'{a}stico arm\'{o}nico de cada fl\'{u}or con el \'{a}tomo central y t\'{e}rminos arm\'{o}nicos de ``bending'' entre los fl\'{u}or que dependen de su \'{a}ngulo
+Para el potencial intramolecular consideramos un t\'{e}rmino el\'{a}stico arm\'{o}nico de cada fl\'{u}or con el \'{a}tomo central y t\'{e}rminos arm\'{o}nicos de ``bending'' entre los fl\'{u}or que dependen de su \'{a}ngulo
 \begin{equation}\label{Q:pot-intra-energy}
   U = \sum_{\ell=1}^{6} K_{R} (r_{\ell X} - r_{0})^{2} + \sum_{\ell=1}^{6} \sum_{\ell'=\ell + 1}^{6} K_{\theta} (\theta_{\ell \ell'} - \theta_{0})
 \end{equation}
+%
+donde $\theta_{0}=90^{\circ}$  en este caso.
+\begin{figure}[htbp]
+  \centering
+  \resizebox{8cm}{!}{\input{figures/coordenadas.tikz}}
+  \caption{Coordenadas utilizadas}
+\end{figure}
 
-Para los potenciales intermoleculares de \ce{SF6-Ar} usamos las expresiones funcionales del grupo de Le Roy \autocite{Eichena1988TJCPp2898} y colaboradores (ver informe de Javier)
+En el caso de colisiones de mol\'{e}culas de hexafluoruro de azufre (\ce{XF6}=\ce{SF6}) con un proyectil at\'{o}mico (en este caso $P=\ce{Ar}$) utilizamos para los potenciales intermoleculares las expresiones funcionales del grupo de Le Roy \autocite{Eichena1988TJCPp2898} y colaboradores (ver informe de Javier)
 \begin{subequations}
   \begin{align} \label{Q:pot-inter-energy-1}
     U_{\ce{Ar-S}} &= - \sum_{n=3}^{5} \left[ 1 - \rme^{-br} \sum_{k=0}^{2n}\frac{(br)^{k}}{k!}\right] \frac{C_{2n}}{r^{2n}} \,,    \\
  \label{Q:pot-inter-energy-2}   U_{\ce{Ar-F_{\ell}}} &= A \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\, \rme^{-b r_{\ell}} - \sum_{n=3}^{5} \left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \frac{C_{2n}}{r_{\ell}^{2n}}\,,
 \intertext{donde}
-& \vect{r}=  \vect{r}_{\ce{Ar}} - \vect{r}_{X} \,, \qquad \qquad
- \vect{r}_{\ell}=  \vect{r}_{\ce{Ar}} - \vect{r}_{\ce{F_{\ell}}} \,, \qquad \qquad \vect{r}_{\ell X}= \vect{r}_{F_{\ell}} - \vect{r}_{X} \,, \nonumber 
+& \vect{r}=  \vect{r}_{\ce{P}} - \vect{r}_{X} \,, \qquad \qquad
+ \vect{r}_{\ell}=  \vect{r}_{\ce{P}} - \vect{r}_{\ce{F_{\ell}}} \,, \qquad \qquad \vect{r}_{\ell X}= \vect{r}_{F_{\ell}} - \vect{r}_{X} \,, \nonumber 
   \end{align}
 \end{subequations}
 $\theta_{\ell}$ es el \'{a}ngulo entre $\vect{r}_{\ell}$ y $\vect{r}_{\ell X}$, y $P_{2}(x)= 3 x^{2}/2 -1/2$ es el polinomio de Legendre de segundo orden.
+
 
 \section{C\'{a}lculo de las fuerzas}
 \label{S:calculo-fuerzas}
@@ -297,13 +306,14 @@ donde
 \begin{align}
   A &=  \cos \theta_{\ell} \frac{\partial ({r_{\ell X,i}}/{r_{\ell X}})}{\partial r_{\ell X,j}} + \left( \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}} \right) \left( \frac{r_{\ell X,i}}{r_{\ell X}} \right) 
 \intertext{con}
-& \frac{\partial ({r_{\ell X,i}}/{r_{\ell X}})}{\partial r_{\ell X,j}} = \\
+& \frac{\partial ({r_{\ell X,i}}/{r_{\ell X}})}{\partial r_{\ell X,j}} = 
+\\
 & \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}}= 
 \end{align}
 
 \begin{align}
   (BXF_{\ell})^{(e)}_{ij} =& \frac{\partial F^{(e)}_{X,i}}{\partial r_{\ell,j}} = -3 A p \, \frac{\partial}{\partial r_{\ell,j}} \left[{\cos {\theta_{\ell}}}\, \frac{\rme^{-b r_{\ell}}}{r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}} + {\cos^{2}{\theta_{\ell}}} \,\rme^{-b r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}^{2}} \right] \nonumber \\
-                    =& -3 A p \,\frac{\rme^{-b r_{\ell}}}{r_{\ell X}}\,\Biggl\{ D_{j} \frac{r_{\ell X,i}}{r_{\ell}} + \cos \theta_{\ell}l \frac{b r_{\ell} + 1}{r_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell}^{2}} + \frac{\cos \theta_{\ell}}{r_{\ell}} \left( \delta_{ij} -  \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \nonumber \\
+                    =& -3 A p \,\frac{\rme^{-b r_{\ell}}}{r_{\ell X}}\,\Biggl\{ D_{j} \frac{r_{\ell X,i}}{r_{\ell}} + \cos \theta_{\ell} \frac{b r_{\ell} + 1}{r_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell}^{2}} + \frac{\cos \theta_{\ell}}{r_{\ell}} \left( \delta_{ij} -  \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \nonumber \\
 &+ 2 \cos \theta_{\ell} \, D_{j} \frac{r_{\ell X,i}}{r_{\ell X}} - b \cos^{2}{ \theta_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell} r_{\ell X}}  +  \frac{\cos^{2}{ \theta_{\ell}}}{r_{\ell X}} \left( \delta_{ij} -  \frac{2 r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \biggr\}
 \end{align}
 donde $D_{j}$ se defini\'{o} en (\ref{Q:def-Dj}).
