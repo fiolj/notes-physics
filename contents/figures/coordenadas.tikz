@@ -25,6 +25,7 @@
 
   \Vertex[x=2, y=2, NoLabel]{A}
   \Vertex[x=-2, y=-2, NoLabel]{B}
+  
 \begin{scope}
 \tikzset{VertexStyle/.append style = {%
 shape= circle,shading= ball,ball color= green!80!white,%
