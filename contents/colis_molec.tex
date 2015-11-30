@@ -75,10 +75,10 @@ Las fuerzas sobre los \'{a}tomos de fl\'{u}or se obtienen derivando respecto a l
 
 Para calcular la derivada del coseno, tenemos en cuenta que $\cos \theta_{\ell} = \vect{r}_{\ell} \cdot \vect{r}_{\ell X}/r_{\ell} r_{\ell X}$. Entonces podemos calcular:
 \begin{align}\label{Q:pot-inter-deriv-cos}
-  D_{i}&= \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell, i}} = \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \frac{r_{\ell X,i}}{r_{\ell X}} -
+  \Lambda_{i}&= \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell, i}} = \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \frac{r_{\ell X,i}}{r_{\ell X}} -
 \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \frac{r_{\ell,i}}{r_{\ell}} \nonumber
 \intertext{y vectorialmente}
-\vect{D} &= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} -
+\vect{\Lambda} &= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} -
 \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
 \end{align}
 
@@ -116,7 +116,7 @@ Utilizando los resultados (\ref{Q:fuerzas-intermolec}) a (\ref{Q:pot-inter-dU2})
     \vect{F}^{\text{(e)}}_{\ell} =& 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vect{D} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
                      &+ \vers{r}_{\ell}\, \sum_{n=3}^{5} \frac{2 n\, C_{2n}}{r_{\ell}^{2n+1}} \,\left[ 1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}} \left( \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right) \right] 
 \intertext{con} 
-& \label{Q:def-Dj}\vect{D}= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
+& \label{Q:def-Dcos}\vect{\Lambda}= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
   \end{align}
 \end{subequations}
 
@@ -321,10 +321,12 @@ Empezamos calculando las derivadas de la fuerza sobre el \'{a}tomo central debid
 &= 3 A p \, \sum_{\ell} e^{-br_{\ell}} \, \Biggl\{\frac{1}{r_{\ell}}  \overbrace{\frac{\partial}{\partial r_{\ell X,j}} \left(\cos \theta_{\ell} \frac{r_{\ell X,i}}{r_{\ell X}} \right)}^{A} + \overbrace{\frac{\partial}{\partial r_{\ell X,j}} \left(\cos^{2} \theta_{\ell}\, \frac{r_{\ell X,i}}{r_{\ell X}^{2}} \right)}^{B} \biggr\}
 \intertext{donde }
     A &= \frac{r_{\ell X,i}}{r_{\ell X}} \left( \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}} \right)  + \cos \theta_{\ell} \frac{\partial ({r_{\ell X,i}}/{r_{\ell X}})}{\partial r_{\ell X,j}}  \, \\
-    B&= 2 \cos \theta_{\ell} \frac{r_{\ell X,i}}{r^{2}_{\ell X}}\left( \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}} \right)  + \cos^{2} \theta_{l}\frac{\partial ({r_{\ell X,i}}/{r^{2}_{\ell X}})}{\partial r_{\ell X,j}}
+    B&= 2 \cos \theta_{\ell} \frac{r_{\ell X,i}}{r^{2}_{\ell X}}\left( \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}} \right)  + \cos^{2} \theta_{\ell}\frac{\partial ({r_{\ell X,i}}/{r^{2}_{\ell X}})}{\partial r_{\ell X,j}}
        \intertext{con}
      & \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell X,j}}= \frac{1}{r_{\ell X}} \left[\frac{r_{\ell,j}}{r_{\ell}} - \cos{\theta_{\ell}} \frac{r_{\ell X,j}}{r_{\ell X}}\right] \\
+\label{Q:deriv-i_r}
       & \frac{\partial ({r_{\ell X,i}}/{r_{\ell X}})}{\partial r_{\ell X,j}} = \frac{\delta_{ij}}{r_{\ell X}} - \frac{r_{\ell X,i} r_{\ell X,j}}{r_{\ell X}^{3}} \\
+\label{Q:deriv-i_r2}
       & \frac{\partial ({r_{\ell X,i}}/{r^{2}_{\ell X}})}{\partial r_{\ell X,j}} =\frac{1}{r_{\ell X}}\, \left[\frac{\delta_{ij}}{r_{\ell X}} - 2 \frac{r_{\ell X,i} r_{\ell X,j}}{r_{\ell X}^{3}} \right]
   \end{align}
 \end{subequations}
@@ -334,27 +336,28 @@ Derivada de la fuerza sobre $X$ debido a movimientos de un fl\'{u}or:
 %
 \begin{subequations}
   \begin{align}
-    (BXF_{\ell})^{(e)}_{ij} = \frac{\partial F^{(e)}_{X,i}}{\partial r_{\ell,j}} = -3 A p \, \Biggl\{ \overbrace{\frac{\partial}{\partial r_{F_{\ell},j}} \left[{\cos {\theta_{\ell}}}\, \frac{\rme^{-b r_{\ell}}}{r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}}\right]}^{C} + \overbrace{\frac{\partial}{\partial r_{F_{\ell},j}} \left[{\cos^{2}{\theta_{\ell}}} \,\rme^{-b r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}^{2}} \right]}^{D}\biggr\} 
+    (BXF_{\ell})^{(e)}_{ij} &= \frac{\partial F^{(e)}_{X,i}}{\partial r_{F_{\ell},j}} \\
+&= -3 A p \, \Biggl\{ \overbrace{\frac{\partial}{\partial r_{F_{\ell},j}} \left[{\cos {\theta_{\ell}}}\, \frac{\rme^{-b r_{\ell}}}{r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}}\right]}^{C} + \overbrace{\frac{\partial}{\partial r_{F_{\ell},j}} \left[{\cos^{2}{\theta_{\ell}}} \,\rme^{-b r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}^{2}} \right]}^{D}\biggr\} 
     % \nonumber
     \intertext{donde }
-    C = -\frac{\rme^{-b r_{\ell}}}{r_{\ell}}\, \frac{r_{\ell X,i}}{r_{\ell X}} \left( \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell,j}} \right)  - 
-    \cos \theta_{\ell} \frac{r_{\ell X,i}}{r_{\ell X}} \left( \frac{\partial (\rme^{-b r_{\ell}}/r_{\ell})}{\partial r_{\ell,j}} \right) 
+    C =& \frac{\rme^{-b r_{\ell}}}{r_{\ell}}\,\Biggl[ \frac{r_{\ell X,i}}{r_{\ell X}} \overbrace{\frac{\partial \cos \theta_{\ell}}{\partial r_{F_{\ell},j}} }^{\Lambda_{j}} +
+    \cos \theta_{\ell} \frac{r_{\ell X,i}}{r_{\ell X}} \left[b + \frac{1}{r_{\ell}}\right] 
     +
-    \frac{\rme^{-b r_{\ell}}}{r_{\ell}} \cos \theta_{\ell} \left( \frac{\partial (r_{\ell X,i}/r_{\ell})}{\partial r_{\ell X,j}} \right) 
-    % \\
-    % \cos \theta_{\ell} \frac{\partial ({r_{\ell X,i}}/{r_{\ell X}})}{\partial r_{\ell X,j}}  \, \\
-    % B&= 2 \cos \theta_{\ell} \frac{r_{\ell X,i}}{r^{2}_{\ell X}}\left( \frac{\partial
-    %   \cos \theta_{\ell}}{\partial r_{\ell X,j}} \right) + \cos^{2}
-    % \theta_{l}\frac{\partial ({r_{\ell X,i}}/{r^{2}_{\ell X}})}{\partial r_{\ell X,j}}
+    \cos \theta_{\ell} \overbrace{\frac{\partial (r_{\ell X,i}/r_{\ell X})}{\partial r_{\ell X,j}} }^{(\ref{Q:deriv-i_r})}\Biggr] \\
+    D =& \rme^{-b r_{\ell}} \cos \theta_{\ell} \Biggl[2 \frac{r_{\ell X,i}}{r^{2}_{\ell X}} \overbrace{\frac{\partial \cos \theta_{\ell}}{\partial r_{F_{\ell},j}} }^{\Lambda_{j}} +
+      b \cos \theta_{\ell} \frac{r_{\ell X,i}}{r^{2}_{\ell X}} \frac{r_{\ell,j}}{r_{\ell}}
+    +
+ \cos \theta_{\ell} \overbrace{\frac{\partial (r_{\ell X,i}/r^{2}_{\ell X})}{\partial r_{\ell X,j}} }^{(\protect\ref{Q:deriv-i_r2})} \Biggr]
   \end{align}
 \end{subequations}
+%
+donde $\Lambda_{j}$ se defini\'{o} en (\ref{Q:def-Dcos}).
 
-donde $D_{j}$ se defini\'{o} en (\ref{Q:def-Dj}).
+% \begin{align}
+%   =& -3 A p \,\frac{\rme^{-b r_{\ell}}}{r_{\ell X}}\,\Biggl\{ D_{j} \frac{r_{\ell X,i}}{r_{\ell}} + \cos \theta_{\ell} \frac{b r_{\ell} + 1}{r_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell}^{2}} + \frac{\cos \theta_{\ell}}{r_{\ell}} \left( \delta_{ij} -  \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \nonumber \\
+%    &+ 2 \cos \theta_{\ell} \, D_{j} \frac{r_{\ell X,i}}{r_{\ell X}} - b \cos^{2}{ \theta_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell} r_{\ell X}}  +  \frac{\cos^{2}{ \theta_{\ell}}}{r_{\ell X}} \left( \delta_{ij} -  \frac{2 r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \biggr\}
+% \end{align}
 
-\begin{align}
-  =& -3 A p \,\frac{\rme^{-b r_{\ell}}}{r_{\ell X}}\,\Biggl\{ D_{j} \frac{r_{\ell X,i}}{r_{\ell}} + \cos \theta_{\ell} \frac{b r_{\ell} + 1}{r_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell}^{2}} + \frac{\cos \theta_{\ell}}{r_{\ell}} \left( \delta_{ij} -  \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \nonumber \\
-   &+ 2 \cos \theta_{\ell} \, D_{j} \frac{r_{\ell X,i}}{r_{\ell X}} - b \cos^{2}{ \theta_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell} r_{\ell X}}  +  \frac{\cos^{2}{ \theta_{\ell}}}{r_{\ell X}} \left( \delta_{ij} -  \frac{2 r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \biggr\}
-\end{align}
 \begin{align}
   (BF_{\ell}F_{\ell})^{(e)}_{ij} &= \frac{\partial F^{(e)}_{\ell,i}}{\partial r_{\ell,j}} \\&= -3 A p 
 \end{align}
