@@ -7,6 +7,17 @@
 \usepackage[nodayofweek,level]{datetime}
 \usepackage[mark]{gitinfo2}
 
+\usepackage[toc,titletoc,page]{appendix}
+% \renewcommand{\appendixname}{Ap\'{e}ndice}
+\renewcommand{\appendixnametoc}{Ap\'{e}ndices}
+\AtBeginEnvironment{subappendices}{%
+\renewcommand{\appendixname}{Ap\'{e}ndice}
+\chapter*{\appendixname}
+% \addcontentsline{toc}{chapter}{Appendices}
+% \counterwithin{figure}{section}
+% \counterwithin{table}{section}
+}
+
 \newcommand{\T}{\mathrm{T}^{(1)}}
 
 \graphicspath{{figures/}}

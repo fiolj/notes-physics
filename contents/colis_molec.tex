@@ -42,7 +42,7 @@ En el caso de colisiones de mol\'{e}culas de hexafluoruro de azufre (\ce{XF6}=\c
 $P_{2}(x)= 3 x^{2}/2 -1/2$ es el polinomio de Legendre de segundo orden.
 
 
-\section{C\'{a}lculo de las fuerzas}
+\section{Fuerzas}
 \label{S:calculo-fuerzas}
 Las fuerzas se obtienen de las expresiones para la energ\'{\i}a potencial. Usaremos la aproximaci\'{o}n de que el potencial se puede escribir como una suma sobre potenciales de interacci\'{o}n de a pares entre \'{a}tomos. 
 
@@ -60,75 +60,6 @@ Las fuerzas intra-moleculares se obtienen derivando la energ\'{\i}a (\ref{Q:pot-
   \end{align}
 \end{subequations}
 
-\subsection{Fuerzas intermoleculares}
-
-
-\subsubsection{Fuerzas sobre los \'{a}tomos de fl\'{u}or}
-
-Las fuerzas sobre los \'{a}tomos de fl\'{u}or se obtienen derivando respecto a la coordenada respectiva:
-\begin{align} \label{Q:fuerzas-intermolec}  
-  \frac{\partial U_{\ce{Ar-F_{\ell}}}}{\partial r_{\ell,i}} &= \frac{\partial U_{1}}{\partial r_{\ell,i}} + \frac{\partial U_{2}}{\partial r_{\ell,i}} 
-\intertext{con}
-  \frac{\partial U_{1}}{\partial r_{\ell,i}} &= 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell, i}} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \frac{r_{\ell,i}}{r_{\ell}}
- \,.\label{Q:pot-inter-dU1}
-\end{align}
-
-Para calcular la derivada del coseno, tenemos en cuenta que $\cos \theta_{\ell} = \vect{r}_{\ell} \cdot \vect{r}_{\ell X}/r_{\ell} r_{\ell X}$. Entonces podemos calcular:
-\begin{align}\label{Q:pot-inter-deriv-cos}
-  \Lambda_{i}&= \frac{\partial \cos \theta_{\ell}}{\partial r_{\ell, i}} = \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \frac{r_{\ell X,i}}{r_{\ell X}} -
-\left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \frac{r_{\ell,i}}{r_{\ell}} \nonumber
-\intertext{y vectorialmente}
-\vect{\Lambda} &= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} -
-\left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
-\end{align}
-
-Calculemos ahora el segundo t\'{e}rmino
-\begin{equation*}
-  \frac{\partial U_{2}}{\partial r_{\ell,i}} = - \left\{\sum_{n=3}^{5} \frac{\partial}{\partial r_{\ell}}\left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \frac{C_{2n}}{r_{\ell}^{2n}} + \left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \frac{\partial}{\partial r_{\ell}}\left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right] \right\} \, \frac{\partial r_{\ell}}{\partial r_{\ell,i}}
-\end{equation*}
-%
-donde, la derivada en el primer t\'{e}rmino se puede calcular como:
-\begin{align*}
- \frac{\partial}{\partial r_{\ell}}\left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] &= - (-b) \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} +  \rme^{-br_{\ell}} b \, { \sum_{k=0}^{2n}  k \frac{(br_{\ell})^{k-1}}{k!}} \\
-&\bajo{=}{k'=k-1}  b \rme^{-br_{\ell}} \left[\sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} - \sum_{k'=0}^{2n-1} \frac{(br_{\ell})^{k'}}{k'!}\right] 
-\\
-&=  b \rme^{-br_{\ell}} \frac{(b r_{\ell})^{2n}}{(2n)!}
-\end{align*}
-%
-mientras que para el segundo calculamos:
-\begin{equation*}
- \frac{\partial}{\partial r_{\ell}}\left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right] = -\frac{2n}{r_{\ell}}\, \frac{C_{2n}}{r_{\ell}^{2n}} \,,
-\end{equation*}
-y adem\'{a}s:
-\begin{equation*}
-  \frac{\partial r_{\ell}}{\partial r_{\ell,i}} = \frac{r_{\ell,i}}{r_{\ell}}
-\end{equation*}
-%
-y reemplazando estos resultados en la expresi\'{o}n anterior obtenemos
-\begin{align}\label{Q:pot-inter-dU2}
-  \frac{\partial U_{2}}{\partial r_{\ell,i}} &= \sum_{n=3}^{5} \left\{ -b \rme^{-br_{\ell}} \frac{(b r_{\ell})^{2n}}{(2n)!} + \frac{2n}{r_{\ell}} \left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \right\}  \left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right]\, \frac{r_{\ell,i}}{r_{\ell}} \nonumber \\
- &=  \sum_{n=3}^{5} 2 n\, C_{2n} \,\left\{1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}}  \left[ \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right] \right\} \frac{r_{\ell,i}}{r_{\ell}^{2(n+1)}}
-\end{align}
-
-Utilizando los resultados (\ref{Q:fuerzas-intermolec}) a (\ref{Q:pot-inter-dU2}), obtenemos para la fuerza sobre el \'{a}tomo $\ell$
-\begin{subequations}
-  \begin{align} \label{Q:pot-inter-fuerzas}
-    \vect{F}^{\text{(e)}}_{\ell} =& 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vect{D} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
-                     &+ \vers{r}_{\ell}\, \sum_{n=3}^{5} \frac{2 n\, C_{2n}}{r_{\ell}^{2n+1}} \,\left[ 1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}} \left( \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right) \right] 
-\intertext{con} 
-& \label{Q:def-Dcos}\vect{\Lambda}= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
-  \end{align}
-\end{subequations}
-
-\subsubsection{Fuerzas sobre el \'{a}tomo central}
-
-La contribuci\'{o}n de la energ\'{\i}a $U_{\ce{Ar-F_{\ell}}}$ en la fuerza sobre el \'{a}tomo central (de azufre en este caso) viene de la dependencia del coseno del \'{a}ngulo $\theta_{\ell}$ con la coordenada $\vect{r}_{X}$,
-\begin{equation}
-  \label{Q:pot-inter-fuerza-S}
-  \vect{F}^{\text{(e)}}_{X} = \frac{\partial U_{1}}{\partial r_{X,i}} = \sum_{\ell=1}^{6} \frac{\partial U_{1}}{\partial r_{\ell X,i}} \overbrace{ \frac{\partial r_{\ell X,i}}{\partial r_{X,i}}}^{-1} = - 3 A p \sum_{\ell=1}^{6} \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \,  \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} 
-\end{equation}
-
-Si despreciamos la fuerza ejercida directamente por el proyectil, esta es la fuerza total sobre el \'{a}tomo central.
 
 % \subsection{Fuerzas sobre cada \'{a}tomo}
 % \label{S:fuerzas-sobre-atomo}
@@ -362,6 +293,95 @@ donde $\Lambda_{j}$ se defini\'{o} en (\ref{Q:def-Dcos}).
   (BF_{\ell}F_{\ell})^{(e)}_{ij} &= \frac{\partial F^{(e)}_{\ell,i}}{\partial r_{\ell,j}} \\&= -3 A p 
 \end{align}
 
+
+\begin{subappendices}
+\section{C\'{a}lculo expl\'{\i}cito de las fuerzas}
+\label{S:calculo-explicit-fuerzas}
+
+
+\subsection{Fuerzas intermoleculares}
+
+
+\subsubsection{Fuerzas sobre los \'{a}tomos de fl\'{u}or}
+
+Las fuerzas sobre los \'{a}tomos de fl\'{u}or se obtienen derivando respecto a la coordenada respectiva:
+\begin{align} \label{Q:fuerzas-intermolec}  
+  \frac{\partial U_{\ce{Ar-F_{\ell}}}}{\partial r_{\ell,i}} &= \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} + \frac{\partial U_{2}}{\partial r_{F_{\ell},i}} 
+\intertext{con}
+\label{Q:pot-inter-dU1}  \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} &= 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \frac{\partial \cos \theta_{\ell}}{\partial r_{F_{\ell},i}} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}}
+ \,.
+\end{align}
+%
+donde
+\begin{equation*}
+  \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}} =   \frac{\partial r_{\ell}}{\partial r_{\ell,i}}   \overbrace{\frac{\partial r_{\ell, y}}{\partial r_{F_{\ell},i}}}^{-1} = -\frac{\partial r_{\ell}}{\partial r_{\ell,i}} = -\frac{r_{\ell, i}}{r_{\ell}}
+\end{equation*}
+%
+Para calcular la derivada del coseno, tenemos en cuenta que $\cos \theta_{\ell} = \vect{r}_{\ell} \cdot \vect{r}_{\ell X}/r_{\ell} r_{\ell X}$. Entonces podemos calcular:
+\begin{subequations}
+  \begin{align}\label{Q:pot-inter-deriv-cos}
+    \Lambda_{i}&= \frac{\partial \cos \theta_{\ell}}{\partial r_{F_{\ell},i}} = \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \frac{r_{\ell X,i}}{r_{\ell X}} -
+                 \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \frac{r_{\ell,i}}{r_{\ell}} 
+ \intertext{y vectorialmente}
+%
+ \label{Q:pot-inter-deriv-cos-vect} \vect{\Lambda} &= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
+  \end{align}
+\end{subequations}
+
+por lo que la ec.~(\ref{Q:pot-inter-dU1}) se escribe:
+\begin{align}
+  \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} &= A \left[3 p \Lambda_{i} \cos \theta_{\ell} + b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\frac{r_{\ell, i}}{r_{\ell}}\right] \rme^{-b r_{\ell}} 
+\end{align}
+
+Calculemos ahora el segundo t\'{e}rmino
+\begin{equation*}
+  \frac{\partial U_{2}}{\partial r_{F_{\ell},i}} = - \left\{\sum_{n=3}^{5} \frac{\partial}{\partial r_{F_{\ell},i}}\left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \frac{C_{2n}}{r_{\ell}^{2n}} + \left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \frac{\partial}{\partial r_{\ell}}\left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right] \right\} \, \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}}
+\end{equation*}
+%
+donde, la derivada en el primer t\'{e}rmino se puede calcular como:
+\begin{align*}
+ \frac{\partial}{\partial r_{\ell}}\left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] &= - (-b) \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} +  \rme^{-br_{\ell}} b \, { \sum_{k=0}^{2n}  k \frac{(br_{\ell})^{k-1}}{k!}} \\
+&\bajo{=}{k'=k-1}  b \rme^{-br_{\ell}} \left[\sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} - \sum_{k'=0}^{2n-1} \frac{(br_{\ell})^{k'}}{k'!}\right] 
+\\
+&=  b \rme^{-br_{\ell}} \frac{(b r_{\ell})^{2n}}{(2n)!}
+\end{align*}
+%
+mientras que para el segundo calculamos:
+\begin{equation*}
+ \frac{\partial}{\partial r_{\ell}}\left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right] = -\frac{2n}{r_{\ell}}\, \frac{C_{2n}}{r_{\ell}^{2n}} \,,
+\end{equation*}
+y adem\'{a}s:
+\begin{equation*}
+  \frac{\partial r_{\ell}}{\partial r_{\ell,i}} = \frac{r_{\ell,i}}{r_{\ell}}
+\end{equation*}
+%
+y reemplazando estos resultados en la expresi\'{o}n anterior obtenemos
+\begin{align}\label{Q:pot-inter-dU2}
+  \frac{\partial U_{2}}{\partial r_{\ell,i}} &= \sum_{n=3}^{5} \left\{ -b \rme^{-br_{\ell}} \frac{(b r_{\ell})^{2n}}{(2n)!} + \frac{2n}{r_{\ell}} \left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \right\}  \left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right]\, \frac{r_{\ell,i}}{r_{\ell}} \nonumber \\
+ &=  \sum_{n=3}^{5} 2 n\, C_{2n} \,\left\{1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}}  \left[ \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right] \right\} \frac{r_{\ell,i}}{r_{\ell}^{2(n+1)}}
+\end{align}
+
+Utilizando los resultados (\ref{Q:fuerzas-intermolec}) a (\ref{Q:pot-inter-dU2}), obtenemos para la fuerza sobre el \'{a}tomo $\ell$
+\begin{subequations}
+  \begin{align} \label{Q:pot-inter-fuerzas}
+    \vect{F}^{\text{(e)}}_{\ell} =& 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vect{D} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
+                     &+ \vers{r}_{\ell}\, \sum_{n=3}^{5} \frac{2 n\, C_{2n}}{r_{\ell}^{2n+1}} \,\left[ 1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}} \left( \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right) \right] 
+\intertext{con} 
+& \label{Q:def-Dcos}\vect{\Lambda}= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
+  \end{align}
+\end{subequations}
+
+\subsubsection{Fuerzas sobre el \'{a}tomo central}
+
+La contribuci\'{o}n de la energ\'{\i}a $U_{\ce{Ar-F_{\ell}}}$ en la fuerza sobre el \'{a}tomo central (de azufre en este caso) viene de la dependencia del coseno del \'{a}ngulo $\theta_{\ell}$ con la coordenada $\vect{r}_{X}$,
+\begin{equation}
+  \label{Q:pot-inter-fuerza-S}
+  \vect{F}^{\text{(e)}}_{X} = \frac{\partial U_{1}}{\partial r_{X,i}} = \sum_{\ell=1}^{6} \frac{\partial U_{1}}{\partial r_{\ell X,i}} \overbrace{ \frac{\partial r_{\ell X,i}}{\partial r_{X,i}}}^{-1} = - 3 A p \sum_{\ell=1}^{6} \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \,  \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} 
+\end{equation}
+
+Si despreciamos la fuerza ejercida directamente por el proyectil, esta es la fuerza total sobre el \'{a}tomo central.
+
+\end{subappendices}
 
 %%% Local Variables:
 %%% mode: latex
