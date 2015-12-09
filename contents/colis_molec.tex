@@ -305,17 +305,18 @@ donde $\Lambda_{j}$ se defini\'{o} en (\ref{Q:def-Dcos}).
 \subsubsection{Fuerzas sobre los \'{a}tomos de fl\'{u}or}
 
 Las fuerzas sobre los \'{a}tomos de fl\'{u}or se obtienen derivando respecto a la coordenada respectiva:
+\begin{subequations}
 \begin{align} \label{Q:fuerzas-intermolec}  
-  \frac{\partial U_{\ce{Ar-F_{\ell}}}}{\partial r_{\ell,i}} &= \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} + \frac{\partial U_{2}}{\partial r_{F_{\ell},i}} 
-\intertext{con}
-\label{Q:pot-inter-dU1}  \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} &= 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \frac{\partial \cos \theta_{\ell}}{\partial r_{F_{\ell},i}} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}}
- \,.
+  \frac{\partial U_{\ce{Ar-F_{\ell}}}}{\partial r_{\ell,i}} &= \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} + \frac{\partial U_{2}}{\partial r_{F_{\ell},i}}
+ \intertext{con} \label{Q:pot-inter-dU1}
+ \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} &= 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \frac{\partial \cos \theta_{\ell}}{\partial r_{F_{\ell},i}} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}} \,.
 \end{align}
-%
-donde
-\begin{equation*}
+\end{subequations}
+
+El Jacobiano debido al cambio de coordenada es simple, y la escribimos para referencia futura
+\begin{equation}\label{Q:der_rl_rFl}
   \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}} =   \frac{\partial r_{\ell}}{\partial r_{\ell,i}}   \overbrace{\frac{\partial r_{\ell, y}}{\partial r_{F_{\ell},i}}}^{-1} = -\frac{\partial r_{\ell}}{\partial r_{\ell,i}} = -\frac{r_{\ell, i}}{r_{\ell}}
-\end{equation*}
+\end{equation}
 %
 Para calcular la derivada del coseno, tenemos en cuenta que $\cos \theta_{\ell} = \vect{r}_{\ell} \cdot \vect{r}_{\ell X}/r_{\ell} r_{\ell X}$. Entonces podemos calcular:
 \begin{subequations}
@@ -327,11 +328,11 @@ Para calcular la derivada del coseno, tenemos en cuenta que $\cos \theta_{\ell} 
  \label{Q:pot-inter-deriv-cos-vect} \vect{\Lambda} &= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
   \end{align}
 \end{subequations}
-
+%
 por lo que la ec.~(\ref{Q:pot-inter-dU1}) se escribe:
-\begin{align}
+\begin{equation}\label{Q:pot-inter-dU1}
   \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} &= A \left[3 p \Lambda_{i} \cos \theta_{\ell} + b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\frac{r_{\ell, i}}{r_{\ell}}\right] \rme^{-b r_{\ell}} 
-\end{align}
+\end{equation}
 
 Calculemos ahora el segundo t\'{e}rmino
 \begin{equation*}
@@ -340,7 +341,8 @@ Calculemos ahora el segundo t\'{e}rmino
 %
 donde, la derivada en el primer t\'{e}rmino se puede calcular como:
 \begin{align*}
- \frac{\partial}{\partial r_{\ell}}\left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] &= - (-b) \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} +  \rme^{-br_{\ell}} b \, { \sum_{k=0}^{2n}  k \frac{(br_{\ell})^{k-1}}{k!}} \\
+ \frac{\partial}{\partial r_{\ell}}\left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] &= - \left\{(-b) \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \rme^{-br_{\ell}} b \, { \sum_{k=0}^{2n}  k \frac{(br_{\ell})^{k-1}}{k!}} \right\} 
+\\
 &\bajo{=}{k'=k-1}  b \rme^{-br_{\ell}} \left[\sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} - \sum_{k'=0}^{2n-1} \frac{(br_{\ell})^{k'}}{k'!}\right] 
 \\
 &=  b \rme^{-br_{\ell}} \frac{(b r_{\ell})^{2n}}{(2n)!}
@@ -348,28 +350,27 @@ donde, la derivada en el primer t\'{e}rmino se puede calcular como:
 %
 mientras que para el segundo calculamos:
 \begin{equation*}
- \frac{\partial}{\partial r_{\ell}}\left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right] = -\frac{2n}{r_{\ell}}\, \frac{C_{2n}}{r_{\ell}^{2n}} \,,
+ \frac{\partial}{\partial r_{\ell}}\left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right] = -\frac{2n}{r_{\ell}}\, \frac{C_{2n}}{r_{\ell}^{2n}} \,.
 \end{equation*}
-y adem\'{a}s:
-\begin{equation*}
-  \frac{\partial r_{\ell}}{\partial r_{\ell,i}} = \frac{r_{\ell,i}}{r_{\ell}}
-\end{equation*}
+% y adem\'{a}s:
+% \begin{equation*}
+%   \frac{\partial r_{\ell}}{\partial r_{\ell,i}} = \frac{r_{\ell,i}}{r_{\ell}}
+% \end{equation*}
 %
-y reemplazando estos resultados en la expresi\'{o}n anterior obtenemos
+Utilizando estos resultados y (\ref{Q:der_rl_rFl}) en la expresi\'{o}n anterior obtenemos
 \begin{align}\label{Q:pot-inter-dU2}
-  \frac{\partial U_{2}}{\partial r_{\ell,i}} &= \sum_{n=3}^{5} \left\{ -b \rme^{-br_{\ell}} \frac{(b r_{\ell})^{2n}}{(2n)!} + \frac{2n}{r_{\ell}} \left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \right\}  \left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right]\, \frac{r_{\ell,i}}{r_{\ell}} \nonumber \\
- &=  \sum_{n=3}^{5} 2 n\, C_{2n} \,\left\{1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}}  \left[ \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right] \right\} \frac{r_{\ell,i}}{r_{\ell}^{2(n+1)}}
+  \frac{\partial U_{2}}{\partial r_{\ell,i}} &= \sum_{n=3}^{5} \left\{ -b \rme^{-br_{\ell}} \frac{(b r_{\ell})^{2n}}{(2n)!} + \frac{2n}{r_{\ell}} \left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \right\}  \left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right]\, \frac{r_{\ell,i}}{r_{\ell}} 
+ % &=  \sum_{n=3}^{5} 2 n\, C_{2n} \,\left\{1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}}  \left[ \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right] \right\} \frac{r_{\ell,i}}{r_{\ell}^{2(n+1)}}
 \end{align}
+\medskip
 
-Utilizando los resultados (\ref{Q:fuerzas-intermolec}) a (\ref{Q:pot-inter-dU2}), obtenemos para la fuerza sobre el \'{a}tomo $\ell$
-\begin{subequations}
-  \begin{align} \label{Q:pot-inter-fuerzas}
-    \vect{F}^{\text{(e)}}_{\ell} =& 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vect{D} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
-                     &+ \vers{r}_{\ell}\, \sum_{n=3}^{5} \frac{2 n\, C_{2n}}{r_{\ell}^{2n+1}} \,\left[ 1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}} \left( \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right) \right] 
-\intertext{con} 
-& \label{Q:def-Dcos}\vect{\Lambda}= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
-  \end{align}
-\end{subequations}
+Finalmente, la fuerza sobre el \'{a}tomo $\ell$ ser\'{a} la suma de (\ref{Q:pot-inter-dU1}) y (\ref{Q:pot-inter-dU2}):
+\begin{align} \label{Q:pot-inter-fuerzas}
+    \vect{F}^{\text{(e)}}_{\ell} =& - 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vect{\Lambda} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
+                     &- \vers{r}_{\ell}\, \sum_{n=3}^{5} \frac{2 n\, C_{2n}}{r_{\ell}^{2n+1}} \,\left[ 1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}} \left( \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right) \right] 
+\end{align}
+%
+donde $\vect{\Lambda}$ fue definido en (\ref{Q:pot-inter-deriv-cos-vect}).
 
 \subsubsection{Fuerzas sobre el \'{a}tomo central}
 
