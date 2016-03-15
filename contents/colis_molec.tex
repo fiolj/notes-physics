@@ -12,12 +12,11 @@ Para el potencial intramolecular consideramos un t\'{e}rmino el\'{a}stico arm\'{
 %
 donde $\theta_{0}=90^{\circ}$  en este caso.
   \begin{figure}[htbp]
-\begin{minipage}{0.45\textwidth}
-    % \centering \resizebox{.8\linewidth}{!}{\input{figures/coordenadas.tikz}}
-    \centering \includegraphics[width=.8\linewidth]{figures/coordenadas}
+\begin{minipage}{0.5\textwidth}
+    \centering \resizebox{.8\linewidth}{!}{\input{figures/coordenadas.tikz}}
     \caption{Coordenadas utilizadas}
 \end{minipage}\hfill
-\begin{minipage}{0.5\textwidth}
+\begin{minipage}{0.4\textwidth}
   \begin{subequations}
     \begin{align}
       &\vect{r}=  \vect{r}_{\ce{P}} - \vect{r}_{X} , \\
@@ -51,36 +50,44 @@ Las fuerzas intra-moleculares se obtienen derivando la energ\'{\i}a (\ref{Q:pot-
 %
 \begin{subequations}
   \begin{align}\label{Q:F-sobre-X}
-    &  \vect{F}^{\text{(i)}}_{X} = \sum_{\ell=1}^{6}\vect{F}^{\text{(i)}}_{X\ell} & \vect{F}^{\text{(i)}}_{X\ell} &=  2 K_{R} \, (r_{\ell X}- r_{0})\, \vers{r}_{\ell X}  \\
-    & &  \vect{F}^{\text{(i)}}_{X\ell,i} &= 2 K_{R} \, \left( 1-\frac{r_{0}}{r_{\ell X}} \right) r_{\ell X,i}  \nonumber\\
+    &  \vect{F}^{\text{(i)}}_{X} = \sum_{\ell=1}^{6}\vect{F}_{X\ell} & \vect{F}_{X\ell} &=  2 K_{R} \, (r_{\ell X}- r_{0})\, \vers{r}_{\ell X}  \\
+    & &  \vect{F}_{X\ell,i} &= 2 K_{R} \, \left( 1-\frac{r_{0}}{r_{\ell X}} \right) r_{\ell X,i}  \nonumber\\
     \label{Q:F-Sobre-Fl}
-    &\vect{F}^{\text{(i)}}_{\ell} =   \vect{F}^{\text{(i)}}_{\ell X} + \sum_{\ell' \ne \ell} \vect{F}^{\text{(i)}}_{\ell \ell'} & \\
-    &  & \vect{F}^{\text{(i)}}_{\ell X} &= -  \vect{F}^{\text{(i)}}_{X\ell} \nonumber \\
-    & & \vect{F}^{\text{(i)}}_{\ell \ell'} &= -\frac{2 K_{\theta}}{r_{\ell X}} \frac{\theta_{\ell\ell'}-\theta_{0}}{\sin \theta_{\ell\ell'}} \Big[ \vers{r}_{\ell' X} - \cos{(\theta_{\ell\ell'})} \vers{r}_{\ell X} \Big] \nonumber
+    &\vect{F}^{\text{(i)}}_{\ell} =   \vect{F}_{\ell X} + \sum_{\ell' \ne \ell} \vect{F}_{\ell \ell'} & \\
+    &  & \vect{F}_{\ell X} &= -  \vect{F}_{X\ell} \nonumber \\
+    & & \vect{F}_{\ell \ell'} &= -\frac{2 K_{\theta}}{r_{\ell X}} \frac{\theta_{\ell\ell'}-\theta_{0}}{\sin \theta_{\ell\ell'}} \Big[ \vers{r}_{\ell' X} - \cos{(\theta_{\ell\ell'})} \vers{r}_{\ell X} \Big] \nonumber
   \end{align}
 \end{subequations}
 
-\subsection{Fuerzas intermoleculares}
 
-Como se muestra en el ap\'{e}ndice \ref{S:calculo-explicit-fuerzas} las fuerzas debidas a la presencia del proyectil est\'{a}n dadas por (\ref{Q:pot-inter-fuerzas}) y (\ref{Q:pot-inter-fuerza-S})
+% \subsection{Fuerzas sobre cada \'{a}tomo}
+% \label{S:fuerzas-sobre-atomo}
 
-\begin{subequations}
-  \begin{align}
-    \label{Q:fuerzas-intermolec-resumen}
-    \vect{F}^{\text{(e)}}_{\ell} =& - 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vect{\Lambda} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
-                                  &- \vers{r}_{\ell}\, \sum_{n=3}^{5} \frac{2 n\, C_{2n}}{r_{\ell}^{2n+1}} \,\left[ 1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}} \left( \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right) \right] \\
-    \vect{F}^{\text{(e)}}_{X} =&  3 A p \sum_{\ell=1}^{6} \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \, \vect{\lambda} \\
-    \vect{F}^{\text{(e)}}_{P} =& - \Bigl[ \vect{F}^{\text{(e)}}_{X} + \sum_{\ell} \vect{F}^{\text{(e)}}_{\ell}  \Bigr]
-                                 \intertext{con}
-                                  & \vect{\Lambda} = \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell} \\
-                                  & \vect{\lambda}= \frac{1}{r_{\ell X}} \bigl( \vers{r}_{\ell} - \cos \theta_{\ell}\vers{r}_{\ell X} \bigr)
-  \end{align}
-\end{subequations}
+% La fuerza total sobre cada \'{a}tomo es la suma de las fuerzas inter- e intra-moleculares
+
+% \begin{subequations}
+%   \begin{align} \label{Q:fuerzas}
+%     \vect{F}_{\ell} =& 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vect{D} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
+%                      &+ \vers{r}_{\ell}\, \sum_{n=3}^{5} \frac{2 n\, C_{2n}}{r_{\ell}^{2n+1}} \,\left[ 1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}} \left( \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right) \right] \\
+% \\
+%     &  \vect{F}_{X} = \sum_{\ell=1}^{6}\vect{F}_{X\ell} & \vect{F}_{X\ell} &=  2 K_{R} \, (r_{\ell X}- r_{0})\, \vers{r}_{\ell X}  \\
+%     & &  \vect{F}_{X\ell,i} &= 2 K_{R} \, \left( 1-\frac{r_{0}}{r_{\ell X}} \right) r_{\ell X,i}  \nonumber\\
+%     \label{Q:F-Sobre-Fl}
+%     &\vect{F}_{\ell} =   \vect{F}_{\ell X} + \sum_{\ell' \ne \ell} \vect{F}_{\ell \ell'} & \\
+%     &  & \vect{F}_{\ell X} &= -  \vect{F}_{X\ell} \nonumber \\
+%     & & \vect{F}_{\ell \ell'} &= -\frac{2 K_{\theta}}{r_{\ell X}} \frac{\theta_{\ell\ell'}-\theta_{0}}{\sin \theta_{\ell\ell'}} \Big[ \vers{r}_{\ell' X} - \cos{(\theta_{\ell\ell'})} \vers{r}_{\ell X} \Big] \nonumber
+%  \\
+% \intertext{con} 
+% & \vect{D}= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} + \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
+%   \end{align}
+% \end{subequations}
+
 
 \section{C\'{a}lculo del Jacobiano}
 \label{S:calc-jacob}
 
-El jacobiano del sistema de ecuaciones diferenciales para $N$ part\'{\i}culas interactuantes es una matriz de $6N \times 6N$, y tiene la forma
+Para utilizar algunos m\'{e}todos de resoluci\'{o}n de ecuaciones del tipo \emph{``stiff''} es necesario calcular el Jacobiano de las ecuaciones.
+El Jacobiano del sistema de ecuaciones diferenciales para $N$ part\'{\i}culas interactuantes es una matriz de $6N \times 6N$, y tiene la forma
 \begin{equation}
   \label{Q:Jacob-ec-dif}
   J =
@@ -276,24 +283,85 @@ Derivada de la fuerza sobre $X$ debido a movimientos de un fl\'{u}or:
   \end{align}
 \end{subequations}
 %
-% donde $\Lambda_{j}$ se defini\'{o} en (\ref{Q:def-Dcos}).
-
-% % \begin{align}
-% %   =& -3 A p \,\frac{\rme^{-b r_{\ell}}}{r_{\ell X}}\,\Biggl\{ D_{j} \frac{r_{\ell X,i}}{r_{\ell}} + \cos \theta_{\ell} \frac{b r_{\ell} + 1}{r_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell}^{2}} + \frac{\cos \theta_{\ell}}{r_{\ell}} \left( \delta_{ij} -  \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \nonumber \\
-% %    &+ 2 \cos \theta_{\ell} \, D_{j} \frac{r_{\ell X,i}}{r_{\ell X}} - b \cos^{2}{ \theta_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell} r_{\ell X}}  +  \frac{\cos^{2}{ \theta_{\ell}}}{r_{\ell X}} \left( \delta_{ij} -  \frac{2 r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \biggr\}
-% % \end{align}
+donde $\Lambda_{j}$ se defini\'{o} en (\ref{Q:def-Dcos}).
 
 % \begin{align}
-%   (BF_{\ell}F_{\ell})^{(e)}_{ij} &= \frac{\partial F^{(e)}_{\ell,i}}{\partial r_{\ell,j}} \\&= -3 A p 
+%   =& -3 A p \,\frac{\rme^{-b r_{\ell}}}{r_{\ell X}}\,\Biggl\{ D_{j} \frac{r_{\ell X,i}}{r_{\ell}} + \cos \theta_{\ell} \frac{b r_{\ell} + 1}{r_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell}^{2}} + \frac{\cos \theta_{\ell}}{r_{\ell}} \left( \delta_{ij} -  \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \nonumber \\
+%    &+ 2 \cos \theta_{\ell} \, D_{j} \frac{r_{\ell X,i}}{r_{\ell X}} - b \cos^{2}{ \theta_{\ell}} \frac{r_{\ell,j} r_{\ell X,i}}{r_{\ell} r_{\ell X}}  +  \frac{\cos^{2}{ \theta_{\ell}}}{r_{\ell X}} \left( \delta_{ij} -  \frac{2 r_{\ell,j} r_{\ell X,i}}{r_{\ell X}^{2}} \right) \biggr\}
 % \end{align}
 
+\begin{align}
+  (BF_{\ell}F_{\ell})^{(e)}_{ij} &= \frac{\partial F^{(e)}_{\ell,i}}{\partial r_{\ell,j}} \\&= -3 A p 
+\end{align}
 
+\section{Descomposici\'{o}n del movimiento molecular}
+\label{S:desc-movim-molec}
+
+En esta secci\'{o}n discutimos la descomposici\'{o}n del movimiento de los \'{a}tomos de la mol\'{e}cula en los tres tipos de movimiento tradicionales: traslaci\'{o}n, rotaci\'{o}n y vibraci\'{o}n. Consideremos la posici\'{o}n de cada (i-\'{e}simo) \'{a}tomo como funci\'{o}n del tiempo $\vect{r}_{i}(t)$, y la velocidad correspondiente $\vect{v}_{i}(t)$. 
+La posici\'{o}n y momento del centro de masas ser\'{a}n:
+\begin{align*}
+  \vect{r}_{\text{cm}}&= \frac{1}{M} \sum_{i=1}^{N} m_{i} \vect{r}_{i}  \stext{ y } & \vect{v}_{\text{cm}}&= \frac{1}{M} \sum_{i=1}^{N} m_{i} \vect{v}_{i}
+\end{align*}
+%
+En el sistema que se mueve con el centro de masas, las coordenadas y velocidades ser\'{a}n $\vect{r}'_{i}= \vect{r}_{i} - \vect{r}_{\text{cm}}$ y $\vect{v}'_{i}= \vect{v}_{i} - \vect{v}_{\text{cm}}$.
+
+A continuaci\'{o}n separamos el movimiento de rotaci\'{o}n. El momento angular total ser\'{a}:
+\begin{align*}
+  \vect{L}&= \sum_{i=1}^{N} m_{i} \vect{r}'_{i} \times \vect{v}_{i},  \quad\Rightarrow & {\bomega}_{\text{Rot}}= \frac{\vect{L}}{I_{R}} \,, \stext{ donde } & I_{R} = \sum_{i=1}^{N} m_{i} r'^{\,2}_{i}
+\end{align*}
+donde utilizamos un vector para la velocidad angular $\bomega_{\text{Rot}}$ cuya direcci\'{o}n coincide con la del momento angular. Para descomponer el movimiento consideramos un sistema que gira con la velocidad angular constante $\bomega_{\text{Rot}}$, por lo que las coordenadas y velocidades ser\'{a}n:
+\begin{align*}
+\vect{v}_{i}''(t) &= \vect{v}_{i}'(t) -  \bomega_{\text{Rot}} \times \vect{r}'_{i}(t)\,, \stext{y}
+&  \vect{r''}_{i}(t) = \vect{r}_{i}'(t) - \bigl(\bomega_{\text{Rot}} \times \vect{r}'_{i}(t)\bigr) \, t
+\end{align*}
+
+Finalmente nos queda por descomponer el movimiento restante en los modos normales vibracionales. El movimiento puede escribirse como una combinaci\'{o}n lineal de los modos. Para la mol\'{e}cula de \ce{XF6}, hay 15 modos, aunque por simetr\'{\i}a hay s\'{o}lo seis frecuencias diferentes. Notaremos por:
+\begin{align*}
+  \vect{q}^{(\alpha)} &= [q^{(\alpha)}_{1},q^{(\alpha)}_{2}, \dots, q^{(\alpha)}_{21}] &  \alpha = 1,\dots 15 & \quad \text{vector de desplazamiento del modo $\alpha$.}\\
+\omega^{(\alpha)} & & \alpha = 1,\dots 15  & \quad \text{frecuencia del modo $\alpha$.}\\
+\vect{R}(t) &= [r''_{1}(t), r''_{2}(t), \dots, r''_{21}(t)] &  & \quad \text{vector posici\'{o}n de 21 coordenadas}\\
+\vect{V}(t) &= [v''_{1}(t), v''_{2}(t), \dots, v''_{21}(t)] &  & \quad \text{vector velocidad, 21 coordenadas}
+\end{align*}
+notar que la posici\'{o}n (o velocidad) de la part\'{\i}cula $i$ es $\vect{r}''_{i}= [r''_{3i+1}, r''_{3i+2}, r''_{3i+3}]$, si hacemos contar $i=0,\dots 6$ para las siete part\'{\i}culas.
+
+Entonces, podemos la componente $j$ de la posici\'{o}n puede descomponerse en:
+\begin{align*}
+  R_{j}(t)&= \sum_{\alpha=1}^{15} A_{\alpha}\, q^{(\alpha)}_{j} \cos{(\omega^{(\alpha)} t + \phi_{\alpha})} \\
+  V_{j}(t)&= \sum_{\alpha=1}^{15} A_{\alpha}\, \omega^{(\alpha)} \, q^{(\alpha)}_{j} \sin{(\omega^{(\alpha)} t + \phi_{\alpha})}
+\end{align*}
+de donde puede f\'{a}cilmente despejarse los coeficientes de inter\'{e}s si tenemos en cuenta que los autovectores son ortonormales:
+\begin{align*}
+  \sum_{j=1}^{21} R_{j}(t) q^{(\beta)}_{j} &= A_{\beta} \, \cos{(\omega^{(\beta)}t + \phi_{\beta})} \\ 
+ \sum_{j=1}^{21} V_{j}(t) q^{(\beta)}_{j} &= A_{\beta} \omega^{(\beta)} \, \sin{(\omega^{(\beta)}t + \phi_{\beta})} .\\
+\end{align*}
+%
+Adem\'{a}s podemos sacarnos de encima la dependencia temporal si calculamos la cantidad
+\begin{equation*}
+  A_{\beta} =\left[\left( \sum_{j=1}^{21} R_{j}(t) q^{(\beta)}_{j} \right)^{2} + \left( \sum_{j=1}^{21} \frac{V_{j}(t)}{\omega_{\beta}} q^{(\beta)}_{j} \right)^{2}\right]^{1/2}
+\end{equation*}
+
+En forma matricial/vectorial podemos escribir:
+\begin{align*}
+  \vect{A} = \left( \oper{Q} \cdot \vect{R}^{t} \right)^{2} + \left( \bomega^{-1}\, \oper{Q} \cdot \vect{V}^{t} \right)^{2} 
+\end{align*}
+donde el vector $\bomega$ debe dividirse t\'{e}rmino a t\'{e}rmino, $\vect{A}$ es el vector de coeficientes y hemos definido la matriz $\oper{Q}$ cuyas filas son los autovectores $\vect{q}^{(\alpha)}$:
+\begin{align*}
+  \vect{A}=\begin{pmatrix} A_{1} \\ A_{2} \\ \vdots \\ A_{15}   \end{pmatrix}\, & & \oper{Q} = \begin{pmatrix} 
+q^{(1)}_{1} & q^{(1)}_{2} & \dots & q^{(1)}_{21} \\
+&&&\\
+q^{(2)}_{1} & q^{(2)}_{2} & \dots & q^{(2)}_{21} \\
+% &&&\\
+\vdots &  &  & \vdots \\
+% &&&\\
+q^{(15)}_{1} & q^{(15)}_{2} & \dots & q^{(15)}_{21} 
+\end{pmatrix} &&
+\bomega = \begin{pmatrix} \omega^{(1)} & \omega^{(2)} & \dots & \omega^{(15)}  \end{pmatrix}
+\end{align*}
 \begin{subappendices}
 \section{C\'{a}lculo expl\'{\i}cito de las fuerzas}
 \label{S:calculo-explicit-fuerzas}
 
-
-\subsection{C\'{a}lculo de Fuerzas intermoleculares}
+\subsection{Fuerzas intermoleculares}
 
 
 \subsubsection{Fuerzas sobre los \'{a}tomos de fl\'{u}or}
@@ -301,16 +369,12 @@ Derivada de la fuerza sobre $X$ debido a movimientos de un fl\'{u}or:
 Las fuerzas sobre los \'{a}tomos de fl\'{u}or se obtienen derivando respecto a la coordenada respectiva:
 \begin{subequations}
 \begin{align} \label{Q:fuerzas-intermolec}  
-  \frac{\partial U_{\ce{Ar-F_{\ell}}}}{\partial r_{F_{\ell},i}} &= \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} + \frac{\partial U_{2}}{\partial r_{F_{\ell},i}}
- \intertext{con}
-U_{1}&=  A \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\, \rme^{-b r_{\ell}} & U_{2}= \sum_{n=3}^{5} \left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \frac{C_{2n}}{r_{\ell}^{2n}}\,.
+  \frac{\partial U_{\ce{Ar-F_{\ell}}}}{\partial r_{\ell,i}} &= \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} + \frac{\partial U_{2}}{\partial r_{F_{\ell},i}}
+ \intertext{con} \label{Q:pot-inter-dU1}
+ \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} &= 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \frac{\partial \cos \theta_{\ell}}{\partial r_{F_{\ell},i}} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}} \,.
 \end{align}
 \end{subequations}
-El primer t\'{e}rmino es:
-\begin{equation}
- \label{Q:pot-inter-dU1}
- \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} &= 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \frac{\partial \cos \theta_{\ell}}{\partial r_{F_{\ell},i}} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}} \,.
-\end{equation}
+
 El Jacobiano debido al cambio de coordenada es simple, y la escribimos para referencia futura
 \begin{equation}\label{Q:der_rl_rFl}
   \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}} =   \frac{\partial r_{\ell}}{\partial r_{\ell,i}}   \overbrace{\frac{\partial r_{\ell, y}}{\partial r_{F_{\ell},i}}}^{-1} = -\frac{\partial r_{\ell}}{\partial r_{\ell,i}} = -\frac{r_{\ell, i}}{r_{\ell}}
@@ -329,12 +393,12 @@ Para calcular la derivada del coseno, tenemos en cuenta que $\cos \theta_{\ell} 
 %
 por lo que la ec.~(\ref{Q:pot-inter-dU1}) se escribe:
 \begin{equation}\label{Q:pot-inter-dU1}
-  \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} = A \left[3 p \Lambda_{i} \cos \theta_{\ell} + b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\frac{r_{\ell, i}}{r_{\ell}}\right] \rme^{-b r_{\ell}} 
+  \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} &= A \left[3 p \Lambda_{i} \cos \theta_{\ell} + b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\frac{r_{\ell, i}}{r_{\ell}}\right] \rme^{-b r_{\ell}} 
 \end{equation}
 
 Calculemos ahora el segundo t\'{e}rmino
 \begin{equation*}
-  \frac{\partial U_{2}}{\partial r_{F_{\ell},i}} = \left\{\sum_{n=3}^{5} \frac{\partial}{\partial r_{\ell}}\left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \frac{C_{2n}}{r_{\ell}^{2n}} + \left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \frac{\partial}{\partial r_{\ell}}\left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right] \right\} \, \left(- \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}} \right)
+  \frac{\partial U_{2}}{\partial r_{F_{\ell},i}} = - \left\{\sum_{n=3}^{5} \frac{\partial}{\partial r_{F_{\ell},i}}\left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \frac{C_{2n}}{r_{\ell}^{2n}} + \left[ 1 - \rme^{-br_{\ell}} \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!}\right] \frac{\partial}{\partial r_{\ell}}\left[ \frac{C_{2n}}{r_{\ell}^{2n}}\right] \right\} \, \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}}
 \end{equation*}
 %
 donde, la derivada en el primer t\'{e}rmino se puede calcular como:
@@ -373,14 +437,11 @@ donde $\vect{\Lambda}$ fue definido en (\ref{Q:pot-inter-deriv-cos-vect}).
 \subsubsection{Fuerzas sobre el \'{a}tomo central}
 
 La contribuci\'{o}n de la energ\'{\i}a $U_{\ce{Ar-F_{\ell}}}$ en la fuerza sobre el \'{a}tomo central (de azufre en este caso) viene de la dependencia del coseno del \'{a}ngulo $\theta_{\ell}$ con la coordenada $\vect{r}_{X}$,
-\begin{subequations}
-  \begin{align}
-    \label{Q:pot-inter-fuerza-S}
-    \vect{F}^{\text{(e)}}_{X} = -\frac{\partial U_{1}}{\partial r_{X,i}} &= -\sum_{\ell=1}^{6} \frac{\partial U_{1}}{\partial r_{\ell X,i}} \overbrace{ \frac{\partial r_{\ell X,i}}{\partial r_{X,i}}}^{-1} = 3 A p \sum_{\ell=1}^{6} \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \, \vect{\lambda}
-    \intertext{con}
-\lambda_{i} &=\frac{\partial \cos{\theta_{\ell}}}{\partial r_{\ell X,i}} \qquad\qquad   \vect{\lambda}= \frac{1}{r_{\ell X}} \bigl( \vers{r}_{\ell} - \cos \theta_{\ell}\vers{r}_{\ell X} \bigr) 
-  \end{align}
-\end{subequations}
+\begin{equation}
+  \label{Q:pot-inter-fuerza-S}
+  \vect{F}^{\text{(e)}}_{X} = \frac{\partial U_{1}}{\partial r_{X,i}} = \sum_{\ell=1}^{6} \frac{\partial U_{1}}{\partial r_{\ell X,i}} \overbrace{ \frac{\partial r_{\ell X,i}}{\partial r_{X,i}}}^{-1} = - 3 A p \sum_{\ell=1}^{6} \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \,  \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} 
+\end{equation}
+
 Si despreciamos la fuerza ejercida directamente por el proyectil, esta es la fuerza total sobre el \'{a}tomo central.
 
 \end{subappendices}
