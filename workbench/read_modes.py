@@ -1,8 +1,10 @@
 #! /usr/bin/ipython
 # -*- coding: utf-8 -*-
-import re
+# import re
 import numpy as np
-import matplotlib.pyplot as plt
+
+# import matplotlib.pyplot as plt
+
 
 # import scipy as sp
 def find_eigenvector_text(fname):
@@ -26,8 +28,7 @@ def find_eigenvector_text(fname):
   return useful[2:-2]
 
 
-
-def read_eigenvectors(filename, lim_freq= 0.):
+def read_eigenvectors(filename, lim_freq=0.):
   """Lee el archivo que sale del NWChem y extrae la información de frecuencias y modos:
   input: filename donde están los datos
   lim_freq: frecuencia mínima para ser considerada vibración
@@ -54,17 +55,20 @@ def read_eigenvectors(filename, lim_freq= 0.):
       # i += 1
 
   freq = np.array(freq)
-  X = np.c_[datos[:21], datos[21:42], datos[42:63],datos[63:]]
+  X = np.c_[datos[:21], datos[21:42], datos[42:63], datos[63:]]
 
-  X= X.compress(freq > lim_freq, axis=1)
-  freq= freq.compress(freq > lim_freq)
-  for i,x in enumerate(X):
-    X[i]= x/np.sqrt(np.dot(x,x))
+  X = X.compress(freq > lim_freq, axis=1)
+  freq = freq.compress(freq > lim_freq)
+  for i, x in enumerate(X):
+    X[i] = x / np.sqrt(np.dot(x, x))
   return freq, X
-
 
 
 if __name__ == '__main__':
   fname = "../workbench/sf6.out11713"
-  frec, X = read_eigenvectors(fname, lim_freq = 30.)
-  
+  frec, X = read_eigenvectors(fname, lim_freq=30.)
+  s = "v = {}".format(X)
+  s += "w = {}".format(frec)
+  fo = open('../workbench/sf6_vec.dat', 'w')
+  fo.write(s)
+  fo.close()

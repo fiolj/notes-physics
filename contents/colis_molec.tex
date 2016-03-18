@@ -307,9 +307,11 @@ En el sistema que se mueve con el centro de masas, las coordenadas y velocidades
 
 A continuaci\'{o}n separamos el movimiento de rotaci\'{o}n. El momento angular total ser\'{a}:
 \begin{align*}
-  \vect{L}&= \sum_{i=1}^{N} m_{i} \vect{r}'_{i} \times \vect{v}_{i},  \quad\Rightarrow & {\bomega}_{\text{Rot}}= \frac{\vect{L}}{I_{R}} \,, \stext{ donde } & I_{R} = \sum_{i=1}^{N} m_{i} r'^{\,2}_{i}
+  \vect{L}&= \sum_{i=1}^{N} m_{i} \vect{r}'_{i} \times \vect{v}_{i},  \quad\Rightarrow & {\bomega}_{\text{Rot}}= \frac{\vect{L}}{I_{R,\perp}} \,, \stext{ donde } & I_{R,\perp} = \sum_{i=1}^{N} m_{i} r'^{\,2}_{i}
 \end{align*}
-donde utilizamos un vector para la velocidad angular $\bomega_{\text{Rot}}$ cuya direcci\'{o}n coincide con la del momento angular. Para descomponer el movimiento consideramos un sistema que gira con la velocidad angular constante $\bomega_{\text{Rot}}$, por lo que las coordenadas y velocidades ser\'{a}n:
+donde utilizamos un vector para la velocidad angular $\bomega_{\text{Rot}}$ cuya direcci\'{o}n coincide con la del momento angular. Notar que $I_{R, \perp}$ es el momento de inercia respecto al eje definido por el momento angular $L$.
+
+Para descomponer el movimiento consideramos un sistema que gira con la velocidad angular constante $\bomega_{\text{Rot}}$, por lo que las coordenadas y velocidades ser\'{a}n:
 \begin{align*}
 \vect{v}_{i}''(t) &= \vect{v}_{i}'(t) -  \bomega_{\text{Rot}} \times \vect{r}'_{i}(t)\,, \stext{y}
 &  \vect{r''}_{i}(t) = \vect{r}_{i}'(t) - \bigl(\bomega_{\text{Rot}} \times \vect{r}'_{i}(t)\bigr) \, t
