@@ -1,11 +1,10 @@
 \begin{tikzpicture}
 \GraphInit[vstyle = Shade]
+\Huge
 \tikzset{
-  LabelStyle/.style = { rectangle, rounded corners, draw,
-                        minimum width = 2em, fill = yellow!50,
-                        text = red, font = \Huge\bfseries },
+  % LabelStyle/.style = {font = \bfseries},
   VertexStyle/.append style = { inner sep=5pt, minimum size=40pt ,
-                                font = \Huge\bfseries},
+                                font = \bfseries},
   EdgeStyle/.append style = {->},
 }
 
@@ -26,30 +25,27 @@
   \Vertex[x=2, y=2, NoLabel]{A}
   \Vertex[x=-2, y=-2, NoLabel]{B}
   
-\begin{scope}
-\tikzset{VertexStyle/.append style = {%
-shape= circle,shading= ball,ball color= green!80!white,%
-minimum size = 50pt,draw}
-}
-\Vertex[x=10, y=6]{P}
-\end{scope}
+  \begin{scope}
+    \tikzset{VertexStyle/.append style = {%
+      shape= circle,shading= ball,ball color= green!80!white,%
+      minimum size = 50pt,draw}
+    }
+    \Vertex[x=10, y=6]{P}
+  \end{scope}
 
-
-  \tikzstyle{LabelStyle}=[fill=white, font=\Huge]
   \Edge[label = $\bf{r}_{\ell X}$](X)(F)
   \Edge[label = $\bf{r}_{\ell}$](F)(P)
   \Edge[label = $\bf{r}$](X)(P)
-
   
 
   \tikzset{EdgeStyle/.append style = {->, dashed}}
-  % \tikzstyle{EdgeStyle}=[style ={->, dashed}]
+
   \draw [->,very thick, dashed] (5.8,0) -- (9.5,0);
   \draw [->, very thick] (6.8,0) arc [start angle=0, end angle=80, radius=1.1];
-  \node[font=\Huge] at (7.,1) {$\theta_{\ell}$};
+  \node at (7.,1) {$\theta_{\ell}$};
 
   \draw [<->, very thick] (0.,-1.2) arc [start angle=-90, end angle=0, radius=1.2];
-  \node[font=\Huge] at (1,-1.5) {$\theta_{\ell \ell'}$};
+  \node at (1,-1.5) {$\theta_{\ell \ell'}$};
 
   \Edge(X)(C)
   \Edge(X)(D)

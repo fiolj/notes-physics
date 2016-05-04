@@ -33,7 +33,8 @@ html: html/main.html
 
 html/main.html: $(SOURCES) Makefile
 	cp -r figures $(SOURCES) main.bib  $(HTMLDIR)/
-	cd $(HTMLDIR); pdflatex main.tex; biber main.tex; pdflatex main.tex; mk4ht xhlatex main.tex "xhtml,2,charset=utf-8,frames" " -cunihtf -utf8" " -cdvipng"; rm figures $(SOURCES) main.bib -fr; cd ..
+	# cd $(HTMLDIR); pdflatex main.tex; biber main.tex; pdflatex main.tex; mk4ht xhlatex main.tex "xhtml,2,charset=utf-8,frames" " -cunihtf -utf8" " -cdvipng"; rm figures $(SOURCES) main.bib -fr; cd ..
+	cd $(HTMLDIR); pdflatex main.tex; biber main.tex; pdflatex main.tex; mk4ht xhlatex main.tex "xhtml,2,mathml,charset=utf-8,frames" " -cunihtf -utf8" "-cvalidate -cdvipng"; rm figures $(SOURCES) main.bib -fr; cd ..
 
 epub: $(EPUBDIR)/main.epub
 
