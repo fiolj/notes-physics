@@ -1,11 +1,12 @@
 \documentclass[a4paper,12pt,english,oneside,fleqn]{book}
 \usepackage{define_j}
 \usepackage{tkz-graph}
+\providecommand{\vect}[1]{\bm{#1}}
 
 \usepackage{todonotes}
 \providecommand{\todo}[1]{{\color{blue} \fbox{\itshape #1}}}
 \usepackage[nodayofweek,level]{datetime}
-\usepackage[mark]{gitinfo2}
+% \usepackage[mark]{gitinfo2}
 
 \usepackage[toc,titletoc,page]{appendix}
 % \renewcommand{\appendixname}{Ap\'{e}ndice}
@@ -18,6 +19,7 @@
 % \counterwithin{table}{section}
 }
 
+\providecommand{\bm}[1]{\mathbf{#1}}
 \newcommand{\T}{\mathrm{T}^{(1)}}
 \providecommand{\stext}[1]{\quad \text{#1} \quad}
 \graphicspath{{figures/}}
@@ -62,13 +64,13 @@ backref]{biblatex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\includeonly{colis_molec}
+% \includeonly{colis_molec}
 
 \begin{document}
 \title{Notes on a few subjects on AMO Physics}
 
 \author{Juan Fiol}
-\date{\displaydate{gitdate}}
+% \date{\displaydate{gitdate}}
 \maketitle
 \tableofcontents
 %

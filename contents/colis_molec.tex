@@ -10,18 +10,19 @@ Para el potencial intramolecular consideramos un t\'{e}rmino el\'{a}stico arm\'{
   U = \sum_{\ell=1}^{6} K_{R} (r_{\ell X} - r_{0})^{2} + \sum_{\ell=1}^{6} \sum_{\ell'=\ell + 1}^{6} K_{\theta} (\theta_{\ell \ell'} - \theta_{0})
 \end{equation}
 %
-donde $\theta_{0}=90^{\circ}$  en este caso.
+donde $\theta_{0}= 90^{\circ}$  en este caso.
   \begin{figure}[htbp]
 \begin{minipage}{0.5\textwidth}
-    \centering \resizebox{.8\linewidth}{!}{\input{figures/coordenadas.tikz}}
+    % \centering \resizebox{.8\linewidth}{!}{\input{figures/coordenadas.tikz}}
+  \centering \includegraphics[width=.81\linewidth]{figures/coordenadas}
     \caption{Coordenadas utilizadas}
 \end{minipage}\hfill
 \begin{minipage}{0.4\textwidth}
   \begin{subequations}
     \begin{align}
-      &\vect{r}=  \vect{r}_{\ce{P}} - \vect{r}_{X} , \\
-      &\vect{r}_{\ell}=  \vect{r}_{\ce{P}} - \vect{r}_{\ce{F_{\ell}}} , \\
-      &\vect{r}_{\ell X}= \vect{r}_{F_{\ell}} - \vect{r}_{X} ,
+      &\vect{r}=  \vect{r}_{\text{{P}}} - \vect{r}_{X} , \\
+      &\vect{r}_{\ell}=  \vect{r}_{\text{P}} - \vect{r}_{\text{F}_{\ell}} , \\
+      &\vect{r}_{\ell X}= \vect{r}_{\text{F}_{\ell}} - \vect{r}_{X} ,
     \end{align}
   \end{subequations}
   \begin{itemize}
@@ -233,7 +234,7 @@ Calculando expl\'{\i}citamente obtenemos:
     \frac{\partial F_{ \ell \ell',i}}{\partial r'_{j}} &= - \frac{2 K_{\theta}}{r} \left\{\left[\frac{r'_{i}}{r'} - \cos \theta \frac{r_{i}}{r}\right] \frac{\partial}{\partial r'_{j}}\left( \frac{(\theta - \theta_{0})}{\sin \theta} \right) + \frac{\theta - \theta_{0}}{\sin \theta} \left[ \frac{\partial (r'_{i}/r') }{\partial r'_{j}} -  \frac{r_{i}}{r}\frac{\partial (\cos \theta)}{\partial r'_{j}}  \right] \right\}
 %
 \intertext{con}
-& \frac{\partial (r'_{i}/r')}{\partial r'_{j}} = \frac{1}{r'}\delta_{ij} - \frac{r'_{i} r'_{j}}{r'^{3}} \\  
+& \frac{\partial (r'_{i}/r')}{\partial r'_{j}} = \frac{1}{r'}\delta_{ij} - \frac{r'_{i} r'_{j}}{r^{\prime 3}} \\  
 & \frac{\partial}{\partial r'_{j}}\left( \frac{(\theta - \theta_{0})}{\sin \theta} \right) = \frac{\sin \theta - (\theta -\theta_{0})\, \cos \theta }{\sin^{2} \theta} \; \frac{\partial \theta}{\partial r'_{j}} 
 \\
 &  \frac{\partial \theta}{\partial r'_{j}} = \frac{-1}{\sin \theta}\, \frac{\partial (\cos \theta)}{\partial r'_{j}} \\
@@ -294,6 +295,7 @@ donde $\Lambda_{j}$ se defini\'{o} en (\ref{Q:def-Dcos}).
   (BF_{\ell}F_{\ell})^{(e)}_{ij} &= \frac{\partial F^{(e)}_{\ell,i}}{\partial r_{\ell,j}} \\&= -3 A p 
 \end{align}
 
+\newpage
 \section{Descomposici\'{o}n del movimiento molecular}
 \label{S:desc-movim-molec}
 
@@ -307,7 +309,7 @@ En el sistema que se mueve con el centro de masas, las coordenadas y velocidades
 
 A continuaci\'{o}n separamos el movimiento de rotaci\'{o}n. El momento angular total ser\'{a}:
 \begin{align*}
-  \vect{L}&= \sum_{i=1}^{N} m_{i} \vect{r}'_{i} \times \vect{v}_{i},  \quad\Rightarrow & {\bomega}_{\text{Rot}}= \frac{\vect{L}}{I_{R,\perp}} \,, \stext{ donde } & I_{R,\perp} = \sum_{i=1}^{N} m_{i} r'^{\,2}_{i}
+  \vect{L}&= \sum_{i=1}^{N} m_{i} \vect{r}'_{i} \times \vect{v}_{i},  \quad\Rightarrow & {\bomega}_{\text{Rot}}= \frac{\vect{L}}{I_{R,\perp}} \,, \stext{ donde } & I_{R,\perp} = \sum_{i=1}^{N} m_{i} r^{\prime\,2}_{i}
 \end{align*}
 donde utilizamos un vector para la velocidad angular $\bomega_{\text{Rot}}$ cuya direcci\'{o}n coincide con la del momento angular. Notar que $I_{R, \perp}$ es el momento de inercia respecto al eje definido por el momento angular $L$.
 
@@ -441,6 +443,7 @@ Finalmente, la fuerza sobre el \'{a}tomo $\ell$ ser\'{a} la suma de (\ref{Q:pot-
 \end{align}
 %
 donde $\vect{\Lambda}$ fue definido en (\ref{Q:pot-inter-deriv-cos-vect}).
+
 
 \subsubsection{Fuerzas sobre el \'{a}tomo central}
 
