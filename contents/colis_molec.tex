@@ -321,14 +321,14 @@ Finalmente nos queda por descomponer el movimiento restante en los modos normale
 \begin{align*}
   \vect{q}^{(\alpha)} &= [q^{(\alpha)}_{1},q^{(\alpha)}_{2}, \dots, q^{(\alpha)}_{21}] &  \alpha = 1,\dots 15 & \quad \text{vector de desplazamiento del modo $\alpha$.}\\
 \omega^{(\alpha)} & & \alpha = 1,\dots 15  & \quad \text{frecuencia del modo $\alpha$.}\\
-\vect{R}(t) &= [r''_{1}(t), r''_{2}(t), \dots, r''_{21}(t)] &  & \quad \text{vector posici\'{o}n de 21 coordenadas}\\
+\vect{R}(t) &= [r''_{1}(t) - r''_{1}^{0}, r''_{2}(t) - r''_{2}^{0}, \dots, r''_{21}(t) - r''_{21}^{0}] &  & \quad \text{vector posici\'{o}n de 21 coordenadas}\\
 \vect{V}(t) &= [v''_{1}(t), v''_{2}(t), \dots, v''_{21}(t)] &  & \quad \text{vector velocidad, 21 coordenadas}
 \end{align*}
-notar que la posici\'{o}n (o velocidad) de la part\'{\i}cula $i$ es $\vect{r}''_{i}= [r''_{3i+1}, r''_{3i+2}, r''_{3i+3}]$, si hacemos contar $i=0,\dots 6$ para las siete part\'{\i}culas.
+donde $r_{j}^{0}$ es una componente de la posici\'{o}n de equilibrio de cada part\'{\i}cula.  Notar que la posici\'{o}n (o velocidad) de la part\'{\i}cula (y de equilibrio) $i$ es $\vect{r}''_{i}= [r''_{3i+1}, r''_{3i+2}, r''_{3i+3}]$, si hacemos contar $i=0,\dots 6$ para las siete part\'{\i}culas.
 
 Entonces, podemos la componente $j$ de la posici\'{o}n puede descomponerse en:
 \begin{align*}
-  R_{j}(t) - R_{j}^{\text{eq}}&= \sum_{\alpha=1}^{15} A_{\alpha}\, q^{(\alpha)}_{j} \cos{(\omega^{(\alpha)} t + \phi_{\alpha})} \\
+  R_{j}(t) &= \sum_{\alpha=1}^{15} A_{\alpha}\, q^{(\alpha)}_{j} \cos{(\omega^{(\alpha)} t + \phi_{\alpha})} \\
   V_{j}(t)&= \sum_{\alpha=1}^{15} A_{\alpha}\, \omega^{(\alpha)} \, q^{(\alpha)}_{j} \sin{(\omega^{(\alpha)} t + \phi_{\alpha})}
 \end{align*}
 donde $\vect{R}^{\text{eq}}_{j}$ es la posici\'{o}n de equilibrio del \'{a}tomo $j$. De aqu\'{\i} puede f\'{a}cilmente despejarse los coeficientes de inter\'{e}s si tenemos en cuenta que los autovectores son ortonormales \textbf{(corregir)}:
