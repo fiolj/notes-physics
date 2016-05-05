@@ -1,0 +1,96 @@
+\documentclass[a4paper,12pt,english,oneside,fleqn]{book}
+\usepackage{define_j}
+\usepackage{tkz-graph}
+\providecommand{\vect}[1]{\bm{#1}}
+
+\usepackage{todonotes}
+\providecommand{\todo}[1]{{\color{blue} \fbox{\itshape #1}}}
+\usepackage[nodayofweek,level]{datetime}
+% \usepackage[mark]{gitinfo2}
+
+\usepackage[toc,titletoc,page]{appendix}
+\AtBeginEnvironment{subappendices}{%
+\renewcommand{\appendixname}{Ap\'{e}ndice}
+\chapter*{\appendixname}
+}
+
+\providecommand{\bm}[1]{\mathbf{#1}}
+\newcommand{\T}{\mathrm{T}^{(1)}}
+\providecommand{\stext}[1]{\quad \text{#1} \quad}
+\graphicspath{{figures/}}
+
+\ifpdf
+\hypersetup{pdfborder={0 0 0}, pdftitle={Notes on AMO Physics},
+  pdfsubject={Inelastic collision processes},
+  pdfauthor={Juan Fiol},
+  pdfkeywords={Ionization,cross section,theory,Coulomb,Final state}
+  pdfpagemode={UseOutlines},
+  pdfhighlight  =/P,
+  pdfstartview={FitH},  %% determines starting view ("percentage")
+  unicode=false           % non-Latin characters in Acrobat’s bookmarks
+}
+
+%% the next lines will choose Times as the font. Acrobat Reader
+%% can then use its built-in font which is much better readable
+%% and also the resulting pdf-file will be much smaller.
+% \usepackage{textcomp}    %% postscript, see psnfss-docu
+% \usepackage{mathptmx}   %% (times, also for math) see psnfss-docu
+% \usepackage[scaled]{helvet} %%  applies only for sans-serif-typing
+\fi
+
+% \usepackage[backend=biber,natbib=true,style=authoryear,citestyle=authoryear-icomp,%
+% doi=false,url=false,isbn=false,%
+% backref]{biblatex}
+\usepackage[backend=biber]{biblatex}
+% \renewbibmacro{in:}{%
+%   \ifentrytype{article}{}{%
+%   \printtext{\bibstring{in}\intitlepunct}}}
+
+% \addbibresource{chapter.bib}
+\bibliography{chapter}
+
+\begin{document}
+\title{Notes on a few subjects on AMO Physics}
+
+\author{Juan Fiol}
+% \date{\displaydate{gitdate}}
+\maketitle
+\tableofcontents
+%
+% \include{txs}
+% \include{tcdw}
+% \include{simult}
+% \include{arbpot}
+% \include{manyel}
+% \include{atomestr}
+
+% \part{Time dependent methods}
+% \label{P:time-depend-meth}
+% \include{ctmc}
+
+% \include{colis_molec}
+% \include{timedep}
+% \include{photons}
+\include{laser}
+% \include{approx}
+
+% \part{Molecules}
+% \include{molec_simple}
+% \include{absorption_rotovib}
+
+\part{Appendixes}
+\appendix{}
+% \include{kinem}
+% \include{sumcalc}
+% \include{math}
+% \include{fglif}
+% % \include{spfunc}
+% % \include{angmom}
+% % \include{nummeth}
+% % \include{numpot}
+% \include{resolutions}
+
+\printbibliography 
+
+\end{document}
+

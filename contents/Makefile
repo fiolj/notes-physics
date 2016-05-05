@@ -18,6 +18,7 @@ main-2x1.pdf: main.pdf
 SOURCES= approx.tex arbpot.tex atomestr.tex colis_molec.tex coupl_eq.tex ctmc.tex fglif.tex kinem.tex laser.tex main.tex manyel.tex math.tex nummeth.tex numpot.tex otros.tex photons.tex resolutions.tex revtdep.tex simult.tex spfunc.tex sumcalc.tex tcdwn.tex tcdw.tex timedep.tex txs.tex 
 #	parttd.tex partti.tex 	
 
+BIBEXTRACT="/home/fiol/trabajo/programas/biblio-py/scripts/bibextract.py" 
 
 HTMLDIR= html
 EPUBDIR= epubdir
@@ -35,10 +36,17 @@ html: html/main.html
 tex4htsty_opt="main_4ht"
 tex4ht_opt=" -cunihtf -utf8"
 latex_opt="-cvalidate"
-html/main.html: $(SOURCES) Makefile
-	cp -r figures $(SOURCES) main.bib main_4ht.cfg  $(HTMLDIR)/
-	# cd $(HTMLDIR); pdflatex main.tex; biber main.tex; pdflatex main.tex; mk4ht xhlatex main.tex $(tex4htsty_opt) $(tex4ht_opt) $(latex_opt); cd ..
-	cd $(HTMLDIR); mk4ht xhlatex main.tex $(tex4htsty_opt) $(tex4ht_opt) $(latex_opt); rm figures $(SOURCES) main.bib -fr; cd ..
+COPYFILES=figures $(SOURCES) main_4ht.cfg
+
+html/main.html: $(SOURCES) main.tex Makefile
+	cp -r $(COPYFILES) main.tex main.bbl $(HTMLDIR)/
+	cd $(HTMLDIR); mk4ht xhlatex main.tex $(tex4htsty_opt) $(tex4ht_opt) $(latex_opt)
+
+htmlchapter: html/chapter.html
+
+html/chapter.html: $(SOURCES) chapter.tex Makefile
+	cp -r $(COPYFILES) chapter.tex chapter.bbl $(HTMLDIR)/
+	cd $(HTMLDIR); mk4ht xhlatex chapter.tex $(tex4htsty_opt) $(tex4ht_opt) $(latex_opt); rm $(COPYFILES) chapter.tex chapter.bbl -fr
 
 
 epub: $(EPUBDIR)/main.epub
@@ -48,9 +56,14 @@ $(EPUBDIR)/main.epub: $(SOURCES) $(EPUBDIR)/main.html
 
 $(EPUBDIR)/main.html: 
 	cp -r figures $(SOURCES) main.bib  $(EPUBDIR)/
-	cd $(EPUBDIR); pdflatex main.tex; bibtex main.aux; pdflatex main.tex; pdflatex main.tex; mk4ht xhlatex main.tex "xhtml,charset=utf-8" " -cunihtf -utf8" " -cdvipng"; 	rm figures $(SOURCES) main.bib -fr;	cd -
+	cd $(EPUBDIR); pdflatex main.tex; biber main; pdflatex main.tex; pdflatex main.tex; mk4ht xhlatex main.tex "xhtml,charset=utf-8" " -cunihtf -utf8" " -cdvipng"#; rm figures $(SOURCES) main.bib -fr;	cd -
 
 web: main.pdf html epub
+
+biblio: main.bib
+
+main.bib:$(SOURCES)
+	$(BIBEXTRACT) --remove-common --remove-fields=file  -d $(BIBDB) main.aux;
 
 
 

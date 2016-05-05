@@ -397,7 +397,7 @@ Para calcular la derivada del coseno, tenemos en cuenta que $\cos \theta_{\ell} 
                  \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \frac{r_{\ell,i}}{r_{\ell}} 
  \intertext{y vectorialmente}
 %
- \label{Q:pot-inter-deriv-cos-vect} \vec{\Lambda} &= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
+ \label{Q:pot-inter-deriv-cos-vect} \vect{\Lambda} &= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} - \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
   \end{align}
 \end{subequations}
 %
@@ -438,11 +438,11 @@ Utilizando estos resultados y (\ref{Q:der_rl_rFl}) en la expresi\'{o}n anterior 
 Finalmente, la fuerza sobre el \'{a}tomo $\ell$ ser\'{a} la suma de (\ref{Q:pot-inter-dU1a}) y (\ref{Q:pot-inter-dU2}): 
 %
 \begin{align} \label{Q:pot-inter-fuerzas}
-    \vect{F}^{\text{(e)}}_{\ell} =& - 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vec{\Lambda} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
+    \vect{F}^{\text{(e)}}_{\ell} =& - 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vect{\Lambda} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
                      &- \vers{r}_{\ell}\, \sum_{n=3}^{5} \frac{2 n\, C_{2n}}{r_{\ell}^{2n+1}} \,\left[ 1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}} \left( \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right) \right] 
 \end{align}
 %
-donde $\vec{\Lambda}$ fue definido en (\ref{Q:pot-inter-deriv-cos-vect}).
+donde $\vect{\Lambda}$ fue definido en (\ref{Q:pot-inter-deriv-cos-vect}).
 
 
 \subsubsection{Fuerzas sobre el \'{a}tomo central}

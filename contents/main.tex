@@ -47,13 +47,13 @@
 
 %JF: Para usar con biblatex
 \usepackage[backend=biber,natbib=true,style=authoryear,citestyle=authoryear-icomp,%
-doi=false,url=false,isbn=false,%
+doi=false,url=false,isbn=false,bibencoding=utf8,%
 backref]{biblatex}
 
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{%
   \printtext{\bibstring{in}\intitlepunct}}}
-\addbibresource{bib.bib}
+\addbibresource{main.bib}
 
 % %JF: Para usar con bibtex
 % \usepackage[nonamebreak]{natbib}

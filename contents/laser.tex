@@ -22,7 +22,7 @@ Let's consider the ionization of an hydrogen atom by interaction with a laser pu
 \end{equation}
 for $0 < t < \tau $ and that vanishes at all other times. This field may be rewritten as:
 \begin{equation} \label{Q:electric-field-Ft}
-\bm{F}(t)= \frac{1}{4}\left[2\, \sin \left(\omega\, (t-t_{0})\right) - {\sin \left(\omega \, (t-t_{0}) +{{2\,\pi\,t}\over{\tau}}\right) - \sin \left(\omega\, (t-t_{0}) - \frac{2\,\pi\,t}{\tau} \right)} 
+\bm{F}(t)= \frac{1}{4}\left[2\, \sin \left(\omega\, (t-t_{0})\right) - {\sin \left(\omega \, (t-t_{0}) +{\frac{2\,\pi\,t}{\tau}}\right) - \sin \left(\omega\, (t-t_{0}) - \frac{2\,\pi\,t}{\tau} \right)} 
  \right]
 \end{equation}
 
@@ -119,8 +119,8 @@ The expression we will finally use is
   \begin{align} \label{Q:t_fi_CV2_final}
     T_{fi}^{-}&= f_{2}^{-}(0)\, g^{-}(0) + \int_{0}^{\tau} e^{i\omega_{fi}t} \, h^{-}(t)\, f_{2}^{-}(t)\, g^{-}(t)\, dt \\
     \mathrm{with} \qquad \qquad & \nonumber \\
-    f_{2}^{-}(t) &= \exp{\left\{\frac{(i/\hbar}{m}) \left[ \bm{k} \cdot \int_{\tau}^{t} \bm{A}^{-}(t')\, dt' + \frac{1}{2}\int_{\tau}^{t} \left( A^{-}(t') \right)^{2}\, dt' \right]
-      \right\} } \\
+    f_{2}^{-}(t) &= \exp{\Biggl\{\frac{(i/\hbar)}{m} \left[ \bm{k} \cdot \int_{\tau}^{t} \bm{A}^{-}(t')\, dt' + \frac{1}{2}\int_{\tau}^{t} \left( A^{-}(t') \right)^{2}\, dt' \right]
+      \Biggr\} } \\
 h^{-}(t) &= \frac{i}{m \hbar} \left[ \bm{k} \cdot \bm{A}^{-}(t) + \frac{1}{2} \left( A^{-}(t) \right)^{2} \right] + i \omega_{fi} \\
 g^{-}(t) &= \int d^{3}\bm{r} \phi^{-*}_{f}(\bm{r}) \, e^{-i \bm{A}^{-}(t) \cdot \bm{r}/\hbar} \phi_{i}(\bm{r})\\
 \omega_{fi}&=   (E_{f}-E_{i})/\hbar \nonumber
