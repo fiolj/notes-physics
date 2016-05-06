@@ -1,0 +1,48 @@
+\begin{tikzpicture}
+\GraphInit[vstyle = Shade]
+\Huge
+\tikzset{
+  VertexStyle/.append style = { inner sep=5pt, minimum size=40pt ,
+                                font = \bfseries},
+  EdgeStyle/.append style = {->},
+}
+
+  \SetGraphUnit{5}
+  \begin{scope}
+    \tikzset{VertexStyle/.append style = {%
+        shape= circle, shading= ball, ball color= red!80!white,%
+        minimum size = 50pt,draw} } 
+    \Vertex{T}
+  \end{scope}
+
+  \begin{scope}
+    \tikzset{VertexStyle/.append style = {%
+      shape= circle,shading= ball,ball color= green!80!white,%
+      minimum size = 20pt,draw}
+    }
+    \Vertex[x=-10, y=9]{e}
+  \end{scope}
+
+  % velocidad   
+  \draw [->,very thick] (e) -- (-7,8);
+  \node at (-6,8.5) {$\vect{k}_{0}$};
+
+  \Edge[label = $\bf{r}_{0}$](T)(e)
+  \Edge[label = $\rho$](-12,4)(e)
+  \Edge(T)(-12,4)
+
+
+  % \draw [->, very thick] (6.8,0) arc [start angle=0, end angle=80, radius=1.1];
+  % \node at (7.,1) {$\theta_{\ell}$};
+
+  % \draw [<->, very thick] (0.,-1.2) arc [start angle=-90, end angle=0, radius=1.2];
+  % \node at (1,-1.5) {$\theta_{\ell \ell'}$};
+  % \Edge(X)(C)
+  % \Edge(X)(D)
+  % \Edge(X)(E)
+  % \Edge(X)(A)
+  % \Edge(X)(B)
+
+\end{tikzpicture}
+
+
