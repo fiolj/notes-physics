@@ -46,9 +46,9 @@
 
 
 %JF: Para usar con biblatex
-\usepackage[backend=biber,natbib=true,style=authoryear,citestyle=authoryear-icomp,%
-doi=false,url=false,isbn=false,bibencoding=utf8,%
-backref]{biblatex}
+\usepackage[backend=biber,%bibencoding=utf8,%
+natbib=true,style=authoryear,citestyle=authoryear-icomp,%
+doi=false,url=false,isbn=false,backref]{biblatex}
 
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{%
@@ -86,7 +86,6 @@ backref]{biblatex}
 \part{Time dependent methods}
 \label{P:time-depend-meth}
 \include{ctmc}
-\include{colis_molec}
 \include{timedep}
 \include{photons}
 \include{laser}
@@ -95,6 +94,9 @@ backref]{biblatex}
 \part{Molecules}
 \include{molec_simple}
 \include{absorption_rotovib}
+
+\include{colis_molec}
+\include{cluster_reaction}
 
 \part{Appendixes}
 \appendix{}
