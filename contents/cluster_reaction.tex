@@ -4,18 +4,128 @@
 \section{Excited (unstables) dimers}
 \label{S:excit-unst-dimers}
 
-
 \subsection{Notation, involved magnitudes}
 \label{S:cant-de-inter}
 
-Macroscopic magnitudes governing the gas will be:
+The macroscopic magnitudes governing the reactions in the gas will be:
 \begin{itemize}
-\item $x$ \ce{XF6} concentration in the gas
-\item $P$ Total pressure
-\item $T$ Temperature. May be important to distinguish between translational temperature $T_{t}$ and roto-vibrational temperature $T_{rv}$.
+\item The concentration $x$ of \ce{XF6} in the gas.
+\item The total pressure $P$.
+\item Temperature $T$. May be important to distinguish between translational temperature $T_{tr}$ and roto-vibrational temperature $T_{rv}$.
 \end{itemize}
 
+Microscopically, important magnitudes will be:
+\begin{itemize}
+\item Initial collision velocity $v_{i}$.
+\item Initial state of the molecule: angular momentum ($L_{i}$) and vibrational level $\nu_{i}$.
+\item Final state of the dimer, characterized by its excess energy $\varepsilon^{*}$.
+\item Time duration $\tau^{*}$ of survival of the aggregate.
+\end{itemize}
 
+\subsection{Statement of the problem}
+\label{S:statement-problem}
+
+We will be interested in the formation rates for excited dimers, $k_{d}^{*} \equiv k_{d}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*})$, where we made explicit the dependence with the microscopic parameters. The number of dimers formed by unit of time is
+\begin{equation}
+  \label{Q:def-dimer-rate}
+  k_{d}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) = \sigma_{d}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) \; J_{i}(v_{i}, L_{i}, \nu_{i} )
+\end{equation}
+where the cross section is obtained from Classical Trajectory Monte-Carlo (CTMC) simulations. The initial flux depends on the experimental conditions
+\begin{equation}
+  \label{Q:rates-flux}
+  J_{i} =\frac{N_{i}}{A \,\Delta t} = \frac{N_{i}}{A \, v_{i} \Delta t} v_{i} = \rho(v_{i}, L_{i}, \nu_{i})\, v_{i}
+\end{equation}
+%
+where $\rho_{i}$ is the collision distribution in the experimental conditions of the gas mixture,
+\begin{equation}
+  \label{Q:rates-def-collis-distrib}
+  \rho(v_{i}, L_{i}, \nu_{i}) = N_{A} \, N_{M} f_{T_{rv}}(L_{i},\nu_{i}) \, f_{T_{tr}}(v_{i})
+\end{equation}
+
+\subsubsection{Cross section}
+\label{S:cross-section}
+
+The cross section for dimerization may be calculated from individual collisions between one atom and molecule. 
+From the definition of cross section we have
+\begin{equation*}
+  \sigma_{d}^{*} = \frac{N_{d}^{*}}{J_{i}}= \frac{\text{Number of dimers per unit of time}}{\text{Incident flux}}
+\end{equation*}
+
+An alternative expression may be obtained in terms of the probability of dimerization in a collision at a given impact parameter $\vect{b}$:
+\begin{equation}
+  \label{Q:rates-def-probab}
+  \sigma_{d}^{*} = p(\vect{b}) \rmd \vect{b} 
+\end{equation}
+
+\subsubsection{Molecular initial state distribution}
+
+We will assume, at this time, that the probability of finding a given molecular initial state is given by a classical canonical distribution with ``roto-vibrational'' temperature $T_{rv}$,
+\begin{equation}
+  \label{Q:rates-rotovib-distrib}
+  f_{T_{tr}}(v) = \left( \frac{\beta M}{\pi} \right)^{3/2} \, \rme^{- \beta M v^{2}}
+\end{equation}
+\subsubsection{Collision frequency}
+
+
+Before we consider what happens in nonequilibrium situations, we shall need to look a little closer at what goes on in a gas in thermal equilibrium. We shall need to know, for example, what the average time between successive collisions of a molecule is.
+
+Any molecule experiences a sequence of collisions with other molecules in a random way. A particular molecule will, in a long period of time $T$, have a certain number, $N$, of hits. If we double the length of time, there will be twice as many hits. So the number of collisions is proportional to the time $T$. We would like to write it this way:
+\begin{equation} \label{Q:rates-time}
+  N = T/\tau.
+\end{equation}
+%
+We have written the constant of proportionality as $1/\tau$, where $\tau$ will have the dimensions of a time. The constant $\tau$ is the average time between collisions. Suppose, for example, that in an hour there are 60 collisions; then $\tau$ is one minute. We would say that $\tau$ (one minute) is the average time between the collisions.
+
+We may often wish to ask the following question: ``What is the chance that a molecule will experience a collision during the next small interval of time $\rmd t$?'' The answer, we may intuitively understand, is $\rmd t/\tau$. But let us try to make a more convincing argument. Suppose that there were a very large number N of molecules. How many will have collisions in the next interval of time dt? If there is equilibrium, nothing is changing on the average with time. So N molecules waiting the time dt will have the same number of collisions as one molecule waiting for the time Ndt. That number we know is Ndt/$\tau$. So the number of hits of N molecules is $Ndt/\tau$ in a time dt, and the chance, or probability, of a hit for any one molecule is just $1/N$ as large, or $(1/N)(Ndt/\tau)=dt/\tau$, as we guessed above. That is to say, the fraction of the molecules which will suffer a collision in the time dt is dt/$\tau$. To take an example, if $\tau$ is one minute, then in one second the fraction of particles which will suffer collisions is 1/60. What this means, of course, is that $1/60$ of the molecules happen to be close enough to what they are going to hit next that their collisions will occur in the next second.
+
+When we say that $\tau$, the mean time between collisions, is one minute, we do not mean that all the collisions will occur at times separated by exactly one minute. A particular particle does not have a collision, wait one minute, and then have another collision. The times between successive collisions are quite variable. We will not need it for our later work here, but we may make a small diversion to answer the question: ``What are the times between collisions?'' We know that for the case above, the average time is one minute, but we might like to know, for example, what is the chance that we get no collision for two minutes?
+
+We shall find the answer to the general question: ``What is the probability that a molecule will go for a time $t$ without having a collision?'' At some arbitrary instant --that we call $t=0$ we begin to watch a particular molecule. What is the chance that it gets by until $t$ without colliding with another molecule? To compute the probability, we observe what is happening to all $N_{0}$ molecules in a container. After we have waited a time $t$, some of them will have had collisions. We let $N(t)$ be the number that have not had collisions up to the time t. $N(t)$ is, of course, less than $N_{0}$. We can find $N(t)$ because we know how it changes with time. If we know that $N(t)$ molecules have got by until t, then $N(t+dt)$, the number which get by until $t+dt$, is less than $N(t)$ by the number that have collisions in $dt$. The number that collide in $dt$ we have written above in terms of the mean time $\tau$ as $dN=N(t)dt/\tau$. We have the equation
+%
+\begin{equation}
+\label{Eq:I:43:2}
+N(t + dt) = N(t) - N(t)\,\frac{dt}{\tau}.
+\end{equation}
+%
+The quantity on the left-hand side, $N(t+dt)$, can be written, according to the definitions of calculus, as $N(t)+(dN/dt)dt$. Making this substitution, Eq. (43.2) yields
+\begin{equation}
+\label{Eq:I:43:4}
+\frac{dN(t)}{N(t)} = -\frac{dt}{\tau}.
+\end{equation}
+%
+The number that are being lost in the interval dt is proportional to the number that are present, and inversely proportional to the mean life $\tau$. Equation (43.3) is easily integrated if we rewrite it as
+\begin{equation}
+\label{Eq:I:43:4}
+\frac{dN(t)}{N(t)} = -\frac{dt}{\tau}.
+\end{equation}
+Each side is a perfect differential, so the integral is
+\begin{equation}
+\label{Eq:I:43:6}
+N(t) = (\text{constant})e^{-t/\tau}.
+\end{equation}
+which says the same thing as
+\begin{equation}
+\label{Eq:I:43:7}
+N(t) = N_0e^{-t/\tau}.
+\end{equation}
+We know that the constant must be just $N_{0}$, the total number of molecules present, since all of them start at t=0 to wait for their ``next'' collision. We can write our result as
+\begin{equation}
+\label{Eq:I:43:7}
+N(t) = N_0e^{-t/\tau}.
+\end{equation}
+If we wish the probability of no collision, $P(t)$, we can get it by dividing $N(t)$ by $N_{0}$, so
+\begin{equation}
+\label{Eq:I:43:8}
+P(t) = e^{-t/\tau}.
+\end{equation}
+Our result is: the probability that a particular molecule survives a time t without a collision is $\rme^{-t/\tau}$, where $\tau$ is the mean time between collisions. The probability starts out at 1 (or certainty) for $t=0$, and gets less as $t$ gets bigger and bigger. The probability that the molecule avoids a collision for a time equal to $\tau$ is $\rme^{-1} \approx 0.37$. The chance is less than one-half that it will have a greater than average time between collisions. That is all right, because there are enough molecules which go collision-free for times much longer than the mean time before colliding, so that the average time can still be $\tau$.
+
+We originally defined $\tau$ as the average time between collisions. The result we have obtained in Eq. (43.7) also says that the mean time from an arbitrary starting instant to the next collision is also $\tau$. We can demonstrate this somewhat surprising fact in the following way. The number of molecules which experience their next collision in the interval dt at the time t after an arbitrarily chosen starting time is $N(t)dt/\tau$. Their ``time until the next collision”'' is, of course, just $t$. The ``average time until the next collision'' is obtained in the usual way:
+\begin{equation*}
+\text{Average time until the next collision} =
+\frac{1}{N_0}\int_0^\infty t\,\frac{N(t)\,dt}{\tau}.
+\end{equation*}
+Average time until the next collision Using $N(t)$ obtained in (43.7) and evaluating the integral, we find indeed that $\tau$ is the average time from \emph{any} instant until the next collision.
 
 %%% Local Variables:
 %%% mode: latex
