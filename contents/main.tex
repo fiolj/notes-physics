@@ -6,11 +6,8 @@
 \usepackage{todonotes}
 \providecommand{\todo}[1]{{\color{blue} \fbox{\itshape #1}}}
 \usepackage[nodayofweek,level]{datetime}
-% \usepackage[mark]{gitinfo2}
 
 \usepackage[toc,titletoc,page]{appendix}
-% \renewcommand{\appendixname}{Ap\'{e}ndice}
-% \renewcommand{\appendixnametoc}{Ap\'{e}ndices}
 \AtBeginEnvironment{subappendices}{%
 \renewcommand{\appendixname}{Ap\'{e}ndice}
 \chapter*{\appendixname}
@@ -34,16 +31,9 @@
   pdfstartview={FitH},  %% determines starting view ("percentage")
   unicode=false           % non-Latin characters in Acrobat’s bookmarks
 }
-
-
-%% the next lines will choose Times as the font. Acrobat Reader
-%% can then use its built-in font which is much better readable
-%% and also the resulting pdf-file will be much smaller.
-\usepackage{textcomp}    %% postscript, see psnfss-docu
-\usepackage{mathptmx}   %% (times, also for math) see psnfss-docu
-\usepackage[scaled]{helvet} %%  applies only for sans-serif-typing
+\usepackage[mark]{gitinfo2}
+\date{\displaydate{gitdate}}
 \fi
-
 
 %JF: Para usar con biblatex
 \usepackage[backend=biber,%bibencoding=utf8,%
@@ -64,13 +54,13 @@ doi=false,url=false,isbn=false,backref]{biblatex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \includeonly{colis_molec}
+\includeonly{colis_molec,cluster_reaction}
 
 \begin{document}
 \title{Notes on a few subjects on AMO Physics}
 
 \author{Juan Fiol}
-% \date{\displaydate{gitdate}}
+
 \maketitle
 \tableofcontents
 %
@@ -78,25 +68,28 @@ doi=false,url=false,isbn=false,backref]{biblatex}
 
 \include{txs}
 \include{tcdw}
-% \include{simult}
+
 \include{arbpot}
 \include{manyel}
+\include{simult}
 \include{atomestr}
 
 \part{Time dependent methods}
 \label{P:time-depend-meth}
 \include{ctmc}
 \include{timedep}
+\include{coupl_eq}
 \include{photons}
 \include{laser}
 \include{approx}
 
 \part{Molecules}
+
 \include{molec_simple}
 \include{absorption_rotovib}
-
-\include{colis_molec}
 \include{cluster_reaction}
+\include{colis_molec}
+
 
 \part{Appendixes}
 \appendix{}

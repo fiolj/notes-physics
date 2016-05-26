@@ -4,17 +4,67 @@
 \section{Excited (unstables) dimers}
 \label{S:excit-unst-dimers}
 
-
 \subsection{Notation, involved magnitudes}
 \label{S:cant-de-inter}
 
-Macroscopic magnitudes governing the gas will be:
+The macroscopic magnitudes governing the reactions in the gas will be:
 \begin{itemize}
-\item $x$ \ce{XF6} concentration in the gas
-\item $P$ Total pressure
-\item $T$ Temperature. May be important to distinguish between translational temperature $T_{t}$ and roto-vibrational temperature $T_{rv}$.
+\item The concentration $x$ of \ce{XF6} in the gas.
+\item The total pressure $P$.
+\item Temperature $T$. May be important to distinguish between translational temperature $T_{tr}$ and roto-vibrational temperature $T_{rv}$.
 \end{itemize}
 
+Microscopically, important magnitudes will be:
+\begin{itemize}
+\item Initial collision velocity $v_{i}$.
+\item Initial state of the molecule: angular momentum ($L_{i}$) and vibrational level $\nu_{i}$.
+\item Final state of the dimer, characterized by its excess energy $\varepsilon^{*}$.
+\item Time duration $\tau^{*}$ of survival of the aggregate.
+\end{itemize}
+
+\subsection{Statement of the problem}
+\label{S:statement-problem}
+
+We will be interested in the formation rates for excited dimers, $k_{d}^{*} \equiv k_{d}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*})$, where we made explicit the dependence with the microscopic parameters. The number of dimers formed by unit of time is
+\begin{equation}
+  \label{Q:def-dimer-rate}
+  k_{d}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) = \sigma_{d}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) \; J_{i}(v_{i}, L_{i}, \nu_{i} )
+\end{equation}
+where the cross section is obtained from Classical Trajectory Monte-Carlo (CTMC) simulations. The initial flux depends on the experimental conditions
+\begin{equation}
+  \label{Q:rates-flux}
+  J_{i} =\frac{N_{i}}{A \,\Delta t} = \frac{N_{i}}{A \, v_{i} \Delta t} v_{i} = \rho(v_{i}, L_{i}, \nu_{i})\, v_{i}
+\end{equation}
+%
+where $\rho_{i}$ is the collision distribution in the experimental conditions of the gas mixture,
+\begin{equation}
+  \label{Q:rates-def-collis-distrib}
+  \rho(v_{i}, L_{i}, \nu_{i}) = N_{A} \, N_{M} f_{T_{rv}}(L_{i},\nu_{i}) \, f_{T_{tr}}(v_{i})
+\end{equation}
+
+\subsubsection{Cross section}
+\label{S:cross-section}
+
+The cross section for dimerization may be calculated from individual collisions between one atom and molecule. 
+From the definition of cross section we have
+\begin{equation*}
+  \sigma_{d}^{*} = \frac{N_{d}^{*}}{J_{i}}= \frac{\text{Number of dimers per unit of time}}{\text{Incident flux}}
+\end{equation*}
+
+An alternative expression may be obtained in terms of the probability of dimerization in a collision at a given impact parameter $\vect{b}$:
+\begin{equation}
+  \label{Q:rates-def-probab}
+  \sigma_{d}^{*} = p(\vect{b}) \rmd \vect{b} 
+\end{equation}
+
+\subsubsection{Molecular initial state distribution}
+
+We will assume, at this time, that the probability of finding a given molecular initial state is given by a classical canonical distribution with ``roto-vibrational'' temperature $T_{rv}$,
+\begin{equation}
+  \label{Q:rates-rotovib-distrib}
+  f_{T_{tr}}(v) = \left( \frac{\beta M}{\pi} \right)^{3/2} \, \rme^{- \beta M v^{2}}
+\end{equation}
+\subsubsection{Collision frequency}
 
 
 %%% Local Variables:

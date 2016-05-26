@@ -61,28 +61,6 @@ Las fuerzas intra-moleculares se obtienen derivando la energ\'{\i}a (\ref{Q:pot-
 \end{subequations}
 
 
-% \subsection{Fuerzas sobre cada \'{a}tomo}
-% \label{S:fuerzas-sobre-atomo}
-
-% La fuerza total sobre cada \'{a}tomo es la suma de las fuerzas inter- e intra-moleculares
-
-% \begin{subequations}
-%   \begin{align} \label{Q:fuerzas}
-%     \vect{F}_{\ell} =& 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \vect{D} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \vers{r_{\ell}} \nonumber \\
-%                      &+ \vers{r}_{\ell}\, \sum_{n=3}^{5} \frac{2 n\, C_{2n}}{r_{\ell}^{2n+1}} \,\left[ 1 - \frac{\rme^{-br_{\ell}}}{r_{\ell}} \left( \sum_{k=0}^{2n}\frac{(br_{\ell})^{k}}{k!} + \frac{(br_{\ell})^{2n+1}}{(2n)(2n)!} \right) \right] \\
-% \\
-%     &  \vect{F}_{X} = \sum_{\ell=1}^{6}\vect{F}_{X\ell} & \vect{F}_{X\ell} &=  2 K_{R} \, (r_{\ell X}- r_{0})\, \vers{r}_{\ell X}  \\
-%     & &  \vect{F}_{X\ell,i} &= 2 K_{R} \, \left( 1-\frac{r_{0}}{r_{\ell X}} \right) r_{\ell X,i}  \nonumber\\
-%     \label{Q:F-Sobre-Fl}
-%     &\vect{F}_{\ell} =   \vect{F}_{\ell X} + \sum_{\ell' \ne \ell} \vect{F}_{\ell \ell'} & \\
-%     &  & \vect{F}_{\ell X} &= -  \vect{F}_{X\ell} \nonumber \\
-%     & & \vect{F}_{\ell \ell'} &= -\frac{2 K_{\theta}}{r_{\ell X}} \frac{\theta_{\ell\ell'}-\theta_{0}}{\sin \theta_{\ell\ell'}} \Big[ \vers{r}_{\ell' X} - \cos{(\theta_{\ell\ell'})} \vers{r}_{\ell X} \Big] \nonumber
-%  \\
-% \intertext{con} 
-% & \vect{D}= \left( \frac{1}{r_{\ell}} + \cos \theta_{\ell}\frac{1}{r_{\ell X}} \right) \vers{r}_{\ell X} + \left( \frac{1}{r_{\ell X}} + \cos \theta_{\ell}\frac{1}{r_{\ell}} \right) \vers{r}_{\ell}
-%   \end{align}
-% \end{subequations}
-
 
 \section{C\'{a}lculo del Jacobiano}
 \label{S:calc-jacob}
@@ -381,7 +359,7 @@ Las fuerzas sobre los \'{a}tomos de fl\'{u}or se obtienen derivando respecto a l
 %
 El primer t\'{e}rmino es:
 \begin{equation}
- \label{Q:pot-inter-dU1}
+ \label{Q:pot-inter-dU1-1}
  \frac{\partial U_{1}}{\partial r_{F_{\ell},i}} = 3 A p \cos \theta_{\ell}\, \rme^{-b r_{\ell}} \frac{\partial \cos \theta_{\ell}}{\partial r_{F_{\ell},i}} - A b \Big[1 + p\, P_{2}(\cos \theta_{\ell})\Big]\,\rme^{-b r_{\ell}} \frac{\partial r_{\ell}}{\partial r_{F_{\ell},i}} \,.
 \end{equation}
 %

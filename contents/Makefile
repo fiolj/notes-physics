@@ -15,7 +15,10 @@ main-2x1.pdf: main.pdf
 
 .PHONY: web dist unpack bring send clean clean-all mostlyclean
 
-SOURCES= approx.tex arbpot.tex atomestr.tex colis_molec.tex coupl_eq.tex ctmc.tex fglif.tex kinem.tex laser.tex main.tex manyel.tex math.tex nummeth.tex numpot.tex otros.tex photons.tex resolutions.tex revtdep.tex simult.tex spfunc.tex sumcalc.tex tcdwn.tex tcdw.tex timedep.tex txs.tex 
+SOURCES=absorption_rotovib.tex angmom.tex approx.tex arbpot.tex atomestr.tex cluster_reaction.tex colis_molec.tex ctmc.tex coupl_eq.tex fglif.tex kinem.tex laser.tex main.tex manyel.tex math.tex molec_simple.tex nummeth.tex numpot.tex photons.tex resolutions.tex spfunc.tex sumcalc.tex tcdw.tex timedep.tex txs.tex
+
+# approx.tex arbpot.tex atomestr.tex colis_molec.tex coupl_eq.tex ctmc.tex fglif.tex kinem.tex laser.tex main.tex manyel.tex math.tex nummeth.tex numpot.tex otros.tex photons.tex resolutions.tex revtdep.tex simult.tex spfunc.tex sumcalc.tex tcdwn.tex tcdw.tex timedep.tex txs.tex 
+
 #	parttd.tex partti.tex 	
 
 BIBEXTRACT="/home/fiol/trabajo/programas/biblio-py/scripts/bibextract.py" 
@@ -70,7 +73,10 @@ main.bib:$(SOURCES)
 clean:
 	rm -f *.aux *.log *.toc *.idx *~ *.bbl *.blg *.bak
 
-clean-all: clean
+clean-html:
+	rm -fr html/*
+
+clean-all: clean clean-html
 	rm -f *.dvi *.pdf
 
 # put-all: put
