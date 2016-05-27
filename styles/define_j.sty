@@ -5,18 +5,21 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{define_j}[2000/04/13 v1.0 (letter paper) by and for J. Fiol]%
 %
+
 \usepackage{iftex}
-\ifPDFTeX
-   \usepackage[utf8]{inputenc}
-   \usepackage[T1]{fontenc}
-   \usepackage{lmodern}
+\ifXeTeX
+  \usepackage{fontspec}
+  \setromanfont[Mapping=tex-text]{Minion Pro}
+  \usepackage{xltxtra}
+  \defaultfontfeatures{Ligatures=TeX}
 \else
-   \ifXeTeX
-     \usepackage{xltxtra}
-   \else 
-     \usepackage{luatextra}
-   \fi
-   \defaultfontfeatures{Ligatures=TeX}
+  % \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+% Para fonts en pdf (NO ESTOY USANDO)
+  \usepackage{textcomp}    %% postscript, see psnfss-docu
+% \usepackage{mathptmx}   %% (times, also for math) see psnfss-docu
+% \usepackage[scaled]{helvet} %%  applies only for sans-serif-typing
 \fi
 
 %  \RequirePackage{amsfonts}[1995/01/01]
@@ -24,7 +27,7 @@
 % \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{fancyhdr}
-\RequirePackage{bm}       % Carlisle for bold math symbols
+% \RequirePackage{bm}       % Carlisle for bold math symbols
 \RequirePackage{makeidx}
 
 \RequirePackage{babel}
@@ -40,11 +43,13 @@
 \usepackage{ifpdf}
 \usepackage{hyperref}
 
+\usepackage[final, babel]{microtype} % many good lay-out/justification effects
+\RequirePackage[Smaller]{cancel}  % Cancel terms in equations
+
 \RequirePackage{calc}
 \RequirePackage{enumitem}
 % Chemical symbols
 \usepackage[version=3]{mhchem}
-
 
 \newif\ifLogo \Logotrue
 \DeclareOption{Logo}{\Logotrue}
@@ -57,15 +62,11 @@
 %% del estilo book (tama\~{n}os, etc.)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[top=30mm, bottom=28mm, left=20mm, right=20mm]{geometry}
-%%%% \addtolength\textwidth{1.2cm} % Values for letter
-% \addtolength\textwidth{2.2cm}
-
 %\linespread{1.25}
 
 %%%%%%%%%%%%%%%%%% Para ajustar las figuras %%%%%%%%%%%%%%%%%%%%%
 
 %\definecolor{mygray}{gray}{0.8}
-
 \newcommand\JLogo{\unitlength=.7ex
 \begin{picture}(26,17)(6,3)
 \put(0,1){\line(1,0){32}} \put(8,11){ \textsf{\textcolor{red}{NOTES}}}
@@ -232,11 +233,13 @@
 \def\b{\ensuremath{B}}
 \def\e{\ensuremath{e}}
 
+\newcommand{\stext}[1]{\quad \text{#1} \quad}
+
 \providecommand{\abs}[1]{\lvert#1\rvert}
 \providecommand{\norm}[1]{\lVert#1\rVert}
 
 \providecommand{\vers}[1]{\breve{#1}}
-\providecommand{\vect}[1]{\bm{#1}}
+\providecommand{\vect}[1]{\bi{#1}}
 \providecommand{\oper}[1]{\hat{\mathbf{#1}}}
 
 \providecommand{\bra}[1]{\left\langle #1 \right|}
@@ -307,13 +310,13 @@
 \newcommand{\bxi}{\boldsymbol{\xi}}
 \newcommand{\bpi}{\boldsymbol{\pi}}
 \newcommand{\brho}{\boldsymbol{\rho}}
-\newcommand{\bsigma}{\boldsymbol{\sigma}}
+\newcommand{\bsigma}{\vec{\sigma}}
 \newcommand{\btau}{\boldsymbol{\tau}}
 \newcommand{\bupsilon}{\boldsymbol{\upsilon}}
 \newcommand{\bphi}{\boldsymbol{\phi}}
 \newcommand{\bchi}{\boldsymbol{\chi}}
 \newcommand{\bpsi}{\boldsymbol{\psi}}
-\newcommand{\bomega}{\boldsymbol{\omega}}
+\newcommand{\bomega}{\vec{\omega}}
 \newcommand{\bvarepsilon}{\boldsymbol{\varepsilon}}
 \newcommand{\bvartheta}{\boldsymbol{\vartheta}}
 \newcommand{\bvaromega}{\boldsymbol{\varomega}}
