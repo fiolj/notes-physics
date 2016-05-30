@@ -54,7 +54,7 @@ From the definition of cross section we have
 An alternative expression may be obtained in terms of the probability of dimerization in a collision at a given impact parameter $\vect{b}$:
 \begin{align}
   \label{Q:rates-def-probab}
-  \sigma_{d}^{*} = \int p(\vect{b}) \rmd \vect{b} = 2 \pi \int_{0}^{\infty} b \, p(b) \rmd b = 2 \pi \int_{0}^{b_{\text{max}}} b \, p(b) \rmd b\,, & \stext{with }  p(\vect{b}) = \frac{n_{d}^{*}(\vect{b})}{n_{c}(\vect{b})}
+  \sigma_{d}^{*} = \int p(\vect{b})\rmd \vect{b} = 2 \pi \int_{0}^{\infty} b \, p(b) \rmd b = 2 \pi \int_{0}^{b_{\text{max}}} b \, p(b) \rmd b\,, & \stext{with }  p(\vect{b}) = \frac{n_{d}^{*}(\vect{b})}{n_{c}(\vect{b})}
 \end{align}
 where the last expressions hold when the conditions have rotational symmetry. Here $n_{d}^{*}$ is the number of events that end up in dimerization, from a total of $n_{c}$ trajectories with impact parameter $\vect{b}$.
 
@@ -69,15 +69,26 @@ where $\beta= 1/k_{B}T$ and $E_{rv}$ is the internal roto-vibrational energy.
 
 \subsubsection{Relative velocity distribution}
 
-The distribution of relative velocities for two species, where each of them presents a thermal (Boltzmann) velocity distribution, is given by a Boltzmann distribution,
+The distribution of relative velocities for two species, where each of them presents a thermal (Boltzmann) velocity distribution, is given by a Boltzmann distribution
 \begin{equation}
   \label{Q:rates-relat-veloc-distrib}
   f_{T}(v) = \left( \frac{\beta \mu}{\pi} \right)^{3/2} \, \rme^{- \beta \mu v^{2}}
 \end{equation}
-where $v$ is the magnitude of the relative velocity $\vect{v} = \vect{v}_{M}- \vect{v}_{m}$, and the mass of each separated species is replaced by the reduced mass $\mu = m M /(m + M)$.
+like the original one-species velocity distribution, but where $v$ is the magnitude of the relative velocity $\vect{v} = \vect{v}_{M}- \vect{v}_{m}$, and the mass of each separated species is replaced by the reduced mass $\mu = m M /(m + M)$.
+
+
+\section{Stabilization of the clusters}
+\label{S:stabil-cluster}
+
+In principle, we can evaluate the stabilization rates in a similar fashion to the above calculations for formation of excited dimers
+\begin{equation}
+  \label{Q:rates-def-stabil-rate}
+    k_{ds}(v , \varepsilon^{*}, \tau^{*}) = \sigma_{ds}^{s}(v, \varepsilon^{*}, \tau^{*}) \; J_{c}(v )
+\end{equation}
 
 
 
+\begin{subappendices}
 \subsubsection{Collision frequency distribution}
 
 For a system of particles with a given density and a free path $\ell$, the average time between collisions is $\tau = \ell/\overline{v}= \ell/ \sqrt{\langle v^{2} \rangle}$. Then, in a system with $N$ particles, the number of collisions \emph{in average} that will occur in a given period of time $\delta t$ will be proportional to the duration of such period: $n_{c} = N \Delta t/\tau$. In order to calculate the frequency distribution of collisions we consider what happens with the number of molecules \underline{that \textbf{no} experience collisions} when $\Delta t$ is very small. Then, the change for a short period of time will be, as discussed above,
@@ -97,7 +108,6 @@ Thus, the probability that a single particle had a collision in that period will
 \end{equation}
 
 
-\begin{subappendices}
 \subsubsection{Collision frequency: Feynmann's detailed explanation}
 
 Before we consider what happens in nonequilibrium situations, we shall need to look a little closer at what goes on in a gas in thermal equilibrium. We shall need to know, for example, what the average time between successive collisions of a molecule is.
@@ -122,8 +132,8 @@ N(t + dt) = N(t) - N(t)\,\frac{dt}{\tau}.
 %
 The quantity on the left-hand side, $N(t+dt)$, can be written, according to the definitions of calculus, as $N(t)+(dN/dt)dt$. Making this substitution, Eq. (43.2) yields
 \begin{equation}
-\label{Eq:I:43:4}
-\frac{dN(t)}{N(t)} = -\frac{dt}{\tau}.
+\label{Eq:I:43:3}
+\frac{N(t)}{\rmd t} = -\frac{N(t)}{\tau}.
 \end{equation}
 %
 The number that are being lost in the interval dt is proportional to the number that are present, and inversely proportional to the mean life $\tau$. Equation (43.3) is easily integrated if we rewrite it as
@@ -133,18 +143,8 @@ The number that are being lost in the interval dt is proportional to the number 
 \end{equation}
 Each side is a perfect differential, so the integral is
 \begin{equation}
-\label{Eq:I:43:6}
-N(t) = (\text{constant})e^{-t/\tau}.
-\end{equation}
-which says the same thing as
-\begin{equation}
 \label{Eq:I:43:7}
-N(t) = N_0e^{-t/\tau}.
-\end{equation}
-We know that the constant must be just $N_{0}$, the total number of molecules present, since all of them start at t=0 to wait for their ``next'' collision. We can write our result as
-\begin{equation}
-\label{Eq:I:43:7}
-N(t) = N_0e^{-t/\tau}.
+N(t) = N_{0}\, e^{-t/\tau}.
 \end{equation}
 If we wish the probability of no collision, $P(t)$, we can get it by dividing $N(t)$ by $N_{0}$, so
 \begin{equation}
