@@ -54,21 +54,33 @@ From the definition of cross section we have
 An alternative expression may be obtained in terms of the probability of dimerization in a collision at a given impact parameter $\vect{b}$:
 \begin{align}
   \label{Q:rates-def-probab}
-  \sigma_{d}^{*} = \int p(\vect{b}) \rmd \vect{b} = 2 \pi \int_{0}^{\infty} b \, p(b) \rmd b & \stext{with } & p(\vect{b}) = \frac{n_{d}^{*}(\vect{b})}{n_{c}(\vect{b})}
+  \sigma_{d}^{*} = \int p(\vect{b}) \rmd \vect{b} = 2 \pi \int_{0}^{\infty} b \, p(b) \rmd b = 2 \pi \int_{0}^{b_{\text{max}}} b \, p(b) \rmd b\,, & \stext{with }  p(\vect{b}) = \frac{n_{d}^{*}(\vect{b})}{n_{c}(\vect{b})}
 \end{align}
-where the last expression holds for conditions that have rotational symmetry, and $n_{d}^{*}$ is the number of events that end up in dimerization, from a total of $n_{c}$ trajectories with impact parameter $\vect{b}$.
+where the last expressions hold when the conditions have rotational symmetry. Here $n_{d}^{*}$ is the number of events that end up in dimerization, from a total of $n_{c}$ trajectories with impact parameter $\vect{b}$.
 
 \subsubsection{Molecular initial state distribution}
 
 We will assume, at this time, that the probability of finding a given molecular initial state is given by a classical canonical distribution with ``roto-vibrational'' temperature $T_{rv}$,
 \begin{equation}
   \label{Q:rates-rotovib-distrib}
-  f_{T_{tr}}(v) = \left( \frac{\beta M}{\pi} \right)^{3/2} \, \rme^{- \beta M v^{2}}
+  f_{T_{tr}}(E_{rv}) = \left( \frac{\beta M}{\pi} \right)^{3/2} \, \rme^{- \beta M E_{rv}} \,,
 \end{equation}
+where $\beta= 1/k_{B}T$ and $E_{rv}$ is the internal roto-vibrational energy.
+
+\subsubsection{Relative velocity distribution}
+
+The distribution of relative velocities for two species, where each of them presents a thermal (Boltzmann) velocity distribution, is given by a Boltzmann distribution,
+\begin{equation}
+  \label{Q:rates-relat-veloc-distrib}
+  f_{T}(v) = \left( \frac{\beta \mu}{\pi} \right)^{3/2} \, \rme^{- \beta \mu v^{2}}
+\end{equation}
+where $v$ is the magnitude of the relative velocity $\vect{v} = \vect{v}_{M}- \vect{v}_{m}$, and the mass of each separated species is replaced by the reduced mass $\mu = m M /(m + M)$.
+
+
 
 \subsubsection{Collision frequency distribution}
 
-For a system of particles with a given density and a free path $\ell$, the average time between collisions is $\tau = \ell/\overline{v}= \ell/ \sqrt{\langle v^{2} \rangle}$. Then, in a system with $N$ particles, the number of collisions \emph{in average} that will occur in a given period of time $\delta t$ will be proportional to the duration of such period: $n_{c} = N \Delta t/\tau$. In order to calculate the frequency distribution of collisions we consider what happens with the number of molecules that \underline{\textbf{no} experience any collision} when $\Delta t$ is very small. Then, the change for a short period of time will be, as discussed above,
+For a system of particles with a given density and a free path $\ell$, the average time between collisions is $\tau = \ell/\overline{v}= \ell/ \sqrt{\langle v^{2} \rangle}$. Then, in a system with $N$ particles, the number of collisions \emph{in average} that will occur in a given period of time $\delta t$ will be proportional to the duration of such period: $n_{c} = N \Delta t/\tau$. In order to calculate the frequency distribution of collisions we consider what happens with the number of molecules \underline{that \textbf{no} experience collisions} when $\Delta t$ is very small. Then, the change for a short period of time will be, as discussed above,
 \begin{equation}
   \label{Q:rates-freq-collision-diff}
   \Delta N = N(t+\Delta t) - N(t) = - N \, \frac{\Delta t}{\tau}
