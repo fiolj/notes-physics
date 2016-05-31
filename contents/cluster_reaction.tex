@@ -1,7 +1,19 @@
 \chapter{Reaction rates for cluster formation}
 \label{C:react-rates-cluster}
+We will investigate the formation of small inhomogeneous clusters in a gas mixture of a small concentration of molecules $M$ (of mass $M$) with atoms $A$ of mass $m$.
+Here we will work in the framework that stable dimers are formed by a two-step mechanism in which first the dimers are formed with excess energy (unstable dimers) in a collision between a molecule and an atom. Then, in a second collision with a different atom the dimer is stabilized, and the energy excess is carried away by the atom. The reaction equations for this two-step mechanism are
+\begin{subequations}
+\begin{align}
+  \label{Q:rates-master-equation-a}
+  \ce{M + A <-->[{k_{f}^{*}}][{k_{d}^{*}}] (M-A)^{*}} \\
+  \label{Q:rates-master-equation-b}
+  \ce{ (M-A)^{*} ->[{k_{s}}] (M-A)} 
+\end{align}
+\end{subequations}
+%
+Next, we discuss how to evaluate the constant rates $k_{\alpha}$.
 
-\section{Excited (unstables) dimers}
+\section{Formation of excited (unstables) dimers}
 \label{S:excit-unst-dimers}
 
 \subsection{Notation, involved magnitudes}
@@ -25,10 +37,10 @@ Microscopically, important magnitudes will be:
 \subsection{Statement of the problem}
 \label{S:statement-problem}
 
-We will be interested in the formation rates for excited dimers, $k_{d}^{*} \equiv k_{d}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*})$, where we made explicit the dependence with the microscopic parameters. The number of dimers formed by unit of time is
+We will be interested in the formation rates for excited dimers, $k_{f}^{*} \equiv k_{f}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*})$, where we made explicit the dependence with the microscopic parameters. The number of dimers formed by unit of time is
 \begin{equation}
   \label{Q:def-dimer-rate}
-  k_{d}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) = \sigma_{d}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) \; J_{i}(v_{i}, L_{i}, \nu_{i} )
+  k_{f}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) = \sigma_{f}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) \; J_{i}(v_{i}, L_{i}, \nu_{i} )
 \end{equation}
 where the cross section is obtained from Classical Trajectory Monte-Carlo (CTMC) simulations. The initial flux depends on the experimental conditions
 \begin{equation}
@@ -42,19 +54,20 @@ where $\rho_{i}$ is the collision distribution in the experimental conditions of
   \rho(v_{i}, L_{i}, \nu_{i}) = N_{A} \, N_{M} f_{T_{rv}}(L_{i},\nu_{i}) \, f_{T_{tr}}(v_{i})
 \end{equation}
 
+The formation rate that appears in the rate equation (\ref{Q:rates-master-equation-a}), is obtained by integrating over all possible values of internal initial conditions ($L_{i},\nu_{i}$), initial velocities $v_{i}$, excess-energy $\varepsilon^{*}$, and time-duration (or life) $\tau$.
 \subsubsection{Cross section}
 \label{S:cross-section}
 
 The cross section for dimerization may be calculated from individual collisions between one atom and molecule. 
 From the definition of cross section we have
 \begin{equation*}
-  \sigma_{d}^{*} = \frac{N_{d}^{*}}{J_{i}}= \frac{\text{Number of dimers per unit of time}}{\text{Incident flux}}
+  \sigma_{f}^{*} = \frac{n_{f}^{*}}{J_{i}}= \frac{\text{Number of dimers per unit of time}}{\text{Incident flux}}
 \end{equation*}
 
 An alternative expression may be obtained in terms of the probability of dimerization in a collision at a given impact parameter $\vect{b}$:
 \begin{align}
   \label{Q:rates-def-probab}
-  \sigma_{d}^{*} = \int p(\vect{b})\rmd \vect{b} = 2 \pi \int_{0}^{\infty} b \, p(b) \rmd b = 2 \pi \int_{0}^{b_{\text{max}}} b \, p(b) \rmd b\,, & \stext{with }  p(\vect{b}) = \frac{n_{d}^{*}(\vect{b})}{n_{c}(\vect{b})}
+  \sigma_{f}^{*} = \int p(\vect{b})\rmd \vect{b} = 2 \pi \int_{0}^{\infty} b \, p(b) \rmd b = 2 \pi \int_{0}^{b_{\text{max}}} b \, p(b) \rmd b\,, & \stext{with }  p(\vect{b}) = \frac{n_{d}^{*}(\vect{b})}{n_{c}(\vect{b})}
 \end{align}
 where the last expressions hold when the conditions have rotational symmetry. Here $n_{d}^{*}$ is the number of events that end up in dimerization, from a total of $n_{c}$ trajectories with impact parameter $\vect{b}$.
 
@@ -63,9 +76,9 @@ where the last expressions hold when the conditions have rotational symmetry. He
 We will assume, at this time, that the probability of finding a given molecular initial state is given by a classical canonical distribution with ``roto-vibrational'' temperature $T_{rv}$,
 \begin{equation}
   \label{Q:rates-rotovib-distrib}
-  f_{T_{tr}}(E_{rv}) = \left( \frac{\beta M}{\pi} \right)^{3/2} \, \rme^{- \beta M E_{rv}} \,,
+  f_{T_{rv}}(E_{l\nu}) = \left( \frac{\beta M}{\pi} \right)^{3/2} \, \rme^{- \beta M E_{l\nu}} \,,
 \end{equation}
-where $\beta= 1/k_{B}T$ and $E_{rv}$ is the internal roto-vibrational energy.
+where $\beta= 1/k_{B}T_{rv}$, and $E_{l\nu}$ is the internal roto-vibrational energy.
 
 \subsubsection{Relative velocity distribution}
 
@@ -77,19 +90,41 @@ The distribution of relative velocities for two species, where each of them pres
 like the original one-species velocity distribution, but where $v$ is the magnitude of the relative velocity $\vect{v} = \vect{v}_{M}- \vect{v}_{m}$, and the mass of each separated species is replaced by the reduced mass $\mu = m M /(m + M)$.
 
 
+\section{Break-up of excited dimers}
+\label{S:fragm-excit-dimers}
+
+The constant rate at which the unstable dimers will be fragmented is given by
+\begin{equation*}
+  k_{d}^{*} = -\lim_{\Delta t \to 0} \frac{N(t+ \Delta t) - N(t)}{\Delta t} = -\frac{\rmd N}{\rmd t}
+\end{equation*}
+The number of excited dimers at a given time $t$ will be given by all those $n_{d}^{*}(t',\tau)$ created at a previous time $t'$ with life $\tau$  greater than $t-t'$, summing over all previous times $t'$:
+\begin{equation}
+  \label{Q:rates-number-excit-dimers}
+  N(t) = \int_{0}^{t} \rmd t' \left[\int_{t-t'}^{\infty} n_{d}^{*}(t',\tau) \rmd \tau \right] \bajo{=}{t_{0}=t-t'} -\int_{0}^{t} \rmd t_{0} \left[\int_{t_{0}}^{\infty} n_{d}^{*}(t-t_{0},\tau) \rmd \tau \right]
+\end{equation}
+
+Now, we consider situations where the particular time in which the dimer is formed does not play any role (stationary conditions), i.e: $n_{d}^{*}(t',\tau) \equiv n_{d}^{*}(\tau)$. Then, the derivative is easily evaluated
+\begin{equation}
+  \label{Q:rates-number-excit-dimers-simpler}
+  k_{d}^{*}(t)= -\frac{\rmd N(t)}{\rmd t} =  \left[\int_{t}^{\infty} n_{d}^{*}(\tau) \rmd \tau \right] =  \left[\int_{t}^{\infty} k_{f}^{*}(\tau) \rmd \tau \right] = \text{NO cte.}
+\end{equation}
+
+
 \section{Stabilization of the clusters}
 \label{S:stabil-cluster}
 
 In principle, we can evaluate the stabilization rates in a similar fashion to the above calculations for formation of excited dimers
 \begin{equation}
   \label{Q:rates-def-stabil-rate}
-    k_{ds}(v , \varepsilon^{*}, \tau^{*}) = \sigma_{ds}^{s}(v, \varepsilon^{*}, \tau^{*}) \; J_{c}(v )
+    k_{ds}(v , \varepsilon^{*}, \tau^{*}) = \sigma_{ds}^{s}(v, \varepsilon^{*}, \tau^{*}) \; J_{c}(v)
 \end{equation}
 
+Here $v$ is the relative velocity between an atom and an excited dimer, with excess energy $\varepsilon^{*}$ and time $\tau^{*}$
 
 
 \begin{subappendices}
-\subsubsection{Collision frequency distribution}
+\section{Collision frequency distribution}
+\subsection{Collision frequency: The short version}
 
 For a system of particles with a given density and a free path $\ell$, the average time between collisions is $\tau = \ell/\overline{v}= \ell/ \sqrt{\langle v^{2} \rangle}$. Then, in a system with $N$ particles, the number of collisions \emph{in average} that will occur in a given period of time $\delta t$ will be proportional to the duration of such period: $n_{c} = N \Delta t/\tau$. In order to calculate the frequency distribution of collisions we consider what happens with the number of molecules \underline{that \textbf{no} experience collisions} when $\Delta t$ is very small. Then, the change for a short period of time will be, as discussed above,
 \begin{equation}
@@ -108,7 +143,7 @@ Thus, the probability that a single particle had a collision in that period will
 \end{equation}
 
 
-\subsubsection{Collision frequency: Feynmann's detailed explanation}
+\subsection{Collision frequency: Feynmann's detailed explanation}
 
 Before we consider what happens in nonequilibrium situations, we shall need to look a little closer at what goes on in a gas in thermal equilibrium. We shall need to know, for example, what the average time between successive collisions of a molecule is.
 
