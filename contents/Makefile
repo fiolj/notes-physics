@@ -39,11 +39,11 @@ html: html/main.html
 tex4htsty_opt="main_4ht"
 tex4ht_opt=" -cunihtf -utf8"
 latex_opt="-cvalidate"
-COPYFILES=figures $(SOURCES) main_4ht.cfg
+COPYFILES=figures $(SOURCES) main.bib main.bbl
 
 html/main.html: $(SOURCES) main.tex Makefile
-	cp -r $(COPYFILES)  main.bbl $(HTMLDIR)/
-	cd $(HTMLDIR); mk4ht xhlatex main.tex $(tex4htsty_opt) $(tex4ht_opt) $(latex_opt)
+	cp -r $(COPYFILES)  main_4ht.cfg $(HTMLDIR)/
+	cd $(HTMLDIR); mk4ht xhlatex main.tex $(tex4htsty_opt) $(tex4ht_opt) $(latex_opt); biber main; mk4ht xhlatex main.tex $(tex4htsty_opt) $(tex4ht_opt) $(latex_opt)
 
 htmlchapter: html/chapter.html
 
@@ -57,9 +57,12 @@ epub: $(EPUBDIR)/main.epub
 $(EPUBDIR)/main.epub: $(SOURCES) $(EPUBDIR)/main.html
 	cd $(EPUBDIR); ebook-convert main.html main.epub; cd -
 
+
 $(EPUBDIR)/main.html: 
-	cp -r figures $(SOURCES) main.bib  $(EPUBDIR)/
-	cd $(EPUBDIR); pdflatex main.tex; biber main; pdflatex main.tex; pdflatex main.tex; mk4ht xhlatex main.tex "xhtml,charset=utf-8" " -cunihtf -utf8" " -cdvipng"#; rm figures $(SOURCES) main.bib -fr;	cd -
+	cp -r $(COPYFILES)  main.bbl $(EPUBDIR)/
+	cp epub_4ht.cfg $(EPUBDIR)/main_4ht.cfg
+	cd $(EPUBDIR); mk4ht xhlatex main.tex $(tex4htsty_opt) $(tex4ht_opt) $(latex_opt)
+	# cd $(EPUBDIR); pdflatex main.tex; biber main; pdflatex main.tex; pdflatex main.tex; mk4ht xhlatex main.tex "xhtml,charset=utf-8" $(tex4ht_opt) " -cvalidate -cdvipng"#; rm figures $(SOURCES) main.bib -fr;	cd -
 
 web: main.pdf html epub
 
