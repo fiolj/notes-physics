@@ -42,7 +42,7 @@ latex_opt="-cvalidate"
 COPYFILES=figures $(SOURCES) main_4ht.cfg
 
 html/main.html: $(SOURCES) main.tex Makefile
-	cp -r $(COPYFILES) main.tex main.bbl $(HTMLDIR)/
+	cp -r $(COPYFILES)  main.bbl $(HTMLDIR)/
 	cd $(HTMLDIR); mk4ht xhlatex main.tex $(tex4htsty_opt) $(tex4ht_opt) $(latex_opt)
 
 htmlchapter: html/chapter.html
