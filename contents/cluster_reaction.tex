@@ -1,23 +1,10 @@
 \chapter{Reaction rates for cluster formation}
 \label{C:react-rates-cluster}
 We will investigate the formation of small inhomogeneous clusters in a gas mixture of a small concentration of molecules $M$ (of mass $M$) with atoms $A$ of mass $m$.
-Here we will work in the framework that stable dimers are formed by a two-step mechanism in which first the dimers are formed with excess energy (unstable dimers) in a collision between a molecule and an atom. Then, in a second collision with a different atom the dimer is stabilized, and the energy excess is carried away by the atom. The reaction equations for this two-step mechanism are
-\begin{subequations}
-\begin{align}
-  \label{Q:rates-master-equation-a}
-  \ce{M + A <-->[{k_{f}^{*}}][{k_{d}^{*}}] (M-A)^{*}} \\
-  \label{Q:rates-master-equation-b}
-  \ce{ (M-A)^{*} ->[{k_{s}}] (M-A)} 
-\end{align}
-\end{subequations}
-%
-Next, we discuss how to evaluate the constant rates $k_{\alpha}$.
+Here we will work in the framework that stable dimers are formed by a two-step mechanism in which first the dimers are formed with excess energy (unstable dimers) in a collision between a molecule and an atom. Then, in a second collision with a different atom the dimer is stabilized, and the energy excess is carried away by the atom. 
 
-\section{Formation of excited (unstables) dimers}
-\label{S:excit-unst-dimers}
-
-\subsection{Notation, involved magnitudes}
-\label{S:cant-de-inter}
+% \section{Notation, involved magnitudes}
+% \label{S:cant-de-inter}
 
 The macroscopic magnitudes governing the reactions in the gas will be:
 \begin{itemize}
@@ -34,13 +21,40 @@ Microscopically, important magnitudes will be:
 \item Time duration $\tau^{*}$ of survival of the aggregate.
 \end{itemize}
 
-\subsection{Statement of the problem}
-\label{S:statement-problem}
 
-We will be interested in the formation rates for excited dimers, $k_{f}^{*} \equiv k_{f}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*})$, where we made explicit the dependence with the microscopic parameters. The number of dimers formed by unit of time is
+
+\section{Constant-rate reaction equations}
+\label{S:const-rate-reaction}
+
+The reaction equations for this two-step mechanism are
+\begin{subequations}
+\begin{align}
+  \label{Q:rates-master-equation-a}
+  \ce{M + A <-->[{k_{f}^{*}}][{k_{d}^{*}}] (M-A)^{*}} \\
+  \label{Q:rates-master-equation-b}
+  \ce{ (M-A)^{*} ->[{k_{s}}] (M-A)} \,.
+\end{align}
+\end{subequations}
+%
+This approach leads to a dynamical system governed by the differential equations:
+\begin{subequations}
+\begin{align}
+  \label{Q:rates-diff-equation-a}
+  \frac{\rmd N^{*}_{d}}{\rmd t} &= N_{M} N_{A} k_{f}^{*} - k_{d}^{*}\, N^{*}_{d} - k_{s}^{*}\, N_{A} N^{*}_{d} \\
+  \label{Q:rates-diff-equation-b}
+  \frac{\rmd N_{d}}{\rmd t} &=  k_{s}^{*}\, N^{*}_{s} 
+\end{align}
+\end{subequations}
+
+Next, we discuss how to evaluate the constant rates $k_{\alpha}$.
+
+\subsection{Formation of excited (unstables) dimers}
+\label{S:excit-unst-dimers}
+
+We will be interested in the formation rates for excited dimers, $\tilde{k}_{f}^{*} \equiv k_{f}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*})$, where we made explicit the dependence with the microscopic parameters. The number of dimers formed by unit of time is
 \begin{equation}
   \label{Q:def-dimer-rate}
-  k_{f}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) = \sigma_{f}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) \; J_{i}(v_{i}, L_{i}, \nu_{i} )
+  \tilde{k}_{f}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) = \sigma_{f}^{*}(v_{i}, L_{i}, \nu_{i} ; \varepsilon^{*}, \tau^{*}) \; J_{i}(v_{i}, L_{i}, \nu_{i} )
 \end{equation}
 where the cross section is obtained from Classical Trajectory Monte-Carlo (CTMC) simulations. The initial flux depends on the experimental conditions
 \begin{equation}
@@ -61,7 +75,7 @@ The formation rate that appears in the rate equation (\ref{Q:rates-master-equati
 The cross section for dimerization may be calculated from individual collisions between one atom and molecule. 
 From the definition of cross section we have
 \begin{equation*}
-  \sigma_{f}^{*} = \frac{n_{f}^{*}}{J_{i}}= \frac{\text{Number of dimers per unit of time}}{\text{Incident flux}}
+  \sigma_{f}^{*} = \frac{n_{d}^{*}}{J_{i}}= \frac{\text{Number of dimers per unit of time}}{\text{Incident flux}}
 \end{equation*}
 
 An alternative expression may be obtained in terms of the probability of dimerization in a collision at a given impact parameter $\vect{b}$:
@@ -93,20 +107,36 @@ like the original one-species velocity distribution, but where $v$ is the magnit
 \section{Break-up of excited dimers}
 \label{S:fragm-excit-dimers}
 
-The constant rate at which the unstable dimers will be fragmented is given by
+The constant rate at which the unstable dimers will be fragmented is given by the difference between the number of dimers at a given time $t$ and at a later time $t + \delta t$
 \begin{equation*}
-  k_{d}^{*} = -\lim_{\Delta t \to 0} \frac{N(t+ \Delta t) - N(t)}{\Delta t} = -\frac{\rmd N}{\rmd t}
+  k_{d}^{*} = - \frac{N(t+ \delta t) - N(t)}{\delta t} = -\frac{\delta N}{\delta t}
 \end{equation*}
 The number of excited dimers at a given time $t$ will be given by all those $n_{d}^{*}(t',\tau)$ created at a previous time $t'$ with life $\tau$  greater than $t-t'$, summing over all previous times $t'$:
+\begin{align}
+  \label{Q:rates-number-excit-dimers-t}
+  N(t) &= \left[\int_{0}^{\infty} n_{f}(t,\tau) \delta \tau \right] \delta t + \left[\int_{\delta t}^{\infty} n_{f}(t-\delta t,\tau) \delta \tau \right] \delta t + \left[\int_{2 \delta t}^{\infty} n_{f}(t-2 \delta t,\tau) \delta \tau \right] \delta t + \dots \nonumber \\
+       &= \int_{0}^{\infty} \rmd t' \left[\int_{t'}^{\infty} n_{f}(t-t',\tau) \delta \tau \right] 
+\end{align}
+where $n_{f}(t,\tau)$ are the number of excited dimers created at time $t$ with a surviving time $\tau$.
+From these dimers, only some of them will survive at a later time $t + \delta t$. For instance, from those created at a time $t$, only those with a life greater than $\delta t$. From those created at a time $\delta t$, will only survive those with a life larger than $2 \delta t$, and so on,
+%
+\begin{equation}
+  \label{Q:rates-number-excit-dimers-t+dt}
+  N(t+\delta t) = \left[\int_{\delta t}^{\infty} n_{f}(t,\tau) \delta \tau \right] \delta t + \left[\int_{2 \delta t}^{\infty} n_{f}(t-\delta t,\tau) \delta \tau \right] \delta t + \left[\int_{3 \delta t}^{\infty} n_{f}(t-2 \delta t,\tau) \delta \tau \right] \delta t + \dots
+\end{equation}
+
+Now, we take into account that the number of created dimers does not depend on the particular time $t$ at which they are created. Thus $n_{f}(t,\tau) \equiv n_{f}(\tau)$.
+
+
 \begin{equation}
   \label{Q:rates-number-excit-dimers}
-  N(t) = \int_{0}^{t} \rmd t' \left[\int_{t-t'}^{\infty} n_{d}^{*}(t',\tau) \rmd \tau \right] \bajo{=}{t_{0}=t-t'} -\int_{0}^{t} \rmd t_{0} \left[\int_{t_{0}}^{\infty} n_{d}^{*}(t-t_{0},\tau) \rmd \tau \right]
+  N(t+ \delta t) = \int_{0}^{t} \rmd t' \left[\int_{t-t'}^{\infty} n_{d}^{*}(t',\tau) \rmd \tau \right] \bajo{=}{t_{0}=t-t'} -\int_{0}^{t} \rmd t_{0} \left[\int_{t_{0}}^{\infty} n_{d}^{*}(t-t_{0},\tau) \rmd \tau \right]
 \end{equation}
 
 Now, we consider situations where the particular time in which the dimer is formed does not play any role (stationary conditions), i.e: $n_{d}^{*}(t',\tau) \equiv n_{d}^{*}(\tau)$. Then, the derivative is easily evaluated
 \begin{equation}
   \label{Q:rates-number-excit-dimers-simpler}
-  k_{d}^{*}(t)= -\frac{\rmd N(t)}{\rmd t} =  \left[\int_{t}^{\infty} n_{d}^{*}(\tau) \rmd \tau \right] =  \left[\int_{t}^{\infty} k_{f}^{*}(\tau) \rmd \tau \right] = \text{NO cte.}
+  k_{d}^{*}(t)= -\frac{\rmd N(t)}{\rmd t} =  \left[\int_{0}^{\infty} n_{d}^{*}(\tau) \rmd \tau \right] =  \left[\int_{0}^{\infty} k_{f}^{*}(\tau) \rmd \tau \right] = \text{cte.}
 \end{equation}
 
 

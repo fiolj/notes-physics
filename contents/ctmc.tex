@@ -72,7 +72,7 @@ We will approximate the quantum-mechanical density as
   \sum_{j=1}^{n} \omega(j) = 1.
 \end{equation}
 
-The simplest approach would be to fix $n$ and $n$ values for $Z_{T}$ in order to
+The simplest approach would be to fix $n$ and find $n$  different values for $Z_{T}$ in order to
 obtain $\omega(j)$ by a least-square fitting. A better approximation would be to
 derive from the minimization also the values of $Z_{T}(j)$.
 
@@ -84,7 +84,8 @@ mass. Let's suppose that this two-fragment state has been reached. The
 position and momenta of Jacobi are ($\vect{r}_{0},\vect{R}_{0}$) and
 ($\vect{k}_{0},\vect{K}_{0}$). These can refer to $T,P$ or $N$.
 
-Fisrt of all, we note that the magnitude of the impulse will be given by energy conservation. For infinite time, the magnitude of the relative momentum is given by
+Fisrt of all, we note that the magnitude of the impulse will be given by energy conservation. For infinite time, the magnitude of the relative momentum is given by:
+%
 \begin{equation}
   \label{Q:ctmc_magnitude}
 p_{\infty}^{2}= 2 m_{0} E = 2 m_{0} \left(V(\vect{r}_{0}) + \frac{\vect{k}^{2}_{0}}{2 m_{0}}  \right)
@@ -95,7 +96,7 @@ to a finite distance, as shown in figure \ref{f:cond-ini}
 
 \begin{figure}[h]\label{f:cond-ini}
 \centering \includegraphics[clip,bb=17 15 170 170,width=5cm]{cond_ini}
-% \centering \resizebox{.5\linewidth}{!}{\input{figures/cond_ini.tikz}}
+% \centering \resizebox{.5\linewidth}{!}{\input{figures/cond_ini.tikz}} % Se puede usar directamente el gr\'{a}fico tikz
 \caption{Initial condition after one of the relative energies have
 converged}
 \end{figure}
