@@ -1,3 +1,5 @@
+\newcommand{\Tu}{\ensuremath{\text{T}_{\text{1u}}}}
+
 \chapter{Absorption of light by molecules}
 \label{C:light-absorpt-molec}
 
@@ -149,6 +151,154 @@ Now, if we put all together, we obtain for the absorption coefficient, producing
   \alpha_{\text{abs}} = \text{cte}_{\nu,\nu'} \times J_{+}\, \left( \frac{2 J_{i}+1}{2 J_{f}+1}\right)\, e^{-E(J_{i})/k_{B}T} 
 \end{equation}
 
+\newpage
+\section{Modes and excitation of \ce{QF6}}
+\label{S:modes-excit-qf6}
+
+\ce{SF6} molecules (or \ce{UF6}) have $O_{h}$ point symmetry, that consist of 48 operations:
+\begin{itemize}
+\item 1\ce{E}: Identity
+\item 8\ce{C3}:
+\item 6\ce{C4}: Axes that pass through two opposite faces of the cube 
+\item 3\ce{C4^{2}}: Axes that pass through two opposite faces of the cube 
+\item 6\ce{C2}: Axes that pass through the center of an edge to the center of the opposite edge (in the opposite face)
+\end{itemize}
+where, as ussual $\ce{C_{n}}$ is a rotation in $2\pi/n$ angle. In addition to these operations, each of them followed by the inversion, giving the total of $24 \times 2 = 48$.
+
+The character table of the group is
+\begin{center}
+\includegraphics[width=.8\linewidth]{ohtable}
+\end{center}
+
+Considering the IR-absorption spectrum, we note that from the ground state, only those states with the $\Tu$ symmetry may be excited by absorption of one photon.
+The $\nu_{3}$ and $\nu_{4}$ modes have the symmetry of the $\Tu$.
+
+\subsection{Effect of operations over the displacements}
+\label{S:operat-displac}
+
+Let's evaluate the effect of each of the 48 (at least 24) operations over the coordinates $x,y,z$.
+%
+\begin{minipage}[t]{0.45\linewidth}
+\begin{align*}
+  \ce{C^{+}_{4x}}:  \begin{cases} x \to x\\ y \to z\\ z \to -y \end{cases} &
+  \ce{C^{-}_{4x}}:  \begin{cases} x \to x\\ y \to -z\\ z \to y \end{cases} \\
+  \ce{C^{+}_{4y}}:  \begin{cases} x \to -z\\ y \to y\\ z \to x \end{cases} &
+  \ce{C^{-}_{4y}}:  \begin{cases} x \to z\\ y \to y\\ z \to -x \end{cases} \\
+  \ce{C^{+}_{4z}}:  \begin{cases} x \to y\\ y \to -x\\ z \to z \end{cases} &
+  \ce{C^{-}_{4z}}:  \begin{cases} x \to -y\\ y \to x\\ z \to z \end{cases} \\
+\end{align*}
+\end{minipage}\hfill\begin{minipage}[t]{0.45\linewidth}
+\begin{align*}
+  \ce{C_{2(xy)}}:  \begin{cases} x \to y\\ y \to x\\ z \to -z \end{cases} &
+  \ce{C_{2(-xy)}}:  \begin{cases} x \to -y\\ y \to -x\\ z \to -z \end{cases} \\
+  \ce{C_{2(zx)}}:  \begin{cases} x \to z\\ y \to -y\\ z \to x \end{cases} &
+  \ce{C_{2(-zx)}}:  \begin{cases} x \to -z\\ y \to -y\\ z \to -x \end{cases} \\
+  \ce{C_{2(yz)}}:  \begin{cases} x \to -x\\ y \to z\\ z \to y \end{cases} &
+  \ce{C_{2(-yz)}}:  \begin{cases} x \to -x\\ y \to -z\\ z \to -y \end{cases} 
+\end{align*}
+\end{minipage}
+\begin{align*}
+\ce{C^{2}_{4x}}:  \begin{cases} x \to x\\ y \to -y\\ z \to -z \end{cases} &&  
+\ce{C^{2}_{4y}}:  \begin{cases} x \to -x\\ y \to y\\ z \to -z \end{cases} && 
+\ce{C^{2}_{4z}}:  \begin{cases} x \to -x\\ y \to -y\\ z \to z \end{cases} 
+\end{align*}
+\subsection{Overtone modes}
+\label{S:overtone-modes}
+
+
+Let us consider the overtone mode $3 \nu_{3}$. The symmetry of the mode may be obtained from the product  $\Tu \otimes \Tu \otimes \Tu = 4 \Tu + 3 \text{T}_{\text{2u}} + 2 \text{E}_{\text{u}} + \text{A}_{\text{1u}} + \text{A}_{\text{2u}} $.
+
+We have 10 excited states, that in term of independent excitations may write as
+\begin{align*}
+  &\ket{3 00} \,, \ket{030} \,, \ket{003} \\
+  &\ket{210} \,, \ket{201} \,,\quad \ket{120}\,, \ket{021}\,, \quad \ket{102}\,, \ket{012} \\
+  &\ket{111}
+\end{align*}
+
+From these states, only some of them (or linear combinations) will transform as the irreducible representation \Tu. Only those states may be the result of the excitation by photon absorption.
+
+\subsection{Projection over irreducible representations}
+\label{S:projection}
+
+The projection operator on states that transforms as the irreducible representation $i$ is given by:
+\begin{equation*}
+  P_{i} = \frac{1}{h} \sum_{R \in G} \chi_{i}(R^{-1}) R
+\end{equation*}
+where $h$ is the order of the group, and $\chi_{i}$ is the character of the element $R^{-1}$ in the irreducible representation $i$.
+\\
+Let's calculate the effect of the operations on the excited states\\
+\hspace*{-1.1cm}%
+\begin{minipage}[t]{0.33\linewidth}
+  \begin{flalign*}
+    &\ce{E}\ket{210}= \ket{210} \\\\
+    &\ce{C^{+}_{4x}}: \ket{201} \\
+    &\ce{C^{-}_{4x}}: \ket{20-1}=-\ket{201}  \\\\
+    &\ce{C^{+}_{4y}}: \ket{01-2}=\ket{012} \\
+    &\ce{C^{-}_{4y}}: \ket{012} \\ \\
+    &\ce{C^{+}_{4z}}: \ket{-120}= - \ket{120} \\
+    &\ce{C^{-}_{4z}}: \ket{1-20}= \ket{120} \\ \\
+    &\ce{C^{2}_{4x}}: \ket{2-10}= -\ket{210} \\
+    &\ce{C^{2}_{4y}}: \ket{-210}= \ket{210} \\
+    &\ce{C^{2}_{4z}}: \ket{-2-10}= -\ket{210} \\ \\
+    &\ce{C_{2(xy)}}: \ket{120}= \ket{120} \\
+    &\ce{C_{2(-xy)}}: \ket{-1-20}= -\ket{120} \\ \\
+    &\ce{C_{2(zx)}}: \ket{0-12}= -\ket{012} \\
+    &\ce{C_{2(-zx)}}: \ket{0-1-2}= -\ket{012} \\ \\
+    &\ce{C_{2(yz)}}: \ket{-201}= \ket{201} \\
+    &\ce{C_{2(-yz)}}: \ket{-20-1}= -\ket{201} 
+  \end{flalign*}
+\end{minipage}%
+\begin{minipage}[t]{0.33\linewidth}
+  \begin{align*}
+    &\ce{E}\ket{120} = \ket{120}  \\\\
+    &\ce{C^{+}_{4x}}: \ket{102} \\
+    &\ce{C^{-}_{4x}}: \ket{10-2}=\ket{102}  \\\\
+    &\ce{C^{+}_{4y}}: \ket{02-1}= -\ket{021} \\
+    &\ce{C^{-}_{4y}}: \ket{021} \\ \\
+    &\ce{C^{+}_{4z}}: \ket{-210}= \ket{210} \\
+    &\ce{C^{-}_{4z}}: \ket{2-10}= -\ket{210} \\ 
+    \\
+    &\ce{C^{2}_{4x}}: \ket{1-20}= \ket{120} \\
+    &\ce{C^{2}_{4y}}: \ket{-120}= -\ket{120} \\
+    &\ce{C^{2}_{4z}}: \ket{-1-20}= -\ket{120} \\ \\
+    &\ce{C_{2(xy)}}: \ket{-210}= \ket{210} \\
+    &\ce{C_{2(-xy)}}: \ket{-2-10}= -\ket{210} \\ \\
+    &\ce{C_{2(zx)}}: \ket{0-21}= \ket{021} \\
+    &\ce{C_{2(-zx)}}: \ket{0-2-1}= -\ket{021} \\ \\
+    &\ce{C_{2(yz)}}: \ket{-102}= -\ket{102} \\
+    &\ce{C_{2(-yz)}}: \ket{-10-2}= -\ket{102} 
+  \end{align*}
+\end{minipage}%
+\begin{minipage}[t]{0.33\linewidth}
+  \begin{align*}
+    &\ce{E}\ket{201} = \ket{201}  \\\\
+    &\ce{C^{+}_{4x}}: \ket{2-10} = -\ket{210} \\
+    &\ce{C^{-}_{4x}}: \ket{210}=\ket{210}  \\\\
+    &\ce{C^{+}_{4y}}: \ket{10-2}= \ket{102} \\
+    &\ce{C^{-}_{4y}}: \ket{-102}= -\ket{102} \\ \\
+    &\ce{C^{+}_{4z}}: \ket{021} \\
+    &\ce{C^{-}_{4z}}: \ket{0-21}= \ket{021} \\ 
+    \\
+    &\ce{C^{2}_{4x}}: \ket{20-1}= -\ket{201} \\
+    &\ce{C^{2}_{4y}}: \ket{-20-1}= -\ket{201} \\
+    &\ce{C^{2}_{4z}}: \ket{-201}= \ket{201} \\ \\
+    &\ce{C_{2(xy)}}: \ket{02-1}= -\ket{021} \\
+    &\ce{C_{2(-xy)}}: \ket{0-2-1}= -\ket{021} \\ \\
+    &\ce{C_{2(zx)}}: \ket{102} \\
+    &\ce{C_{2(-zx)}}: \ket{-10-2}= -\ket{102} \\ \\
+    &\ce{C_{2(yz)}}: \ket{-210}= \ket{210} \\
+    &\ce{C_{2(-yz)}}: \ket{-2-10}= -\ket{210} 
+  \end{align*}
+\end{minipage}
+
+We will project now each of the above states over the \Tu{} irreducible representation
+\begin{flalign*}
+  P_{\Tu}\ket{210} &= \frac{1}{24}\,\left[\overbrace{(+3)}^{\chi_{\ce{E}}} \ket{210} + \overbrace{(+1)}^{\chi(\ce{C_{4}})} 2 \ket{012} + \overbrace{(-1)}^{\chi(C^{2}_{4})} (-1)\ket{210} + \overbrace{(-1)}^{\chi(C_{2})} (-2) \ket{012}\right] \\&= \frac{1}{6}(\ket{210}+ \ket{012}) \\
+  P_{\Tu}\ket{120} &= \frac{1}{24}\,\left[\overbrace{(+3)}^{\chi_{\ce{E}}} \ket{120} + \overbrace{(+1)}^{\chi(\ce{C_{4}})} 2 \ket{102} + \overbrace{(-1)}^{\chi(C^{2}_{4})} (-1)\ket{120} + \overbrace{(-1)}^{\chi(C_{2})} (-2) \ket{012}\right] \\&= \frac{1}{6}(\ket{120}+ \ket{102}) \\
+  P_{\Tu}\ket{201} &= \frac{1}{24}\,\left[\overbrace{(+3)}^{\chi_{\ce{E}}} \ket{201} + \overbrace{(+1)}^{\chi(\ce{C_{4}})} 2 \ket{021} + \overbrace{(-1)}^{\chi(C^{2}_{4})} (-1)\ket{201} + \overbrace{(-1)}^{\chi(C_{2})} (-2) \ket{021}\right] \\&= \frac{1}{6}(\ket{201}+ \ket{021}) \\
+\end{flalign*}
+
+Thus, these states are a basis of the irreducible representation \Tu. The other basis is given by $\ket{300}, \ket{030}, \ket{003}$.
 
 
 %%% Local Variables: 
