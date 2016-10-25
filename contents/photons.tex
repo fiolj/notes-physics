@@ -264,14 +264,14 @@ In the velocity gauge the Hamiltonian of a ``free-particle'' is
 By using that the solutions in different gauges are related we can obtain the solution to this equation
 \begin{align}
   \psi^{(v)}(\bm{r},t) &= e^{i (\alpha_{(l)} - \alpha_{(v)})} \psi^{(l)} = \exp{\left[i \frac{Z}{\hbar c} \bm{A} \cdot \bm{r} + i \frac{Z^{2}}{2 m \hbar c^{2}}  \right]} \times \psi^{(l)}(\bm{r},t) \\
-&= e^{i \bm{k}\cdot \bm{r} - E_{k}t/\hbar} \, \exp{\left[ i \frac{Z}{\hbar m c} \bm{k} \cdot \int_{t_{0}}^{t} \bm{A}(t') \, dt' \right]}
+&= e^{i (\bm{k}\cdot \bm{r} - E_{k}t)/\hbar} \, \exp{\left[ i \frac{Z}{\hbar m c} \bm{k} \cdot \int_{t_{0}}^{t} \bm{A}(t') \, dt' \right]}
 \end{align}
-
-It is straightforward to verify the this wavefunction verifies the time-dependent Schr\"{o}dinger equation.
+%
+It is straightforward to verify that this wavefunction is solution of the time-dependent Schr\"{o}dinger equation.
 
 \section{Interaction of photons with atoms}
 
-Having obtained an expression for the external field $\bm{A}$, we consider now its effect on a quantum system. The hamiltonian for the system can be decomposed in the sum of three terms: the atomic $H_{At}$, the electromagnetic $H_{EM}$ (given by \ref{Q:Energ-EM-free}) and a final term describing the interaction between these two systems $H_{I}$. Expanding the kinetic energy term in eq. \ref{Q:QM-Hamil-EM} we obtain for the interaction term
+After having obtained an expression for the external field $\bm{A}$, we consider now its effect on a quantum system. The hamiltonian for the system can be decomposed in the sum of three terms: the atomic $H_{At}$, the electromagnetic $H_{EM}$ (given by \ref{Q:Energ-EM-free}) and a final term describing the interaction between these two systems $H_{I}$. Expanding the kinetic energy term in eq.~\ref{Q:QM-Hamil-EM} we obtain, for the interaction term,
 %
 \begin{eqnarray}\label{Q:H_int-EM}
 H_{I} = \frac{i \hbar Z}{m c}\, \bm{A} \cdot \nabla +
@@ -280,15 +280,15 @@ H_{I} = \frac{i \hbar Z}{m c}\, \bm{A} \cdot \nabla +
 %
 where we have used that in the Coulomb gauge $\nabla \bm{A}=0$.
 
-Let's consider a system (an atom for instance) initially in a state $n_{i}$. The probability of finding it in a state $n_{f}$ at a posterior time $t$ is, at first order,
+Let's consider a system (for instance an atom) initially in a state $n_{i}$. The probability of finding it in a state $n_{f}$ at a posterior time $t$ is, at first order,
 \begin{equation}\label{Q:first-order-trans-ampli}
 a_{fi}^{(1)}(t) = \frac{1}{i \hbar} \int_{0}^{t} \langle
 f|H_{I}(t')| i \rangle \; e^{i \omega_{fi} t'} d t'
 \end{equation}
-where $\omega_{fi} = (E_{f}-E_{i})/\hbar$ and the states $| i\rangle, | f\rangle$ are eigenvectors of the isolated hamiltonian $H_{0} = H_{At} + H_{EM}$. Using expression \ref{Q:Gener-field} the transition probability can be written for each monochromatic wave as
+where $\omega_{fi} = (E_{f}-E_{i})/\hbar$, and the states $| i\rangle, | f\rangle$ are eigenvectors of the isolated hamiltonian $H_{0} = H_{At} + H_{EM}$. Using expression \ref{Q:Gener-field} the transition probability can be written for each monochromatic wave as
 \begin{equation}\label{Q:first-order-trans-ampli-1}
 a_{fi}^{(1)}(t) = - \frac{T'_{fi}}{\hbar} \frac{e^{i (\omega_{fi}-\omega)t} -1}{\omega_{fi} - \omega} \, e^{i \theta}
-- \frac{T''_{fi}}{\hbar} \frac{e^{i (\omega_{fi} + \omega)t} -1}{\omega_{fi} + \omega} \, e^{- i \theta}
+- \frac{T''_{fi}}{\hbar} \frac{e^{i (\omega_{fi} + \omega)t} -1}{\omega_{fi} + \omega} \, e^{- i \theta} \,,
 \end{equation}
 %
 where
@@ -305,7 +305,7 @@ Each of the two terms in expression \ref{Q:first-order-trans-ampli} has a maximu
 %
 \[ E_{f} = E_{i} \pm \hbar \omega \,. \]
 %
-Observe that the quantization of the field is not necessary because the atomic system only can exchange quanta of energy. The two terms in equation \ref{Q:Tif-EM-1} correspond to absorbtion ($T'$) and induced emission ($T''$) of one photon from the radiation field.
+Observe that the quantization of the field is not necessary because the atomic system itself can only exchange quantas of energy. The two terms in equation \ref{Q:Tif-EM-1} correspond to absorbtion ($T'$) and induced emission ($T''$) of one photon from the radiation field.
 
 Since the density of states in a box is given by
 \begin{equation}\label{Q:Densi-state}
@@ -313,7 +313,7 @@ Since the density of states in a box is given by
 k_{f}}}{V} d \Omega_{f}
 \end{equation}
 %
-the rate of transition from initial state $i$ to a final $f$ by absorption of radiation is
+the rate of transitions from initial state $i$ to a final $f$ by absorption of radiation is
 \begin{equation}\label{Q:Trans-Rate}
 W = \frac{Z^{2}}{(2\, \pi \, \hbar \, c)^{2}} \frac{k_{f}}{m}
 |c_{\bm{k}, \lambda}|^{2}

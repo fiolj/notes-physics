@@ -1,10 +1,23 @@
 \chapter{Reaction rates for cluster formation}
 \label{C:react-rates-cluster}
 We will investigate the formation of small inhomogeneous clusters in a gas mixture of a small concentration of molecules $M$ (of mass $M$) with atoms $A$ of mass $m$.
-Here we will work in the framework that stable dimers are formed by a two-step mechanism in which first the dimers are formed with excess energy (unstable dimers) in a collision between a molecule and an atom. Then, in a second collision with a different atom the dimer is stabilized, and the energy excess is carried away by the atom. 
+Here we will work in the framework that stable dimers are formed by a two-step mechanism in which first the dimers are formed with excess energy (unstable dimers) in a collision between a molecule and an atom. Then, in a second collision with a different atom the dimer is stabilized, and the energy excess is carried away by the atom. The reaction equations for this two-step mechanism are
+\begin{subequations}
+\begin{align}
+  \label{Q:rates-master-equation-a}
+  \ce{M + A <-->[{k_{f}^{*}}][{k_{d}^{*}}] (M-A)^{*}} \\
+  \label{Q:rates-master-equation-b}
+  \ce{ (M-A)^{*} ->[{k_{s}}] (M-A)} 
+\end{align}
+\end{subequations}
+%
+Next, we discuss how to evaluate the constant rates $k_{\alpha}$.
 
-% \section{Notation, involved magnitudes}
-% \label{S:cant-de-inter}
+\section{Formation of excited (unstables) dimers}
+\label{S:excit-unst-dimers}
+
+\subsection{Notation, involved magnitudes}
+\label{S:cant-de-inter}
 
 The macroscopic magnitudes governing the reactions in the gas will be:
 \begin{itemize}
@@ -75,7 +88,7 @@ The formation rate that appears in the rate equation (\ref{Q:rates-master-equati
 The cross section for dimerization may be calculated from individual collisions between one atom and molecule. 
 From the definition of cross section we have
 \begin{equation*}
-  \sigma_{f}^{*} = \frac{n_{d}^{*}}{J_{i}}= \frac{\text{Number of dimers per unit of time}}{\text{Incident flux}}
+  \sigma_{f}^{*} = \frac{n_{f}^{*}}{J_{i}}= \frac{\text{Number of dimers per unit of time}}{\text{Incident flux}}
 \end{equation*}
 
 An alternative expression may be obtained in terms of the probability of dimerization in a collision at a given impact parameter $\vect{b}$:
